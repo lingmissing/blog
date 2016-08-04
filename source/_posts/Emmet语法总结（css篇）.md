@@ -17,7 +17,7 @@ tags: emmet
 - p 表示%
 - e 表示 em
 - x 表示 ex
-<!--more-->
+
 ## 附加属性  ##
 `@f`
 
@@ -61,6 +61,7 @@ tags: emmet
 - m 表示 -moz-
 - s 表示 -ms-
 - o 表示 -o-
+
 ## 渐变  ##
 
 `lg(left, #fff 50%, #000)`

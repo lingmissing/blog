@@ -111,7 +111,9 @@ Base.prototype.html = function(str) {
 Base.prototype.addClass = function(className) {
     //先循环一下，看有多少个颜色
     for (var i = 0; i < this.elements.length; i++) {
-        if (!this.elements[i].className.match(new RegExp(('//s|^') + className + '(//s|$)'))) { //查看传进来的属性原来是否存在
+        if (!this.elements[i].className.match(new RegExp(('//s|^') + 
+        className + '(//s|$)'))) { 
+            //查看传进来的属性原来是否存在
             this.elements[i].className += ' ' + className;
         }
     }
@@ -123,8 +125,12 @@ Base.prototype.addClass = function(className) {
 ```javascript
 Base.prototype.removeClass = function(className) {
     for (var i = 0; i < this.elements.length; i++) {
-        if (!this.elements[i].className.match(new RegExp(('//s|^') + className + '(//s|$'))) { //查看传进来的属性原来是否存在
-            this.elements[i].className = this.elements[i].className.replace(new RegExp(('//s|^') + className + '(//s|$)'), ' ');
+        if (!this.elements[i].className.match(new RegExp(('//s|^') + 
+        className + '(//s|$'))) { 
+            //查看传进来的属性原来是否存在
+            this.elements[i].className = 
+            this.elements[i].className.replace(new RegExp(('//s|^') + 
+            className + '(//s|$)'), ' ');
         }
     }
     return this;
@@ -175,10 +181,13 @@ Base.prototype.click = function(fn) {
 // JavaScript Document
 window.onload = function() {
     //$().getId('box').html('pox');
-    //alert($().getId('box').html());//因为在base里面，返回的是一个base对象，而他本身也没有设置html对象 //这里这么设置也是不需要实现连缀功能的
+    //alert($().getId('box').html());
+    //因为在base里面，返回的是一个base对象，而他本身也没有设置html对象 
+    //这里这么设置也是不需要实现连缀功能的
     //alert($().getId('box').css('color'));
     //alert($().getId('box').css('color','green'));
-    //alert($().getId('box').css('background'));//n背景是一个复合是的样式 打印出来red none repeat scroll 0% 0%
+    //alert($().getId('box').css('background'));
+    //n背景是一个复合是的样式 打印出来red none repeat scroll 0% 0%
     //alert($().getId('box').css('font-size'));
     //alert($().getClass('red').elements.length);
     //$().getClass('red').css('color','red');

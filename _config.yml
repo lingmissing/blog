@@ -20,7 +20,7 @@ permalink_defaults:
 #Custom Setting Start
 
 # Site settings
-SEOTitle: Alice的博客 | Alice's Blog
+SEOTitle: 时光的涂鸦墙 | 白小爱
 header-img: img/home-bg.jpg
 email: 1227046827@qq.com
 description: "hexo博客搭建"
@@ -59,7 +59,7 @@ ga_domain: huangxuan.me
 
 # Sidebar settings
 sidebar: true                           # whether or not using Sidebar.
-sidebar-about-description: "本想把日子过成诗，时而简单，时而精致。不料日子却过成了我的歌，时而不靠谱，时而不着调。"
+sidebar-about-description: "我与岁月一起，乐在其中。我与岁月一样，言不由衷。"
 sidebar-avatar: /img/avatar.jpg      # use absolute URL, seeing it's used in both `/` and `/about/`
 
 

@@ -51,7 +51,8 @@ $(function(){
                         var tiphtml = ['<ul class="tag-search-list">'];
                         var i=0;
                         for(var i= 0; i<tags.length; i++) {
-                            tiphtml.push('<li data-id="'+tags[i]['id']+'">'+tags[i]['tagname']+'</li>');
+                            tiphtml.push('<li data-id="'+tags[i]['id']+'">'+
+                            tags[i]['tagname']+'</li>');
                         }
                         tiphtml.push('</ul>')
                         tiphtml = tiphtml.join('');
@@ -94,7 +95,9 @@ $(function(){
     function checkTagname() {
         var tagname = $('.tag-search-list').children('.hover').text();
         var tagid = $('.tag-search-list').children('.hover').attr('data-id');
-        $('#tag-content').append('<span class="span-one-tag">#'+tagname+'<input type="hidden" name="tag[]" value="'+tagid+'"><span>x</span></span>');
+        $('#tag-content').append('<span class="span-one-tag">#'+
+        tagname+'<input type="hidden" name="tag[]" 
+        value="'+tagid+'"><span>x</span></span>');
         $('#tag-search').val('');
     }
 

@@ -77,7 +77,7 @@ gulp.task('default', function () {
     })
 });
 ```
-![](http://orzhtml.github.io/img/temporary/QQ20160413-0.png)
+![](https://orzhtml.github.io/img/temporary/QQ20160413-0.png)
 
 1、任务的名字可以换成你想要的名字
 
@@ -89,6 +89,6 @@ gulp.task('default', function () {
 
 最后项目目录如下
 
-![](http://orzhtml.github.io/img/temporary/QQ20160413-1.png)
+![](https://orzhtml.github.io/img/temporary/QQ20160413-1.png)
 
 
