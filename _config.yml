@@ -6,12 +6,13 @@
 title: 时光的涂鸦墙
 subtitle: I am A Web Developer!
 author: Alice
+name: 白小爱
 language:
 timezone:
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://kaijun.rocks
+url: https://lingmissing.github.io
 root: /myBlog/
 permalink: :year/:month/:day/:title/
 permalink_defaults:
@@ -22,18 +23,18 @@ permalink_defaults:
 SEOTitle: Alice的博客 | Alice's Blog
 header-img: img/home-bg.jpg
 email: 1227046827@qq.com
-description: ""
-keyword: ""
+description: "hexo博客搭建"
+keyword: "博客"
 
 
 # SNS settings
 # RSS: false
-weibo_username:     Demonbane
-zhihu_username:     Demonbane
-github_username:    Kaijun
-twitter_username:   Demonbane_x
-facebook_username:  demonbane.cn
-linkedin_username:  kaijun-chen-42089354
+# weibo_username:     Demonbane
+# zhihu_username:     Demonbane
+github_username:    lingmissing
+# twitter_username:   Demonbane_x
+# facebook_username:  demonbane.cn
+# linkedin_username:  kaijun-chen-42089354
 
 # Build settings
 anchorjs: true                          # if you want to customize anchor. check out line:181 of `post.html`
@@ -43,9 +44,9 @@ anchorjs: true                          # if you want to customize anchor. check
 #disqus_username: _your_disqus_short_name_
 
 # Duoshuo settings
-duoshuo_username: 63c05b431603455b4402211525aff400
-# Share component is depend on Comment so we can NOT use share only.
-duoshuo_share: true                     # set to false if you want to use Comment without Sharing
+# duoshuo_username: 
+# # Share component is depend on Comment so we can NOT use share only.
+# duoshuo_share: false                     # set to false if you want to use Comment without Sharing
 
 
 # Analytics settings

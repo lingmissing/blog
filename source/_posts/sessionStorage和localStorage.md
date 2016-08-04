@@ -13,57 +13,38 @@ tags: html5
 ## localStorage和sessionStorage操作 ##
 #### setItem存储value ####
 用途：将value存储到key字段
-
 用法：.setItem( key, value)
-
 代码示例：
-
 ```javascript
 sessionStorage.setItem("key", "value");         
 localStorage.setItem("site", "js8.in");
 ```
 #### getItem获取value ####
 用途：获取指定key本地存储的值
-
 用法：.getItem(key)
-
-<!--more-->
-
 代码示例：
-
 ```javascript
 var value = sessionStorage.getItem("key");     
 var site = localStorage.getItem("site");
 ```
 #### removeItem删除key ####
-
 用途：删除指定key本地存储的值
-
 用法：.removeItem(key)
-
 代码示例：
-
 ```javascript
 sessionStorage.removeItem("key");   
 localStorage.removeItem("site");
 ```
-
-
 #### clear清除所有的key/value ####
-
 用途：清除所有的key/value
-
 用法：.clear()
 代码示例：
-
 ```javascript
 sessionStorage.clear();  
 localStorage.clear();
 ```
 #### 其他操作方法：点操作和[] ####
-
 web Storage不但可以用自身的setItem,getItem等方便存取，也可以像普通对象一样用点(.)操作符，及[]的方式进行数据存储，像如下的代码：
-
 ```javascript
 var storage = window.localStorage; 
 storage.key1 = "hello"; 
@@ -71,11 +52,8 @@ storage["key2"] = "world";
 console.log(storage.key1); 
 console.log(storage["key2"]);
 ```
-
 #### localStorage和sessionStorage的key和length属性实现遍历 ####
-
 sessionStorage和localStorage提供的key()和length可以方便的实现存储的数据遍历，例如下面的代码：
-
 ```javascript
 var storage = window.localStorage;
 for (var i=0, len = storage.length; i < len; i++){
@@ -84,10 +62,8 @@ for (var i=0, len = storage.length; i < len; i++){
     console.log(key + "=" + value);
 }
 ```
-
 ## storage事件 ##
 storage还提供了storage事件，当键值改变或者clear的时候，就可以触发storage事件，如下面的代码就添加了一个storage事件改变的监听：
-
 ```javascript
 if(window.addEventListener){  
      window.addEventListener("storage",handle_storage,false);
@@ -98,17 +74,14 @@ function handle_storage(e){
      if(!e){e=window.event;}  
 }
 ```
-
 storage事件对象的具体属性如下表：
 
-
-
-|  属性                    |     类型                     | 说明                |
+|  属性                   |     类型                     | 说明                     |
 |-------------------------|------------------------------|--------------------------|
-| Property                | Type                         | 读取一个 jsons 文件        |
-| key                     | string                       |  less 编译                 |
-| oldValue                | any                          | scss 编译                 |
-| newValue                | any                          | css 插件处理器             |
-| url/uri                 | string                       | 解析 css 添加前缀 css 规则  |
+| Property                | Type                         | 读取一个 jsons 文件      |
+| key                     | string                       |  less 编译               |
+| oldValue                | any                          | scss 编译                |
+| newValue                | any                          | css 插件处理器           |
+| url/uri                 | string                       | 解析 css 添加前缀 css 规则 |
 
 
