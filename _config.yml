@@ -82,6 +82,9 @@ friends: [
     },{
         title: "W3Cplus",
         href: "http://www.w3cplus.com/"
+    },{
+        title: "redux",
+        href: "http://cn.redux.js.org/index.html"
     }
 ]
 
