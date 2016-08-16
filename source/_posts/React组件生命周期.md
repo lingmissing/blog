@@ -51,7 +51,7 @@ Counter.defaultProps = { initialCount: 0 };
 ##### componentWillMount()
 `componentWillMount()`只会在装载之前调用一次，在 `render` 之前调用，你可以在这个方法里面调用 `setState` 改变状态，并且不会导致额外调用一次 `render`。
 
-##### `render()`
+##### render()
 组装生成这个组件的 `HTML` 结构（使用原生 `HTML` 标签或者子组件），也可以返回 `null`或者 `false`，这时候 `ReactDOM.findDOMNode(this)` 会返回 `null`。
 
 ##### componentDidMount()
