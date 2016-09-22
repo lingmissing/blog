@@ -82,7 +82,7 @@ friends: [
     },{
         title: "redux",
         href: "http://cn.redux.js.org/index.html"
-    }，{
+    },{
         title: "vue",
         href: "http://rc.vuejs.org/"
     }
