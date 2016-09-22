@@ -18,10 +18,7 @@ tags: css3
 
 ##### flex-direction
 
-- row(默认值):如果书写方式是ltr，那么Flex项目从左向右排列；如果书写方式是rtl，那么Flex项目从右向左排列
-- row-reverse:如果书写方式是ltr，那么Flex项目从右向左排列；如果书写方式是rtl，那么Flex项目从左向右排列
-- column:和row类似，只不过方向是从上到下排列
-- column-reverse:和row-reverse类似，只不过方向是从下向上排列
+指定容器内部排列的方向。
 
 ```css
 .container {
@@ -29,17 +26,26 @@ tags: css3
 }
 ```
 
+- row(默认值):如果书写方式是ltr，那么Flex项目从左向右排列；如果书写方式是rtl，那么Flex项目从右向左排列
+- row-reverse:如果书写方式是ltr，那么Flex项目从右向左排列；如果书写方式是rtl，那么Flex项目从左向右排列
+- column:和row类似，只不过方向是从上到下排列
+- column-reverse:和row-reverse类似，只不过方向是从下向上排列
+
+
 ##### flex-wrap
 
-- nowrap(默认值):单行显示，如果书写方式是ltr，Flex项目从左向右排列，反之rtl，从右向左排列
-- wrap:多行显示，如果书写方式是ltr，Flex项目从左向右排列，反之rtl，从右向左排列
-- wrap-reverse:多行显示，如果书写方式是ltr，Flex项目从右向左排列，反之rtl，从左向右排列
+指定子元素是否可以换行。
 
 ```css
 .container{
   flex-wrap: nowrap | wrap | wrap-reverse;
 }
 ```
+
+- nowrap(默认值):单行显示，如果书写方式是ltr，Flex项目从左向右排列，反之rtl，从右向左排列
+- wrap:多行显示，如果书写方式是ltr，Flex项目从左向右排列，反之rtl，从右向左排列
+- wrap-reverse:多行显示，如果书写方式是ltr，Flex项目从右向左排列，反之rtl，从左向右排列
+
 
 ##### flex-flow(适用于flex容器元素)
 
@@ -50,6 +56,8 @@ flex-flow: <‘flex-direction’> || <‘flex-wrap’>
 ```
 
 ##### justify-content
+
+用于在主轴上对齐伸缩项目。
 
 ```css
 .container {
