@@ -44,3 +44,11 @@
   -moz-animation: animatedBackground 40s linear infinite;
   -webkit-animation: animatedBackground 40s linear infinite;
 }
+
+.post-container h1:hover > a,
+.post-container h2:hover > a,
+.post-container h3:hover > a,
+.post-container h4:hover > a,
+ {
+  display: inline
+}

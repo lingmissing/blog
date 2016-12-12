@@ -1,7 +1,7 @@
 ---
 title: 基于react的audio组件
 date: 2016-12-12 11:30:32
-tags: [html,html5]
+tags: [react,html5]
 ---
 
 > 由于mac和window的样式不一致导致~~
