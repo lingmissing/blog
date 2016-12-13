@@ -2,12 +2,14 @@
 title: webpack插件列表详解
 date: 2016-09-28 14:39:17
 tags: webpack
+categories: 打包工具
 ---
 ## 配置
 ### NormalModuleReplacementPlugin
 ```javascript
 new webpack.NormalModuleReplacementPlugin(resourceRegExp, newResource)
 ```
+<!-- more -->
 Replace resources that matches resourceRegExp with newResource. If newResource is relative, it is resolve relative to the previous resource. If newResource is a function, it is expected to overwrite the ‘request’ attribute of the supplied object.
 ### ContextReplacementPlugin
 ```javascript

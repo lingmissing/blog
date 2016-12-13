@@ -2,6 +2,7 @@
 title: gulp-常用插件列表
 date: 2016-06-15 12:23:13
 tags: gulp
+categories: 打包工具
 ---
 
 ## 安装说明  ##

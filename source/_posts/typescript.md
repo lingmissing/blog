@@ -2,6 +2,7 @@
 title: typescript
 date: 2016-09-30 13:30:47
 tags: [javascript,typescript]
+categories: 代码如诗，前端如画
 ---
 
 ## 基础类型
@@ -17,6 +18,8 @@ let hexLiteral: number = 0xf00d;
 let binaryLiteral: number = 0b1010;
 let octalLiteral: number = 0o744;
 ```
+<!-- more -->
+
 ### string
 ```javascript
 let name: string = "bob";

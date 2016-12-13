@@ -2,6 +2,7 @@
 title: fetch用法说明
 date: 2016-09-07 11:08:38
 tags: [javascript,es6]
+categories:  代码如诗，前端如画
 ---
 由于 `Fetch`API 是基于 `Promise` 设计，有必要先学习一下 `Promise`，推荐阅读[ MDN Promise 教程 ](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Promise)
 本文章内容推荐阅读[ MDN Fetch 教程](https://developer.mozilla.org/zh-CN/docs/Web/API/GlobalFetch/fetch)
@@ -16,6 +17,8 @@ fetch(url, options).then(function(response) {
 })
 ```
 具体参数案例：
+
+<!-- more -->
 
 ```javaScript
 //兼容包

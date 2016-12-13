@@ -2,6 +2,7 @@
 title: AngularJs中的directive（一）
 date: 2016-07-04 10:09:53
 tags: angular
+categories: 前端框架之angular
 ---
 
 ```javascript
@@ -17,6 +18,8 @@ angular.module("app",[]).directive("directiveName",function(){
 类型：（字符串）可选参数
 
 取值有：`E`(元素),`A`(属性),`C`(类),`M`(注释)，其中默认值为`A`；
+
+<!-- more -->
 
 - `E`(元素)：`<directiveName></directiveName>`
 - `A`(属性)：`<div directiveName='expression'></div>`

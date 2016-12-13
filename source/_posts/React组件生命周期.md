@@ -2,6 +2,7 @@
 title: React组件生命周期
 date: 2016-08-16 14:14:55
 tags: react
+categories: 前端框架之react
 ---
 组件的生命周期包含三个主要部分：
 
@@ -13,6 +14,7 @@ tags: react
 
 <img src="/myBlog/artical_imgs/component-lifecycle.jpg"/>
 
+<!-- more -->
 
 ### 装载组件触发
 ##### getInitialState

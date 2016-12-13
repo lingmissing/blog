@@ -2,6 +2,7 @@
 title: es6箭头函数
 date: 2016-09-27 16:58:41
 tags: [javascript,es6]
+categories:  代码如诗，前端如画
 ---
 ## 语法
 
@@ -18,6 +19,9 @@ singleParam => { statements }
 // 无参数的函数需要使用圆括号:
 () => { statements }
 ```
+
+<!-- more -->
+
 #### 高级语法
 ```javascript
 // 返回对象字面量时应当用圆括号将其包起来:

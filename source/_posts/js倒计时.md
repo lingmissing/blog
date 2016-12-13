@@ -2,7 +2,7 @@
 title: js时间控制
 date: 2016-04-12 17:09:12
 tags: javascript
-
+categories: 代码如诗，前端如画
 ---
 
 ## js倒计时 ##

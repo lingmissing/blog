@@ -2,6 +2,7 @@
 title: JS回到顶部效果
 date: 2016-03-10 15:48:32
 tags:  [javascript,jquery]
+categories: 代码如诗，前端如画
 ---
 话不多说，直接粘上代码啦！
 

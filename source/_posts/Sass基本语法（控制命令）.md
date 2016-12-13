@@ -1,12 +1,13 @@
 ---
 title: Sass基本语法（控制命令）
 date: 2016-03-11 11:43:08
-tags: Sass
+tags: [Sass,css]
+categories: 前端布局
 ---
 ## @if ##
 
 @if 指令是一个 SassScript，它可以根据条件来处理样式块，如果条件为 true 返回一个样式块，反之 false 返回另一个样式块。在 Sass 中除了 @if 之，还可以配合 @else if 和 @else 一起使用。
-
+<!-- more -->
 ```css		
 /** SCSS **/
 @mixin blockOrHidden($boolean:true) {

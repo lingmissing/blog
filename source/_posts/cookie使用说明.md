@@ -2,6 +2,7 @@
 title: cookie使用说明
 date: 2016-06-12 13:28:09
 tags: cookie
+categories:  代码如诗，前端如画
 ---
 
 ## 设置cookie ##
@@ -17,6 +18,8 @@ function setCookie(cname, cvalue, exdays) {
 ```
 
 ## 获取cookie ##
+
+<!-- more -->
 
 ```javascript
 function getCookie(cname) {

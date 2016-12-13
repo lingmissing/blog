@@ -2,6 +2,7 @@
 title: gulp-API文档
 date: 2016-04-20 12:23:13
 tags: gulp
+categories:  打包工具
 ---
 
 ## gulp.src(globs[, options]) ##

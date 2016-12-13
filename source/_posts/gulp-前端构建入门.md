@@ -2,6 +2,7 @@
 title: gulp-前端构建入门
 date: 2016-04-10 11:33:08
 tags: gulp
+categories:  打包工具
 ---
 
 ### 安装 gulp ###
@@ -14,7 +15,7 @@ tags: gulp
      gulp -v
 
 接下来，将 gulp 安装到项目本地，作为项目的开发依赖（devDependencies）安装
-
+<!-- more -->
      npm install --save-dev gulp
 
 在项目根目录下创建一个名为 gulpfile.js 的文件     

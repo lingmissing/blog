@@ -2,6 +2,7 @@
 title: Sass基本语法（@规则）
 date: 2016-03-10 11:43:18
 tags: Sass
+categories: 前端布局
 ---
 ## @import ##
 
@@ -12,7 +13,7 @@ Sass 扩展了 CSS 的 @import 规则，让它能够引入 SCSS 和 Sass 文件�
 sass 中的 @media 指令和 CSS 的使用规则一样的简单，但它有另外一个功能，可以嵌套在 CSS 规则中。有点类似 JS 的冒泡功能一样，如果在样式中使用 @media 指令，它将冒泡到外面。
 ## @extend ##
 Sass 中的 @extend 是用来扩展选择器或占位符。
-
+<!-- more -->
 @extend不能继承选择器序列。
 
 @extend继承会把其下面的子类一起继承。

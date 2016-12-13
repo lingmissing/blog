@@ -2,6 +2,7 @@
 title: react-router使用总结
 date: 2016-08-16 11:40:19
 tags: [react,react-router]
+categories: 前端框架之react
 ---
 
 
@@ -18,6 +19,7 @@ tags: [react,react-router]
 import { Router } from 'react-router';
 render(<Router/>, document.getElementById('app'));
 ```
+<!-- more -->
 
 Router组件本身只是一个容器，真正的路由要通过Route组件定义。
 

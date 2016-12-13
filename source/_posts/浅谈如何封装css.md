@@ -2,6 +2,7 @@
 title: 浅谈如何封装css
 date: 2016-04-06 15:37:43
 tags: javascript
+categories: 代码如诗，前端如画
 ---
 
 - 前台调用
@@ -13,6 +14,7 @@ var $ = function() {
 ```
 
 - 基础类
+<!-- more -->
 
 ```javascript
 function Base() {

@@ -2,6 +2,7 @@
 title: Git常用命令赏析
 date: 2016-03-25 11:15:04
 tags: Git
+categories: 版本控制工具
 ---
 
 # 新建代码库 #
@@ -13,6 +14,9 @@ tags: Git
 	
 	# 下载一个项目和它的整个代码历史
 	$ git clone [url]
+
+<!-- more -->
+
 # 配置 #
     # 显示当前的Git配置
 	$ git config --list

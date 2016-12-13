@@ -2,6 +2,7 @@
 title: jquery小技巧
 date: 2016-04-06 16:47:55
 tags: jquery
+categories: 代码如诗，前端如画
 ---
 
 #### 禁止右键点击 ####

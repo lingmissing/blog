@@ -2,6 +2,7 @@
 title: Sass基本语法（Map）
 date: 2016-03-25 11:43:26
 tags: Sass
+categories: 前端布局
 ---
 ## 声明 Map ##
 
@@ -14,7 +15,7 @@ $map: (
     $key3: value3
 )
 ```
-
+<!-- more -->
 在 Sass 中常用下面的方式定义变量：
 
 ```css

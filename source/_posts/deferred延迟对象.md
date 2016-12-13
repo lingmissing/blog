@@ -2,6 +2,7 @@
 title: deferred延迟对象
 date: 2016-06-12 17:29:11
 tags: jquery
+categories:  代码如诗，前端如画
 ---
 
 延迟对象,在jQuery 1.5中引入的,是通过调用jQuery.Deferred()方法创建的对象。它可以将多个回调存放为一个callback队列,并且返回成功或者失败的方法。

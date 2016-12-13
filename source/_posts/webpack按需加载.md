@@ -1,7 +1,7 @@
 ---
 title: webpack按需加载
 date: 2016-12-12 16:48:45
-categories: 打包工具真难搞
+categories: 打包工具
 tags: webpack
 ---
 > 加载项目时,不管那些代码有没有执行到，都会下载下来。如果说，我们只下载我们需要执行的代码话，那么可以节省相当大的流量。也就是我们所说的按需加载,这对于大型项目是相当有用的。
@@ -15,10 +15,9 @@ tags: webpack
 ```
 require.ensure(dependencies, callback, chunkName)
 ```
-
+<!-- more -->
 这个方法可以实现js的按需加载，分开打包，`webpack`管包叫`chunk`，为了打包能正常输出，我们先给`webpack`配置文件配置一下chunk文件输出路径:
 
-<!--more-->
 
 ```
 // webpack.config.js

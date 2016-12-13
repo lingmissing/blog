@@ -2,6 +2,7 @@
 title: angularJs之过滤器
 date: 2016-07-14 10:12:06
 tags: angular
+categories: 前端框架之angular
 ---
 
 ### filter的使用方法 ###

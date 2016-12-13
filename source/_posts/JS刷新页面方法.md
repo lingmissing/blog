@@ -2,6 +2,7 @@
 title: JS刷新页面方法
 date: 2016-03-06 15:14:06
 tags: javascript
+categories: 代码如诗，前端如画
 ---
 ## 基本刷新页面方法 ##
 
@@ -16,6 +17,8 @@ tags: javascript
 </script>
 <!-- 如果是你要刷新某一个iframe就把window给换成frame的名字或ID号 -->
 ```
+
+<!-- more -->
 
 ```html
 <script language=''javascript''>

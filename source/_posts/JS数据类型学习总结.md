@@ -2,6 +2,7 @@
 title: JS数据类型学习总结
 date: 2016-04-06 15:06:28
 tags: javascript
+categories: 代码如诗，前端如画
 ---
 
 ## Undefined类型 ##
@@ -15,6 +16,8 @@ alert(oTemp == undefined);  //返回true
 var oTemp;
 alert(typeof oTemp);   //输出为 “undefined"
 ```
+
+<!-- more -->
 
 - 如果函数没有返回值，则默认为undefined，例如：
 

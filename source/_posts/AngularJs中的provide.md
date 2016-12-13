@@ -2,6 +2,7 @@
 title: AngularJs中的provide
 date: 2016-07-04 17:26:54
 tags: angular
+categories: 前端框架之angular
 ---
 `AngularJS`用`$provide`去定义一个供应商,这个`$provide`有5个用来创建供应商的方法：
 
@@ -11,6 +12,8 @@ tags: angular
 - `factory`
 - `provider`
 - `decorator`
+
+<!-- more -->
 
 ## Constant ##
 定义常量用的，它定义的值当然就不能被改变，它可以被注入到任何地方，但是不能被装饰器(`decorator`)装饰

@@ -2,6 +2,7 @@
 title: gulp-高手装X进阶篇
 date: 2016-04-15 12:23:13
 tags: gulp
+categories:  打包工具
 ---
 
 ### gulp 的【常用】各种插件包介绍 - 不分前后 ###

@@ -2,6 +2,7 @@
 title: ES6展开运算符
 date: 2016-08-25 21:05:00
 tags: javascript
+categories:  代码如诗，前端如画
 ---
 
 ### 语法
@@ -14,6 +15,8 @@ tags: javascript
     [...iterableObj, 4, 5, 6]
     ```
 ### 函数传参
+
+<!-- more -->
 
 目前为止,我们都是使用`Function.prototype.apply`方法来将一个数组展开成多个参数:
 

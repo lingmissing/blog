@@ -2,6 +2,7 @@
 title: Action构建工具（redux-act）
 date: 2016-09-29 10:58:40
 tags: [react,redux]
+categories: 前端框架之react
 ---
 github路径：https://github.com/pauldijou/redux-act
 
@@ -10,6 +11,8 @@ github路径：https://github.com/pauldijou/redux-act
     npm install redux-act --save
 ## 用法
 这里有一个名叫`createAction`的函数，它用于创建一个`action`，和名叫`createActionCreator`的方法有点接近。如果你不能确定是否是`action`或`action`创造者，那么记住当`action`创造者是方法时，`action`是对象。
+<!-- more -->
+
 ```javascript
 // Import functions
 import { createStore } from 'redux';

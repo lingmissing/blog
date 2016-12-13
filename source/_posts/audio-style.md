@@ -2,6 +2,7 @@
 title: 基于react的audio组件
 date: 2016-12-12 11:30:32
 tags: [react,html5]
+categories: 代码如诗，前端如画
 ---
 
 > 由于mac和window的样式不一致导致~~
@@ -24,6 +25,8 @@ tags: [react,html5]
 - `muted` 音频静音为true
 - `volume` 当前音频音量
 - `readyState`	音频当前的就绪状态
+
+<!-- more -->
 
 # audio事件
 

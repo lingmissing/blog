@@ -2,6 +2,7 @@
 title: angularJs之路由
 date: 2016-07-12 17:19:01
 tags: angular
+categories: 前端框架之angular
 ---
 
 ## 为什么需要前端路由 ##
@@ -15,6 +16,8 @@ tags: angular
 在`APP`中定义多个页面的控制器，并给出对应的模板。然后`$routeProvider`进行配置，即可将URL映射到这些控制器和视图。 首先定义一个基本的Angular APP，并引入`ngRoute`：
 
 > Angular`$routeService`在`ngRoute`模块里。需要引入它对应的JavaScript文件，并在我们的APP里`ngRoute`添加为模块依赖。
+
+<!-- more -->
 
 ```javascript
 var app = angular.module('ngRouteExample', ['ngRoute'])

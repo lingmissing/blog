@@ -2,6 +2,7 @@
 title: Emmet语法总结（css篇）
 date: 2016-03-28 12:27:35
 tags: emmet
+categories:  代码插件
 ---
 ## 值  ##
 比如要定义元素的宽度，只需输入w100，即可生成 
@@ -17,6 +18,8 @@ tags: emmet
 - p 表示%
 - e 表示 em
 - x 表示 ex
+
+<!-- more -->
 
 ## 附加属性  ##
 `@f`

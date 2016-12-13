@@ -2,6 +2,7 @@
 title: AngularJs中的directive（二）
 date: 2016-07-06 18:09:53
 tags: angular
+categories: 前端框架之angular
 ---
 
 ## require ##
@@ -10,6 +11,8 @@ tags: angular
 - `^` 如果添加了这个前缀，指令会在上游的指令链中查找require参数所指定的控制器
 - `?^` 合并了前面两个说法
 - 没有前缀  指令就会自身提供的控制器中查找，如果没有查找到，就会抛出异常来。
+
+<!-- more -->
 
 ## link ##
 #### 对于link 与scope ####

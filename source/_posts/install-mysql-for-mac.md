@@ -2,6 +2,7 @@
 title: 如何在mac上使用homebrew安装mysql
 date: 2016-10-09 11:43:49
 tags: mysql
+categories: 软件安装
 ---
 
 - 安装命令
@@ -14,6 +15,7 @@ tags: mysql
   ```
   command not found
   ```
+<!-- more -->
 
 - 首先，检查是否是安装了
 

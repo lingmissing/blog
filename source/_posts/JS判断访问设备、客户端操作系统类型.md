@@ -2,6 +2,7 @@
 title: JS判断访问设备、客户端操作系统类型
 date: 2016-04-20 14:01:12
 tags: javascript
+categories: 代码如诗，前端如画
 ---
 
 

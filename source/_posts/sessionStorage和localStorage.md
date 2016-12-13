@@ -2,6 +2,7 @@
 title: sessionStorage和localStorage
 date: 2016-06-12 14:10:32
 tags: html5
+categories: 代码如诗，前端如画
 ---
 ## sessionStorage和localStorage区别 ##
 - `sessionStorage`用于本地存储一个会话（session）中的数据，这些数据只有在同一个会话中的页面才能访问并且当会话结束后数据也随之销毁。因此sessionStorage不是一种持久化的本地存储，仅仅是会话级别的存储。
@@ -9,6 +10,7 @@ tags: html5
 ## web storage和cookie的区别 ##
 - `Cookie`的大小是受限的，并且每次你请求一个新的页面的时候Cookie都会被发送过去，这样无形中浪费了带宽，另外cookie还需要指定作用域，不可以跨域调用。
 - `Web Storage`拥有setItem,getItem,removeItem,clear等方法，不像cookie需要前端开发者自己封装setCookie，getCookie。
+<!-- more -->
 - `Cookie`的作用是与服务器进行交互，作为HTTP规范的一部分而存在 ，而`Web Storage`仅仅是为了在本地“存储”数据而生。
 ## localStorage和sessionStorage操作 ##
 #### setItem存储value ####

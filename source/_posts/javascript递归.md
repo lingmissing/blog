@@ -2,6 +2,7 @@
 title: javascript递归
 date: 2016-12-12 14:18:17
 tags: javascript
+categories: 代码如诗，前端如画
 ---
 
 > 调用自身的函数称为递归函数
@@ -23,6 +24,8 @@ var f = function (x) {
 
 const result = f(n)
 ```
+<!-- more -->
+
 #### 获取存在某个字段的节点
 
 ```javascript

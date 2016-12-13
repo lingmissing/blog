@@ -2,6 +2,7 @@
 title: weinre调试手机端
 date: 2016-10-09 12:04:51
 tags: weinre
+categories: 测试工具
 ---
 > 安装前提：安装node
 ----------
@@ -13,6 +14,7 @@ npm -g install weinre
 ```
 weinre --boundHost -all- --httpPort 8081
 ```
+<!-- more -->
 ### 访问页面获取js
 在浏览器中访问生成的页面获取js，地址为`ip`加端口号，如下：
 

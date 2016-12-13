@@ -2,6 +2,7 @@
 title: react&redux基础
 date: 2016-08-18 10:36:45
 tags: [react,redux]
+categories: 前端框架之react
 ---
 
 `Redux` 主要分为三个部分 `Action`、`Reducer`、及 `Store`
@@ -13,7 +14,7 @@ tags: [react,redux]
 
 本案例以一个提到TODOLIST为案例。
 
-
+<!-- more -->
 ## Action
 在 `Redux` 中，`action` 主要用来传递操作 `State` 的信息，只是一种命令，并没有实际改变`state`。
 

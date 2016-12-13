@@ -2,6 +2,7 @@
 title: webpack
 date: 2016-07-08 13:44:12
 tags: webpack
+categories: 打包工具
 ---
 
 ## webpack是什么 ##
@@ -9,7 +10,7 @@ tags: webpack
 `webpack`是近期最火的一款模块加载器兼打包工具，它能把各种资源，例如`JS`（含`JSX`）、`coffee`、样式（含`less`/`sass`）、图片等都作为模块来使用和处理。
 
 可以直接使用 `require(XXX)` 的形式来引入各模块，即使它们可能需要经过编译（比如`JSX`和`sass`）
-
+<!-- more -->
 ## webpack 的优势 ##
 
 - webpack 是以 `commonJS` 的形式来书写脚本滴，但对 `AMD`/`CMD` 的支持也很全面，方便旧项目进行代码迁移。

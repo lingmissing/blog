@@ -2,6 +2,7 @@
 title: flex布局
 date: 2016-08-19 14:41:02
 tags: css3
+categories:  前端布局
 ---
 
 ## Flex容器属性
@@ -15,6 +16,8 @@ tags: css3
   display: flex; /* or inline-flex */
 }
 ```
+
+<!-- more -->
 
 ##### flex-direction
 
