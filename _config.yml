@@ -68,7 +68,7 @@ Plugins:
 - hexo-generator-sitemap
 # http://hexo.io/plugins/
 ## Themes: http://hexo.io/themes/
-theme: next
+theme: myTheme
 stylus: 
   compress: true
 #Feed Atom
