@@ -1,4 +1,3 @@
-/*title: "Resume"*/
 date: 2015-04-09 20:12:45
 comments: false
 ---
