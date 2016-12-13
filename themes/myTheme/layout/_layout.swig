@@ -55,6 +55,10 @@
     </div>
   </div>
 
+  <div class="ribbon">
+    <a href="https://github.com/lingmissing">Fork me on GitHub</a>
+  </div>
+
   {% include '_scripts/vendors.swig' %}
   {% include '_scripts/commons.swig' %}
 
