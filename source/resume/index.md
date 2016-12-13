@@ -4,20 +4,19 @@ comments: false
 ---
 ## 联系方式
 
-- 手机：18302118258
-- Email：wangx89@126.com
-- 微信号：wangxu_89
+- 手机：13681876754
+- Email：1227046827@qq,com
+- 微信号：lyl_1227046827
 
 ---
 
 ## 个人信息
- - 王旭/男/1989
- - 本科/东南大学成贤学院（计算机工程系2009/09～2013/06）
- - 硕士研究生/上海大学（计算机工程与科学学院2013/09～2016/04）
- - 工作年限：应届生
+ - 廖艳玲/女/1993
+ - 本科/嘉兴学院（信息管理与信息系统2011/09～2015/06）
+ - 工作年限：2年
  - 技术博客：[http://blog.csdn.net/shijiebei2009](http://blog.csdn.net/shijiebei2009)
- - Github：[https://github.com/shijiebei2009](https://github.com/shijiebei2009)
- - 个人站点代码馆：[http://codepub.cn](http://codepub.cn)
+ - Github：[https://github.com/lingmissing](https://github.com/lingmissing)
+ - 个人站点：[https://lingmissing.github.io](https://lingmissing.github.io)
  - 户籍：江苏省徐州市睢宁县
  - 通讯地址：上海市宝山区上大路99号上海大学校内三号楼
  - 期望职位：① Hadoop/大数据工程师 ② Java工程师 ③ Python工程师
