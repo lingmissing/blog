@@ -45,19 +45,22 @@ var person = {
 - `Enumerable` 能否通过for-in循环返回属性 默认为true
 - `Writable` 能否修改属性的值 默认为true
 - `Value` 包含属性的值。取值时从这个位置读，写入值时保存新值在这个位置。 默认值为 undefined
+
 ##### 访问器属性 #####
 -  `Configurable`  同上
 -  `Enumerable`  同上
 -  `Get` 在读取属性时调用的函数。 默认值undefined
 -  `Set`  在写入属性时调用的函数。默认值undefined
 
+
 ### 工厂模式 ###
+
 ```javascript
 function createPerson(name, age, job) {
 	var o = new Object();
 	o.name = name;
 	o.age = age;
-	o.job = job;
+	o.job = jomosb;
 	o.sayName = function() {
 		alert(this.name)
 	};
@@ -68,7 +71,9 @@ var person2 = createPerson('Greg',20,'Doctor');
 ```
 
 无数次调用函数createPerson都能够根据参数返回包含三个属性的的Person对象。缺点：怎样知道一个对象的类型
-#### 构造函数模式
+
+#### 构造函数模式 ####
+
 ```javascript
 function Person(name, age, job) {
 	this.name = name;
@@ -159,6 +164,7 @@ alert(person1.sayName == person2.sayName); //true
 ```
 
 ### 理解原型对象 ###
+
 无论什么时候，只要创建一个新函数，就会根据一组特定规则为该函数创建一个prototype属性，这个属性指向函数的原型对象，在默认情况下所有原型对象都会自动获得一个constructor（构造函数）属性，这个属性包含一个指向prototype属性所在函数的指针。其实Person.prototype.constructor指向Person。
 
 创建了自定义的构造函数之后，其原型对象默认只会取得constructor属性，其他方法都是从object继承而来的。

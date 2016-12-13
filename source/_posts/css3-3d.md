@@ -45,6 +45,8 @@ transform: translateZ(z)
 ```
 > z不能取百分比值，否则无效。<br/>z轴越大，元素离用户越近，反之越远！
 
+<iframe width="100%" height="300" src="//jsfiddle.net/Elaine_liao/gyo9me21/embedded/html,css,result/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+
 ## 3D旋转-rotate3d
 
 ```css
@@ -63,6 +65,8 @@ rotate3d(x,y,z,angle)
 - rotateY(a)函数功能等同于rotate3d(0,1,0,a)
 - rotateZ(a)函数功能等同于rotate3d(0,0,1,a)
 
+<iframe width="100%" height="300" src="//jsfiddle.net/Elaine_liao/o3v4ncdj/embedded/html,css,result/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+
 ## 3D缩放-scale3d
 
 ```css
@@ -70,6 +74,8 @@ scale3d(x,y,z)
 ```
 
 > 默认值为１，当值大于１时，元素放大，反之小于１大于0.01时，元素缩小。
+
+<iframe width="100%" height="300" src="//jsfiddle.net/Elaine_liao/Lwzqj83w/embedded/html,css,result/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
 
 ## transform-style
 
@@ -130,6 +136,8 @@ perspective在css里它是有数值的，例如perspective: 1000px这个代表�
 }
 ```
 
+<iframe width="100%" height="300" src="//jsfiddle.net/Elaine_liao/m4dfkyk6/embedded/html,css,result/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+
 区别在于：
 
 - `perspective`属性可以取值为none或长度值；
@@ -176,6 +184,9 @@ backface-visibility: visible | hidden
 
 # 3D与硬件加速
 
+<iframe width="100%" height="450" src="//jsfiddle.net/Elaine_liao/dsaLkmqs/2/embedded/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+
+打开控制台的rendering => paint flashing,将会看到发生重绘的区域变为绿色。
 
 > transform 属性不会触发浏览器的 repaint，而 left 和 top 则会一直触发 repaint。
 

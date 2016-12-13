@@ -13,22 +13,19 @@ comments: false
  - 廖艳玲/女/1993
  - 本科/嘉兴学院（信息管理与信息系统2011/09～2015/06）
  - 工作年限：2年
- - 技术博客：[http://blog.csdn.net/shijiebei2009](http://blog.csdn.net/shijiebei2009)
  - Github：[https://github.com/lingmissing](https://github.com/lingmissing)
  - 个人站点：[https://lingmissing.github.io](https://lingmissing.github.io)
- - 户籍：江苏省徐州市睢宁县
- - 通讯地址：上海市宝山区上大路99号上海大学校内三号楼
- - 期望职位：① Hadoop/大数据工程师 ② Java工程师 ③ Python工程师
+ - 期望职位：① 前端开发工程师 ② 
  - 期望薪资：面谈
- - 期望城市：上海、杭州、南京
+ - 期望城市：上海、杭州
 
 ---
 ## 工作/项目经历
-### [腾讯阅文集团](http://join.book.qq.com/)(2015/12 ~ Now)
+### [51offer](http://www.51offer.com)(2015/12 ~ Now)
 ####技术部>>内容平台研发组
 #####博主懒蛋，待更新......
 
-### [大众点评网](http://www.dianping.com/)(2015/6/24 ~ 2015/10/8)
+### [饿了么](http://www.ele.me/)(2015/6/24 ~ 2015/10/8)
 #### POI（Point of Interest）与基础内容
 #####菜单匹配服务
 将用户推荐菜与系统中商户菜单进行匹配，前期使用Python脚本编写算法部分，接收推荐菜与商户菜单组成的CSV输入文件，输出CSV匹配结果，用shell脚本从Hive数据库中拉取数据，使用Linux定时任务每天每一小时执行一次。
