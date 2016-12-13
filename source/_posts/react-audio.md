@@ -2,7 +2,7 @@
 title: 基于react的audio组件
 date: 2016-12-12 11:30:32
 tags: [react,html5]
-categories: 代码如诗，前端如画
+categories: 前端框架之react
 ---
 
 > 由于mac和window的样式不一致导致~~
