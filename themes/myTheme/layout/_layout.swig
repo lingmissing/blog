@@ -77,5 +77,14 @@
   {% include '_scripts/baidu-push.swig' %}
   {% include '_components/algolia-search/assets.swig' %}
 
+  <script>
+    $('.search-input').keydown(function (event) {
+      if (event.keyCode == 13) {
+          location.href = 'https://www.google.com/search?q=site:lingmissing.github.io/myBlog ' + $(this).val();
+          return false;
+      }
+    })
+  </script>
+
 </body>
 </html>

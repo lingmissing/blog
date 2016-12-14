@@ -57,6 +57,16 @@
           </a>
         </li>
       {% endif %}
+
+      {% if theme.google_search %}
+        <li class="menu-item menu-item-search">
+          <form id="search-form">
+            <i class="fa fa-search"></i>
+            <input type="text" class="search-input">
+          </form>
+        </li>
+      {% endif %}
+
     </ul>
   {% endif %}
 
