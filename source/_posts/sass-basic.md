@@ -1,7 +1,7 @@
 ---
 title: Sass基本语法（基础使用）
 date: 2016-03-07 11:42:38
-tags: [Sass,css]
+tags: [sass,css]
 categories: 前端布局
 ---
 ## 全局变量/局部变量 ##

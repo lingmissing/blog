@@ -1,7 +1,7 @@
 ---
 title: Sass基本语法（常用函数）
 date: 2016-04-01 11:43:40
-tags: [Sass,css]
+tags: [sass,css]
 categories: 前端布局
 ---
 ## 字符串函数 ##

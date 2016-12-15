@@ -1,7 +1,7 @@
 ---
 title: Sass基本语法（Map）
 date: 2016-03-25 11:43:26
-tags: Sass
+tags: [sass,css]
 categories: 前端布局
 ---
 ## 声明 Map ##

@@ -1,6 +1,6 @@
 title: canvas的基本使用
 date: 2016-12-13 17:27:34
-tags: [canvas,html5]
+tags: [canvas,html5,javascript]
 categories: 动画效果
 ---
 

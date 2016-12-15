@@ -1,7 +1,7 @@
 ---
 title: Sass基本语法（@规则）
 date: 2016-03-10 11:43:18
-tags: Sass
+tags: [sass,css]
 categories: 前端布局
 ---
 ## @import ##

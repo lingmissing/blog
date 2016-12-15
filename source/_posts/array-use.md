@@ -2,7 +2,7 @@
 title: 数组的操作
 date: 2016-09-01 17:05:00
 categories: 代码如诗，前端如画
-tags: javascript
+tags: [javascript,array]
 ---
 
 ### 数组的创建

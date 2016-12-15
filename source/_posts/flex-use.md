@@ -1,7 +1,7 @@
 ---
 title: flex布局
 date: 2016-08-19 14:41:02
-tags: css3
+tags: [css3,flex]
 categories:  前端布局
 ---
 

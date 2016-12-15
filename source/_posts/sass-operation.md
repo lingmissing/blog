@@ -1,7 +1,7 @@
 ---
 title: Sass基本语法（运算）
 date: 2016-03-18 11:42:56
-tags: [Sass,css]
+tags: [sass,css]
 categories: 前端布局
 ---
 ## 运算 ##

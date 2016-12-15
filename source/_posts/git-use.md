@@ -1,7 +1,7 @@
 ---
 title: Git常用命令赏析
 date: 2016-03-25 11:15:04
-tags: Git
+tags: git
 categories: 版本控制工具
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: Sass基本语法（控制命令）
 date: 2016-03-11 11:43:08
-tags: [Sass,css]
+tags: [sass,css]
 categories: 前端布局
 ---
 ## @if ##

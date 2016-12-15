@@ -1,7 +1,7 @@
 ---
 title: 浅谈如何封装css
 date: 2016-04-06 15:37:43
-tags: javascript
+tags: [javascript,css]
 categories: 代码如诗，前端如画
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: cookie使用说明
 date: 2016-06-12 13:28:09
-tags: cookie
+tags: [cookie,javascript]
 categories: 代码如诗，前端如画
 ---
 

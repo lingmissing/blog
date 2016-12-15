@@ -1,7 +1,7 @@
 ---
 title: ES6展开运算符
 date: 2016-08-25 21:05:00
-tags: javascript
+tags: [javascript,es6]
 categories:  代码如诗，前端如画
 ---
 

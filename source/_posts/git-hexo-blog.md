@@ -1,7 +1,7 @@
 ---
 title: Git+Hexo搭建静态博客网站
 date: 2016-03-24 14:28:09
-tags: [Git,hexo]
+tags: [git,hexo]
 categories:  日常小乐趣
 ---
 # 安装环境 #
