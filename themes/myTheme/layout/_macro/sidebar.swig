@@ -1,4 +1,41 @@
 {% macro render(is_post) %}
+  <div class="audio-toggle fa fa-play" isplay="false">
+    <audio id="audio-me" src="/myBlog/music/bg.mp3" loop></audio>
+  </div>
+  <style>
+  .audio-toggle {
+    position: fixed;
+    right: 50px;
+    bottom: 72px;
+    width: 15px;
+    height: 15px;
+    padding: 5px;
+    background: #222;
+    line-height: 0;
+    z-index: 1050;
+    cursor: pointer;
+    color: #fff;
+    line-height: 15px;
+    text-align: center;
+  }
+  </style>
+  <script>
+    var audioMe = document.getElementById('audio-me')
+    var audioToggle = document.querySelector('.audio-toggle')
+    audioToggle.addEventListener('click',function(){
+      var isPlay = audioToggle.getAttribute('isplay')
+      if(isPlay == 'false') {
+        audioMe.play()
+        audioToggle.setAttribute('class','audio-toggle fa fa-pause')
+        audioToggle.setAttribute('isplay','true')
+      }else{
+        audioMe.pause() 
+        audioToggle.setAttribute('class','audio-toggle fa fa-play')
+        audioToggle.setAttribute('isplay','false')
+      }
+    },false)
+  </script>
+
   <div class="sidebar-toggle">
     <div class="sidebar-toggle-line-wrap">
       <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
