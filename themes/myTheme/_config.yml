@@ -265,7 +265,6 @@ mathjax:
 # Swiftype Search API Key
 # swiftype_key: hyy3X-XV38nFwzZedSqy
 
-hasSearch: true
 google_search: true
 
 # Baidu Analytics ID
