@@ -18,6 +18,11 @@
     line-height: 15px;
     text-align: center;
   }
+  @media screen and (max-width:700px) {
+    .audio-toggle  {
+      display: none;
+    }
+  }
   </style>
   <script>
     var audioMe = document.getElementById('audio-me')
