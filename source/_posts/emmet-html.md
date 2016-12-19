@@ -2,7 +2,7 @@
 title: Emmet语法总结（html篇）
 date: 2016-03-28 10:58:35
 tags: emmet
-categories:  代码插件
+categories:  编辑器插件
 ---
 ## 初始化界面 ##
 HTML文档需要包含一些固定的标签，比如<html>、<head>、<body>等，现在你只需要1秒钟就可以输入这些标签。比如输入“!”或“html:5”，然后按Tab键：

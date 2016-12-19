@@ -2,7 +2,7 @@
 title: Emmet语法总结（css篇）
 date: 2016-03-28 12:27:35
 tags: emmet
-categories:  代码插件
+categories:  编辑器插件
 ---
 ## 值  ##
 比如要定义元素的宽度，只需输入w100，即可生成 

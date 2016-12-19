@@ -12,15 +12,16 @@ categories: chrome插件
 [安装地址](https://chrome.google.com/webstore/detail/devtools-author/egfhcfdfnajldliefpdoaojgahefjhhi?hl=zh-CN)
 
 # 开启实验功能
+<!-- more -->
 
 - 在 `Chrome` 地址栏输入 `chrome://flags/`
-<!-- more -->
 
 - 启用开发者工具实验性功能（`Developer Tools experiments`）并重启浏览器
 
 - 在 `DevTools` 的设置中启用需要的功能
 
   - Setting -> Experiments -> Allow custom UI themes
+
 
 - 修改`Author Setting`切换主题字体大小等
 
