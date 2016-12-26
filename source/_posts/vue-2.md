@@ -1,7 +1,7 @@
 ---
 title: 【译】 Vue 2.0 的变化（二）
 date: 2016-12-09 17:19:21
-tags: vue
+tags: [vue,javascript]
 categories: 前端框架之vue
 ---
  

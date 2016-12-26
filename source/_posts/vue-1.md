@@ -1,7 +1,7 @@
 ---
 title: 【译】Vue 2.0的变化（一）之基本API变化
 date: 2016-09-27 14:23:20
-tags: vue
+tags: [vue,javascript]
 categories: 前端框架之vue
 ---
 

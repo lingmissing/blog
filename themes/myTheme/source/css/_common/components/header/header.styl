@@ -10,7 +10,8 @@
 }
 #search-form .fa-search {
   position: absolute;
-  color: #e3e3e3;
+  color: #999;
+  opacity: 0.5;
   top: 8px;
   left: 10px;
 }
@@ -21,11 +22,14 @@
   box-sizing: border-box;
   padding-left: 30px;
   border: 1px solid transparent;
-  border-bottom: 1px solid #e3e3e3;
+  border-bottom: 1px solid #999;
+  opacity: 0.5;
   background: #f5f5f5;
-  color: #2c3e50;
   outline: none;
   color: #e3e3e3;
+}
+#search-form .search-input:focus {
+  opacity: 1;
 }
 @media screen and (max-width:700px) {
   #search-form  {
