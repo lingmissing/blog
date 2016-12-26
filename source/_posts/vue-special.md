@@ -17,6 +17,7 @@ categories: 前端框架之vue
   ```
 
 # 指令
+<!-- more -->
 
 > 指令是带有v-前缀的特殊属性。
 
@@ -572,4 +573,103 @@ Vue 尝试尽可能高效的渲染元素，通常会复用已有元素而不是�
 </my-awesome-list>
 ```
 
+# 过渡效果
 
+```html
+  <transition name="v"></transition>
+```
+## 过渡的css类名
+
+- `v-enter`: 定义进入过渡的开始状态。在元素被插入时生效，在下一个帧移除。
+- `v-enter-active`: 定义进入过渡的结束状态。在元素被插入时生效，在 `transition/animation` 完成之后移除。
+- `v-leave`: 定义离开过渡的开始状态。在离开过渡被触发时生效，在下一个帧移除。
+- `v-leave-active`: 定义离开过渡的结束状态。在离开过渡被触发时生效，在 `transition/animation` 完成之后移除。
+
+## 自定义过渡类名
+
+
+- `enter-class`
+- `enter-active-class`
+- `leave-class`
+- `leave-active-class`
+
+```html
+<transition
+  name="custom-classes-transition"
+  enter-active-class="animated tada"
+  leave-active-class="animated bounceOutRight"
+>
+  <p v-if="show">hello</p>
+</transition>
+```
+
+## 过渡模式
+
+- `in-out`: 新元素先进行过渡，完成之后当前元素过渡离开。
+- `out-in`: 当前元素先进行过渡，完成之后新元素过渡进入。
+
+```html
+<transition name="fade" mode="out-in">
+  <!-- ... the buttons ... -->
+</transition>
+```
+
+## javascript钩子
+
+```html
+<transition
+  @before-enter="beforeEnter"
+  @enter="enter"
+  @after-enter="afterEnter"
+  @enter-cancelled="enterCancelled"
+  @before-leave="beforeLeave"
+  @leave="leave"
+  @after-leave="afterLeave"
+  @leave-cancelled="leaveCancelled"
+>
+  <!-- ... -->
+</transition>
+```
+
+```javascript
+
+methods: {
+  // --------
+  // 进入中
+  // --------
+  beforeEnter: function (el) {
+    // ...
+  },
+  // 此回调函数是可选项的设置
+  // 与 CSS 结合时使用
+  enter: function (el, done) {
+    // ...
+    done()
+  },
+  afterEnter: function (el) {
+    // ...
+  },
+  enterCancelled: function (el) {
+    // ...
+  },
+  // --------
+  // 离开时
+  // --------
+  beforeLeave: function (el) {
+    // ...
+  },
+  // 此回调函数是可选项的设置
+  // 与 CSS 结合时使用
+  leave: function (el, done) {
+    // ...
+    done()
+  },
+  afterLeave: function (el) {
+    // ...
+  },
+  // leaveCancelled 只用于 v-show 中
+  leaveCancelled: function (el) {
+    // ...
+  }
+}
+```
