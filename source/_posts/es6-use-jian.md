@@ -6,7 +6,7 @@ categories:  代码如诗，前端如画
 ---
 ## 语法
 
-#### 基础语法
+### 基础语法
 ```javascript
 (param1, param2, …, paramN) => { statements }
 (param1, param2, …, paramN) => expression
@@ -22,7 +22,7 @@ singleParam => { statements }
 
 <!-- more -->
 
-#### 高级语法
+### 高级语法
 ```javascript
 // 返回对象字面量时应当用圆括号将其包起来:
 params => ({foo: bar})

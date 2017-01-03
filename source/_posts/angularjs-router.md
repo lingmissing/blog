@@ -59,7 +59,7 @@ var app = angular.module('ngRouteExample', ['ngRoute'])
 ```
 注意到模板文件中有一个`div[ng-view]`，子页面将会载入到这里。
 
-#### 路由参数 ####
+### 路由参数 ###
 
 用户列表页面：
 
@@ -151,7 +151,7 @@ $state.go('contacts.detail', {contactId: 42});  // 相当于跳转到 /contacts/
 <a ui-sref="contacts.detail({contactId: 42})">Contact 42</a>
 ```
 
-#### 嵌套视图 ####
+### 嵌套视图 ###
 
 不同于Angular原生的`ng-route`，ui-router的视图可以嵌套，视图嵌套通常对应着`$state`的嵌套。 `contacts.detail`是`contacts`的子`$state`，`contacts.detail.html`也将作为`contacts.html`的子页面：
 
@@ -168,7 +168,7 @@ $state.go('contacts.detail', {contactId: 42});  // 相当于跳转到 /contacts/
 
 上述`ui-view`的用法和`ng-view`看起来很相似，但不同的是`ui-view`可以配合`$state`进行任意层级的嵌套， 即`contacts.detail.html`中仍然可以包含一个`ui-view`，它的`$state`可能是`contacts.detail.hobbies`。
 
-#### 命名视图 ####
+### 命名视图 ###
 
 在ui-router中，一个`$state`下可以有多个视图，它们有各自的模板和控制器。这一点也是`ng-route`所没有的， 给了前端路由极大的灵活性。来看例子：
 
@@ -203,7 +203,7 @@ $stateProvider
   })
 ```
 
-#### 综合实例 ####
+### 综合实例 ###
 
 HTML:
 

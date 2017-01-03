@@ -15,7 +15,7 @@ categories: 前端框架之angular
 <!-- more -->
 
 ## link ##
-#### 对于link 与scope ####
+### 对于link 与scope ###
 scope，我们需要用到一个link函数，他由指令定义对象中的link属性配置。
 ```javascript
 link:function(scope,elem,attrs){

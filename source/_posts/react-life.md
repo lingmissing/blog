@@ -17,7 +17,7 @@ categories: 前端框架之react
 <!-- more -->
 
 ### 装载组件触发
-##### getInitialState
+#### getInitialState
 `object`在组件被挂载之前调用。状态化的组件应该实现这个方法，返回初始的`state`数据。
 
 初始化 `this.state` 的值，只在组件装载之前调用一次。
@@ -37,7 +37,7 @@ class Counter extends Component {
 }
 ```
 
-##### getDefaultProps
+#### getDefaultProps
 
 只在组件创建时调用一次并缓存返回的对象（即在 `React.createClass` 之后就会调用）。
 
@@ -50,19 +50,20 @@ class Counter extends Component {
 Counter.defaultProps = { initialCount: 0 };
 ```
 
-##### componentWillMount()
+#### componentWillMount()
 `componentWillMount()`只会在装载之前调用一次，在 `render` 之前调用，你可以在这个方法里面调用 `setState` 改变状态，并且不会导致额外调用一次 `render`。
 
-##### render()
+#### render()
 组装生成这个组件的 `HTML` 结构（使用原生 `HTML` 标签或者子组件），也可以返回 `null`或者 `false`，这时候 `ReactDOM.findDOMNode(this)` 会返回 `null`。
 
-##### componentDidMount()
+#### componentDidMount()
 `componentDidMount()`在挂载结束之后马上被调用。只会在装载完成之后调用一次，在 render 之后调用，从这里开始可以通过 `ReactDOM.findDOMNode(this)` 获取到组件的 DOM 节点。
 
 
 ### 更新组件触发
 
-##### componentWillReceiveProps(object nextProps)
+#### componentWillReceiveProps(object nextProps)
+
 当一个挂载的组件接收到新的props的时候被调用。该方法应该用于比较`this.props`和`nextProps`，然后使用`this.setState()`来改变`state`。
 
 在初始化渲染的时候，该方法不会调用。
@@ -75,7 +76,7 @@ componentWillReceiveProps: function(nextProps) {
 }
 ```
 
-##### shouldComponentUpdate(object nextProps, object nextState): boolean
+#### shouldComponentUpdate(object nextProps, object nextState): boolean
 当组件做出是否要更新DOM的决定的时候被调用。
 
 在接收到新的 `props`或者 `state`，将要渲染之前调用。该方法在初始化渲染的时候不会调用，在使用 forceUpdate 方法的时候也不会。
@@ -91,18 +92,20 @@ shouldComponentUpdate: function(nextProps, nextState) {
 
 如果 `shouldComponentUpdate` 返回 `false`，则 `render()` 将不会执行，直到下一次 `state` 改变。
 
-##### componentWillUpdate(object nextProps, object nextState)
+#### componentWillUpdate(object nextProps, object nextState)
+
 在更新发生之前被调用。你可以在这里调用`this.setState()`。
-##### componentDidUpdate(object prevProps, object prevState)
+
+#### componentDidUpdate(object prevProps, object prevState)
 在更新发生之后调用。
 ### 卸载组件触发
-##### componentWillUnmount()
+#### componentWillUnmount()
 在组件移除和销毁之前被调用。清理工作应该放在这里。比如无效的定时器，或者清除在 componentDidMount 中创建的 DOM 元素。
 
 ### 装载的方法
-##### getDOMNode()
+#### getDOMNode()
 DOMElement可以在任何挂载的组件上面调用，用于获取一个指向它的渲染DOM节点的引用。
-##### forceUpdate()
+#### forceUpdate()
 当你知道一些很深的组件state已经改变了的时候，可以在该组件上面调用，而不是使用`this.setState()`。
 
 > 完整实例展示

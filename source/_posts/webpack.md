@@ -19,12 +19,12 @@ categories: 打包工具
 - 扩展性强，插件机制完善，特别是支持 React 热插拔（见 `react-hot-loader` ）。
 
 ## 安装和配置 ##
-#### 创建一个文件夹，安装`webpack`依赖 ####
+### 创建一个文件夹，安装`webpack`依赖
 
 	$ npm init
 	$ npm install webpack --save-dev
 
-#### 配置 `webpack.config.js`  ####
+### 配置 `webpack.config.js` 
 ```javascript
 var webpack = require('webpack');
 //提取多个入口文件的公共脚本部分，然后生成一个 common.js
@@ -114,7 +114,7 @@ resolve: {
 }
 ```
 ## webpack的运行 ##
-#### 模块引入 ####
+### 模块引入
 直接在页面中引入打包好的脚本，样式不用引入，脚本执行时会动态生成`<style>`并标签打到`head`里。
 入口entryjs：
 ```javascript
@@ -133,7 +133,7 @@ body {
 	background: #f9f9f9;
 }
 ```
-#### 编译 ####
+### 编译
 直接运行webpack即可编译文件。
 	$ webpack --display-error-details
 后面的参数`--display-error-details`是推荐加上的，方便出错时能查阅更详尽的信息。亦可省略。
@@ -147,7 +147,7 @@ body {
 	 
 	$ webpack -d    //生成map映射文件，告知哪些模块被最终打包到哪里了
 
-#### 开发环境 ####
+### 开发环境
 当项目逐渐变大，webpack 的编译时间会变长，可以通过参数让编译的输出内容带有进度和颜色。
 	$ webpack --progress --colors
 如果不想每次修改模块后都重新编译，那么可以启动监听模式。开启监听模式后，没有变化的模块会在编译后缓存到内存中，而不会每次都被重新编译，所以监听模式的整体速度是很快的。
@@ -159,7 +159,7 @@ body {
 	# 运行
 	$ webpack-dev-server --progress --colors
 ## 其他技巧 ##
-#### 自定义公共模块提取 ####
+### 自定义公共模块提取
 ```javascript
 var CommonsChunkPlugin = require("webpack/lib/optimize/CommonsChunkPlugin");
 module.exports = {
@@ -185,7 +185,7 @@ module.exports = {
 // admin-page1.html: commons.js, admin-commons.js, ap1.js
 // admin-page2.html: commons.js, admin-commons.js, ap2.js
 ```
-#### 独立打包样式文件 ####
+### 独立打包样式文件
 当项目的样式能不要被打包到脚本中，而是独立出来作为css时，这时候我们需要 `extract-text-webpack-plugin `来帮忙.
 ```javascript
 var webpack = require('webpack');

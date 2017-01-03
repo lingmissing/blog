@@ -32,7 +32,7 @@ const ADD_TODO = 'ADD_TODO'
 
 这个动作需要改变哪些属性就传递这些属性。
 
-##### 创建函数
+### 创建函数
 如果有多个数据是同样的动作，那么我们就需要一个通用的函数来传递数据。在 `Redux` 中的 `action` 创建函数只是简单的返回一个 `action`:
 
 ```javascript
@@ -70,7 +70,7 @@ const boundAddTodo = (text) => dispatch(addTodo(text))
 boundAddTodo(text);
 ```
 
-##### bindActionCreators
+### bindActionCreators
 
 如上所示，我们每次都需要调用时dispatch这个action。
 
@@ -102,7 +102,7 @@ function todoApp(state = initialState, action) {
 - 在 default 情况下返回旧的 state。遇到未知的 action 时，一定要返回旧的 state。
 - reducer中的一个fun在store里作为一个对象存储。
 
-##### combineReducers
+### combineReducers
 
 combineReducers() 所做的只是生成一个函数，这个函数来调用你的一系列 reducer，每个 reducer 根据它们的 key 来筛选出 state 中的一部分数据并处理，然后这个生成的函数再将所有 reducer 的结果合并成一个大的对象。
 
@@ -137,7 +137,7 @@ import todoApp from './reducers'
 let store = createStore(todoApp)
 ```
 
-##### Middleware
+### Middleware
 
 `redux`中的`middleware`还是比较简单的，它只是针对于`dispatch`方法做了`middleware`处理；也就是说，只接受一个`action`对象；
 

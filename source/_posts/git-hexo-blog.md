@@ -4,13 +4,16 @@ date: 2016-03-24 14:28:09
 tags: [git,hexo]
 categories:  日常小乐趣
 ---
-# 安装环境 #
-### 安装Git ###
+# 安装环境 
+
+## 安装Git
 下载地址：[https://git-scm.com/download/](https://git-scm.com/download/)
-### 安装node.js ###
+## 安装node.js
 下载地址： [http://nodejs.org/download/](http://nodejs.org/download/)
-# 配置Github #
-### 建立github仓库 ###
+
+
+# 配置Github
+## 建立github仓库
 
 仓库命名规范：
 
@@ -30,12 +33,12 @@ categories:  日常小乐趣
 
 <!--more-->
 
-### 设置全局 ###
+## 设置全局
 
     $ git config --global user.name "name" 配置username
     $ git config --global user.email "邮箱" 配置邮箱
 
-### 设置ssh ###
+## 设置ssh
 设置rsa的数字指纹，一个是公钥，一个是私钥。公钥要提交到github上，私钥需要自己保存
 
 	ssh-keygen -t rsa -C "邮箱"
@@ -43,23 +46,23 @@ categories:  日常小乐趣
 
 找到github---setting---SSH keys，添加本地rsa公钥（C:\Users\Administrator\.ssh\id_rsa.pub）
 
-### 验证ssh key ###
+## 验证ssh key
 用本地的私钥和github的公钥进行匹配
 
     ssh -T git@github.com
-### 生成github页面 ###
+## 生成github页面
 
 找到仓库的setting，到GitHub Pages，点击 Launch automatic page generator，点击continue to layout生成基本页面。
   
 
 # hexo配置 #
-### 安装hexo ###
+## 安装hexo
 
     npm install -g hexo
 
 说明地址：[https://hexo.io/zh-cn/](https://hexo.io/zh-cn/)
 
-### 初始化设置 ###
+## 初始化设置
 
 将hexo.github.io拉到本地
 
@@ -88,7 +91,7 @@ categories:  日常小乐趣
 
     npm install
 
-### 开启hexo服务 ###
+## 开启hexo服务
 
 	$ hexo server
     [info] Hexo is running at http://localhost:4000/. Press Ctrl+C to stop.
@@ -96,13 +99,13 @@ categories:  日常小乐趣
 表明Hexo Server已经启动了，在浏览器中打开 localhost:4000/，这时可以看到Hexo已为你生成了一篇blog。你可以按Ctrl+C 停止Server。本地修改后可刷新访问。
 
 
-### 创建博文 ###
+## 创建博文
 
 运行命令创建文章，生成My New Post.md文件，编辑此文件发布内容。
  
    	$ hexo new "My New Post"
 
-### 生成静态的网站文件 ###
+## 生成静态的网站文件
 
 执行下面的命令，将markdown文件生成静态网页。
 
@@ -111,7 +114,7 @@ categories:  日常小乐趣
 该命令执行完后，会在 D:\Hexo\public\ 目录下生成一系列html，css等文件
 
 
-### 部署到Github ###
+## 部署到Github
 
 部署到Github前需要配置根目录下的_config.yml文件，首先找到下面的内容
 
@@ -204,11 +207,11 @@ categories:  日常小乐趣
 	  repository: git@github.com:yourname/yourname.github.com.git
 	  branch: master
 
-### 测试部署到github的网站 ###
+## 测试部署到github的网站
 
 当部署完成后，在浏览器中打开http://githubname.github.io ，正常显示网页，表明部署成功。
 
-### 后期部署步骤 ###
+## 后期部署步骤
 
 每次部署的步骤，可按以下三步来进行。
 
@@ -216,7 +219,7 @@ categories:  日常小乐趣
 	$ hexo generate
 	$ hexo deploy
 
-### 编辑文章 ###
+## 编辑文章
 
 使用一个支持markdown语法的编辑器，推荐MarkdownPad
 
@@ -224,13 +227,13 @@ categories:  日常小乐趣
 
 破解方式：[MarkdownPad破解方式](http://jingyan.baidu.com/article/ca41422fe209271eaf99ed7c.html)
 # 安装主题 #
-### 安装主题 ###
+## 安装主题
 将Git Shell 切到themes目录下，然后执行下面的命令，将yilia下载到 themes/yilia 目录下。
 
 	$ git clone https://github.com/litten/hexo-theme-yilia.git
 
 修改博客根目录的config.yml配置文件中的theme属性，将其设置为yilia。
-### 配置主题 ###
+## 配置主题
 - 在yilia的config.yml中配置主题的属性
 
 主题配置说明

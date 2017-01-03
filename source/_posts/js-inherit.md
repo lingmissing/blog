@@ -40,13 +40,13 @@ var person = {
 
 ### 属性类型 ###
 	
-##### 数据属性 #####
+#### 数据属性 ####
 - `Configurable` 能否删除、能否修改属性特性、能否把属性修改为访问器属性 默认为true
 - `Enumerable` 能否通过for-in循环返回属性 默认为true
 - `Writable` 能否修改属性的值 默认为true
 - `Value` 包含属性的值。取值时从这个位置读，写入值时保存新值在这个位置。 默认值为 undefined
 
-##### 访问器属性 #####
+#### 访问器属性 ####
 -  `Configurable`  同上
 -  `Enumerable`  同上
 -  `Get` 在读取属性时调用的函数。 默认值undefined

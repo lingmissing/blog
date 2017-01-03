@@ -46,12 +46,12 @@ fetch(url, {
 })
 
 ```
-#### url
+### url
 定义要获取的资源。这可能是：
 - 一个 `USVString` 字符串，包含要获取资源的 `URL`。
 - 一个 `Request` 对象。
 
-#### options（可选）
+### options（可选）
 一个配置项对象，包括所有对请求的设置。可选的参数有：
 - `method`: 请求使用的方法，如 `GET`、`POST`。
 - `headers`: 请求的头信息，形式为 `Headers` 对象或 `ByteString`。
@@ -60,7 +60,7 @@ fetch(url, {
 - `credentials`: 请求的 `credentials`，如 `omit`、`same-origin` 或者 `include`。
 - `cache`:  请求的 `cache` 模式: `default`, `no-store`, `reload`, `no-cache`, `force-cache`, 或者 `only-if-cached`。
 
-#### response
+### response
 一个 `Promise`，`resolve` 时回传 `Response` 对象：
 - 属性：
   - `status (number)` - HTTP请求结果参数，在100–599 范围
@@ -79,7 +79,7 @@ fetch(url, {
   - `Response.error()`
   - `Response.redirect()`
 
-#### response.headers
+### response.headers
 - `has(name) (boolean)` - 判断是否存在该信息头
 - `get(name) (String)` - 获取信息头的数据
 - `getAll(name) (Array)` - 获取所有头部数据
@@ -90,7 +90,7 @@ fetch(url, {
 
 ## 使用案例
 
-#### GET请求
+### GET请求
 
 - HTML
 
@@ -151,7 +151,7 @@ fetch(url, {
   ```
 
 
-#### POST请求
+### POST请求
 ```javaScript
 fetch('/users', {
   method: 'POST',

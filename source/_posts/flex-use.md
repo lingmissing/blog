@@ -7,7 +7,7 @@ categories:  前端布局
 
 ## Flex容器属性
 
-##### display
+### display
 
 定义一个Flex容器，根据其取的值来决定是内联还是块。Flex容器会为其内容建立新的伸缩格式化上下文。
 
@@ -19,7 +19,7 @@ categories:  前端布局
 
 <!-- more -->
 
-##### flex-direction
+### flex-direction
 
 指定容器内部排列的方向。
 
@@ -35,7 +35,7 @@ categories:  前端布局
 - column-reverse:和row-reverse类似，只不过方向是从下向上排列
 
 
-##### flex-wrap
+### flex-wrap
 
 指定子元素是否可以换行。
 
@@ -50,7 +50,7 @@ categories:  前端布局
 - wrap-reverse:多行显示，如果书写方式是ltr，Flex项目从右向左排列，反之rtl，从左向右排列
 
 
-##### flex-flow(适用于flex容器元素)
+### flex-flow(适用于flex容器元素)
 
 这是flex-direction和flex-wrap两个属性的缩写。两个属性决定了伸缩容器的主轴与侧轴。默认值是row nowrap（中间用空格隔开）。
 
@@ -58,7 +58,7 @@ categories:  前端布局
 flex-flow: <‘flex-direction’> || <‘flex-wrap’>
 ```
 
-##### justify-content
+### justify-content
 
 用于在主轴上对齐伸缩项目。
 
@@ -74,7 +74,7 @@ flex-flow: <‘flex-direction’> || <‘flex-wrap’>
 - space-between:伸缩项目会平均地分布在行里。如果剩余空间是负数，或该行只有一个伸缩项目，则此值等效于flex-start。在其它情况下，第一个项目在主轴起点边的外边距会与该行在主轴起点的边对齐，同时最后一个项目在主轴终点边的外边距与该行在主轴终点的边对齐，而剩下的伸缩项目在确保两两之间的空白空间相等下平均分布。
 - space-around:伸缩项目会平均地分布在行里，两端保留一半的空间。如果剩余空间是负数，或该行只有一个伸缩项目，则该值等效于center。在其它情况下，伸缩项目在确保两两之间的空白空间相等，同时第一个元素前的空间以及最后一个元素后的空间为其他空白空间的一半下平均分布。
 
-##### align-items
+### align-items
 
 align-items可以用来设置伸缩容器中包括匿名伸缩项目的所有项目的对齐方式。
 
@@ -90,7 +90,7 @@ align-items可以用来设置伸缩容器中包括匿名伸缩项目的所有项
 - baseline:如果伸缩项目的行内轴与侧轴为同一条，则该值和flex-start等效。其它情况下，该值将参与基线对齐。所有参与该对齐方式的伸缩项目将按下列方式排列：首先将这些伸缩项目的基线进行对齐，随后其中基线至侧轴起点边的外边距距离最长的那个项目将紧靠住该行在侧轴起点的边。
 - stretch:如果侧轴长度属性的值为auto，则此值会使项目的外边距盒的尺寸在遵照min/max-width/height属性的限制下尽可能接近所在行的尺寸。
 
-##### align-content
+### align-content
 
 当伸缩容器的侧轴还有多余空间时，align-content属性可以用来调准伸缩行在伸缩容器里的对齐方式.
 
@@ -109,7 +109,7 @@ align-items可以用来设置伸缩容器中包括匿名伸缩项目的所有项
 
 ## Flex项目属性
 
-##### order
+### order
 
 默认情况，Flex项目是按文档源的流顺序排列。然而，在Flex容器中可以通过order属性来控制Flex项目的顺序源。
 
@@ -119,7 +119,7 @@ align-items可以用来设置伸缩容器中包括匿名伸缩项目的所有项
 }
 ```
 
-##### flex-grow
+### flex-grow
 
 如果所有Flex项目的flex-grow设置为1时，表示Flex容器中的Flex项目具有相等的尺寸。如果你给其中一个Flex项目设置flex-grow的值为2，那么这个Flex项目的尺寸将是其他Flex项目两倍。
 
@@ -129,7 +129,7 @@ align-items可以用来设置伸缩容器中包括匿名伸缩项目的所有项
 }
 ```
 
-##### flex-shrink
+### flex-shrink
 
 如果有必要，flex-shrink可以定义Flex项目的缩小比例。
 
@@ -139,7 +139,7 @@ align-items可以用来设置伸缩容器中包括匿名伸缩项目的所有项
 }
 ```
 
-##### flex-basis
+### flex-basis
 
 flex-basis属性定义了Flex项目在分配Flex容器剩余空间之前的一个默认尺寸。main-size值使它具有匹配的宽度或高度，不过都需要取决于flex-direction的值。
 
@@ -149,7 +149,7 @@ flex-basis属性定义了Flex项目在分配Flex容器剩余空间之前的一�
 }
 ```
 
-##### flex
+### flex
 
 flex是flex-grow，flex-shrink和flex-basis三个属性的缩写。第二个和第三个参数(flex-shrink和flex-basis)是可选值。其默认值是0 1 auto。
 
@@ -159,7 +159,7 @@ flex是flex-grow，flex-shrink和flex-basis三个属性的缩写。第二个和�
 }
 ```
 
-##### align-self
+### align-self
 
 align-self则用来在单独的伸缩项目上覆写默认的对齐方式。（对于匿名伸缩项目，align-self的值永远与其关联的伸缩容器的align-items的值相同。）
 

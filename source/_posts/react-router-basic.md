@@ -144,7 +144,7 @@ let routes = <Route path="/" component={App}>
 ## 常用组件
 
 
-#### IndexRoute
+### IndexRoute
 
 上面的代码会发现访问根路径会加载不到子组件。`IndexRoute`就是解决这个问题，显式指定`Home`是根路由的子组件，即指定默认情况下加载的子组件。你可以把`IndexRoute`想象成某个路径的index.html。
 
@@ -160,7 +160,7 @@ let routes = <Route path="/" component={App}>
 
 > `IndexRoute`组件没有路径参数`path`。
 
-#### Redirect
+### Redirect
 
 `<Redirect>`组件用于路由的跳转，即用户访问一个路由，会自动跳转到另一个路由。
 
@@ -171,7 +171,7 @@ let routes = <Route path="/" component={App}>
 </Route>
 ```
 
-#### IndexRedirect
+### IndexRedirect
 
 `IndexRedirect`组件用于访问根路由的时候，将用户重定向到某个子组件。
 
@@ -183,7 +183,7 @@ let routes = <Route path="/" component={App}>
 </Route>
 ```
 
-#### RouterContext
+### RouterContext
 
 - push(pathOrLoc)
 
@@ -343,7 +343,7 @@ React.render((
 
 
 
-#### 添加首页
+### 添加首页
 
 ```javascript
 React.render((
@@ -368,7 +368,7 @@ React.render((
 | /inbox/messages/:id | App -> Inbox -> Message |
 
 
-#### 让 UI 从 URL 中解耦出来
+### 让 UI 从 URL 中解耦出来
 
 ```javascript
 React.render((
@@ -393,7 +393,7 @@ React.render((
 | /messages/:id | App -> Inbox -> Message |
 
 
-#### 兼容旧的 URL
+### 兼容旧的 URL
 
 现在任何人访问 /inbox/messages/5 都会看到一个错误页面。
 
@@ -416,7 +416,7 @@ React.render((
 ), document.body)
 ```
 
-#### 替换的配置方式
+### 替换的配置方式
 
 ```javascript
 const routeConfig = [

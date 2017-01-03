@@ -5,7 +5,7 @@ tags: gulp
 categories:  打包工具
 ---
 
-## gulp.src(globs[, options]) ##
+### gulp.src(globs[, options]) ###
 
 #### globs ####
 
@@ -52,7 +52,7 @@ gulp.src('client/js/**/*.js', { base: 'client' })
   .pipe(gulp.dest('build'));  // 写入 'build/js/somedir/somefile.js'
 ```
 
-## gulp.dest(path[, options]) ##
+### gulp.dest(path[, options]) ###
 
 能被 pipe 进来，并且将会写文件。并且重新输出（emits）所有数据，因此你可以将它 pipe 到多个文件夹。如果某文件夹不存在，将会自动创建它。
 
@@ -82,7 +82,8 @@ gulp.src('./client/templates/*.jade')
 
 八进制权限字符，用以定义所有在输出目录中所创建的目录的权限。
 
-## gulp.task ##
+### gulp.task ###
+
 
 ```javascript
 gulp.task(name[, deps], fn)
@@ -121,7 +122,7 @@ gulp.task('mytask', ['array', 'of', 'task', 'names'], function() {
 
 返回一个 promise
 
-## gulp.watch(glob [, opts], tasks) 或 gulp.watch(glob [, opts, cb]) ##
+### gulp.watch(glob [, opts], tasks) 或 gulp.watch(glob [, opts, cb]) ###
 
 监视文件，并且可以在文件发生改动时候做一些事情。它总会返回一个 EventEmitter 来发射（emit） change 事件。
 
@@ -150,7 +151,7 @@ watcher.on('change', function(event) {
 });
 ```
 
-## gulp.watch(glob[, opts, cb]) ##
+### gulp.watch(glob[, opts, cb]) ###
 
 #### glob ####
 

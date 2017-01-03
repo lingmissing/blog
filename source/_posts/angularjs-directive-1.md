@@ -216,7 +216,7 @@ HTML代码为：
 
 为了让隔离作用域能读取父作用域的属性，产生了绑定策略：
 
-#### 使用@（@attr）来进行单向文本（字符串）绑定 #### 
+### 使用@（@attr）来进行单向文本（字符串）绑定 ####
 
 ```javascript
 var app = angular.module('myApp',[]);  
@@ -260,7 +260,7 @@ app.directive('helloWorld',function(){
 });   
 ```
 
-#### 使用=（=attr）进行双向绑定 #### 
+### 使用=（=attr）进行双向绑定 ###
 
 ```javascript
 var app = angular.module('myApp',[]);  
@@ -285,7 +285,7 @@ HTML代码为：
 
 
 
-####  使用&来调用父作用域中的函数 #### 
+###  使用&来调用父作用域中的函数 ###
 
 ```javascript
 var myModule = angular.module("MyModule", []);
