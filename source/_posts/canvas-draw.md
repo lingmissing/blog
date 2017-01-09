@@ -21,6 +21,7 @@ categories: 前端框架之vue
 - `moveTo()` 把路径移动到画布中的指定点，不创建线条
 
 ## 调用属性
+<!-- more -->
 - `strokeStyle` 设置或返回用于笔触的颜色、渐变或模式
 - `shadowBlur` 设置或返回用于阴影的模糊级别
 - `shadowColor` 设置或返回用于阴影的颜色

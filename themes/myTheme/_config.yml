@@ -69,7 +69,7 @@ menu_icons:
 # Scheme Settings
 # ---------------------------------------------------------------
 
-# Schemes
+# Schemes-主题 
 # scheme: Muse
 scheme: Mist
 #scheme: Pisces
@@ -271,10 +271,10 @@ google_search: true
 #baidu_analytics:
 
 # Duoshuo ShortName
-duoshuo_shortname: elaine
+# duoshuo_shortname: elaine
 
-# Disqus
-#disqus_shortname:
+# Disqus - facebook login
+disqus_shortname: elaine-blog
 
 # Hypercomments
 #hypercomments_id:
@@ -312,11 +312,11 @@ duoshuo_shortname: elaine
 # Make duoshuo show UA
 # user_id must NOT be null when admin_enable is true!
 # you can visit http://dev.duoshuo.com get duoshuo user id.
-duoshuo_info:
-  ua_enable: true
-  admin_enable: false
-  user_id: 6363420162082735000
-  admin_nickname: 博主
+# duoshuo_info:
+#   ua_enable: true
+#   admin_enable: false
+#   user_id: 6363420162082735000
+#   admin_nickname: 博主
 
 
 # Facebook SDK Support.
