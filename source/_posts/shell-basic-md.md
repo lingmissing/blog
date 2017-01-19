@@ -1,6 +1,7 @@
 title: shell脚本基础知识
 date: 2017-01-19 11:37:06
 tags: [shell]
+categories: shell命令整理
 ---
 
 
