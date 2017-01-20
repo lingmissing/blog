@@ -1,6 +1,6 @@
 #!/bin/sh
 
-echo "\033[34;5m *****Git***** \033[0m"
+echo "\033[34;5m *****Git Message***** \033[0m"
 git add .
 echo "请输入提交信息："
 read message
