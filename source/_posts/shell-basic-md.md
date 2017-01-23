@@ -848,7 +848,7 @@ funWithParam 1 2 3 4 5 6 7 8 9 34 73
   -m 表示压缩完删除原文件
   -o 表示设置所有被压缩文件的最后修改时间为当前压缩时间
 
-> 结合系统自带的命令
+> 结合系统自带的命令（[点击查阅](https://lingmissing.github.io/myBlog/2017/01/19/mac-shell/)）   
 
 ```bash
 #!/bin/sh
@@ -859,5 +859,7 @@ for ((i=0; i<10; i++)); do
     touch test_$i.txt
 done
 ```
+
+转载自 [菜鸟教程](http://www.runoob.com/linux/linux-tutorial.html)
 
 
