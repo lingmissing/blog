@@ -17,7 +17,7 @@ div {
   color: var(--color);
 }
 ```
-
+<!-- more -->
 # 选择器
 
 input:
