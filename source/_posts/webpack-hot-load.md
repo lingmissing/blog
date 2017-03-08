@@ -1,4 +1,4 @@
-title: webpack-hot-load
+title: webpack热更新
 date: 2017-03-08 16:55:31
 tags: webpack
 categories: 打包工具
@@ -42,7 +42,7 @@ HMR 的实现原理是在我们的开发中的应用代码中加入了 `HMR Runt
 - `watch`模式(default):  编译器根据文件更改重新编译。
 - `lazy`模式: 编译器在每个对入口点的请求上编译。
 
-## API
+## 基础API
 
 ```javascript
 var webpackDevMiddleware = require("webpack-dev-middleware")
@@ -55,32 +55,105 @@ var compiler = webpack({
 
 app.use(webpackDevMiddleware(compiler, {
     // options
+    noInfo: false,
+    // display no info to console (only warnings and errors) 
+ 
+    quiet: false,
+    // display nothing to the console 
+ 
+    lazy: true,
+    // switch into lazy mode 
+    // that means no watching, but recompilation on every request 
+ 
+    watchOptions: {
+        aggregateTimeout: 300,
+        poll: true
+    },
+    // watch options (only lazy: false) 
+ 
+    publicPath: "/assets/",
+    // public path to bind the middleware to 
+    // use the same as in webpack 
+    
+    index: "index.html",
+    // the index path for web server
+
+
+    headers: { "X-Custom-Header": "yes" },
+    // custom headers 
+ 
+    stats: {
+        colors: true
+    },
+    // options for formating the statistics 
+ 
+    reporter: null,
+    // Provide a custom reporter to change the way how logs are shown. 
+ 
+    serverSideRender: false
+    // Turn off the server-side rendering mode. See Server-Side Rendering part for more info. 
 }));
 ```
 
 ### options
 
-- `noInfo` 控制台不显示任何信息（只有警告和错误）
-  默认值： false
-- `quiet` 不在控制台显示任何内容
-  默认值： false
-- `lazy` 切换到延迟模式
-  默认值： false
+- `noInfo` 控制台不显示任何信息（只有警告和错误）(default: false)
+- `quiet` 不在控制台显示任何内容 (default: false)
+- `lazy` 切换到延迟模式 (default: false)
 - `filename` 大多数情况下，这个相当于webpack配置中的`output.filename`
-- `watchOptions.aggregateTimeout` 在第一次更改后延迟重建,单位是毫秒。
-  默认值：300
+- `watchOptions.aggregateTimeout` 在第一次更改后延迟重建,单位是毫秒。(default: 300)
 - `watchOptions.poll` (default: undefined)
   - `true` 使用轮询
   - `number` 使用指定间隔的轮询
 - `publicPath` 必填项，将中间件绑定到服务器的路径。大多数情况下相当于webpack配置中的`output.publicPath`
 - `headers` 添加自定义`header`，例如`{ "X-Custom-Header": "yes" }`
 - `stats` 统计信息的输出选项
-- `middleware.invalidate()` 手动使编译无效。前提是如果编译器的东西已经改变。
 - `middleware.fileSystem` 可以访问编译数据的可读（内存中）文件系统。
+
+## 高级API
+
+此部分显示了您在运行时如何与中间件进行交互：
+
+- `close(callback)` 停止监视文件更改
+
+```javascript
+var devMiddleWare = webpackMiddleware(/* see example usage */);
+app.use(devMiddleWare);
+// After 10 seconds stop watching for file changes: 
+setTimeout(function(){
+  devMiddleWare.close();
+}, 10000)
+```
+
+- `invalidate()` 重新编译包，比如你修改了配置
+
+```javascript
+var compiler = webpack(/* see example usage */);
+var devMiddleWare = webpackMiddleware(compiler);
+app.use(devMiddleWare);
+setTimeout(function(){
+  // After a short delay the configuration is changed 
+  // in this example we will just add a banner plugin: 
+  compiler.apply(new webpack.BannerPlugin('A new banner'));
+  // Recompile the bundle with the banner plugin: 
+  devMiddleWare.invalidate();
+}, 1000);
+```
+
+- `waitUntilValid(callback)` 如果捆绑包有效或在其再次有效之后执行回调
+
+```javascript
+var devMiddleWare = webpackMiddleware(/* see example usage */);
+app.use(devMiddleWare);
+devMiddleWare.waitUntilValid(function(){
+  console.log('Package is in a valid state');
+});
+```
+
 
 # 启用热更新
 
-1.将以下插件添加到plugins数组
+## 将以下插件添加到plugins数组
 
 ```javascript
 plugins: [
@@ -92,7 +165,9 @@ plugins: [
 ```
 目的在于确保一致构建散列，热模块更换有点不言自明，NoErrorsPlugin使处理错误更加干净。
 
-2.在`entry`数组中添加`webpack-hot-middleware/client`,这个用于连接服务器，当bundle重建时相应的更新客户端bundle包来接收通知。
+## 添加webpack-hot-middleware/client
+
+在`entry`数组中添加`webpack-hot-middleware/client`,这个用于连接服务器，当bundle重建时相应的更新客户端bundle包来接收通知。
 
 ```javascript
 webpackConfig.entry = [
@@ -101,7 +176,7 @@ webpackConfig.entry = [
 ]
 ```
 
-3.添加`webpack-dev-middleware`
+## 添加webpack-dev-middleware
 
 ```javascript
 var webpack = require('webpack');
@@ -120,18 +195,21 @@ const devMiddleWare = require('webpack-dev-middleware')(compiler, {
 })
 app.use(devMiddleWare)
 ```
-4.将`webpack-hot-middleware`附加到同一个编译器实例
+## 添加webpack-hot-middleware
+
+将`webpack-hot-middleware`附加到同一个编译器实例
 
 ```javascript
 app.use(require("webpack-hot-middleware")(compiler))
 ```
 
-5.然后发送至浏览器
+## 然后发送至浏览器
 
 ```javascript
 app.get('*', (req, res) => {
   const fs = devMiddleWare.fileSystem
   devMiddleWare.waitUntilValid(() => {
+    // 在确保包有效的情况下获取html
     const html = fs.readFileSync(path.join(webpackConfig.output.path, './index.html'))
     res.end(html)
   })
