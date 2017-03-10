@@ -3,12 +3,14 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Elaine's blog
+# title: Elaine's blog
+title: 三月
 subtitle: 简约而不简单
 keywords: javascript,前端开发,react,vue,css
 description: 闲来无事，寥寥几笔，若有所得
-author: Elaine
-email: 1227046827@qq.com
+# author: Elaine
+author: 三月
+email: lingmissing@gmail.com
 language: zh-Hans
 timezone:
 
