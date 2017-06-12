@@ -113,7 +113,7 @@ HTML文档需要包含一些固定的标签，比如<html>、<head>、<body>等�
 
 ## 生成分组标签（） ##
 
-`div>(header>ul>li*2>a)+footer>p `
+`div>(header>ul>li*2>a)+footer>p`
 
 ```html
 <div>
@@ -146,7 +146,6 @@ HTML文档需要包含一些固定的标签，比如<html>、<head>、<body>等�
   <p></p>
 </footer>
 ```
-
 ## 生成内容编号 ##
 
 `div>p#item$*3`
