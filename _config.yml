@@ -70,7 +70,8 @@ Plugins:
 - hexo-generator-sitemap
 # http://hexo.io/plugins/
 ## Themes: http://hexo.io/themes/
-theme: myTheme
+# theme: myTheme
+theme: hexo-theme-ochuunn
 stylus: 
   compress: true
 #Feed Atom
