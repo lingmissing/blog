@@ -13,7 +13,7 @@
             -webkit-transform: translate(-50%, -50%);
             -ms-transform: translate(-50%, -50%);
         }
-        
+
         .ring {
             border-radius: 1000px;
             border: 1px dashed rgba(18, 22, 26, 0.1);
@@ -21,7 +21,7 @@
             top: 50%;
             left: 50%;
         }
-        
+
         .ring.one {
             width: 100px;
             height: 100px;
@@ -30,7 +30,7 @@
             animation: ringoneAni 1.3s linear 0s infinite normal none;
             -webkit-animation: ringoneAni 1.3s linear 0s infinite normal none;
         }
-        
+
         .ring.two {
             width: 180px;
             height: 180px;
@@ -39,7 +39,7 @@
             animation: ringtwoAni 2.0s linear 0s infinite reverse none;
             -webkit-animation: ringtwoAni 2.0s linear 0s infinite reverse none;
         }
-        
+
         .ring.three {
             width: 360px;
             height: 360px;
@@ -48,7 +48,7 @@
             animation: ringthreeAni 2.6s linear 0s infinite normal none;
             -webkit-animation: ringthreeAni 2.6s linear 0s infinite normal none;
         }
-        
+
         .electron {
             position: absolute;
             width: 20px;
@@ -61,27 +61,27 @@
             animation: electronscale 0.2s ease-in-out 0s infinite alternate none;
             -webkit-animation: electronscale 0.2s ease-in-out 0s infinite alternate none;
         }
-        
+
         .ring.two .electron:nth-of-type(2) {
             margin-left: 170px;
             animation: electronscale 0.15s ease-in-out 0s infinite alternate none;
             -webkit-animation: electronscale 0.15s ease-in-out 0s infinite alternate none;
         }
-        
+
         .ring.three .electron:nth-of-type(2) {
             margin-left: 277px;
             margin-top: -155px;
             animation: electronscale 0.45s ease-in-out 0s infinite alternate none;
             -webkit-animation: electronscale 0.45s ease-in-out 0s infinite alternate none;
         }
-        
+
         .ring.three .electron:nth-of-type(3) {
             margin-left: 277px;
             margin-top: 135px;
             animation: electronscale 0.45s ease-in-out 0s infinite alternate none;
             -webkit-animation: electronscale 0.45s ease-in-out 0s infinite alternate none;
         }
-        
+
         @keyframes ringoneAni {
             100% {
                 -webkit-transform: rotate(360deg) translate(12px, 0px);
@@ -98,7 +98,7 @@
                 transform: rotate(0deg) translate(12px, 0px);
             }
         }
-        
+
         @-webkit-keyframes ringoneAni {
             100% {
                 -webkit-transform: rotate(360deg) translate(12px, 0px);
@@ -115,7 +115,7 @@
                 transform: rotate(0deg) translate(12px, 0px);
             }
         }
-        
+
         @keyframes ringtwoAni {
             100% {
                 -webkit-transform: rotate(360deg) translate(12px, 0px);
@@ -132,7 +132,7 @@
                 transform: rotate(0deg) translate(12px, 0px);
             }
         }
-        
+
         @-webkit-keyframes ringtwoAni {
             100% {
                 -webkit-transform: rotate(360deg) translate(12px, 0px);
@@ -149,7 +149,7 @@
                 transform: rotate(0deg) translate(12px, 0px);
             }
         }
-        
+
         @keyframes ringthreeAni {
             100% {
                 -webkit-transform: rotate(360deg) translate(12px, 0px);
@@ -166,7 +166,7 @@
                 transform: rotate(0deg) translate(12px, 0px);
             }
         }
-        
+
         @-webkit-keyframes ringthreeAni {
             100% {
                 -webkit-transform: rotate(360deg) translate(12px, 0px);
@@ -183,7 +183,7 @@
                 transform: rotate(0deg) translate(12px, 0px);
             }
         }
-        
+
         @keyframes electronscale {
             100% {
                 -webkit-transform: scale(1, 1);
@@ -200,7 +200,7 @@
                 transform: scale(0.75, 0.75);
             }
         }
-        
+
         @-webkit-keyframes electronscale {
             100% {
                 -webkit-transform: scale(1, 1);
@@ -245,12 +245,12 @@
         var intervalFun = setInterval(() => {
             var comment = document.getElementById('comments')
             var sidebarToggle = document.querySelector('.sidebar-toggle')
-            if(comment && sidebarToggle) {
+            if (comment && sidebarToggle) {
                 comment.style.display = 'none'
                 sidebarToggle.style.display = 'none'
                 clearInterval(intervalFun)
             }
-         },100)
+        }, 100)
     </script>
 </body>
 
