@@ -89,7 +89,7 @@ baidusitemap:
 deploy:
 
   type: git
-  repo: git@github.com:lingmissing/myBlog.git
+  repo: https://github.com/lingmissing/myBlog.git
   branch: gh-pages
 
 
