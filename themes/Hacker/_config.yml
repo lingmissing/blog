@@ -1,0 +1,17 @@
+menu:
+  Home: /
+  Archives: /archives
+  About: /about
+  Links: /links
+  RSS: /atom.xml
+
+# duoshuo comment
+duoshuo: false
+duoshuo_name: DaraW
+
+# disqus comment
+disqus: true
+disqus_shortname: daraw
+
+# google analytics
+googleTrackId: UA-75095706-1
