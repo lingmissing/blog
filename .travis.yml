@@ -5,7 +5,7 @@ node_js:
 
 branches:
   only:
-  - source
+  - master
 
 before_install:
 - npm install -g hexo-cli
@@ -18,8 +18,7 @@ script:
 
 deploy:
   provider: pages
-  target-branch: master
-  github-token: $GH_TOKEN
+  github-token: $GITHUB_TOKEN
   local-dir: public
   skip-cleanup: true
   keep-history: true
