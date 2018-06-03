@@ -22,5 +22,5 @@ date: 2018-03-25
 * [杨二的博客](http://zerosoul.github.io/)
 * [ziyi2](http://www.ziyi2.cn/)
 * [少年](https://vshaonian.github.io/)
-* [小 忆 博 客](https://blog.domeyi.com)
+* [小 忆 博 客](https://blog.iiwo.vip/)
 * [GeekYe](http://drye.top/)
