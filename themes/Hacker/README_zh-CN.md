@@ -31,9 +31,12 @@ __注意：版本更新后建议在hexo生成前执行一次`hexo clean`，清�
 在主题配置文件`_config.yml`中：
 
 ```yaml
-# duoshuo comment
-duoshuo: true
-duoshuo_name:
+# gitment
+gitment: false
+gitment_owner:
+gitment_repo:
+gitment_client_id:
+gitment_client_secret:
 
 # disqus comment
 disqus: false
@@ -43,9 +46,11 @@ disqus_shortname:
 googleTrackId:
 ```
 
-
-`duoshuo`: `boolean`，是否开启多说评论；  
-`duoshuo_name`: `string`，你的多说用户ID，请不要使用别人的ID。  
+`gitment`: `boolean`，是否开启gitment评论  
+`gitment_owner`: `string`，你的 GitHub ID  
+`gitment_repo`: `string`，存储评论的 repo  
+`gitment_client_id`: `string`，你的 client ID  
+`gitment_client_secret`: `string`，你的 client secret  
 
 `disqus`: `boolean`，是否开启disqus评论；  
 `disqus_shortname`: `string`，你的disqus site shortname。  
@@ -81,6 +86,10 @@ menu:
 ```
 
 ## 更新
+### v1.2.0
+* 增加`gitment`支持
+* 移除多说
+
 ### v1.1.0
 * 增加对关闭文章评论的支持([issue#14](https://github.com/CodeDaraW/Hacker/issues/14))
 * 增加对分类和标签的支持([issue#7](https://github.com/CodeDaraW/Hacker/issues/7))

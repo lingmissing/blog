@@ -32,9 +32,12 @@ __Notice: After every update, you'd better run command `hexo clean` to clean cac
 In the theme configuration file `_config.yml`:
 
 ```yaml
-# duoshuo comment
-duoshuo: true
-duoshuo_name:
+# gitment
+gitment: false
+gitment_owner:
+gitment_repo:
+gitment_client_id:
+gitment_client_secret:
 
 # disqus comment
 disqus: false
@@ -44,9 +47,11 @@ disqus_shortname:
 googleTrackId:
 ```
 
-
-`duoshuo`: `boolean`, use duoshuo or not;  
-`duoshuo_name`: `string`, your duoshup ID, please don't use other people's IDs。
+`gitment`: `boolean`，use gitment or not  
+`gitment_owner`: `string`，your GitHub ID  
+`gitment_repo`: `string`，the repo to store comment data  
+`gitment_client_id`: `string`，your client ID  
+`gitment_client_secret`: `string`，your client secret  
 
 `disqus`: `boolean`, use disqus or not;  
 `disqus_shortname`: your disqus site shortname.
@@ -82,6 +87,10 @@ menu:
 ```
 
 ## Update
+### v1.2.0
+* Add support for Gitment
+* Remove duoshuo
+
 ### v1.1.0
 * Add support for closing article comments ([issue#14](https://github.com/CodeDaraW/Hacker/issues/14))
 * Add support for categories and tags ([issue#7](https://github.com/CodeDaraW/Hacker/issues/7))
@@ -94,7 +103,7 @@ menu:
 * fix display of `code` tag
 
 
-### v0.3.
+### v0.3
 * Refactor ejs template files
 * Replace css with stylus
 * Add English Version README

@@ -4,12 +4,15 @@ menu:
   About: /about
   RSS: /atom.xml
 
-# duoshuo comment
-duoshuo: false
-duoshuo_name: DaraW
+# gitment
+gitment: true
+gitment_owner: CodeDaraW
+gitment_repo: Blog
+gitment_client_id: 9f8c0418f979e3f9436d
+gitment_client_secret: 3cb6eb7ebba52973d5d4083533b8eba117462319
 
 # disqus comment
-disqus: true
+disqus: false
 disqus_shortname: daraw
 
 # google analytics
