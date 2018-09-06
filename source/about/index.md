@@ -1,18 +1,19 @@
 title: About
-date: 2018-03-25
+date: 2018-9-7
 ---
 ## 关于我
 - 性别男，取向女
-- 江苏大学电气工程及其自动化专业在读
-- 实习@今日头条，前资深实习生@阿里
+- 本科就读于江苏大学电气工程及其自动化专业
+- 前阿里前端开发工程师（实习）
+- 现前端开发工程师 [@字节跳动](https://www.bytedance.com/)
 
 ## 了解我
-- GitHub： https://github.com/CodeDaraW
-- 知乎： https://www.zhihu.com/people/daraw
-- 豆瓣： https://www.douban.com/people/132782714/
-- 网易云音乐： http://music.163.com/#/user/home?id=41174473
+- GitHub：[CodeDaraW (月迷津渡)](https://github.com/CodeDaraW)
+- 知乎：[月迷津渡DaraW](https://www.zhihu.com/people/daraw)
+- 豆瓣：[DaraW](https://www.douban.com/people/132782714/)
+- 网易云音乐：[DaraW](http://music.163.com/#/user/home?id=41174473)
 
-## 友链
+## 朋友们
 * [wizChen's Blog](http://blog.wizchen.com/)
 * [TECH F5VE!](http://www.techf5ve.com/)
 * [王少星的个人博客](http://wsxyeah.github.io/)
