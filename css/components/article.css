@@ -1,13 +1,13 @@
 article {
   position: relative;
   padding: 8rem 0;
-  font-size: 14px;
+  font-size: 1.4em;
 }
 article ol,
 article ul {
   margin: 0;
   padding: 0;
-  margin-bottom: 0.31429em;
+  margin: 0.31429em 0;
   list-style: none;
 }
 article ol ol,
@@ -16,22 +16,23 @@ article ol ul,
 article ul ul {
   margin-left: 1.25714em;
 }
+article ol li,
 article ul li {
-  text-indent: -0.35em;
-  font-size: 14px;
+  font-size: 1em;
+  position: relative;
+}
+article ol li:before,
+article ul li:before {
+  position: absolute;
+  left: -1em;
 }
 article ul li:before {
   content: '•';
   color: #e06e73;
   display: inline-block;
-  margin-right: 0.3em;
 }
 article ol {
   counter-reset: ol 0;
-}
-article ol li {
-  text-indent: -0.35em;
-  font-size: 14px;
 }
 article ol li:before {
   content: counter(ol) ".";
@@ -40,7 +41,6 @@ article ol li:before {
   text-align: right;
   display: inline-block;
   min-width: 1em;
-  margin-right: 0.5em;
 }
 article del {
   color: #878787;
@@ -68,9 +68,17 @@ article:not(:first-child):before {
 }
 article blockquote {
   display: block;
-  margin: 1em 0 1em -1em;
-  padding-left: 0.8em;
-  border-left: 0.2em solid #e06e73;
+  margin: 1em 0;
+  position: relative;
+}
+article blockquote:before {
+  content: "";
+  display: block;
+  position: absolute;
+  left: -0.9em;
+  width: 0.2em;
+  height: 100%;
+  background: #e06e73;
 }
 article .article-title {
   position: relative;
