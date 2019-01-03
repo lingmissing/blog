@@ -1,0 +1,360 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  
+  <title>
+    【译】Vue 2.0的变化（一）之基本API变化 | 时光的涂鸦墙 | this is subtitiek
+  </title>
+
+  
+  <meta name="author" content="elaine">
+  
+
+  
+  <meta name="description" content="JavaScript Developer">
+  
+
+  
+  
+  <meta name="keywords" content="vue">
+  
+
+  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  
+  <meta property="og:title" content="【译】Vue 2.0的变化（一）之基本API变化" />
+  
+
+  <meta property="og:site_name" content="时光的涂鸦墙" />
+
+  
+  <meta property="og:image" content="/favicon.ico" />
+  
+
+  <link href="/favicon.ico" rel="icon">
+  <link rel="alternate" href="/atom.xml"
+    title="时光的涂鸦墙" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+</head>
+
+<body>
+<div class="blog">
+  <div class="content">
+
+    <header>
+  <div class="site-branding">
+    <h1 class="site-title">
+      <a href="/">时光的涂鸦墙</a>
+    </h1>
+    <p class="site-description">this is subtitiek</p>
+  </div>
+  <nav class="site-navigation">
+    <ul>
+      
+        <li><a href="/">主页</a></li>
+      
+        <li><a href="/archives">归档</a></li>
+      
+        <li><a href="/tags">标签</a></li>
+      
+        <li><a href="/about">关于</a></li>
+      
+    </ul>
+  </nav>
+</header>
+
+    <main class="site-main posts-loop">
+    <article>
+
+  
+  
+  <h3 class="article-title"><span>
+      【译】Vue 2.0的变化（一）之基本API变化</span></h3>
+  
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2016/09/27/vue-1/" rel="bookmark">
+        <time class="entry-date published" datetime="2016-09-27T06:23:20.000Z">
+          2016-09-27
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+      <h3 id="高层级的变化"><a href="#高层级的变化" class="headerlink" title="高层级的变化"></a>高层级的变化</h3><ul>
+<li>模板解析器不再依赖于DOM（除非你使用真正的DOM作为模板），因此只要你使用字符串模板，你将不再受到任何1.0版本中的解析限制。但是，如果你依赖在存在的内容中挂载一个元素作为模板（使用<code>el</code>元素），你将依然受到这些限制。</li>
+<li>编译器（将字符串模板转换为渲染方法的部分）和运行时间现在能够被分开。这里有两种不同的构建：<ul>
+<li>独立构建：包括编译并且运行。这种方式和<code>vue 1.0</code>几乎完全一样。</li>
+<li>运行时编译：由于它不包括编译器，在编译步骤时要么预编译模板，要么手动编写渲染功能。npm包默认导出这个版本，那么你需要有一个编译的过程（使用<code>Browserify</code>或<code>Webpack</code>）,从中<code>vueify</code>或<code>vue-loader</code>将可以进行模板预编译。</li>
+</ul>
+</li>
+</ul>
+<h3 id="全局配置"><a href="#全局配置" class="headerlink" title="全局配置"></a>全局配置</h3><ul>
+<li><code>Vue.config.silent</code></li>
+<li><code>Vue.config.optionMergeStrategies</code></li>
+<li><code>Vue.config.devtools</code></li>
+<li><strong><code>Vue.config.errorHandler</code></strong>（新API，全局的挂钩用于在组件渲染和监控的时候处理未捕获的错误）</li>
+<li><code>Vue.config.keyCodes</code>（新API，为<code>v-on</code>配置自定义的<code>key</code>的别名）</li>
+<li><del><code>Vue.config.debug</code></del>（已丢弃）</li>
+<li><del><code>Vue.config.async</code></del>（已丢弃）</li>
+<li><del><code>Vue.config.delimiters</code></del>(已丢弃)</li>
+<li><del><code>Vue.config.unsafeDelimiters</code></del>（已丢弃，使用<code>v-html</code>）</li>
+</ul>
+<h3 id="全局API"><a href="#全局API" class="headerlink" title="全局API"></a>全局API</h3><ul>
+<li><code>Vue.extend</code></li>
+<li><code>Vue.nextTick</code></li>
+<li><code>Vue.set</code></li>
+<li><code>Vue.delete</code></li>
+<li><code>Vue.directive</code></li>
+<li><code>Vue.component</code></li>
+<li><code>Vue.use</code></li>
+<li><code>Vue.mixin</code></li>
+<li><strong><code>Vue.compile</code></strong>（新API，只能用于独立版本构建） </li>
+<li><code>Vue.transition</code><ul>
+<li><del><code>stagger</code></del>（已丢弃，在<code>el</code>上设置</li>
+</ul>
+</li>
+<li><code>Vue.filter</code></li>
+<li><del><code>Vue.elementDirective</code></del>（已丢弃，使用组件）</li>
+<li><del><code>Vue.partial</code></del> （已丢弃，使用功能组件）</li>
+</ul>
+<h3 id="选项"><a href="#选项" class="headerlink" title="选项"></a>选项</h3><h4 id="data"><a href="#data" class="headerlink" title="data"></a>data</h4><ul>
+<li><code>data</code></li>
+<li><code>props</code><ul>
+<li><code>prop</code></li>
+<li><code>default</code></li>
+<li><del><code>coerce</code></del>（已丢弃，如果你需要转换<code>prop</code>,请使用<code>compute</code>属性）</li>
+<li><del><code>prop binding modes</code></del>（已丢弃，<code>v-model</code>在组件上可以工作</li>
+</ul>
+</li>
+<li><strong><code>propsData</code></strong>（新API）只能用于实例</li>
+<li><code>computed</code></li>
+<li><code>methods</code></li>
+<li><code>watch</code></li>
+</ul>
+<h4 id="DOM"><a href="#DOM" class="headerlink" title="DOM"></a>DOM</h4><ul>
+<li><code>el</code></li>
+<li><code>template</code></li>
+<li><strong><code>render</code></strong>（新API）</li>
+<li><del><code>replace</code></del>（已丢弃，组件现在必须有一个根元素）</li>
+</ul>
+<h4 id="生命周期钩子"><a href="#生命周期钩子" class="headerlink" title="生命周期钩子"></a>生命周期钩子</h4><ul>
+<li><del><code>init</code></del>（已丢弃，请使用<code>beforeCreate</code>）</li>
+<li><code>created</code></li>
+<li><code>beforeDestroy</code></li>
+<li><code>destroyed</code></li>
+<li><strong><code>beforeMount</code></strong>(新API)</li>
+<li><strong><code>mounted</code></strong>（新API）</li>
+<li><strong><code>beforeUpdate</code></strong>（新API）</li>
+<li><strong><code>updated</code></strong>（新API）</li>
+<li><strong><code>activated</code></strong>(新API，用于<code>keep-alive</code>)</li>
+<li><strong><code>deactivated</code></strong>（新API用于<code>keep-alive</code>）</li>
+<li><del><code>ready</code></del>（已丢弃，使用<code>mounted</code>）</li>
+<li><del><code>activate</code></del>（已丢弃，迁移到<code>vue-router</code>）</li>
+<li><del><code>beforeCompile</code></del>（已丢弃，使用<code>created</code>）</li>
+<li><del><code>compiled</code></del>（已丢弃，使用<code>mounted</code>）</li>
+<li><del><code>attached</code></del>（已丢弃）</li>
+<li><del><code>detached</code></del>（已丢弃，同上）</li>
+</ul>
+<h4 id="Assets"><a href="#Assets" class="headerlink" title="Assets"></a>Assets</h4><ul>
+<li><code>directives</code></li>
+<li><code>components</code></li>
+<li><code>transitions</code></li>
+<li><code>filters</code></li>
+<li><del><code>partials</code></del>（已丢弃）</li>
+<li><del><code>elementDirectives</code></del>（已丢弃）</li>
+</ul>
+<h4 id="杂项"><a href="#杂项" class="headerlink" title="杂项"></a>杂项</h4><ul>
+<li><code>parent</code></li>
+<li><code>mixins</code></li>
+<li><code>name</code></li>
+<li><code>extends</code></li>
+<li><strong><code>delimiters</code></strong>（新API，替代原版的全局配置选项，只在独立构建中可用）</li>
+<li><strong><code>functional</code></strong>（新API）</li>
+<li><del><code>events</code></del>（已丢弃）</li>
+</ul>
+<h3 id="实例方法"><a href="#实例方法" class="headerlink" title="实例方法"></a>实例方法</h3><h4 id="data-1"><a href="#data-1" class="headerlink" title="data"></a>data</h4><ul>
+<li><code>vm.$watch</code></li>
+<li><del><code>vm.$get</code></del>（已丢弃，直接检索值）</li>
+<li><del><code>vm.$set</code></del>（已丢弃，使用<code>Vue.set</code>）</li>
+<li><del><code>vm.$delete</code></del>（已丢弃，使用<code>Vue.delete</code>）</li>
+<li><del><code>vm.$eval</code></del>（已丢弃，没有真正的使用）</li>
+<li><del><code>vm.$interpolate</code></del>（已丢弃，同上）</li>
+<li><del><code>vm.$log</code></del>（已丢弃，使用<code>devtools</code>）</li>
+</ul>
+<h4 id="events"><a href="#events" class="headerlink" title="events"></a>events</h4><ul>
+<li><code>vm.$on</code></li>
+<li><code>vm.$once</code></li>
+<li><code>vm.$off</code></li>
+<li><code>vm.$emit</code></li>
+<li><del><code>vm.$dispatch</code></del>（已丢弃，使用全局的事件或使用<code>vuex</code>，见下面）</li>
+<li><del><code>vm.$broadcast</code></del>（已丢弃，同上）</li>
+</ul>
+<h4 id="DOM-1"><a href="#DOM-1" class="headerlink" title="DOM"></a>DOM</h4><ul>
+<li><code>vm.$nextTick</code></li>
+<li><del><code>vm.$appendTo</code></del>（已丢弃，在<code>vm.$el</code>上使用本地API）</li>
+<li><del><code>vm.$before</code></del>（已丢弃）</li>
+<li><del><code>vm.$after</code></del>（已丢弃）</li>
+<li><del><code>vm.$remove</code></del>（已丢弃）</li>
+</ul>
+<h4 id="生命周期"><a href="#生命周期" class="headerlink" title="生命周期"></a>生命周期</h4><ul>
+<li><code>vm.$mount</code></li>
+<li><code>vm.$destroy</code></li>
+</ul>
+<h3 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h3><ul>
+<li><code>v-text</code></li>
+<li><code>v-html</code>（注意三次括号被丢弃）</li>
+<li><code>v-if</code></li>
+<li><code>v-show</code></li>
+<li><code>v-else</code></li>
+<li><code>v-for</code><ul>
+<li><strong><code>key</code></strong> (替代 <code>track-by</code>)</li>
+<li><code>object v-for</code></li>
+<li><code>range v-for</code></li>
+<li>参数顺序更新：数组中使用<code>(value, index) in arr</code>，对象中使用<code>(value, key, index) in obj</code></li>
+<li><del><code>$index</code></del>和<del><code>$key</code></del>被丢弃</li>
+</ul>
+</li>
+<li><code>v-on</code><ul>
+<li><code>modifiers</code></li>
+<li>on child component</li>
+<li>自定义键码，目前版本<code>Vue.config.keyCodes</code>代替原来的<code>Vue.directive(&#39;on&#39;).keyCodes</code></li>
+</ul>
+</li>
+<li><code>v-bind</code><ul>
+<li>作为<code>prop</code></li>
+<li><code>xlink</code></li>
+<li>绑定对象</li>
+</ul>
+</li>
+<li><code>v-bind:style</code><ul>
+<li><code>prefix sniffing</code></li>
+</ul>
+</li>
+<li><code>v-bind:class</code></li>
+<li><code>v-model</code><ul>
+<li><code>lazy</code> (as modifier)</li>
+<li><code>number</code> (as modifier)</li>
+<li>`ignoring composition events</li>
+<li><del><code>debounce</code></del>（已丢弃，使用<code>v-on:input</code>）</li>
+</ul>
+</li>
+<li><code>v-cloak</code></li>
+<li><code>v-pre</code></li>
+<li><strong><code>v-once</code></strong>（新API）</li>
+<li><del><code>v-ref</code></del>（已丢弃，现在只是一个特殊的属性<code>ref</code>）</li>
+<li><del><code>v-el</code></del>（和<code>ref</code>合并）</li>
+</ul>
+<h3 id="特殊组件"><a href="#特殊组件" class="headerlink" title="特殊组件"></a>特殊组件</h3><ul>
+<li><code>&lt;component&gt;</code><ul>
+<li><code>:is</code></li>
+<li><code>async组件</code></li>
+<li><code>inline-template</code></li>
+</ul>
+</li>
+<li><code>&lt;transition&gt;</code></li>
+<li><code>&lt;transition-group&gt;</code></li>
+<li><code>&lt;keep-alive&gt;</code></li>
+<li><code>&lt;slot&gt;</code></li>
+<li><del><code>partial</code></del>（已丢弃）</li>
+</ul>
+<h3 id="特殊属性"><a href="#特殊属性" class="headerlink" title="特殊属性"></a>特殊属性</h3><ul>
+<li><code>key</code></li>
+<li><code>ref</code></li>
+<li><code>slot</code><h3 id="服务器端渲染"><a href="#服务器端渲染" class="headerlink" title="服务器端渲染"></a>服务器端渲染</h3></li>
+<li><code>renderToString</code></li>
+<li><code>renderToStream</code></li>
+<li><code>client-side hydration</code></li>
+</ul>
+<blockquote>
+<p>翻译自<a href="https://github.com/vuejs/vue/issues/2873" target="_blank" rel="noopener">2.0 Changes</a></p>
+</blockquote>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+      
+
+      
+      
+
+      <span class="post-tags">
+        <a href="/tags/vue/">vue</a>
+      </span>
+      
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+<section id="comment" class="comment">
+	<div id="gitment"></div>
+</section>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+	var gitment = new Gitment({
+		owner: 'lingmissing',
+		repo: 'lingmissing-gitment',
+		oauth: {
+			client_id: 'c7675a51f3f7416ac3c0',
+			client_secret: 'cac3475af0adfc9d1669114ef89e8c6ff59ac758',
+		},
+	})
+	gitment.render('gitment')
+</script>
+
+
+
+    </main>
+
+    <footer class="site-footer">
+  <p class="site-info">
+    
+    &copy;
+    2019
+    elaine
+    
+  </p>
+</footer>
+    
+<script>
+    (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function () {
+            (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+    ga('create', 'UA-75095706-1', 'auto');
+    ga('send', 'pageview');
+</script>
+
+  </div>
+</div>
+</body>
+</html>

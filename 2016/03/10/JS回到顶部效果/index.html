@@ -1,0 +1,177 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  
+  <title>
+    JS回到顶部效果 | 时光的涂鸦墙 | this is subtitiek
+  </title>
+
+  
+  <meta name="author" content="elaine">
+  
+
+  
+  <meta name="description" content="JavaScript Developer">
+  
+
+  
+  
+  <meta name="keywords" content="jquery ,javascript">
+  
+
+  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  
+  <meta property="og:title" content="JS回到顶部效果" />
+  
+
+  <meta property="og:site_name" content="时光的涂鸦墙" />
+
+  
+  <meta property="og:image" content="/favicon.ico" />
+  
+
+  <link href="/favicon.ico" rel="icon">
+  <link rel="alternate" href="/atom.xml"
+    title="时光的涂鸦墙" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+</head>
+
+<body>
+<div class="blog">
+  <div class="content">
+
+    <header>
+  <div class="site-branding">
+    <h1 class="site-title">
+      <a href="/">时光的涂鸦墙</a>
+    </h1>
+    <p class="site-description">this is subtitiek</p>
+  </div>
+  <nav class="site-navigation">
+    <ul>
+      
+        <li><a href="/">主页</a></li>
+      
+        <li><a href="/archives">归档</a></li>
+      
+        <li><a href="/tags">标签</a></li>
+      
+        <li><a href="/about">关于</a></li>
+      
+    </ul>
+  </nav>
+</header>
+
+    <main class="site-main posts-loop">
+    <article>
+
+  
+  
+  <h3 class="article-title"><span>
+      JS回到顶部效果</span></h3>
+  
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2016/03/10/JS回到顶部效果/" rel="bookmark">
+        <time class="entry-date published" datetime="2016-03-10T07:48:32.000Z">
+          2016-03-10
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+      <p>话不多说，直接粘上代码啦！</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">id</span>=<span class="string">"totop"</span> <span class="attr">href</span>=<span class="string">"javascript:void(0);"</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-id">#totop</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">20px</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">20px</span>;</span><br><span class="line">  <span class="attribute">position</span>: fixed;</span><br><span class="line">  <span class="attribute">bottom</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">right</span>: <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">toTop</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"></span><br><span class="line">    $(<span class="string">"#totop"</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</span><br><span class="line">        e.preventDefault();</span><br><span class="line">        pageScroll();</span><br><span class="line">        <span class="comment">// $('html,body').animate(&#123;scrollTop:0&#125;,700);</span></span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//获取页面的最小高度，无传入值则默认为600像素</span></span><br><span class="line">    <span class="keyword">var</span> min_height = $(<span class="built_in">window</span>).height();</span><br><span class="line"></span><br><span class="line">    <span class="comment">//为窗口的scroll事件绑定处理函数</span></span><br><span class="line">    $(<span class="built_in">window</span>).scroll(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//获取窗口的滚动条的垂直位置</span></span><br><span class="line">        <span class="keyword">var</span> s = $(<span class="built_in">window</span>).scrollTop();</span><br><span class="line"></span><br><span class="line">        <span class="comment">//当窗口的滚动条的垂直位置大于页面的最小高度时，让返回顶部元素渐现，否则渐隐</span></span><br><span class="line">        <span class="keyword">if</span>( s &gt; min_height)&#123;</span><br><span class="line">            $(<span class="string">"#totop"</span>).css(<span class="string">'display'</span>,<span class="string">'inline-block'</span>);</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            $(<span class="string">"#totop"</span>).css(<span class="string">'display'</span>,<span class="string">'none'</span>);</span><br><span class="line">        &#125;;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">pageScroll</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//把内容滚动指定的像素数（第一个参数是向右滚动的像素数，第二个参数是向下滚动的像素数）</span></span><br><span class="line">    <span class="built_in">window</span>.scrollBy(<span class="number">0</span>,<span class="number">-100</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//延时递归调用，模拟滚动向上效果</span></span><br><span class="line">    scrolldelay = setTimeout(<span class="string">'pageScroll()'</span>,<span class="number">20</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//获取scrollTop值，声明了DTD的标准网页取document.documentElement.scrollTop，否则取document.body.scrollTop；因为二者只有一个会生效，另一个就恒为0，所以取和值可以得到网页的真正的scrollTop值</span></span><br><span class="line">    <span class="keyword">var</span> sTop=<span class="built_in">document</span>.documentElement.scrollTop+<span class="built_in">document</span>.body.scrollTop;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//判断当页面到达顶部，取消延时代码（否则页面滚动到顶部会无法再向下正常浏览页面）</span></span><br><span class="line">    <span class="keyword">if</span>(sTop&lt;<span class="number">10</span>) clearTimeout(scrolldelay);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+      
+
+      
+      
+
+      <span class="post-tags">
+        <a href="/tags/jquery/">jquery</a><a href="/tags/javascript/">javascript</a>
+      </span>
+      
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+<section id="comment" class="comment">
+	<div id="gitment"></div>
+</section>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+	var gitment = new Gitment({
+		owner: 'lingmissing',
+		repo: 'lingmissing-gitment',
+		oauth: {
+			client_id: 'c7675a51f3f7416ac3c0',
+			client_secret: 'cac3475af0adfc9d1669114ef89e8c6ff59ac758',
+		},
+	})
+	gitment.render('gitment')
+</script>
+
+
+
+    </main>
+
+    <footer class="site-footer">
+  <p class="site-info">
+    
+    &copy;
+    2019
+    elaine
+    
+  </p>
+</footer>
+    
+<script>
+    (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function () {
+            (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+    ga('create', 'UA-75095706-1', 'auto');
+    ga('send', 'pageview');
+</script>
+
+  </div>
+</div>
+</body>
+</html>

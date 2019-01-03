@@ -1,0 +1,264 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  
+  <title>
+    gulp-常用插件列表 | 时光的涂鸦墙 | this is subtitiek
+  </title>
+
+  
+  <meta name="author" content="elaine">
+  
+
+  
+  <meta name="description" content="JavaScript Developer">
+  
+
+  
+  
+  <meta name="keywords" content="gulp">
+  
+
+  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  
+  <meta property="og:title" content="gulp-常用插件列表" />
+  
+
+  <meta property="og:site_name" content="时光的涂鸦墙" />
+
+  
+  <meta property="og:image" content="/favicon.ico" />
+  
+
+  <link href="/favicon.ico" rel="icon">
+  <link rel="alternate" href="/atom.xml"
+    title="时光的涂鸦墙" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+</head>
+
+<body>
+<div class="blog">
+  <div class="content">
+
+    <header>
+  <div class="site-branding">
+    <h1 class="site-title">
+      <a href="/">时光的涂鸦墙</a>
+    </h1>
+    <p class="site-description">this is subtitiek</p>
+  </div>
+  <nav class="site-navigation">
+    <ul>
+      
+        <li><a href="/">主页</a></li>
+      
+        <li><a href="/archives">归档</a></li>
+      
+        <li><a href="/tags">标签</a></li>
+      
+        <li><a href="/about">关于</a></li>
+      
+    </ul>
+  </nav>
+</header>
+
+    <main class="site-main posts-loop">
+    <article>
+
+  
+  
+  <h3 class="article-title"><span>
+      gulp-常用插件列表</span></h3>
+  
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2016/06/15/gulp常见插件列表/" rel="bookmark">
+        <time class="entry-date published" datetime="2016-06-15T04:23:13.000Z">
+          2016-06-15
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+      <h2 id="安装说明"><a href="#安装说明" class="headerlink" title="安装说明"></a>安装说明</h2><pre><code>$ npm install --save-dev gulp-autoprefixer（插件名称，可以接多个，空格）
+</code></pre><h2 id="gulp-autoprefixer-自动补hack"><a href="#gulp-autoprefixer-自动补hack" class="headerlink" title="gulp-autoprefixer(自动补hack)"></a>gulp-autoprefixer(自动补hack)</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> gulp = <span class="built_in">require</span>(<span class="string">'gulp'</span>);</span><br><span class="line"><span class="keyword">var</span> autoprefixer = <span class="built_in">require</span>(<span class="string">'gulp-autoprefixer'</span>);</span><br><span class="line"> </span><br><span class="line">gulp.task(<span class="string">'default'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> gulp.src(<span class="string">'src/app.css'</span>)</span><br><span class="line">		.pipe(autoprefixer(&#123;</span><br><span class="line">			browsers: [<span class="string">'last 2 versions'</span>], <span class="comment">//兼容浏览器的最低版本</span></span><br><span class="line">			cascade: <span class="literal">false</span> <span class="comment">//</span></span><br><span class="line">		&#125;))</span><br><span class="line">		.pipe(gulp.dest(<span class="string">'dist'</span>));</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<h2 id="gulp-uglify（压缩）"><a href="#gulp-uglify（压缩）" class="headerlink" title="gulp-uglify（压缩）"></a>gulp-uglify（压缩）</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> uglify = <span class="built_in">require</span>(<span class="string">'gulp-uglify'</span>);</span><br><span class="line"> </span><br><span class="line">gulp.task(<span class="string">'compress'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> gulp.src(<span class="string">'lib/*.js'</span>)</span><br><span class="line">    .pipe(uglify())</span><br><span class="line">    .pipe(gulp.dest(<span class="string">'dist'</span>));</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>参数说明：</p>
+<ul>
+<li>output  输出格式</li>
+<li>compress 是否压缩（boolean）</li>
+<li>mangle  设为false则不压缩名称</li>
+<li><p>preserveComments 输出的注释 默认无</p>
+<ul>
+<li>all 输出所有注释</li>
+<li>license</li>
+<li>function</li>
+<li>some (deprecated)</li>
+</ul>
+</li>
+</ul>
+<h2 id="gulp-sourcemaps（生成-source-map）"><a href="#gulp-sourcemaps（生成-source-map）" class="headerlink" title="gulp-sourcemaps（生成 source map）"></a>gulp-sourcemaps（生成 source map）</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> gulp = <span class="built_in">require</span>(<span class="string">'gulp'</span>);</span><br><span class="line"><span class="keyword">var</span> sourcemaps = <span class="built_in">require</span>(<span class="string">'gulp-sourcemaps'</span>);</span><br><span class="line"><span class="keyword">var</span> autoprefixer = <span class="built_in">require</span>(<span class="string">'gulp-autoprefixer'</span>);</span><br><span class="line"><span class="keyword">var</span> concat = <span class="built_in">require</span>(<span class="string">'gulp-concat'</span>);</span><br><span class="line"> </span><br><span class="line">gulp.task(<span class="string">'default'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> gulp.src(<span class="string">'src/**/*.css'</span>)</span><br><span class="line">		.pipe(sourcemaps.init())</span><br><span class="line">		.pipe(autoprefixer())</span><br><span class="line">		.pipe(concat(<span class="string">'all.css'</span>))</span><br><span class="line">		.pipe(sourcemaps.write(<span class="string">'.'</span>))</span><br><span class="line">		.pipe(gulp.dest(<span class="string">'dist'</span>));</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>所有在sourcemaps.init()和sourcemaps.write() 之间的插件必须支持gulp-sourcemaps。</p>
+<p>Init参数：</p>
+<ul>
+<li>loadMaps（设为true加载存在的map）</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> gulp = <span class="built_in">require</span>(<span class="string">'gulp'</span>);</span><br><span class="line"><span class="keyword">var</span> plugin1 = <span class="built_in">require</span>(<span class="string">'gulp-plugin1'</span>);</span><br><span class="line"><span class="keyword">var</span> plugin2 = <span class="built_in">require</span>(<span class="string">'gulp-plugin2'</span>);</span><br><span class="line"><span class="keyword">var</span> sourcemaps = <span class="built_in">require</span>(<span class="string">'gulp-sourcemaps'</span>);</span><br><span class="line"> </span><br><span class="line">gulp.task(<span class="string">'javascript'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  gulp.src(<span class="string">'src/**/*.js'</span>)</span><br><span class="line">    .pipe(sourcemaps.init(&#123;<span class="attr">loadMaps</span>: <span class="literal">true</span>&#125;))</span><br><span class="line">      .pipe(plugin1())</span><br><span class="line">      .pipe(plugin2())</span><br><span class="line">    .pipe(sourcemaps.write())</span><br><span class="line">    .pipe(gulp.dest(<span class="string">'dist'</span>));</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>identityMap（boolean）</li>
+</ul>
+<p>debug（设为true输出debug信息）</p>
+<h2 id="gulp-sass-编译sass"><a href="#gulp-sass-编译sass" class="headerlink" title="gulp-sass(编译sass)"></a>gulp-sass(编译sass)</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">'use strict'</span>;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">var</span> gulp = <span class="built_in">require</span>(<span class="string">'gulp'</span>);</span><br><span class="line"><span class="keyword">var</span> sass = <span class="built_in">require</span>(<span class="string">'gulp-sass'</span>);</span><br><span class="line"> </span><br><span class="line">gulp.task(<span class="string">'sass'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> gulp.src(<span class="string">'./sass/**/*.scss'</span>)</span><br><span class="line">    .pipe(sass().on(<span class="string">'error'</span>, sass.logError))</span><br><span class="line">    .pipe(gulp.dest(<span class="string">'./css'</span>));</span><br><span class="line">&#125;);</span><br><span class="line"> </span><br><span class="line">gulp.task(<span class="string">'sass:watch'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  gulp.watch(<span class="string">'./sass/**/*.scss'</span>, [<span class="string">'sass'</span>]);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>参数配置：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">gulp.task(<span class="string">'sass'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line"> <span class="keyword">return</span> gulp.src(<span class="string">'./sass/**/*.scss'</span>)</span><br><span class="line">   .pipe(sass(&#123;<span class="attr">outputStyle</span>: <span class="string">'compressed'</span>&#125;).on(<span class="string">'error'</span>, sass.logError))</span><br><span class="line">   .pipe(gulp.dest(<span class="string">'./css'</span>));</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>outputStyle可设置输出形式。</p>
+<h2 id="gulp-less-编译less"><a href="#gulp-less-编译less" class="headerlink" title="gulp-less(编译less)"></a>gulp-less(编译less)</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> less = <span class="built_in">require</span>(<span class="string">'gulp-less'</span>);</span><br><span class="line"></span><br><span class="line">gulp.task(<span class="string">'less'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> gulp.src(<span class="string">'./src/less/**/*.less'</span>, &#123;</span><br><span class="line">            base: <span class="string">'./src/'</span></span><br><span class="line">        &#125;)</span><br><span class="line">        .pipe(less())</span><br><span class="line">        .pipe(gulp.dest(<span class="string">'./dist/'</span>))</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>less参数说明：</p>
+<ul>
+<li>paths: 用于@ import指令的路径数组集</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> less = <span class="built_in">require</span>(<span class="string">'gulp-less'</span>);</span><br><span class="line"><span class="keyword">var</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>);</span><br><span class="line"> </span><br><span class="line">gulp.task(<span class="string">'less'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> gulp.src(<span class="string">'./less/**/*.less'</span>)</span><br><span class="line">    .pipe(less(&#123;</span><br><span class="line">      paths: [ path.join(__dirname, <span class="string">'less'</span>, <span class="string">'includes'</span>) ]</span><br><span class="line">    &#125;))</span><br><span class="line">    .pipe(gulp.dest(<span class="string">'./public/css'</span>));</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>plugins: less插件的数组</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> LessAutoprefix = <span class="built_in">require</span>(<span class="string">'less-plugin-autoprefix'</span>);</span><br><span class="line"><span class="keyword">var</span> autoprefix = <span class="keyword">new</span> LessAutoprefix(&#123; <span class="attr">browsers</span>: [<span class="string">'last 2 versions'</span>] &#125;);</span><br><span class="line"> </span><br><span class="line"><span class="keyword">return</span> gulp.src(<span class="string">'./less/**/*.less'</span>)</span><br><span class="line">  .pipe(less(&#123;</span><br><span class="line">    plugins: [autoprefix]</span><br><span class="line">  &#125;))</span><br><span class="line">  .pipe(gulp.dest(<span class="string">'./public/css'</span>));</span><br></pre></td></tr></table></figure>
+<h2 id="gulp-cssnano（css压缩）"><a href="#gulp-cssnano（css压缩）" class="headerlink" title="gulp-cssnano（css压缩）"></a>gulp-cssnano（css压缩）</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> gulp = <span class="built_in">require</span>(<span class="string">'gulp'</span>);</span><br><span class="line"><span class="keyword">var</span> cssnano = <span class="built_in">require</span>(<span class="string">'gulp-cssnano'</span>);</span><br><span class="line"> </span><br><span class="line">gulp.task(<span class="string">'default'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> gulp.src(<span class="string">'./main.css'</span>)</span><br><span class="line">        .pipe(cssnano())</span><br><span class="line">        .pipe(gulp.dest(<span class="string">'./out'</span>));</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h2 id="gulp-postcss（多个插件串起来的接口）"><a href="#gulp-postcss（多个插件串起来的接口）" class="headerlink" title="gulp-postcss（多个插件串起来的接口）"></a>gulp-postcss（多个插件串起来的接口）</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> postcss = <span class="built_in">require</span>(<span class="string">'gulp-postcss'</span>);</span><br><span class="line"><span class="keyword">var</span> gulp = <span class="built_in">require</span>(<span class="string">'gulp'</span>);</span><br><span class="line"><span class="keyword">var</span> autoprefixer = <span class="built_in">require</span>(<span class="string">'autoprefixer'</span>);</span><br><span class="line"><span class="keyword">var</span> cssnano = <span class="built_in">require</span>(<span class="string">'cssnano'</span>);</span><br><span class="line"> </span><br><span class="line">gulp.task(<span class="string">'css'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> processors = [</span><br><span class="line">        autoprefixer(&#123;<span class="attr">browsers</span>: [<span class="string">'last 1 version'</span>]&#125;),</span><br><span class="line">        cssnano(),</span><br><span class="line">    ];</span><br><span class="line">    <span class="keyword">return</span> gulp.src(<span class="string">'./src/*.css'</span>)</span><br><span class="line">        .pipe(postcss(processors))</span><br><span class="line">        .pipe(gulp.dest(<span class="string">'./dest'</span>));</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>备注：只有适用于postcss的插件才能组合，详细参照官网说明。<br><a href="https://github.com/postcss/postcss" title="可用插件说明" target="_blank" rel="noopener">https://github.com/postcss/postcss</a></p>
+<h2 id="gulp-requirejs-optimize（打包插件）"><a href="#gulp-requirejs-optimize（打包插件）" class="headerlink" title="gulp-requirejs-optimize（打包插件）"></a>gulp-requirejs-optimize（打包插件）</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> gulp = <span class="built_in">require</span>(<span class="string">'gulp'</span>);</span><br><span class="line"><span class="keyword">var</span> requirejsOptimize = <span class="built_in">require</span>(<span class="string">'gulp-requirejs-optimize'</span>);</span><br><span class="line"> </span><br><span class="line">gulp.task(<span class="string">'scripts'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> gulp.src(<span class="string">'src/main.js'</span>)</span><br><span class="line">		.pipe(requirejsOptimize())</span><br><span class="line">		.pipe(gulp.dest(<span class="string">'dist'</span>));</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>参数说明：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> gulp = <span class="built_in">require</span>(<span class="string">'gulp'</span>);</span><br><span class="line"><span class="keyword">var</span> requirejsOptimize = <span class="built_in">require</span>(<span class="string">'gulp-requirejs-optimize'</span>);</span><br><span class="line"> </span><br><span class="line">gulp.task(<span class="string">'scripts'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> gulp.src(<span class="string">'src/main.js'</span>)</span><br><span class="line">		.pipe(requirejsOptimize(&#123;</span><br><span class="line">			optimize: <span class="string">'none'</span>,</span><br><span class="line">			insertRequire: [<span class="string">'foo/bar/bop'</span>],</span><br><span class="line">		&#125;))</span><br><span class="line">		.pipe(gulp.dest(<span class="string">'dist'</span>));</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>多个参数传fun：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> gulp = <span class="built_in">require</span>(<span class="string">'gulp'</span>);</span><br><span class="line"><span class="keyword">var</span> requirejsOptimize = <span class="built_in">require</span>(<span class="string">'gulp-requirejs-optimize'</span>);</span><br><span class="line"> </span><br><span class="line">gulp.task(<span class="string">'scripts'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> gulp.src(<span class="string">'src/modules/*.js'</span>)</span><br><span class="line">		.pipe(requirejsOptimize(<span class="function"><span class="keyword">function</span>(<span class="params">file</span>) </span>&#123;</span><br><span class="line">			<span class="keyword">return</span> &#123;</span><br><span class="line">				name: <span class="string">'../vendor/bower/almond/almond'</span>,</span><br><span class="line">				optimize: <span class="string">'none'</span>,</span><br><span class="line">				useStrict: <span class="literal">true</span>,</span><br><span class="line">				baseUrl: <span class="string">'path/to/base'</span>,</span><br><span class="line">				include: <span class="string">'subdir/'</span> + file.relative</span><br><span class="line">			&#125;;</span><br><span class="line">		&#125;))</span><br><span class="line">		.pipe(gulp.dest(<span class="string">'dist'</span>));</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h2 id="gulp-handlebars（handlebars模板编译）"><a href="#gulp-handlebars（handlebars模板编译）" class="headerlink" title="gulp-handlebars（handlebars模板编译）"></a>gulp-handlebars（handlebars模板编译）</h2><p>可以通过package.json定义使用的版本。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//package.json</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">"devDependencies"</span>: &#123;</span><br><span class="line">    <span class="string">"handlebars"</span>: <span class="string">"^1.3.0"</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> handlebars = <span class="built_in">require</span>(<span class="string">'gulp-handlebars'</span>);</span><br><span class="line"><span class="keyword">var</span> defineModule = <span class="built_in">require</span>(<span class="string">'gulp-define-module'</span>);</span><br><span class="line"> </span><br><span class="line">gulp.task(<span class="string">'templates'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  gulp.src([<span class="string">'templates/*.hbs'</span>])</span><br><span class="line">    .pipe(handlebars())</span><br><span class="line">    .pipe(defineModule(<span class="string">'cmd'</span>))</span><br><span class="line">    .pipe(gulp.dest(<span class="string">'build/templates/'</span>));</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h2 id="gulp-define-module（模块类型）"><a href="#gulp-define-module（模块类型）" class="headerlink" title="gulp-define-module（模块类型）"></a>gulp-define-module（模块类型）</h2><p>创建一个模块：</p>
+<pre><code>{
+  start: function() {},
+  end: function() {},
+  version: &quot;1.0&quot;
+}
+</code></pre><p><code>defineModule(type, [options])</code>参数说明：</p>
+<p>Type: String类型</p>
+<p>默认: bare</p>
+<ul>
+<li><p>CommonJS/Node  (defineModule(‘commonjs’) or defineModule(‘node’))</p>
+</li>
+<li><p>cmd (defineModule(‘amd’))</p>
+</li>
+<li><p>Hybrid (defineModule(‘hybrid’))</p>
+</li>
+<li><p>plain defineModule(‘plain’)</p>
+</li>
+</ul>
+<p>其他参数举例：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">defineModule(<span class="string">'amd'</span>, &#123;</span><br><span class="line">    <span class="built_in">require</span>: &#123;</span><br><span class="line">      Hogan: <span class="string">'hogan'</span></span><br><span class="line">    &#125;,</span><br><span class="line">    name: <span class="function"><span class="keyword">function</span>(<span class="params">filePath</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> filePath.split(process.cwd() + <span class="string">'/'</span>)[<span class="number">1</span>].replace(<span class="string">'.js'</span>, <span class="string">''</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h2 id="gulp-sequence（任务合并排序）"><a href="#gulp-sequence（任务合并排序）" class="headerlink" title="gulp-sequence（任务合并排序）"></a>gulp-sequence（任务合并排序）</h2><p>假设存在a、b、c、d、d、e、f六个任务：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//先运行ab，在运行c，在运行de，在运行f</span></span><br><span class="line">gulp.task(<span class="string">'sequence-1'</span>, gulpSequence([<span class="string">'a'</span>, <span class="string">'b'</span>], <span class="string">'c'</span>, [<span class="string">'d'</span>, <span class="string">'e'</span>], <span class="string">'f'</span>));</span><br><span class="line"></span><br><span class="line"><span class="comment">// usage 2 </span></span><br><span class="line">gulp.task(<span class="string">'sequence-2'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">cb</span>) </span>&#123;</span><br><span class="line">  gulpSequence([<span class="string">'a'</span>, <span class="string">'b'</span>], <span class="string">'c'</span>, [<span class="string">'d'</span>, <span class="string">'e'</span>], <span class="string">'f'</span>, cb);</span><br><span class="line">&#125;);</span><br><span class="line"> </span><br><span class="line"><span class="comment">// usage 3 </span></span><br><span class="line">gulp.task(<span class="string">'sequence-3'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">cb</span>) </span>&#123;</span><br><span class="line">  gulpSequence([<span class="string">'a'</span>, <span class="string">'b'</span>], <span class="string">'c'</span>, [<span class="string">'d'</span>, <span class="string">'e'</span>], <span class="string">'f'</span>)(cb);</span><br><span class="line">&#125;);</span><br><span class="line"> </span><br><span class="line">gulp.task(<span class="string">'gulp-sequence'</span>, gulpSequence(<span class="string">'sequence-1'</span>, <span class="string">'sequence-2'</span>, <span class="string">'sequence-3'</span>));</span><br></pre></td></tr></table></figure>
+<p>API参数：</p>
+<p>gulpSequence(‘subtask1’, ‘subtask2’,…[, callback])</p>
+<p>gulpSequence.use(gulp) 返回一个存在gulp的 gulpSequence方法，如果有一些任务不存在的错误，这个将会解决它。</p>
+<h2 id="gulp-clean（删除地址）"><a href="#gulp-clean（删除地址）" class="headerlink" title="gulp-clean（删除地址）"></a>gulp-clean（删除地址）</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> gulp = <span class="built_in">require</span>(<span class="string">'gulp'</span>);</span><br><span class="line"><span class="keyword">var</span> clean = <span class="built_in">require</span>(<span class="string">'gulp-clean'</span>);</span><br><span class="line"> </span><br><span class="line">gulp.task(<span class="string">'default'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> gulp.src(<span class="string">'app/tmp'</span>, &#123;<span class="attr">read</span>: <span class="literal">false</span>&#125;)</span><br><span class="line">		.pipe(clean());</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>参数 read:false防止gulp从文件中读取内容并且让任务更快。如果你在cleaning后需要使用这个文件，那么不能设置此属性。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> gulp = <span class="built_in">require</span>(<span class="string">'gulp'</span>);</span><br><span class="line"><span class="keyword">var</span> clean = <span class="built_in">require</span>(<span class="string">'gulp-clean'</span>);</span><br><span class="line"> </span><br><span class="line">gulp.task(<span class="string">'default'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> gulp.src(<span class="string">'app/tmp/index.js'</span>)</span><br><span class="line">		.pipe(clean(&#123;<span class="attr">force</span>: <span class="literal">true</span>&#125;))</span><br><span class="line">		.pipe(gulp.dest(<span class="string">'dist'</span>));</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>当前工作目录以外的安全文件和文件夹可以删除只有将force选项设置为true。</p>
+<h2 id="gulp-ftp-（上传文件）"><a href="#gulp-ftp-（上传文件）" class="headerlink" title="gulp-ftp （上传文件）"></a>gulp-ftp （上传文件）</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> gulp = <span class="built_in">require</span>(<span class="string">'gulp'</span>);</span><br><span class="line"><span class="keyword">var</span> gutil = <span class="built_in">require</span>(<span class="string">'gulp-util'</span>);</span><br><span class="line"><span class="keyword">var</span> ftp = <span class="built_in">require</span>(<span class="string">'gulp-ftp'</span>);</span><br><span class="line"> </span><br><span class="line">gulp.task(<span class="string">'default'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> gulp.src(<span class="string">'src/*'</span>)</span><br><span class="line">		.pipe(ftp(&#123;</span><br><span class="line">			host: <span class="string">'website.com'</span>,</span><br><span class="line">			user: <span class="string">'johndoe'</span>,</span><br><span class="line">			pass: <span class="string">'1234'</span></span><br><span class="line">		&#125;))</span><br><span class="line">		.pipe(gutil.noop());</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>参数说明：</p>
+<ul>
+<li>host 主机ip地址（必填项） </li>
+<li>port 端口号</li>
+<li>user 默认’anonymous’</li>
+<li>pass 默认 ‘@anonymous’</li>
+<li>remotePath 默认’/‘</li>
+</ul>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+      
+
+      
+      
+
+      <span class="post-tags">
+        <a href="/tags/gulp/">gulp</a>
+      </span>
+      
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+<section id="comment" class="comment">
+	<div id="gitment"></div>
+</section>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+	var gitment = new Gitment({
+		owner: 'lingmissing',
+		repo: 'lingmissing-gitment',
+		oauth: {
+			client_id: 'c7675a51f3f7416ac3c0',
+			client_secret: 'cac3475af0adfc9d1669114ef89e8c6ff59ac758',
+		},
+	})
+	gitment.render('gitment')
+</script>
+
+
+
+    </main>
+
+    <footer class="site-footer">
+  <p class="site-info">
+    
+    &copy;
+    2019
+    elaine
+    
+  </p>
+</footer>
+    
+<script>
+    (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function () {
+            (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+    ga('create', 'UA-75095706-1', 'auto');
+    ga('send', 'pageview');
+</script>
+
+  </div>
+</div>
+</body>
+</html>

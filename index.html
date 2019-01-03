@@ -1,0 +1,1151 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  
+  <title>
+    时光的涂鸦墙 | this is subtitiek
+  </title>
+
+  
+  <meta name="author" content="elaine">
+  
+
+  
+  <meta name="description" content="JavaScript Developer">
+  
+
+  
+
+  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  
+
+  <meta property="og:site_name" content="时光的涂鸦墙" />
+
+  
+  <meta property="og:image" content="/favicon.ico" />
+  
+
+  <link href="/favicon.ico" rel="icon">
+  <link rel="alternate" href="/atom.xml"
+    title="时光的涂鸦墙" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+</head>
+
+<body>
+<div class="blog">
+  <div class="content">
+
+    <header>
+  <div class="site-branding">
+    <h1 class="site-title">
+      <a href="/">时光的涂鸦墙</a>
+    </h1>
+    <p class="site-description">this is subtitiek</p>
+  </div>
+  <nav class="site-navigation">
+    <ul>
+      
+        <li><a href="/">主页</a></li>
+      
+        <li><a href="/archives">归档</a></li>
+      
+        <li><a href="/tags">标签</a></li>
+      
+        <li><a href="/about">关于</a></li>
+      
+    </ul>
+  </nav>
+</header>
+
+    <main class="site-main posts-loop">
+    
+  <article>
+
+  
+  
+  <h3 class="article-title"><a href="/2016/12/12/javascript闭包/"><span>
+        javascript闭包</span></a></h3>
+  
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2016/12/12/javascript闭包/" rel="bookmark">
+        <time class="entry-date published" datetime="2016-12-12T07:20:15.000Z">
+          2016-12-12
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+      <blockquote>
+<p>闭包是指那些能够访问独立(自由)变量的函数 (变量在本地使用，但定义在一个封闭的作用域中)。换句话说，这些函数可以“记忆”它被创建时候的环境。</p>
+</blockquote>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+      
+
+      
+      
+
+      <span class="post-tags">
+        <a href="/tags/javascript/">javascript</a>
+      </span>
+      
+
+    </div>
+
+    
+    <div class="article-meta pull-right">
+      <span>
+        <i class="icon-comments"></i>
+        <span>
+          <a href="/2016/12/12/javascript闭包/#comment">
+            评论</a>
+        </span>
+      </span>
+    </div>
+    
+  </div>
+</article>
+
+
+  <article>
+
+  
+  
+  <h3 class="article-title"><a href="/2016/12/12/javascript递归/"><span>
+        javascript递归</span></a></h3>
+  
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2016/12/12/javascript递归/" rel="bookmark">
+        <time class="entry-date published" datetime="2016-12-12T06:18:17.000Z">
+          2016-12-12
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+      <blockquote>
+<p>调用自身的函数称为递归函数</p>
+</blockquote>
+<ul>
+<li>缺点：递归占用的内存和资源比较多，同时难以实现和维护。</li>
+<li>优点：在处理DOM之类的树形结构数据时，非常适合用递归。</li>
+</ul>
+<h1 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h1><h4 id="数字-n-的阶乘通过乘以-1-2-3-…-n-进行计算"><a href="#数字-n-的阶乘通过乘以-1-2-3-…-n-进行计算" class="headerlink" title="数字 n 的阶乘通过乘以 1  2  3 *… n 进行计算"></a>数字 n 的阶乘通过乘以 1 <em> 2 </em> 3 *… n 进行计算</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> f = <span class="function"><span class="keyword">function</span> (<span class="params">x</span>) </span>&#123;  </span><br><span class="line">  <span class="keyword">if</span> (x === <span class="number">1</span>) &#123;  </span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;  </span><br><span class="line">    <span class="keyword">return</span> x * f(x - <span class="number">1</span>)</span><br><span class="line">  &#125;  </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> result = f(n)</span><br></pre></td></tr></table></figure>
+<h4 id="获取存在某个字段的节点"><a href="#获取存在某个字段的节点" class="headerlink" title="获取存在某个字段的节点"></a>获取存在某个字段的节点</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> new_array = []</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">_getChilds</span>(<span class="params">data</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">if</span>(data.ObjType == <span class="string">"某个数"</span>)&#123;</span><br><span class="line">    new_array.push(data)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span>(data.Childs &amp;&amp; data.Childs.length &gt; <span class="number">0</span>)&#123;</span><br><span class="line">    getChilds(data.Childs)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getChilds</span>(<span class="params">childData</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; childData.length; i++)&#123;</span><br><span class="line">      _getChilds(childData[i])</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 或者</span></span><br><span class="line">  <span class="comment">// childData.map(item =&gt; _getChilds(item))</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="js递归实现数组转树结构"><a href="#js递归实现数组转树结构" class="headerlink" title="js递归实现数组转树结构"></a>js递归实现数组转树结构</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> jsonArr = [</span><br><span class="line">  &#123;<span class="attr">name</span>:<span class="string">'a'</span>,<span class="attr">id</span>:<span class="number">1</span>,<span class="attr">pid</span>:<span class="number">0</span>&#125;,</span><br><span class="line">  &#123;<span class="attr">name</span>:<span class="string">'b'</span>,<span class="attr">id</span>:<span class="number">2</span>,<span class="attr">pid</span>:<span class="number">1</span>&#125;,</span><br><span class="line">  &#123;<span class="attr">name</span>:<span class="string">'c'</span>,<span class="attr">id</span>:<span class="number">3</span>,<span class="attr">pid</span>:<span class="number">1</span>&#125;,</span><br><span class="line">  &#123;<span class="attr">name</span>:<span class="string">'d'</span>,<span class="attr">id</span>:<span class="number">4</span>,<span class="attr">pid</span>:<span class="number">2</span>&#125;,</span><br><span class="line">  &#123;<span class="attr">name</span>:<span class="string">'e'</span>,<span class="attr">id</span>:<span class="number">5</span>,<span class="attr">pid</span>:<span class="number">2</span>&#125;</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params">data, pid</span>) </span>&#123; </span><br><span class="line">  <span class="keyword">let</span> result = []</span><br><span class="line">  <span class="keyword">let</span> temp</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; data.length; i++) &#123; </span><br><span class="line">    <span class="keyword">if</span> (data[i].pid == pid) &#123; </span><br><span class="line">      <span class="keyword">let</span> obj = &#123;</span><br><span class="line">        <span class="string">'name'</span>: data[i].name,</span><br><span class="line">        <span class="string">'id'</span>: data[i].id</span><br><span class="line">      &#125;</span><br><span class="line">      temp = fn(data, data[i].id)</span><br><span class="line">      <span class="keyword">if</span> (temp.length &gt; <span class="number">0</span>) &#123; </span><br><span class="line">        obj.children = temp</span><br><span class="line">      &#125; </span><br><span class="line">      result.push(obj)</span><br><span class="line">    &#125; </span><br><span class="line">  &#125; </span><br><span class="line">  <span class="keyword">return</span> result</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//调用</span></span><br><span class="line"><span class="keyword">const</span> result = fn(jsonArr,<span class="number">0</span>)</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+      
+
+      
+      
+
+      <span class="post-tags">
+        <a href="/tags/javascript/">javascript</a>
+      </span>
+      
+
+    </div>
+
+    
+    <div class="article-meta pull-right">
+      <span>
+        <i class="icon-comments"></i>
+        <span>
+          <a href="/2016/12/12/javascript递归/#comment">
+            评论</a>
+        </span>
+      </span>
+    </div>
+    
+  </div>
+</article>
+
+
+  <article>
+
+  
+  
+  <h3 class="article-title"><a href="/2016/12/12/audio-style/"><span>
+        基于react的audio组件</span></a></h3>
+  
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2016/12/12/audio-style/" rel="bookmark">
+        <time class="entry-date published" datetime="2016-12-12T03:30:32.000Z">
+          2016-12-12
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+      <blockquote>
+<p>由于mac和window的样式不一致导致~~</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 组件调用</span><br><span class="line"><span class="tag">&lt;<span class="name">Audio</span> <span class="attr">src</span>=<span class="string">&#123;src地址&#125;</span> <span class="attr">id</span>=<span class="string">&#123;srcID&#125;/</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h1 id="audio属性"><a href="#audio属性" class="headerlink" title="audio属性"></a>audio属性</h1><ul>
+<li><code>src</code> 歌曲的路径</li>
+<li><code>preload</code> 是否在页面加载后立即加载（设置autoplay后无效）</li>
+<li><code>controls</code>  显示audio自带的播放控件</li>
+<li><code>loop</code> 音频循环</li>
+<li><code>autoplay</code> 音频加载后自动播放</li>
+<li><code>currentTime</code> 音频当前播放时间</li>
+<li><code>duration</code> 音频总长度</li>
+<li><code>ended</code> 音频是否结束</li>
+<li><code>muted</code> 音频静音为true</li>
+<li><code>volume</code> 当前音频音量</li>
+<li><code>readyState</code>    音频当前的就绪状态</li>
+</ul>
+<h1 id="audio事件"><a href="#audio事件" class="headerlink" title="audio事件"></a>audio事件</h1><ul>
+<li><code>abort</code>    当音频/视频的加载已放弃时</li>
+<li><code>canplay</code>    当浏览器可以播放音频/视频时</li>
+<li><code>canplaythrough</code>    当浏览器可在不因缓冲而停顿的情况下进行播放时</li>
+<li><code>durationchange</code>    当音频/视频的时长已更改时</li>
+<li><code>emptied</code>    当目前的播放列表为空时</li>
+<li><code>ended</code>    当目前的播放列表已结束时</li>
+<li><code>error</code>    当在音频/视频加载期间发生错误时</li>
+<li><code>loadeddata</code>    当浏览器已加载音频/视频的当前帧时</li>
+<li><code>loadedmetadata</code>    当浏览器已加载音频/视频的元数据时</li>
+<li><code>loadstart</code>    当浏览器开始查找音频/视频时</li>
+<li><code>pause</code>    当音频/视频已暂停时</li>
+<li><code>play</code>    当音频/视频已开始或不再暂停时</li>
+<li><code>playing</code>    当音频/视频在已因缓冲而暂停或停止后已就绪时</li>
+<li><code>progress</code>    当浏览器正在下载音频/视频时</li>
+<li><code>ratechange</code>    当音频/视频的播放速度已更改时</li>
+<li><code>seeked</code>    当用户已移动/跳跃到音频/视频中的新位置时</li>
+<li><code>seeking</code>    当用户开始移动/跳跃到音频/视频中的新位置时</li>
+<li><code>stalled</code>    当浏览器尝试获取媒体数据，但数据不可用时</li>
+<li><code>suspend</code>    当浏览器刻意不获取媒体数据时</li>
+<li><code>timeupdate</code>    当目前的播放位置已更改时</li>
+<li><code>volumechange</code>    当音量已更改时</li>
+<li><code>waiting</code>    当视频由于需要缓冲下一帧而停止</li>
+</ul>
+<h1 id="组件结构"><a href="#组件结构" class="headerlink" title="组件结构"></a>组件结构</h1><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"> <span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">"audioBox"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">audio</span> </span></span><br><span class="line"><span class="tag">    <span class="attr">id</span>=<span class="string">&#123;</span>`<span class="attr">audio</span>$&#123;<span class="attr">id</span>&#125;`&#125;</span></span><br><span class="line"><span class="tag">    <span class="attr">src</span>=<span class="string">&#123;src&#125;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">preload</span>=<span class="string">&#123;true&#125;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">onCanPlay</span>=<span class="string">&#123;()</span> =&gt;</span> this.controlAudio('allTime')&#125;</span><br><span class="line">    onTimeUpdate=&#123;(e) =&gt; this.controlAudio('getCurrentTime')&#125;</span><br><span class="line">  &gt;</span><br><span class="line">    您的浏览器不支持 audio 标签。</span><br><span class="line">  <span class="tag">&lt;/<span class="name">audio</span>&gt;</span>  </span><br><span class="line">  <span class="tag">&lt;<span class="name">i</span> </span></span><br><span class="line"><span class="tag">    <span class="attr">className</span>=<span class="string">&#123;isPlay</span> ? '<span class="attr">pause</span>' <span class="attr">:</span> '<span class="attr">play</span>'&#125; </span></span><br><span class="line"><span class="tag">    <span class="attr">onClick</span>=<span class="string">&#123;()</span> =&gt;</span> this.controlAudio(isPlay ? 'pause' : 'play')&#125;</span><br><span class="line">  /&gt;</span><br><span class="line">  <span class="tag">&lt;<span class="name">span</span> <span class="attr">className</span>=<span class="string">"current"</span>&gt;</span></span><br><span class="line">    &#123;this.millisecondToDate(currentTime)+'/'+this.millisecondToDate(allTime)&#125;</span><br><span class="line">  <span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span> </span></span><br><span class="line"><span class="tag">    <span class="attr">type</span>=<span class="string">"range"</span> </span></span><br><span class="line"><span class="tag">    <span class="attr">className</span>=<span class="string">"time"</span> </span></span><br><span class="line"><span class="tag">    <span class="attr">step</span>=<span class="string">"0.01"</span> </span></span><br><span class="line"><span class="tag">    <span class="attr">max</span>=<span class="string">&#123;allTime&#125;</span>     </span></span><br><span class="line"><span class="tag">    <span class="attr">value</span>=<span class="string">&#123;currentTime&#125;</span>  </span></span><br><span class="line"><span class="tag">    <span class="attr">onChange</span>=<span class="string">&#123;(value)</span> =&gt;</span> this.controlAudio('changeCurrentTime',value)&#125; </span><br><span class="line">  /&gt;</span><br><span class="line">  <span class="tag">&lt;<span class="name">i</span> </span></span><br><span class="line"><span class="tag">    <span class="attr">className</span>=<span class="string">&#123;isMuted</span> ? '<span class="attr">mute</span>' <span class="attr">:</span> '<span class="attr">nomute</span>'&#125; </span></span><br><span class="line"><span class="tag">    <span class="attr">onClick</span>=<span class="string">&#123;()</span> =&gt;</span> this.controlAudio('muted')&#125;</span><br><span class="line">  /&gt;</span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span> </span></span><br><span class="line"><span class="tag">    <span class="attr">type</span>=<span class="string">"range"</span> </span></span><br><span class="line"><span class="tag">    <span class="attr">className</span>=<span class="string">"volume"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">onChange</span>=<span class="string">&#123;(value)</span> =&gt;</span> this.controlAudio('changeVolume',value)&#125; </span><br><span class="line">    value=&#123;isMuted ? 0 : volume&#125; </span><br><span class="line">  /&gt;</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h1 id="组件javascript"><a href="#组件javascript" class="headerlink" title="组件javascript"></a>组件javascript</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">constructor</span>(props) &#123;</span><br><span class="line">  <span class="keyword">super</span>(props)</span><br><span class="line">  <span class="keyword">this</span>.state = &#123;</span><br><span class="line">    isPlay: <span class="literal">false</span>,</span><br><span class="line">    isMuted: <span class="literal">false</span>,</span><br><span class="line">    volume: <span class="number">100</span>,</span><br><span class="line">    allTime: <span class="number">0</span>,</span><br><span class="line">    currentTime: <span class="number">0</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">millisecondToDate(time) &#123;</span><br><span class="line">  <span class="keyword">const</span> second = <span class="built_in">Math</span>.floor(time % <span class="number">60</span>)</span><br><span class="line">  <span class="keyword">let</span> minite = <span class="built_in">Math</span>.floor(time / <span class="number">60</span>)</span><br><span class="line">  <span class="comment">// let hour</span></span><br><span class="line">  <span class="comment">// if(minite &gt; 60) &#123;</span></span><br><span class="line">  <span class="comment">//   hour = minite / 60</span></span><br><span class="line">  <span class="comment">//   minite = minite % 60</span></span><br><span class="line">  <span class="comment">//   return `$&#123;Math.floor(hour)&#125;:$&#123;Math.floor(minite)&#125;:$&#123;Math.floor(second)&#125;`</span></span><br><span class="line">  <span class="comment">// &#125;</span></span><br><span class="line">  <span class="keyword">return</span> <span class="string">`<span class="subst">$&#123;minite&#125;</span>:<span class="subst">$&#123;second &gt;= <span class="number">10</span> ? second : <span class="string">`0<span class="subst">$&#123;second&#125;</span>`</span>&#125;</span>`</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">controlAudio(type,value) &#123;</span><br><span class="line">  <span class="keyword">const</span> &#123; id,src &#125; = <span class="keyword">this</span>.props</span><br><span class="line">  <span class="keyword">const</span> audio = <span class="built_in">document</span>.getElementById(<span class="string">`audio<span class="subst">$&#123;id&#125;</span>`</span>)</span><br><span class="line">  <span class="keyword">switch</span>(type) &#123;</span><br><span class="line">    <span class="keyword">case</span> <span class="string">'allTime'</span>:</span><br><span class="line">      <span class="keyword">this</span>.setState(&#123;</span><br><span class="line">        allTime: audio.duration</span><br><span class="line">      &#125;)</span><br><span class="line">      <span class="keyword">break</span></span><br><span class="line">    <span class="keyword">case</span> <span class="string">'play'</span>:</span><br><span class="line">      audio.play()</span><br><span class="line">      <span class="keyword">this</span>.setState(&#123;</span><br><span class="line">        isPlay: <span class="literal">true</span></span><br><span class="line">      &#125;)</span><br><span class="line">      <span class="keyword">break</span></span><br><span class="line">    <span class="keyword">case</span> <span class="string">'pause'</span>:</span><br><span class="line">      audio.pause()</span><br><span class="line">      <span class="keyword">this</span>.setState(&#123;</span><br><span class="line">        isPlay: <span class="literal">false</span></span><br><span class="line">      &#125;)</span><br><span class="line">      <span class="keyword">break</span></span><br><span class="line">    <span class="keyword">case</span> <span class="string">'muted'</span>:</span><br><span class="line">      <span class="keyword">this</span>.setState(&#123;</span><br><span class="line">        isMuted: !audio.muted</span><br><span class="line">      &#125;)</span><br><span class="line">      audio.muted = !audio.muted</span><br><span class="line">      <span class="keyword">break</span></span><br><span class="line">    <span class="keyword">case</span> <span class="string">'changeCurrentTime'</span>:</span><br><span class="line">      <span class="keyword">this</span>.setState(&#123;</span><br><span class="line">        currentTime: value</span><br><span class="line">      &#125;)</span><br><span class="line">      audio.currentTime = value</span><br><span class="line">      <span class="keyword">if</span>(value == audio.duration) &#123;</span><br><span class="line">        <span class="keyword">this</span>.setState(&#123;</span><br><span class="line">          isPlay: <span class="literal">false</span></span><br><span class="line">        &#125;)</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">break</span></span><br><span class="line">    <span class="keyword">case</span> <span class="string">'getCurrentTime'</span>:</span><br><span class="line">      <span class="keyword">this</span>.setState(&#123;</span><br><span class="line">        currentTime: audio.currentTime</span><br><span class="line">      &#125;)</span><br><span class="line">      <span class="keyword">if</span>(audio.currentTime == audio.duration) &#123;</span><br><span class="line">        <span class="keyword">this</span>.setState(&#123;</span><br><span class="line">          isPlay: <span class="literal">false</span></span><br><span class="line">        &#125;)</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">break</span></span><br><span class="line">    <span class="keyword">case</span> <span class="string">'changeVolume'</span>:</span><br><span class="line">      audio.volume = value / <span class="number">100</span></span><br><span class="line">      <span class="keyword">this</span>.setState(&#123;</span><br><span class="line">        volume: value,</span><br><span class="line">        isMuted: !value</span><br><span class="line">      &#125;)</span><br><span class="line">      <span class="keyword">break</span>  </span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+      
+
+      
+      
+
+      <span class="post-tags">
+        <a href="/tags/react/">react</a><a href="/tags/html5/">html5</a>
+      </span>
+      
+
+    </div>
+
+    
+    <div class="article-meta pull-right">
+      <span>
+        <i class="icon-comments"></i>
+        <span>
+          <a href="/2016/12/12/audio-style/#comment">
+            评论</a>
+        </span>
+      </span>
+    </div>
+    
+  </div>
+</article>
+
+
+  <article>
+
+  
+  
+  <h3 class="article-title"><a href="/2016/12/09/vue-2/"><span>
+        【译】 Vue 2.0 的变化（二）</span></a></h3>
+  
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2016/12/09/vue-2/" rel="bookmark">
+        <time class="entry-date published" datetime="2016-12-09T09:19:21.000Z">
+          2016-12-09
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+      <h3 id="v-for迭代语法变化"><a href="#v-for迭代语法变化" class="headerlink" title="v-for迭代语法变化"></a><code>v-for</code>迭代语法变化</h3><ul>
+<li>丢弃<del><code>$index</code></del>和<del><code>$key</code></del></li>
+<li>新数组语法<ul>
+<li>value in arr</li>
+<li>(value, index) in arr</li>
+</ul>
+</li>
+<li>新对象语法<ul>
+<li>value in obj</li>
+<li>(value, key) in obj </li>
+<li>(value, key, index) in obj</li>
+</ul>
+</li>
+</ul>
+<h3 id="指令接口的改变"><a href="#指令接口的改变" class="headerlink" title="指令接口的改变"></a>指令接口的改变</h3><p>大体来说，2.0版本中指令大范围的降低功能，它们仅用于低层次的直接dom操作。在多数情况下，你更应该使用组件作为主要的代码重构抽象。</p>
+<p>指令不再有实例，这意味着指令中将不存在<code>this</code>，并且<code>bind</code>, <code>update</code>和<code>unbind</code>目前将接受任何数据作为参数。</p>
+<p>请注意，绑定对象是不可变的。设置<code>binding.value</code>没有任何效果。并且在它上面添加属性不会持久，如果你真的非常需要可以在<code>el</code>配置上添加指令状态。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-example:arg.modifier</span>=<span class="string">"a.b"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// example directive</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  bind (el, binding, vnode) &#123;</span><br><span class="line">    <span class="comment">// the binding object exposes value, oldValue, expression, arg and modifiers.</span></span><br><span class="line">    binding.expression <span class="comment">// "a.b"</span></span><br><span class="line">    binding.arg <span class="comment">// "arg"</span></span><br><span class="line">    binding.modifiers <span class="comment">// &#123; modifier: true &#125;</span></span><br><span class="line">    <span class="comment">// the context Vue instance can be accessed as vnode.context.</span></span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  <span class="comment">// update has a few changes, see below</span></span><br><span class="line">  update (el, binding, vnode, oldVnode) &#123; ... &#125;,</span><br><span class="line"></span><br><span class="line">  <span class="comment">// componentUpdated is a new hook that is called AFTER the entire component</span></span><br><span class="line">  <span class="comment">// has completed the current update cycle. This means all the DOM would</span></span><br><span class="line">  <span class="comment">// be in updated state when this hook is called. Also, this hook is always</span></span><br><span class="line">  <span class="comment">// called regardless of whether this directive's value has changed or not.</span></span><br><span class="line">  componentUpdated (el, binding, vnode, oldVNode) &#123; ... &#125;,</span><br><span class="line"></span><br><span class="line">  unbind (el, binding, vnode) &#123; ... &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>如果你只关心值可以使用解构：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  bind (el, &#123; value &#125;) &#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>除此之外，<code>update</code>钩子有一些变化：</p>
+<ul>
+<li>在<code>bind</code>之后将不再自动调用</li>
+<li>当组件重新渲染时总能响应，无论被绑定的值是否发生改变。你可以通过<code>binding.value === binding.oldValue</code>比较跳过不必要的更新，但也会有情况下，你希望应用始终更新。例如，当指令绑定到对象那可能希望是变化而不是替代。</li>
+</ul>
+<p><code>elementDirective</code>, 指令参数和指令配置，例如<code>acceptStatement</code>, <code>deep</code>等等<br>均被删除。</p>
+<h3 id="过滤器用法和语法变化"><a href="#过滤器用法和语法变化" class="headerlink" title="过滤器用法和语法变化"></a>过滤器用法和语法变化</h3><p>在vue 2.0，filter有了一系列的变化：</p>
+<ul>
+<li>filter现在只能用于文本插入（双花括号标签）。在之前我们在指令中使用filter，例如<code>v-model</code>，<code>v-on</code>等等，导致使用的复杂性，并且在<code>v-for</code>上的列表过滤，它更适合迁移到计算性能的js中。</li>
+<li>vue 2.0不提供任何内置过滤器。建议使用独立的方法解决特定域的问题，例如<a href="http://momentjs.com/" target="_blank" rel="noopener">moment.js</a>用于格式化时间，<a href="http://openexchangerates.github.io/accounting.js/" target="_blank" rel="noopener">accounting.js</a>用于格式化金融货币。也欢迎你来创建自己的过滤器，并与社区分享吧！</li>
+<li><p>filter语法更改为内嵌的js函数调用，而不是采取空格分割的参数。</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#123; date | formatDate(<span class="string">'YY-MM-DD'</span>) &#125;&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="过渡组件"><a href="#过渡组件" class="headerlink" title="过渡组件"></a>过渡组件</h3><h4 id="过渡CSS的变化"><a href="#过渡CSS的变化" class="headerlink" title="过渡CSS的变化"></a>过渡CSS的变化</h4><ul>
+<li><code>v-enter</code>：在元素插入前应用，1秒后删除。（开始于进入状态）</li>
+<li><code>v-enter-active</code>：在元素插入前应用，当<code>transition</code>/<code>animation</code>结束时移除。</li>
+<li><code>v-leave</code>：当离开的<code>transition</code>触发时正确应用，一秒后删除。（开始于离开状态）</li>
+<li><code>v-leave-active</code>：当离开的<code>transition</code>触发时正确应用，当<code>transition</code>/<code>animation</code>结束时移除。</li>
+</ul>
+<p><code>v-enter-active</code>和<code>v-leave-active</code>帮助你指定不同的曲线用于进入/离开动画。在多数情况下，升级只需将当前的<code>v-leave</code>替换为<code>v-leave-active</code>。（对于css动画，使用<code>v-enter-active</code>和<code>v-leave-active</code>）</p>
+<h4 id="过渡API的变化"><a href="#过渡API的变化" class="headerlink" title="过渡API的变化"></a>过渡API的变化</h4><ul>
+<li><code>&lt;transition&gt;</code>组件</li>
+</ul>
+<p>所有单元素的过度效果通过使用<code>&lt;transition&gt;</code>这个内置组件包装目标元素或组件得到相应的效果。这是一个抽象组件，意味着它不会渲染额外的DOM元素，也不会在组件层次结构中展示。它仅仅用于过渡行为里面的包裹内容。</p>
+<p>最简单的用法示例:</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">transition</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">v-if</span>=<span class="string">"ok"</span>&gt;</span>toggled content<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">transition</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>该组件定义了一些属性和事件，直接映射到旧版的过渡定义选项。</p>
+<h5 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h5><ul>
+<li>name: String<ul>
+<li>用于自动生成过渡CSS类名。例如，<code>name: &#39;fade&#39;</code>将会自动生成 <code>.fade-enter</code>、<code>.fade-enter-active</code>等等。默认是<code>v</code>。</li>
+</ul>
+</li>
+<li>appear: Boolean<ul>
+<li>是否在最初的渲染应用的过渡。（默认值<code>false</code>）</li>
+</ul>
+</li>
+<li>css: Boolean<ul>
+<li>是否应用css过度类，默认值<code>true</code>。如果设置为<code>false</code>，只能通过触发组件事件注册的JavaScript钩子。</li>
+</ul>
+</li>
+<li>type: String<ul>
+<li>指定等待确定过渡结束时转变的事件类型。可用的值是<code>transition</code>和<code>animation</code>。默认情况下，它会自动检测一个持续时间较长的类型。</li>
+</ul>
+</li>
+<li>mode: String<ul>
+<li>控制离开/进入转换的时序。可用的模式是<code>in-out</code>和<code>out-in</code>，默认为同步。</li>
+</ul>
+</li>
+<li>enterClass, leaveClass, enterActiveClass, leaveActiveClass, appearClass, appearActiveClass: String<ul>
+<li>单独配置的过渡css类</li>
+</ul>
+</li>
+</ul>
+<p>过渡到动态组件的示例：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">transition</span> <span class="attr">name</span>=<span class="string">"fade"</span> <span class="attr">mode</span>=<span class="string">"out-in"</span> <span class="attr">appear</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">component</span> <span class="attr">:is</span>=<span class="string">"view"</span>&gt;</span><span class="tag">&lt;/<span class="name">component</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">transition</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h5 id="事件"><a href="#事件" class="headerlink" title="事件"></a>事件</h5><p>对应的在1.x API中可用的js钩子：</p>
+<ul>
+<li>before-enter</li>
+<li>enter</li>
+<li>after-enter</li>
+<li>before-leave</li>
+<li>leave</li>
+<li>after-leave</li>
+<li>before-appear</li>
+<li>appear</li>
+<li>after-appear</li>
+</ul>
+<p>例子：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">transition</span> @<span class="attr">after-enter</span>=<span class="string">"transitionComplete"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">v-show</span>=<span class="string">"ok"</span>&gt;</span>toggled content<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">transition</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>当进入的过渡效果完成时，组件的<code>transitionComplete</code>方法将会在过渡DOM元素作为参数被调用。</p>
+<p>一些注意事项：</p>
+<ul>
+<li><code>leave-cancelled</code>在插入删除中不可用。一旦离开的过渡效果开始，将不能被取消。但是仍然可用于<code>v-show</code>。</li>
+<li>和1.0类似，对于<code>enter</code>和<code>leave</code>钩子，在<code>cb</code>作为第二个参数的存在下表示使用者想要过渡结束时间的明确控制。</li>
+</ul>
+<h5 id="lt-transition-group-gt-组件"><a href="#lt-transition-group-gt-组件" class="headerlink" title="&lt;transition-group&gt;组件"></a><code>&lt;transition-group&gt;</code>组件</h5><p>所有的多元素过渡效果通过使用<code>&lt;transition-group&gt;</code>内置组件包装元素应用。它暴露了和<code>&lt;transition&gt;</code>一样的属性和事件。不同之处在于：</p>
+<ol>
+<li>不同于<code>&lt;transition&gt;</code>,<code>&lt;transition-group&gt;</code>渲染一个真实的DOM元素。默认是渲染一个<code>&lt;span&gt;</code>标签，并且你可以配置哪些元素应该通过标记的属性呈现。你也可以使用<code>is</code>特性，例如<code>&lt;ul is=&quot;transition-group&quot;&gt;</code>。</li>
+<li><code>&lt;transition-group&gt;</code>不支持<code>mode</code>属性。</li>
+<li><code>&lt;transition-group&gt;</code>下的子组件必须有唯一的key。</li>
+</ol>
+<p>例子：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">transition-group</span> <span class="attr">tag</span>=<span class="string">"ul"</span> <span class="attr">name</span>=<span class="string">"slide"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span> <span class="attr">v-for</span>=<span class="string">"item in items"</span> <span class="attr">:key</span>=<span class="string">"item.id"</span>&gt;</span></span><br><span class="line">    &#123;&#123; item.text &#125;&#125;</span><br><span class="line">  <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">transition-group</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="创建可重用的转换"><a href="#创建可重用的转换" class="headerlink" title="创建可重用的转换"></a>创建可重用的转换</h4><p>现在<code>transitions</code>能够通过组件应用，它们补在被视为一种单独类型，因此全局的<code>Vue.transition()</code>方法和<code>transition</code>配置都被丢弃。你可以通过组件的属性和方法配置内嵌的过渡。但是，我们现在怎么创建可重复使用的过渡效果，尤其是那些自定义的js钩子？答案是创建自己的过渡组件（它们特别适合作为功能组件）：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">Vue.component(<span class="string">'fade'</span>, &#123;</span><br><span class="line">  functional: <span class="literal">true</span>,</span><br><span class="line">  render (createElement, &#123; children &#125;) &#123;</span><br><span class="line">    <span class="keyword">const</span> data = &#123;</span><br><span class="line">      props: &#123;</span><br><span class="line">        name: <span class="string">'fade'</span></span><br><span class="line">      &#125;,</span><br><span class="line">      on: &#123;</span><br><span class="line">        beforeEnter () &#123; <span class="comment">/* ... */</span> &#125;, <span class="comment">// &lt;-- Note hooks use camelCase in JavaScript (same as 1.x)</span></span><br><span class="line">        afterEnter () &#123; <span class="comment">/* ... */</span> &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> createElement(<span class="string">'transition'</span>, data, children)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>你可以这么使用：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">fade</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">v-if</span>=<span class="string">"ok"</span>&gt;</span>toggled content<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">fade</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="v-model的变化"><a href="#v-model的变化" class="headerlink" title="v-model的变化"></a><code>v-model</code>的变化</h3><ul>
+<li><p><code>lazy</code>和<code>number</code>参数现在是修饰符。</p>
+  <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">v-model.lazy</span>=<span class="string">"text"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>新的修饰符：<code>.trim</code>-修整输入，顾名思义</p>
+</li>
+<li><code>debounce</code>参数被丢弃</li>
+<li><p><code>v-model</code>不再关心初始值。它始终将data的数据作为资源。这意味着数据将是以1呈现而不是2.</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">data: &#123;</span><br><span class="line">    val: <span class="number">1</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+  <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">v-model</span>=<span class="string">"val"</span> <span class="attr">value</span>=<span class="string">"2"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>当使用<code>v-for</code>时，<code>v-model</code>不再生效。</p>
+  <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">v-for</span>=<span class="string">"str in strings"</span> <span class="attr">v-model</span>=<span class="string">"str"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="Refs"><a href="#Refs" class="headerlink" title="Refs"></a>Refs</h3><ul>
+<li><p><code>v-ref</code>现在不再是一个指令，而是一个类似于<code>key</code>的属性</p>
+  <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- before --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">comp</span> <span class="attr">v-ref:foo</span>&gt;</span><span class="tag">&lt;/<span class="name">comp</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- after --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">comp</span> <span class="attr">ref</span>=<span class="string">"foo"</span>&gt;</span><span class="tag">&lt;/<span class="name">comp</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>依然支持动态绑定：</p>
+<pre><code><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">comp</span> <span class="attr">:ref</span>=<span class="string">"dynamicRef"</span>&gt;</span><span class="tag">&lt;/<span class="name">comp</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</code></pre><ul>
+<li><code>vm.$els</code>和<code>vm.$refs</code>合并了。在正常元素上使用是DOM元素，在组件上使用是组件实例。</li>
+</ul>
+<h3 id="杂项"><a href="#杂项" class="headerlink" title="杂项"></a>杂项</h3><ul>
+<li><p><code>track-by</code>已经被<code>key</code>替代。对于绑定属性它遵守相同的规则，没有<code>v-bind:</code>或者<code>:</code>字头，它被视为普通字符串。大多数情况下需要动态绑定，如下：</p>
+  <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 1.x --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-for</span>=<span class="string">"item in items"</span> <span class="attr">track-by</span>=<span class="string">"id"</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 2.0 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-for</span>=<span class="string">"item in items"</span> <span class="attr">:key</span>=<span class="string">"item.id"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>内插值属性已被弃用。</p>
+  <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 1.x --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"&#123;&#123; id &#125;&#125;"</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 2.0 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">:id</span>=<span class="string">"id"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>属性绑定行为变化：当绑定属性时，只有<code>null</code>、<code>undefine</code>和<code>false</code>被认为是<code>false</code>。这意味着0和空字符串依旧呈现出原来的样子。对于枚举属性，<code>:draggable=&quot;&#39;&#39;&quot;</code>将被渲染为<code>draggable=&quot;true&quot;</code>。<br>另外，对于枚举属性，除了上述<code>false</code>的值，<code>false</code>字符串也会被渲染为<code>attr=&quot;false&quot;</code>。</p>
+</li>
+<li>当使用一个自定义组件，<code>v-on</code>只听自定义事件<code>$emitted</code>挂载在组件上。（不再监听DOM事件）</li>
+<li><code>v-else</code>不再适用于<code>v-show</code>，请使用其他的否定表达式。</li>
+<li>单次绑定只能使用<code>v-once</code>。</li>
+<li><code>Array.prototype.$set</code>/<code>$remove</code>被丢弃（使用<code>Vue.set</code>或者<code>Array.prototype.splice</code>）。</li>
+<li><code>:style</code>不再支持<code>!import</code>。</li>
+<li><code>root</code>实例不能使用<code>props</code>（请使用<code>propsData</code>）</li>
+<li>在<code>Vue.extend</code>中<code>el</code>配置项不能被使用,它现在只能被用作一个实例创建选项。</li>
+<li>在vue的实例中不能使用<code>Vue.set</code>和<code>Vue.delete</code><h3 id="升级小提示"><a href="#升级小提示" class="headerlink" title="升级小提示"></a>升级小提示</h3><h4 id="如何处理丢弃的-dispatch和-broadcast？"><a href="#如何处理丢弃的-dispatch和-broadcast？" class="headerlink" title="如何处理丢弃的$dispatch和$broadcast？"></a>如何处理丢弃的<code>$dispatch</code>和<code>$broadcast</code>？</h4>我们弃用<code>$dispatch</code>和<code>$broadcast</code>的原因在于依赖组件树结构的事件流，当组件树变得很大时很难推理（简单地说：它不能在大型应用很好地扩展，我们不希望以后给你设置痛点）。<code>$dispatch</code>和<code>$broadcast</code>不能解决同级组件之间的通信。从而，你可以使用和node中的<code>EventEmitter</code>类似的模式：一个允许组件通信的集中事件枢纽，无论他们在组件树的任何地方。因为vue的实例实现了事件发射接口，你可以使用空的vue实例达到目的：<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> bus = <span class="keyword">new</span> Vue()</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// in component A's method</span></span><br><span class="line">bus.$emit(<span class="string">'id-selected'</span>, <span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// in component B's created hook</span></span><br><span class="line">bus.$on(<span class="string">'id-selected'</span>, <span class="keyword">this</span>.someMethod)</span><br></pre></td></tr></table></figure>
+<p>并且不要忘记使用<code>$off</code>解绑事件：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// in component B's destroyed hook</span></span><br><span class="line">bus.$off(<span class="string">'id-selected'</span>, <span class="keyword">this</span>.someMethod)</span><br></pre></td></tr></table></figure></p>
+<p>这种模式在简单的场景中可以作为<code>$dispatch</code>和<code>$broadcast</code>的替代。但是在复杂的场景中，建议使用<code>vuex</code>建立一个专门的状态管理层。</p>
+<h4 id="如何处理数组中filter的弃用？"><a href="#如何处理数组中filter的弃用？" class="headerlink" title="如何处理数组中filter的弃用？"></a>如何处理数组中filter的弃用？</h4><p>对于使用<code>v-for</code>进行列表过滤-过滤器常见用法之一-现在建议使用<code>computed</code>属性返回原始数组的一个副本（查阅<a href="https://github.com/vuejs/vue/blob/next/examples/grid/grid.js#L21-L41" target="_blank" rel="noopener">更新数据例子</a>）。好处在于你不再受到<code>filter</code>语法的限制，现在它只是普通的javascript，并且你可以正常访问过滤结果，因为它只是一个计算的属性。</p>
+<h4 id="如何处理在v-model中debounce的丢弃？"><a href="#如何处理在v-model中debounce的丢弃？" class="headerlink" title="如何处理在v-model中debounce的丢弃？"></a>如何处理在<code>v-model</code>中<code>debounce</code>的丢弃？</h4><p><code>debounce</code>用于我们多久执行异步请求和其他操作，在<code>v-model</code>中使用十分容易，但这样也延迟了状态更新带来了限制。<br>当在设计一个搜索功能时这个限制变得很明显，看看这个<a href="https://jsbin.com/zefawu/3/edit?html,output" target="_blank" rel="noopener">例子</a>，使用<code>debounce</code>属性，在搜索之前没法检测脏数据，因为我们不能访问输入的实时状态。</p>
+<blockquote>
+<p>未完待续….</p>
+</blockquote>
+<hr>
+<blockquote>
+<p>翻译自<a href="https://github.com/vuejs/vue/issues/2873" target="_blank" rel="noopener">2.0 Changes</a></p>
+</blockquote>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+      
+
+      
+      
+
+      <span class="post-tags">
+        <a href="/tags/vue/">vue</a>
+      </span>
+      
+
+    </div>
+
+    
+    <div class="article-meta pull-right">
+      <span>
+        <i class="icon-comments"></i>
+        <span>
+          <a href="/2016/12/09/vue-2/#comment">
+            评论</a>
+        </span>
+      </span>
+    </div>
+    
+  </div>
+</article>
+
+
+  <article>
+
+  
+  
+  <h3 class="article-title"><a href="/2016/10/09/user-weinre/"><span>
+        weinre调试手机端</span></a></h3>
+  
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2016/10/09/user-weinre/" rel="bookmark">
+        <time class="entry-date published" datetime="2016-10-09T04:04:51.000Z">
+          2016-10-09
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+      <blockquote>
+<p>安装前提：安装node</p>
+</blockquote>
+<hr>
+<h3 id="全局安装"><a href="#全局安装" class="headerlink" title="全局安装"></a>全局安装</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm -g install weinre</span><br></pre></td></tr></table></figure>
+<h3 id="启动weinre"><a href="#启动weinre" class="headerlink" title="启动weinre"></a>启动weinre</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">weinre --boundHost -all- --httpPort 8081</span><br></pre></td></tr></table></figure>
+<h3 id="访问页面获取js"><a href="#访问页面获取js" class="headerlink" title="访问页面获取js"></a>访问页面获取js</h3><p>在浏览器中访问生成的页面获取js，地址为<code>ip</code>加端口号，如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://[ip]:8081</span><br></pre></td></tr></table></figure>
+<h3 id="粘贴js"><a href="#粘贴js" class="headerlink" title="粘贴js"></a>粘贴js</h3><p>在上个步骤中的页面找到如下类型的代码，将该js引入项目：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=&quot;text/javascript&quot;&gt;http://[ip]:8081/target/target-script-min.js#&#123;app标识&#125;&lt;/script&gt;</span><br></pre></td></tr></table></figure></p>
+<h3 id="启动webapp"><a href="#启动webapp" class="headerlink" title="启动webapp"></a>启动webapp</h3><h3 id="电脑端访问"><a href="#电脑端访问" class="headerlink" title="电脑端访问"></a>电脑端访问</h3><p>新开标签页输入如下地址并在手机上刷新app，将会看到数据结构。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://[ip]:8081/client/#&#123;app标识&#125;</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+      
+
+      
+      
+
+      <span class="post-tags">
+        <a href="/tags/weinre/">weinre</a>
+      </span>
+      
+
+    </div>
+
+    
+    <div class="article-meta pull-right">
+      <span>
+        <i class="icon-comments"></i>
+        <span>
+          <a href="/2016/10/09/user-weinre/#comment">
+            评论</a>
+        </span>
+      </span>
+    </div>
+    
+  </div>
+</article>
+
+
+  <article>
+
+  
+  
+  <h3 class="article-title"><a href="/2016/10/09/install-mysql-for-mac/"><span>
+        如何在mac上使用homebrew安装mysql</span></a></h3>
+  
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2016/10/09/install-mysql-for-mac/" rel="bookmark">
+        <time class="entry-date published" datetime="2016-10-09T03:43:49.000Z">
+          2016-10-09
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+      <ul>
+<li><p>安装命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install mysql</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>安装完成之后，本地命令行输入mysql命令，发现无此命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">command not found</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>首先，检查是否是安装了</p>
+<p>重新执行一遍 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install mysql</span><br></pre></td></tr></table></figure>
+<p>命令行提示：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Warning: mysql-5.7.10 already installed, it&apos;s just not linked</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>然后网上查找解决方法，最后解决方法是执行：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew link --overwrite mysql</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>但是执行，却报错</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Linking /usr/local/Cellar/mysql/5.7.10... </span><br><span class="line">Error: Could not symlink share/man/man8/mysqld.8</span><br><span class="line">/usr/local/share/man/man8 is not writable.</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>又在网上各种查找解决方法，最后本地实验以下语句执行成功</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo chown -R &apos;yin&apos; /usr/local</span><br><span class="line">注意： yin是你电脑的用户名</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>解决了问题后，重新执行：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew link --overwrite mysql</span><br></pre></td></tr></table></figure>
+<p>提示：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Linking /usr/local/Cellar/mysql/5.7.10... 92 symlinks created</span><br></pre></td></tr></table></figure>
+<p>心想着，这下算是成功了吧。重新执行:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -u root -p</span><br></pre></td></tr></table></figure>
+<p>但是又报错：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ERROR 2002 (HY000): Can&apos;t connect to local MySQL server through socket &apos;/tmp/mysql.sock&apos; (2)</span><br></pre></td></tr></table></figure>
+<p>依次执行：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">unset TMPDIR</span><br><span class="line">bash mysql_install_db --verbose --user=root --basedir=&quot;$(brew --prefix mysql)&quot;--datadir=/usr/local/var/mysql --tmpdir=/tmp</span><br></pre></td></tr></table></figure>
+<p>接下来启动mysql：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash mysql.server start</span><br></pre></td></tr></table></figure>
+<p>到这里，mysql的安装就结束了~</p>
+</li>
+</ul>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+      
+
+      
+      
+
+      <span class="post-tags">
+        <a href="/tags/mysql/">mysql</a>
+      </span>
+      
+
+    </div>
+
+    
+    <div class="article-meta pull-right">
+      <span>
+        <i class="icon-comments"></i>
+        <span>
+          <a href="/2016/10/09/install-mysql-for-mac/#comment">
+            评论</a>
+        </span>
+      </span>
+    </div>
+    
+  </div>
+</article>
+
+
+  <article>
+
+  
+  
+  <h3 class="article-title"><a href="/2016/09/30/typescript/"><span>
+        typescript</span></a></h3>
+  
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2016/09/30/typescript/" rel="bookmark">
+        <time class="entry-date published" datetime="2016-09-30T05:30:47.000Z">
+          2016-09-30
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+      <h2 id="基础类型"><a href="#基础类型" class="headerlink" title="基础类型"></a>基础类型</h2><p>为了让程序有价值，我们需要能够处理最简单的数据单元：数字，字符串，结构体，布尔值等。</p>
+<h3 id="boolean"><a href="#boolean" class="headerlink" title="boolean"></a>boolean</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> isDone: boolean = <span class="literal">false</span>;</span><br></pre></td></tr></table></figure>
+<h3 id="number"><a href="#number" class="headerlink" title="number"></a>number</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> decLiteral: number = <span class="number">6</span>;</span><br><span class="line"><span class="keyword">let</span> hexLiteral: number = <span class="number">0xf00d</span>;</span><br><span class="line"><span class="keyword">let</span> binaryLiteral: number = <span class="number">0b1010</span>;</span><br><span class="line"><span class="keyword">let</span> octalLiteral: number = <span class="number">0o744</span>;</span><br></pre></td></tr></table></figure>
+<h3 id="string"><a href="#string" class="headerlink" title="string"></a>string</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> name: string = <span class="string">"bob"</span>;</span><br><span class="line">name = <span class="string">"smith"</span>;</span><br></pre></td></tr></table></figure>
+<p>当然也可以用模板字符串：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> name: string = <span class="string">`Gene`</span>;</span><br><span class="line"><span class="keyword">let</span> age: number = <span class="number">37</span>;</span><br><span class="line"><span class="keyword">let</span> sentence: string = <span class="string">`Hello, my name is <span class="subst">$&#123; name &#125;</span>.I'll be <span class="subst">$&#123; age + <span class="number">1</span> &#125;</span> years old next month.`</span>;</span><br></pre></td></tr></table></figure></p>
+<h3 id="array"><a href="#array" class="headerlink" title="array"></a>array</h3><ul>
+<li><p>在元素类型后面接上 []，表示由此类型元素组成的一个数组：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> list: number[] = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>使用数组泛型，Array&lt;元素类型&gt;：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> list: <span class="built_in">Array</span>&lt;number&gt; = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="元组-Tuple"><a href="#元组-Tuple" class="headerlink" title="元组 Tuple"></a>元组 Tuple</h3><p>元组类型允许表示一个<strong>已知</strong>元素<strong>数量</strong>和<strong>类型</strong>的数组，各元素的类型不必相同。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Declare a tuple type</span></span><br><span class="line"><span class="keyword">let</span> x: [string, number];</span><br><span class="line"><span class="comment">// Initialize it</span></span><br><span class="line">x = [<span class="string">'hello'</span>, <span class="number">10</span>]; <span class="comment">// OK</span></span><br><span class="line"><span class="comment">// Initialize it incorrectly</span></span><br><span class="line">x = [<span class="number">10</span>, <span class="string">'hello'</span>]; <span class="comment">// Error</span></span><br></pre></td></tr></table></figure></p>
+<p>打印出来的结果：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(x[<span class="number">0</span>].substr(<span class="number">1</span>)); <span class="comment">// OK</span></span><br><span class="line"><span class="built_in">console</span>.log(x[<span class="number">1</span>].substr(<span class="number">1</span>)); <span class="comment">// Error, 'number' does not have 'substr'</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="枚举"><a href="#枚举" class="headerlink" title="枚举"></a>枚举</h3><p>像C#等其它语言一样，使用枚举类型可以为一组数值赋予友好的名字。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">enum Color &#123;Red, Green, Blue&#125;;</span><br><span class="line"><span class="keyword">let</span> c: Color = Color.Green;</span><br></pre></td></tr></table></figure></p>
+<p>默认情况下，从0开始为元素编号。 你也可以手动的指定成员的数值。 例如，我们将上面的例子改成从 1开始编号：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">enum Color &#123;Red = <span class="number">1</span>, Green, Blue&#125;;</span><br><span class="line"><span class="keyword">let</span> c: Color = Color.Green;</span><br></pre></td></tr></table></figure></p>
+<p>或者全部手动赋值：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">enum Color &#123;Red = <span class="number">1</span>, Green = <span class="number">2</span>, Blue = <span class="number">4</span>&#125;;</span><br><span class="line"><span class="keyword">let</span> c: Color = Color.Green;</span><br></pre></td></tr></table></figure></p>
+<p>枚举类型提供的一个便利是你可以由枚举的值得到它的名字。 例如，我们知道数值为2，但是不确定它映射到Color里的哪个名字，我们可以查找相应的名字：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">enum Color &#123;Red = <span class="number">1</span>, Green, Blue&#125;;</span><br><span class="line"><span class="keyword">let</span> colorName: string = Color[<span class="number">2</span>];</span><br><span class="line"></span><br><span class="line">alert(colorName);</span><br></pre></td></tr></table></figure></p>
+<h3 id="任意值"><a href="#任意值" class="headerlink" title="任意值"></a>任意值</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> notSure: any = <span class="number">4</span>;</span><br><span class="line">notSure = <span class="string">"maybe a string instead"</span>;</span><br><span class="line">notSure = <span class="literal">false</span>; <span class="comment">// okay, definitely a boolean</span></span><br></pre></td></tr></table></figure>
+<h3 id="空值"><a href="#空值" class="headerlink" title="空值"></a>空值</h3><p>某种程度上来说，void类型像是与any类型相反，它表示没有任何类型。 当一个函数没有返回值时，你通常会见到其返回值类型是 void：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">warnUser</span>(<span class="params"></span>): <span class="title">void</span> </span>&#123;</span><br><span class="line">    alert(<span class="string">"This is my warning message"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="Null-和-Undefined"><a href="#Null-和-Undefined" class="headerlink" title="Null 和 Undefined"></a>Null 和 Undefined</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Not much else we can assign to these variables!</span></span><br><span class="line"><span class="keyword">let</span> u: <span class="literal">undefined</span> = <span class="literal">undefined</span>;</span><br><span class="line"><span class="keyword">let</span> n: <span class="literal">null</span> = <span class="literal">null</span>;</span><br></pre></td></tr></table></figure>
+<h3 id="类型断言"><a href="#类型断言" class="headerlink" title="类型断言"></a>类型断言</h3><p>类型断言好比其它语言里的类型转换，但是不进行特殊的数据检查和解构。 它没有运行时的影响，只是在编译阶段起作用。</p>
+<ul>
+<li><p>“尖括号”语法：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> someValue: any = <span class="string">"this is a string"</span>;</span><br><span class="line"><span class="keyword">let</span> strLength: number = (<span class="xml"><span class="tag">&lt;<span class="name">string</span>&gt;</span>someValue).length;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>as语法</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> someValue: any = <span class="string">"this is a string"</span>;</span><br><span class="line"><span class="keyword">let</span> strLength: number = (someValue <span class="keyword">as</span> string).length;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="变量声明"><a href="#变量声明" class="headerlink" title="变量声明"></a>变量声明</h2><h3 id="var声明"><a href="#var声明" class="headerlink" title="var声明"></a>var声明</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> a = <span class="number">10</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> <span class="title">g</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> b = a + <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">return</span> b;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> g = f();</span><br><span class="line">g(); <span class="comment">// returns 11;</span></span><br></pre></td></tr></table></figure>
+<h3 id="let声明"><a href="#let声明" class="headerlink" title="let声明"></a>let声明</h3><h3 id="const声明"><a href="#const声明" class="headerlink" title="const声明"></a>const声明</h3><p>const拥有与 let相同的作用域规则，但是不能对它们重新赋值。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> numLivesForCat = <span class="number">9</span>;</span><br><span class="line"><span class="keyword">const</span> kitty = &#123;</span><br><span class="line">    name: <span class="string">"Aurora"</span>,</span><br><span class="line">    numLives: numLivesForCat,</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Error</span></span><br><span class="line">kitty = &#123;</span><br><span class="line">    name: <span class="string">"Danielle"</span>,</span><br><span class="line">    numLives: numLivesForCat</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// all "okay"</span></span><br><span class="line">kitty.name = <span class="string">"Rory"</span>;</span><br><span class="line">kitty.name = <span class="string">"Kitty"</span>;</span><br><span class="line">kitty.name = <span class="string">"Cat"</span>;</span><br><span class="line">kitty.numLives--;</span><br></pre></td></tr></table></figure></p>
+<h3 id="let-vs-const"><a href="#let-vs-const" class="headerlink" title="let vs. const"></a>let vs. const</h3><p>使用最小特权原则，所有变量除了你计划去修改的都应该使用const。 基本原则就是如果一个变量不需要对它写入，那么其它使用这些代码的人也不能够写入它们，并且要思考为什么会需要对这些变量重新赋值。 使用 const也可以让我们更容易的推测数据的流动。</p>
+<h2 id="接口"><a href="#接口" class="headerlink" title="接口"></a>接口</h2><h3 id="接口初探"><a href="#接口初探" class="headerlink" title="接口初探"></a>接口初探</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">printLabel</span>(<span class="params">labelledObj: &#123; label: string &#125;</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(labelledObj.label);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> myObj = &#123; <span class="attr">size</span>: <span class="number">10</span>, <span class="attr">label</span>: <span class="string">"Size 10 Object"</span> &#125;;</span><br><span class="line">printLabel(myObj);</span><br></pre></td></tr></table></figure>
+<p>类型检查器会查看printLabel的调用。 printLabel有一个参数，并要求这个对象参数有一个名为label类型为string的属性。<br>下面我们重写上面的例子，这次使用接口来描述：必须包含一个label属性且类型为string：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 定义接口</span></span><br><span class="line">interface LabelledValue &#123;</span><br><span class="line">  label: string;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">printLabel</span>(<span class="params">labelledObj: LabelledValue</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(labelledObj.label);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> myObj = &#123;<span class="attr">size</span>: <span class="number">10</span>, <span class="attr">label</span>: <span class="string">"Size 10 Object"</span>&#125;;</span><br><span class="line">printLabel(myObj);</span><br></pre></td></tr></table></figure></p>
+<p>LabelledValue接口就好比一个名字，用来描述上面例子里的要求。 它代表了有一个 label属性且类型为string的对象。 </p>
+<h3 id="可选属性"><a href="#可选属性" class="headerlink" title="可选属性"></a>可选属性</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">interface SquareConfig &#123;</span><br><span class="line">  color?: string;</span><br><span class="line">  width?: number;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">createSquare</span>(<span class="params">config: SquareConfig</span>): </span>&#123;color: string; area: number&#125; &#123;</span><br><span class="line">  <span class="keyword">let</span> newSquare = &#123;<span class="attr">color</span>: <span class="string">"white"</span>, <span class="attr">area</span>: <span class="number">100</span>&#125;;</span><br><span class="line">  <span class="keyword">if</span> (config.color) &#123;</span><br><span class="line">    newSquare.color = config.color;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span> (config.width) &#123;</span><br><span class="line">    newSquare.area = config.width * config.width;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> newSquare;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> mySquare = createSquare(&#123;<span class="attr">color</span>: <span class="string">"black"</span>&#125;);</span><br></pre></td></tr></table></figure>
+<p>带有可选属性的接口与普通的接口定义差不多，只是在可选属性名字定义的后面加一个?符号。</p>
+<h3 id="只读属性"><a href="#只读属性" class="headerlink" title="只读属性"></a>只读属性</h3><p>一些对象属性只能在对象刚刚创建的时候修改其值。 你可以在属性名前用 readonly来指定只读属性:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">interface Point &#123;</span><br><span class="line">    readonly x: number;</span><br><span class="line">    readonly y: number;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>你可以通过赋值一个对象字面量来构造一个Point。 赋值后， x和y再也不能被改变了。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> p1: Point = &#123; <span class="attr">x</span>: <span class="number">10</span>, <span class="attr">y</span>: <span class="number">20</span> &#125;;</span><br><span class="line">p1.x = <span class="number">5</span>; <span class="comment">// error!</span></span><br></pre></td></tr></table></figure></p>
+<p>TypeScript具有ReadonlyArray<t>类型，它与Array<t>相似，只是把怕有可变方法去掉了，因此可以确保数组创建后再也不能被修改：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> a: number[] = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>];</span><br><span class="line"><span class="keyword">let</span> ro: ReadonlyArray&lt;number&gt; = a;</span><br><span class="line">ro[<span class="number">0</span>] = <span class="number">12</span>; <span class="comment">// error!</span></span><br><span class="line">ro.push(<span class="number">5</span>); <span class="comment">// error!</span></span><br><span class="line">ro.length = <span class="number">100</span>; <span class="comment">// error!</span></span><br><span class="line">a = ro; <span class="comment">// error!</span></span><br></pre></td></tr></table></figure></t></t></p>
+<p>就算使用赋值也不可以，除非使用类型断言重写：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a = ro <span class="keyword">as</span> number[];</span><br></pre></td></tr></table></figure></p>
+<h4 id="readonly-vs-const"><a href="#readonly-vs-const" class="headerlink" title="readonly vs const"></a>readonly vs const</h4><p>最简单判断该用readonly还是const的方法是看要把它做为变量使用还是做为一个属性。 做为变量使用的话用 const，若做为属性则使用readonly。</p>
+<h3 id="函数类型"><a href="#函数类型" class="headerlink" title="函数类型"></a>函数类型</h3><h2 id="类"><a href="#类" class="headerlink" title="类"></a>类</h2>
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+      
+
+      
+      
+
+      <span class="post-tags">
+        <a href="/tags/javascript/">javascript</a><a href="/tags/typescript/">typescript</a>
+      </span>
+      
+
+    </div>
+
+    
+    <div class="article-meta pull-right">
+      <span>
+        <i class="icon-comments"></i>
+        <span>
+          <a href="/2016/09/30/typescript/#comment">
+            评论</a>
+        </span>
+      </span>
+    </div>
+    
+  </div>
+</article>
+
+
+  <article>
+
+  
+  
+  <h3 class="article-title"><a href="/2016/09/29/redux-act/"><span>
+        Action构建工具（redux-act）</span></a></h3>
+  
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2016/09/29/redux-act/" rel="bookmark">
+        <time class="entry-date published" datetime="2016-09-29T02:58:40.000Z">
+          2016-09-29
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+      <p>github路径：<a href="https://github.com/pauldijou/redux-act" target="_blank" rel="noopener">https://github.com/pauldijou/redux-act</a></p>
+<p>这是一个自用的工具用于创建<code>actions</code>和<code>reducers</code>用于<code>redux</code>。主要的目标是使用<code>action</code>本身作为<code>reducer</code>的引用而不是变量。</p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><pre><code>npm install redux-act --save
+</code></pre><h2 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h2><p>这里有一个名叫<code>createAction</code>的函数，它用于创建一个<code>action</code>，和名叫<code>createActionCreator</code>的方法有点接近。如果你不能确定是否是<code>action</code>或<code>action</code>创造者，那么记住当<code>action</code>创造者是方法时，<code>action</code>是对象。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Import functions</span></span><br><span class="line"><span class="keyword">import</span> &#123; createStore &#125; <span class="keyword">from</span> <span class="string">'redux'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; createAction, createReducer &#125; <span class="keyword">from</span> <span class="string">'redux-act'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Create an action creator (description is optional)</span></span><br><span class="line"><span class="keyword">const</span> add = createAction(<span class="string">'add some stuff'</span>);</span><br><span class="line"><span class="keyword">const</span> increment = createAction(<span class="string">'increment the state'</span>);</span><br><span class="line"><span class="keyword">const</span> decrement = createAction(<span class="string">'decrement the state'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// Create a reducer</span></span><br><span class="line"><span class="comment">// (ES6 syntax, see Advanced usage below for an alternative for ES5)</span></span><br><span class="line"><span class="keyword">const</span> counterReducer = createReducer(&#123;</span><br><span class="line">  [increment]: <span class="function">(<span class="params">state</span>) =&gt;</span> state + <span class="number">1</span>,</span><br><span class="line">  [decrement]: <span class="function">(<span class="params">state</span>) =&gt;</span> state - <span class="number">1</span>,</span><br><span class="line">  [add]: <span class="function">(<span class="params">state, payload</span>) =&gt;</span> state + payload,</span><br><span class="line">&#125;, <span class="number">0</span>); <span class="comment">// &lt;-- This is the default state</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Create the store</span></span><br><span class="line"><span class="keyword">const</span> counterStore = createStore(counterReducer);</span><br><span class="line"></span><br><span class="line"><span class="comment">// Dispatch actions</span></span><br><span class="line">counterStore.dispatch(increment()); <span class="comment">// counterStore.getState() === 1</span></span><br><span class="line">counterStore.dispatch(increment()); <span class="comment">// counterStore.getState() === 2</span></span><br><span class="line">counterStore.dispatch(decrement()); <span class="comment">// counterStore.getState() === 1</span></span><br><span class="line">counterStore.dispatch(add(<span class="number">5</span>)); <span class="comment">// counterStore.getState() === 6</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="高级用法"><a href="#高级用法" class="headerlink" title="高级用法"></a>高级用法</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; createStore &#125; <span class="keyword">from</span> <span class="string">'redux'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; createAction, createReducer &#125; <span class="keyword">from</span> <span class="string">'redux-act'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// You can create several action creators at once</span></span><br><span class="line"><span class="comment">// (but that's probably not the best way to do it)</span></span><br><span class="line"><span class="keyword">const</span> [increment, decrement] = [<span class="string">'inc'</span>, <span class="string">'dec'</span>].map(createAction);</span><br><span class="line"></span><br><span class="line"><span class="comment">// When creating action creators, the description is optional</span></span><br><span class="line"><span class="comment">// it will only be used for devtools and logging stuff.</span></span><br><span class="line"><span class="comment">// It's better to put something but feel free to leave it empty if you want to.</span></span><br><span class="line"><span class="keyword">const</span> replace = createAction();</span><br><span class="line"></span><br><span class="line"><span class="comment">// By default, the payload of the action is the first argument</span></span><br><span class="line"><span class="comment">// when you call the action. If you need to support several arguments,</span></span><br><span class="line"><span class="comment">// you can specify a function on how to merge all arguments into</span></span><br><span class="line"><span class="comment">// an unique payload.</span></span><br><span class="line"><span class="keyword">let</span> append = createAction(<span class="string">'optional description'</span>, (...args) =&gt; args.join(<span class="string">''</span>));</span><br><span class="line"></span><br><span class="line"><span class="comment">// There is another pattern to create reducers</span></span><br><span class="line"><span class="comment">// and it works fine with ES5! (maybe even ES3 \o/)</span></span><br><span class="line"><span class="keyword">const</span> stringReducer = createReducer(<span class="function"><span class="keyword">function</span> (<span class="params">on</span>) </span>&#123;</span><br><span class="line">  on(replace, (state, payload) =&gt; payload);</span><br><span class="line">  on(append, (state, payload) =&gt; state += payload);</span><br><span class="line">  <span class="comment">// Warning! If you use the same action twice,</span></span><br><span class="line">  <span class="comment">// the second one will override the previous one.</span></span><br><span class="line">&#125;, <span class="string">'missing a lette'</span>); <span class="comment">// &lt;-- Default state</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Rather than binding the action creators each time you want to use them,</span></span><br><span class="line"><span class="comment">// you can do it once and for all as soon as you have the targeted store</span></span><br><span class="line"><span class="comment">// assignTo: mutates the action creator itself</span></span><br><span class="line"><span class="comment">// bindTo: returns a new action creator assigned to the store</span></span><br><span class="line"><span class="keyword">const</span> stringStore = createStore(stringReducer);</span><br><span class="line">replace.assignTo(stringStore);</span><br><span class="line">append = append.bindTo(stringStore);</span><br><span class="line"></span><br><span class="line"><span class="comment">// Now, when calling actions, they will be automatically dispatched</span></span><br><span class="line">append(<span class="string">'r'</span>); <span class="comment">// stringStore.getState() === 'missing a letter'</span></span><br><span class="line">replace(<span class="string">'a'</span>); <span class="comment">// stringStore.getState() === 'a'</span></span><br><span class="line">append(<span class="string">'b'</span>, <span class="string">'c'</span>, <span class="string">'d'</span>); <span class="comment">// stringStore.getState() === 'abcd'</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// If you really need serializable actions, using string constant rather</span></span><br><span class="line"><span class="comment">// than runtime generated id, just use a uppercase description (with eventually some underscores)</span></span><br><span class="line"><span class="comment">// and it will be use as the id of the action</span></span><br><span class="line"><span class="keyword">const</span> doSomething = createAction(<span class="string">'STRING_CONSTANT'</span>);</span><br><span class="line">doSomething(<span class="number">1</span>); <span class="comment">// &#123; type: 'STRING_CONSTANT', payload: 1&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Little bonus, if you need to support metadata around your action,</span></span><br><span class="line"><span class="comment">// like needed data but not really part of the payload, you add a second function</span></span><br><span class="line"><span class="keyword">const</span> metaAction = createAction(<span class="string">'desc'</span>, arg =&gt; arg, arg =&gt; (&#123;<span class="attr">meta</span>: <span class="string">'so meta!'</span>&#125;));</span><br><span class="line"></span><br><span class="line"><span class="comment">// Metadata will be the third argument of the reduce function</span></span><br><span class="line">createReducer(&#123;</span><br><span class="line">  [metaAction]: <span class="function">(<span class="params">state, payload, meta</span>) =&gt;</span> payload</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h2 id="API说明"><a href="#API说明" class="headerlink" title="API说明"></a>API说明</h2><h3 id="createAction-description-payloadReducer-metaReducer"><a href="#createAction-description-payloadReducer-metaReducer" class="headerlink" title="createAction([description], [payloadReducer], [metaReducer])"></a>createAction([description], [payloadReducer], [metaReducer])</h3><h4 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h4><ul>
+<li>description（字符串，可选） 当显示的时候用于注册action名称和在开发者工具中使用。如果这个参数只是大写，它可以在不用生成任何id的情况下被用作<code>action</code>类型。你可以使用这个特性在服务端和客户端中有序整理<code>action</code>。</li>
+<li>payloadReducer（方法，可选） 转变多个参数作为唯一的<code>payload</code>。</li>
+<li>metaReducer（方法，可选） 转变多个参数作为唯一的元数据对象。<h4 id="用法-1"><a href="#用法-1" class="headerlink" title="用法"></a>用法</h4>返回一个新的<code>action</code>构造器。如果你指定了<code>description</code>,它将被开发者工具使用。默认情况下，<code>createAction</code>返回一个方法，并且触发它的时候第一个参数被作为<code>payload</code>。如果你想支持多个参数，你需要指定一个<code>payloadReducer</code>来把所有的参数合并到<code>payload</code>中。<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Super simple action</span></span><br><span class="line"><span class="keyword">const</span> simpleAction = createAction();</span><br><span class="line"><span class="comment">// Better to add a description</span></span><br><span class="line"><span class="keyword">const</span> betterAction = createAction(<span class="string">'This is better!'</span>);</span><br><span class="line"><span class="comment">// Support multiple arguments by merging them</span></span><br><span class="line"><span class="keyword">const</span> multipleAction = createAction(<span class="function">(<span class="params">text, checked</span>) =&gt;</span> (&#123;text, checked&#125;))</span><br><span class="line"><span class="comment">// Again, better to add a description</span></span><br><span class="line"><span class="keyword">const</span> bestAction = createAction(<span class="string">'Best. Action. Ever.'</span>, (text, checked) =&gt; (&#123;text, checked&#125;))</span><br><span class="line"><span class="comment">// Serializable action (the description will be used as the unique identifier)</span></span><br><span class="line"><span class="keyword">const</span> serializableAction = createAction(<span class="string">'SERIALIZABLE_ACTION'</span>);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="action-creator"><a href="#action-creator" class="headerlink" title="action creator"></a>action creator</h3><p><code>action</code>创造器基本上是一个携带参数并且返回<code>action</code>的方法，它具有以下格式：</p>
+<ul>
+<li>type：通过参数<code>description</code>生成id</li>
+<li>payload：当调用<code>action creator</code>时进行数据传递，传递的是第一个参数除非在创建<code>action</code>时指定了<code>payloadReducer</code>.</li>
+<li>meta：如果你提供了<code>metaReducer</code>，它将创建一个<code>metadata</code>对象分配给这个<code>key</code>，否则它是<code>undefined</code><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> addTodo = createAction(<span class="string">'Add todo'</span>);</span><br><span class="line">addTodo(<span class="string">'content'</span>);</span><br><span class="line"><span class="comment">// return &#123; type: '[1] Add todo', payload: 'content' &#125;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> editTodo = createAction(<span class="string">'Edit todo'</span>, (id, content) =&gt; (&#123;id, content&#125;));</span><br><span class="line">editTodo(<span class="number">42</span>, <span class="string">'the answer'</span>);</span><br><span class="line"><span class="comment">// return &#123; type: '[2] Edit todo', payload: &#123;id: 42, content: 'the answer'&#125; &#125;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> serializeTodo = createAction(<span class="string">'SERIALIZE_TODO'</span>);</span><br><span class="line">serializeTodo(<span class="number">1</span>);</span><br><span class="line"><span class="comment">// return &#123; type: 'SERIALIZE_TODO', payload: 1 &#125;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><code>action creator</code>有以下方法：</p>
+<h5 id="getType"><a href="#getType" class="headerlink" title="getType()"></a>getType()</h5><p>返回生成的类型并被用于这个<code>action creator</code>的所有<code>action</code>。</p>
+<h5 id="assignTo-store-dispatch"><a href="#assignTo-store-dispatch" class="headerlink" title="assignTo(store | dispatch)"></a>assignTo(store | dispatch)</h5><p>记住你要触发这些<code>actions</code>，如果你有一个或多个<code>stores</code>，可以通过<code>assignTo</code>分配这些<code>action</code>。这会改变<code>action creator</code>本身，你可以传递一个<code>store</code>或者<code>dispatch</code>方法或者数组。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> action = createAction();</span><br><span class="line"><span class="keyword">let</span> action2 = createAction();</span><br><span class="line"><span class="keyword">const</span> reducer = createReducer(&#123;</span><br><span class="line">  [action]: <span class="function">(<span class="params">state</span>) =&gt;</span> state * <span class="number">2</span>,</span><br><span class="line">  [action2]: <span class="function">(<span class="params">state</span>) =&gt;</span> state / <span class="number">2</span>,</span><br><span class="line">&#125;);</span><br><span class="line"><span class="keyword">const</span> store = createStore(reducer, <span class="number">1</span>);</span><br><span class="line"><span class="keyword">const</span> store2 = createStore(reducer, <span class="number">-1</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// Automatically dispatch the action to the store when called</span></span><br><span class="line">action.assignTo(store);</span><br><span class="line">action(); <span class="comment">// store.getState() === 2</span></span><br><span class="line">action(); <span class="comment">// store.getState() === 4</span></span><br><span class="line">action(); <span class="comment">// store.getState() === 8</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// You can assign the action to several stores using an array</span></span><br><span class="line">action.assignTo([store, store2]);</span><br><span class="line">action();</span><br><span class="line"><span class="comment">// store.getState() === 16</span></span><br><span class="line"><span class="comment">// store2.getState() === -2</span></span><br></pre></td></tr></table></figure></p>
+<h5 id="bindTo-store-dispatch"><a href="#bindTo-store-dispatch" class="headerlink" title="bindTo(store | dispatch)"></a>bindTo(store | dispatch)</h5><p>如果你需要不可变，你可以使用该方法。它将生成一个新的<code>action creator</code>并且能够自动触发<code>action</code>。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// If you need more immutability, you can bind them, creating a new action creator</span></span><br><span class="line"><span class="keyword">const</span> boundAction = action2.bindTo(store);</span><br><span class="line">action2(); <span class="comment">// Not doing anything since not assigned nor bound</span></span><br><span class="line"><span class="comment">// store.getState() === 16</span></span><br><span class="line"><span class="comment">// store2.getState() === -2</span></span><br><span class="line">boundAction(); <span class="comment">// store.getState() === 8</span></span><br></pre></td></tr></table></figure></p>
+<h5 id="assigned-bound-dispatched"><a href="#assigned-bound-dispatched" class="headerlink" title="assigned() / bound() / dispatched()"></a>assigned() / bound() / dispatched()</h5><p>测试<code>action creator</code>的当前状态。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> action = createAction();</span><br><span class="line">action.assigned(); <span class="comment">// false, not assigned</span></span><br><span class="line">action.bound(); <span class="comment">// false, not bound</span></span><br><span class="line">action.dispatched(); <span class="comment">// false, test if either assigned or bound</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> boundAction = action.bindTo(store);</span><br><span class="line">boundAction.assigned(); <span class="comment">// false</span></span><br><span class="line">boundAction.bound(); <span class="comment">// true</span></span><br><span class="line">boundAction.dispatched(); <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line">action.assignTo(store);</span><br><span class="line">action.assigned(); <span class="comment">// true</span></span><br><span class="line">action.bound(); <span class="comment">// false</span></span><br><span class="line">action.dispatched(); <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+<h5 id="raw-…args"><a href="#raw-…args" class="headerlink" title="raw(…args)"></a>raw(…args)</h5><p>当<code>action creator</code>无论是分配还是绑定，将不再返回<code>action</code>对象而是触发它。有些情况下，你需要没有触发的<code>action</code>。为了达到这个目的，你可以使用<code>raw</code>方法返回纯粹的<code>action</code>。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> action = createAction().bindTo(store);</span><br><span class="line">action(<span class="number">1</span>); <span class="comment">// store has been updated</span></span><br><span class="line">action.raw(<span class="number">1</span>); <span class="comment">// return the action, store hasn't been updated</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="createReducer-handlers-defaultState"><a href="#createReducer-handlers-defaultState" class="headerlink" title="createReducer(handlers, [defaultState])"></a>createReducer(handlers, [defaultState])</h3><h4 id="参数-1"><a href="#参数-1" class="headerlink" title="参数"></a>参数</h4><ul>
+<li>handlers（对象或方法）：如果是方法则携带两个属性，一是注册<code>action</code>，二是取消注册，如下。</li>
+<li>defaultState（任意，可选）：<code>reducer</code>的初始状态，如果要在<code>combineReducers</code>使用千万不能为空。<h4 id="用法-2"><a href="#用法-2" class="headerlink" title="用法"></a>用法</h4>返回一个新的<code>reducer</code>。和<code>Array.prototype.reduce</code>的语法类似，你可以指定如何累加，比如第一个参数并累加，或者默认的状态。默认的状态是可选的，因为创建时可以在<code>store</code>中获取，但你需要注意<code>reducer</code>中始终存在默认状态，尤其是你要结合<code>combineReducers</code>使用时。<br>有两种创建<code>reducer</code>的方式，一种是通过对象集合，所有方法必须遵循<code>previousState, payload) =&gt; newState</code>。另一种是使用工厂模式，话不多说，看下面的例子。<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> increment = createAction();</span><br><span class="line"><span class="keyword">const</span> add = createAction();</span><br><span class="line"></span><br><span class="line"><span class="comment">// First pattern</span></span><br><span class="line"><span class="keyword">const</span> reducerMap = createReducer(&#123;</span><br><span class="line">  [increment]: <span class="function">(<span class="params">state</span>) =&gt;</span> state + <span class="number">1</span>,</span><br><span class="line">  [add]: <span class="function">(<span class="params">state, payload</span>) =&gt;</span> state + payload</span><br><span class="line">&#125;, <span class="number">0</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// Second pattern</span></span><br><span class="line"><span class="keyword">const</span> reducerFactory = createReducer(<span class="function"><span class="keyword">function</span> (<span class="params">on, off</span>) </span>&#123;</span><br><span class="line">  on(increment, (state) =&gt; state + <span class="number">1</span>);</span><br><span class="line">  on(add, (state, payload) =&gt; state + payload);</span><br><span class="line">  <span class="comment">// 'off' remove support for a specific action</span></span><br><span class="line">  <span class="comment">// See 'Adding and removing actions' section</span></span><br><span class="line">&#125;, <span class="number">0</span>);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="reducer"><a href="#reducer" class="headerlink" title="reducer"></a>reducer</h3><p><code>reducer</code>就是一个方法。它当前的状态和行为并返回新的状态，有以下方法：</p>
+<h4 id="options-object"><a href="#options-object" class="headerlink" title="options(object)"></a>options(object)</h4><p>因为<code>action</code>是带有<code>type</code>、<code>payload</code>甚至还有<code>metadata</code>的对象。所有的<code>reduce</code>方法默认将<code>payload</code>作为它们的第二个参数，<code>metadata</code>作为第三个参数，而不是所有的<code>action</code>。因为所有其他属性由lib处理不用关心。如果你要使用全部的<code>action</code>，你可以改变<code>reducer</code>的行为。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> add = createAction();</span><br><span class="line"><span class="keyword">const</span> sub = createAction();</span><br><span class="line"><span class="keyword">const</span> reducer = createReducer(&#123;</span><br><span class="line">  [add]: <span class="function">(<span class="params">state, action</span>) =&gt;</span> state + action.payload,</span><br><span class="line">  [sub]: <span class="function">(<span class="params">state, action</span>) =&gt;</span> state - action.payload</span><br><span class="line">&#125;, <span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">reducer.options(&#123;</span><br><span class="line">  payload: <span class="literal">false</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<h4 id="has-action-creator"><a href="#has-action-creator" class="headerlink" title="has(action creator)"></a>has(action creator)</h4><p>检测<code>reducer</code>是否含有<code>reduce</code>方法对于特定的<code>action</code>或者字符串类型。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> add = createAction();</span><br><span class="line"><span class="keyword">const</span> sub = createAction();</span><br><span class="line"><span class="keyword">const</span> reducer = createReducer(&#123;</span><br><span class="line">  [add]: <span class="function">(<span class="params">state, action</span>) =&gt;</span> state + action.payload</span><br><span class="line">&#125;, <span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">reducer.has(add); <span class="comment">// true</span></span><br><span class="line">reducer.has(sub); <span class="comment">// false</span></span><br><span class="line">reducer.has(add.getType()); <span class="comment">// true</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="on-action-creator-reduce-function-off-action-creator"><a href="#on-action-creator-reduce-function-off-action-creator" class="headerlink" title="on(action creator, reduce function) / off(action creator)"></a>on(action creator, reduce function) / off(action creator)</h4><p>可以动态添加或删除action。</p>
+<h3 id="assignAll-actionCreators-stores"><a href="#assignAll-actionCreators-stores" class="headerlink" title="assignAll(actionCreators, stores)"></a>assignAll(actionCreators, stores)</h3><h4 id="参数-2"><a href="#参数-2" class="headerlink" title="参数"></a>参数</h4><ul>
+<li>actionCreators（对象或数组）</li>
+<li>stores（对象或数组）<h4 id="用法-3"><a href="#用法-3" class="headerlink" title="用法"></a>用法</h4>普遍的方式是导出一系列的action作为对象，如果你需要将所有绑定到store，这里有一个超级小帮手。也可以使用action数组。<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// actions.js</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> add = createAction(<span class="string">'Add'</span>);</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> sub = createAction(<span class="string">'Sub'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// reducer.js</span></span><br><span class="line"><span class="keyword">import</span> * <span class="keyword">as</span> actions <span class="keyword">from</span> <span class="string">'./actions'</span>;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> createReducer(&#123;</span><br><span class="line">  [actions.add]: <span class="function">(<span class="params">state, payload</span>) =&gt;</span> state + payload,</span><br><span class="line">  [actions.sub]: <span class="function">(<span class="params">state, payload</span>) =&gt;</span> state - payload</span><br><span class="line">&#125;, <span class="number">0</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// store.js</span></span><br><span class="line"><span class="keyword">import</span> * <span class="keyword">as</span> actions <span class="keyword">from</span> <span class="string">'./actions'</span>;</span><br><span class="line"><span class="keyword">import</span> reducer <span class="keyword">from</span> <span class="string">'./reducer'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> store = createStore(reducer);</span><br><span class="line">assignAll(actions, store);</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> store;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="bindAll-actionCreators-stores"><a href="#bindAll-actionCreators-stores" class="headerlink" title="bindAll(actionCreators, stores)"></a>bindAll(actionCreators, stores)</h3><h4 id="参数-3"><a href="#参数-3" class="headerlink" title="参数"></a>参数</h4><ul>
+<li>actionCreators（对象或数组）</li>
+<li>stores（对象或数组）<h4 id="用法-4"><a href="#用法-4" class="headerlink" title="用法"></a>用法</h4>类似于<code>assignAll</code>,可以立刻绑定<code>action</code>。<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; bindAll &#125; <span class="keyword">from</span> <span class="string">'redux-act'</span>;</span><br><span class="line"><span class="keyword">import</span> store <span class="keyword">from</span> <span class="string">'./store'</span>;</span><br><span class="line"><span class="keyword">import</span> * <span class="keyword">as</span> actions <span class="keyword">from</span> <span class="string">'./actions'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> bindAll(actions, store);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="disbatch-store-dispatch-actions"><a href="#disbatch-store-dispatch-actions" class="headerlink" title="disbatch(store | dispatch, [actions])"></a>disbatch(store | dispatch, [actions])</h3><h4 id="参数-4"><a href="#参数-4" class="headerlink" title="参数"></a>参数</h4><ul>
+<li>store | dispatch （对象，store或diaptch方法），在<code>store</code>上添加<code>disbatch</code>方法，类似于<code>diaptch</code>，但这个是触发多个<code>action</code>。</li>
+<li>actions（数组，可选） 需要触发的一些<code>action</code><h4 id="用法-5"><a href="#用法-5" class="headerlink" title="用法"></a>用法</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// All samples will display both syntax with and without an array</span></span><br><span class="line"><span class="comment">// They are exactly the same</span></span><br><span class="line"><span class="keyword">import</span> &#123; disbatch &#125; <span class="keyword">from</span> <span class="string">'redux-act'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; inc, dec &#125; <span class="keyword">from</span> <span class="string">'./actions'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Add 'disbatch' directly to the store</span></span><br><span class="line">disbatch(store);</span><br><span class="line">store.disbatch(inc(), dec(), inc());</span><br><span class="line">store.disbatch([inc(), dec(), inc()]);</span><br><span class="line"></span><br><span class="line"><span class="comment">// Disbatch immediately from store</span></span><br><span class="line">disbatch(store, inc(), dec(), inc());</span><br><span class="line">disbatch(store, [inc(), dec(), inc()]);</span><br><span class="line"></span><br><span class="line"><span class="comment">// Disbatch immediately from dispatch</span></span><br><span class="line">disbatch(store.dispatch, inc(), dec(), inc());</span><br><span class="line">disbatch(store.dispatch, [inc(), dec(), inc()]);</span><br></pre></td></tr></table></figure></li>
+</ul>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+      
+
+      
+      
+
+      <span class="post-tags">
+        <a href="/tags/react/">react</a><a href="/tags/redux/">redux</a>
+      </span>
+      
+
+    </div>
+
+    
+    <div class="article-meta pull-right">
+      <span>
+        <i class="icon-comments"></i>
+        <span>
+          <a href="/2016/09/29/redux-act/#comment">
+            评论</a>
+        </span>
+      </span>
+    </div>
+    
+  </div>
+</article>
+
+
+  <article>
+
+  
+  
+  <h3 class="article-title"><a href="/2016/09/28/webpack-list-plugin/"><span>
+        webpack插件列表详解</span></a></h3>
+  
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2016/09/28/webpack-list-plugin/" rel="bookmark">
+        <time class="entry-date published" datetime="2016-09-28T06:39:17.000Z">
+          2016-09-28
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+      <h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><h3 id="NormalModuleReplacementPlugin"><a href="#NormalModuleReplacementPlugin" class="headerlink" title="NormalModuleReplacementPlugin"></a>NormalModuleReplacementPlugin</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> webpack.NormalModuleReplacementPlugin(resourceRegExp, newResource)</span><br></pre></td></tr></table></figure>
+<p>Replace resources that matches resourceRegExp with newResource. If newResource is relative, it is resolve relative to the previous resource. If newResource is a function, it is expected to overwrite the ‘request’ attribute of the supplied object.</p>
+<h3 id="ContextReplacementPlugin"><a href="#ContextReplacementPlugin" class="headerlink" title="ContextReplacementPlugin"></a>ContextReplacementPlugin</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> webpack.ContextReplacementPlugin(</span><br><span class="line">                resourceRegExp, </span><br><span class="line">                [newContentResource],</span><br><span class="line">                [newContentRecursive],</span><br><span class="line">                [newContentRegExp])</span><br></pre></td></tr></table></figure>
+<h3 id="IgnorePlugin"><a href="#IgnorePlugin" class="headerlink" title="IgnorePlugin"></a>IgnorePlugin</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> webpack.IgnorePlugin(requestRegExp, [contextRegExp])</span><br></pre></td></tr></table></figure>
+<p>不要为匹配的正则生成模块。</p>
+<ul>
+<li>requestRegExp 正则用于测试需求</li>
+<li>contextRegExp(可选) 正则用于测试上下文（目录）<h3 id="PrefetchPlugin"><a href="#PrefetchPlugin" class="headerlink" title="PrefetchPlugin"></a>PrefetchPlugin</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> webpack.PrefetchPlugin([context], request)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>A request for a normal module, which is resolved and built even before a require to it occurs. This can boost performance. Try to profile the build first to determine clever prefetching points.</p>
+<ul>
+<li>context 目录的绝对路径</li>
+<li>request 普通模块的请求字符串</li>
+</ul>
+<h3 id="ResolverPlugin"><a href="#ResolverPlugin" class="headerlink" title="ResolverPlugin"></a>ResolverPlugin</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> webpack.ResolverPlugin(plugins, [types])</span><br></pre></td></tr></table></figure>
+<p>应用一个插件（或插件数组），作用于一个或多个解析器。</p>
+<ul>
+<li>plugins 应用于解析器的插件或插件数组</li>
+<li>types 解析器类型或解析器类型数组（默认：[“normal”]，解析器类型：normal, context, loader）<br>例子：<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> webpack.ResolverPlugin([</span><br><span class="line">    <span class="keyword">new</span> webpack.ResolverPlugin.DirectoryDescriptionFilePlugin(<span class="string">"bower.json"</span>, [<span class="string">"main"</span>])</span><br><span class="line">], [<span class="string">"normal"</span>, <span class="string">"loader"</span>])</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="ResolverPlugin-FileAppendPlugin"><a href="#ResolverPlugin-FileAppendPlugin" class="headerlink" title="ResolverPlugin.FileAppendPlugin"></a>ResolverPlugin.FileAppendPlugin</h3><p>This plugin will append a path to the module directory to find a match, which can be useful if you have a module which has an incorrect “main” entry in its package.json/bower.json etc (e.g. “main”: “Gruntfile.js”). You can use this plugin as a special case to load the correct file for this module. Example:<br>举例：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> webpack.ResolverPlugin([</span><br><span class="line">  <span class="keyword">new</span> webpack.ResolverPlugin.FileAppendPlugin([<span class="string">'/dist/compiled-moduled.js'</span>])</span><br><span class="line">])</span><br></pre></td></tr></table></figure></p>
+<h3 id="EnvironmentPlugin"><a href="#EnvironmentPlugin" class="headerlink" title="EnvironmentPlugin"></a>EnvironmentPlugin</h3><p>这个插件允许你通过process.env参考环境变量。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> webpack.EnvironmentPlugin([</span><br><span class="line">  <span class="string">"NODE_ENV"</span></span><br><span class="line">])</span><br></pre></td></tr></table></figure></p>
+<p>代码中使用：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> env = process.env.NODE_ENV;</span><br></pre></td></tr></table></figure></p>
+<h2 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h2><h3 id="BannerPlugin"><a href="#BannerPlugin" class="headerlink" title="BannerPlugin"></a>BannerPlugin</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> webpack.BannerPlugin(banner, options)</span><br></pre></td></tr></table></figure>
+<p>在每个生成的块中添加banner</p>
+<ul>
+<li>banner 字符串，包裹在comment中</li>
+<li>options.raw 如果为true，banner不会包裹在comment中</li>
+<li>options.entryOnly 如果为true，banner只会添加在入口文件</li>
+</ul>
+<h2 id="优化"><a href="#优化" class="headerlink" title="优化"></a>优化</h2><h3 id="DedupePlugin"><a href="#DedupePlugin" class="headerlink" title="DedupePlugin"></a>DedupePlugin</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> webpack.optimize.DedupePlugin()</span><br></pre></td></tr></table></figure>
+<p>找出相同的依赖并在输出时删除重复依赖。这些文件来源于入口模块，但是可以有效地降低文件大小。<br>这不会改变模块的语义，不要指望能解决多个模块实例的问题，在删除后不会变成一个实例。<br>注意：不要再检测模式下使用。只能用于生产环境构建。</p>
+<h3 id="LimitChunkCountPlugin"><a href="#LimitChunkCountPlugin" class="headerlink" title="LimitChunkCountPlugin"></a>LimitChunkCountPlugin</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> webpack.optimize.LimitChunkCountPlugin(options)</span><br></pre></td></tr></table></figure>
+<p>限制模块的数量。</p>
+<ul>
+<li><p>options.maxChunks (number) max number of chunks</p>
+</li>
+<li><p>options.chunkOverhead (number) an additional overhead for each chunk in bytes (default 10000, to reflect request delay)</p>
+</li>
+<li><p>options.entryChunkMultiplicator (number) a multiplicator for entry chunks (default 10, entry chunks are merged 10 times less likely)</p>
+<h3 id="MinChunkSizePlugin"><a href="#MinChunkSizePlugin" class="headerlink" title="MinChunkSizePlugin"></a>MinChunkSizePlugin</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> webpack.optimize.MinChunkSizePlugin(options)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>options.minChunkSize  (number) </p>
+<h3 id="OccurrenceOrderPlugin"><a href="#OccurrenceOrderPlugin" class="headerlink" title="OccurrenceOrderPlugin"></a>OccurrenceOrderPlugin</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> webpack.optimize.OccurrenceOrderPlugin(preferEntry)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="UglifyJsPlugin"><a href="#UglifyJsPlugin" class="headerlink" title="UglifyJsPlugin"></a>UglifyJsPlugin</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> webpack.optimize.UglifyJsPlugin([options])</span><br></pre></td></tr></table></figure>
+<p>例子：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> webpack.optimize.UglifyJsPlugin(&#123;</span><br><span class="line">    compress: &#123;</span><br><span class="line">        warnings: <span class="literal">false</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>UglifyJS配置项：</p>
+<ul>
+<li>compress (boolean|object) 压缩的配置项，默认启用。使用<code>compress: false</code>禁用压缩。</li>
+<li>mangle (boolean|object) 变量名称改编的配置项，默认启用。禁用方式如上。</li>
+<li>mangle.props (boolean|object):<h3 id="ngAnnotatePlugin"><a href="#ngAnnotatePlugin" class="headerlink" title="ngAnnotatePlugin"></a>ngAnnotatePlugin</h3><h3 id="CommonsChunkPlugin"><a href="#CommonsChunkPlugin" class="headerlink" title="CommonsChunkPlugin"></a>CommonsChunkPlugin</h3><h3 id="DllPlugin"><a href="#DllPlugin" class="headerlink" title="DllPlugin"></a>DllPlugin</h3><h3 id="AppCachePlugin"><a href="#AppCachePlugin" class="headerlink" title="AppCachePlugin"></a>AppCachePlugin</h3><h3 id="OfflinePlugin"><a href="#OfflinePlugin" class="headerlink" title="OfflinePlugin"></a>OfflinePlugin</h3><h3 id="ImageminPlugin"><a href="#ImageminPlugin" class="headerlink" title="ImageminPlugin"></a>ImageminPlugin</h3><h2 id="模块风格"><a href="#模块风格" class="headerlink" title="模块风格"></a>模块风格</h2><h3 id="LabeledModulesPlugin"><a href="#LabeledModulesPlugin" class="headerlink" title="LabeledModulesPlugin"></a>LabeledModulesPlugin</h3><h3 id="ComponentPlugin"><a href="#ComponentPlugin" class="headerlink" title="ComponentPlugin"></a>ComponentPlugin</h3><h3 id="AngularPlugin"><a href="#AngularPlugin" class="headerlink" title="AngularPlugin"></a>AngularPlugin</h3></li>
+</ul>
+<h2 id="依赖注入"><a href="#依赖注入" class="headerlink" title="依赖注入"></a>依赖注入</h2><h3 id="DefinePlugin"><a href="#DefinePlugin" class="headerlink" title="DefinePlugin"></a>DefinePlugin</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> webpack.DefinePlugin(definitions)</span><br></pre></td></tr></table></figure>
+<p>这个插件允许你在编译的时候创建全局的可配置的常量。对于在开发版本和发布版本中允许不同的行为是非常有用的。例如，你可以用一个全局的常量确定记录是否发生，或许你的执行记录是在开发版本而不是生成版本。<br>例如：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> webpack.DefinePlugin(&#123;</span><br><span class="line">    PRODUCTION: <span class="built_in">JSON</span>.stringify(<span class="literal">true</span>),</span><br><span class="line">    VERSION: <span class="built_in">JSON</span>.stringify(<span class="string">"5fa3b9"</span>),</span><br><span class="line">    BROWSER_SUPPORTS_HTML5: <span class="literal">true</span>,</span><br><span class="line">    TWO: <span class="string">"1+1"</span>,</span><br><span class="line">    <span class="string">"typeof window"</span>: <span class="built_in">JSON</span>.stringify(<span class="string">"object"</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="string">"Running App version "</span> + VERSION);</span><br><span class="line"><span class="keyword">if</span>(!BROWSER_SUPPORTS_HTML5) <span class="built_in">require</span>(<span class="string">"html5shiv"</span>);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>如果该值是一个字符串，将被用作代码片段</li>
+<li>如果该值不是字符串，那么会被字符串化（包括方法）<br>这些值将会被内联到代码：<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (!PRODUCTION)</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'Debug info'</span>)</span><br><span class="line"><span class="keyword">if</span> (PRODUCTION)</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'Production log'</span>)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>通过webpack编译后没有缩小的结果：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (!<span class="literal">true</span>)</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'Debug info'</span>)</span><br><span class="line"><span class="keyword">if</span> (<span class="literal">true</span>)</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'Production log'</span>)</span><br></pre></td></tr></table></figure></p>
+<p>最后缩小后的结果：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="string">'Production log'</span>)</span><br></pre></td></tr></table></figure></p>
+<h3 id="ProvidePlugin"><a href="#ProvidePlugin" class="headerlink" title="ProvidePlugin"></a>ProvidePlugin</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> webpack.ProvidePlugin(definitions)</span><br></pre></td></tr></table></figure>
+<p>自动加载模块。当关键字在模块中使用时将会被加载。<br>例子：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> webpack.ProvidePlugin(&#123;</span><br><span class="line">    $: <span class="string">"jquery"</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// in a module</span></span><br><span class="line">$(<span class="string">"#item"</span>) <span class="comment">// &lt;= just works</span></span><br><span class="line"><span class="comment">// $ is automatically set to the exports of module "jquery"</span></span><br></pre></td></tr></table></figure>
+<h3 id="RewirePlugin"><a href="#RewirePlugin" class="headerlink" title="RewirePlugin"></a>RewirePlugin</h3><h3 id="NgRequirePlugin"><a href="#NgRequirePlugin" class="headerlink" title="NgRequirePlugin"></a>NgRequirePlugin</h3><h2 id="本土化"><a href="#本土化" class="headerlink" title="本土化"></a>本土化</h2><h3 id="I18nPlugin"><a href="#I18nPlugin" class="headerlink" title="I18nPlugin"></a>I18nPlugin</h3><h2 id="调试"><a href="#调试" class="headerlink" title="调试"></a>调试</h2><h3 id="SourceMapDevToolPlugin"><a href="#SourceMapDevToolPlugin" class="headerlink" title="SourceMapDevToolPlugin"></a>SourceMapDevToolPlugin</h3><h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><h3 id="HotModuleReplacementPlugin"><a href="#HotModuleReplacementPlugin" class="headerlink" title="HotModuleReplacementPlugin"></a>HotModuleReplacementPlugin</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> webpack.HotModuleReplacementPlugin()</span><br></pre></td></tr></table></figure>
+<p>启用热模块更换。</p>
+<h3 id="ExtendedAPIPlugin"><a href="#ExtendedAPIPlugin" class="headerlink" title="ExtendedAPIPlugin"></a>ExtendedAPIPlugin</h3><h3 id="NoErrorsPlugin"><a href="#NoErrorsPlugin" class="headerlink" title="NoErrorsPlugin"></a>NoErrorsPlugin</h3><h3 id="ProgressPlugin"><a href="#ProgressPlugin" class="headerlink" title="ProgressPlugin"></a>ProgressPlugin</h3><h3 id="WatchIgnorePlugin"><a href="#WatchIgnorePlugin" class="headerlink" title="WatchIgnorePlugin"></a>WatchIgnorePlugin</h3><h3 id="HtmlWebpackPlugin"><a href="#HtmlWebpackPlugin" class="headerlink" title="HtmlWebpackPlugin"></a>HtmlWebpackPlugin</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">HtmlWebpackPlugin = <span class="built_in">require</span>(<span class="string">'html-webpack-plugin'</span>);</span><br><span class="line"><span class="keyword">new</span> HtmlWebpackPlugin(&#123; <span class="attr">title</span>: <span class="string">'Webpack App'</span> &#125;)</span><br></pre></td></tr></table></figure>
+<h3 id="S3Plugin"><a href="#S3Plugin" class="headerlink" title="S3Plugin"></a>S3Plugin</h3><h3 id="BellOnBundlerErrorPlugin"><a href="#BellOnBundlerErrorPlugin" class="headerlink" title="BellOnBundlerErrorPlugin"></a>BellOnBundlerErrorPlugin</h3><h3 id="WebpackShellPlugin"><a href="#WebpackShellPlugin" class="headerlink" title="WebpackShellPlugin"></a>WebpackShellPlugin</h3><h3 id="WebpackAngularResourcePlugin"><a href="#WebpackAngularResourcePlugin" class="headerlink" title="WebpackAngularResourcePlugin"></a>WebpackAngularResourcePlugin</h3><h3 id="WebpackBrowserPlugin"><a href="#WebpackBrowserPlugin" class="headerlink" title="WebpackBrowserPlugin"></a>WebpackBrowserPlugin</h3><h3 id="FaviconsWebpackPlugin"><a href="#FaviconsWebpackPlugin" class="headerlink" title="FaviconsWebpackPlugin"></a>FaviconsWebpackPlugin</h3>
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+      
+
+      
+      
+
+      <span class="post-tags">
+        <a href="/tags/webpack/">webpack</a>
+      </span>
+      
+
+    </div>
+
+    
+    <div class="article-meta pull-right">
+      <span>
+        <i class="icon-comments"></i>
+        <span>
+          <a href="/2016/09/28/webpack-list-plugin/#comment">
+            评论</a>
+        </span>
+      </span>
+    </div>
+    
+  </div>
+</article>
+
+
+  <article>
+
+  
+  
+  <h3 class="article-title"><a href="/2016/09/27/es6箭头函数/"><span>
+        es6箭头函数</span></a></h3>
+  
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2016/09/27/es6箭头函数/" rel="bookmark">
+        <time class="entry-date published" datetime="2016-09-27T08:58:41.000Z">
+          2016-09-27
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+      <h2 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h2><h4 id="基础语法"><a href="#基础语法" class="headerlink" title="基础语法"></a>基础语法</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">(param1, param2, …, paramN) =&gt; &#123; statements &#125;</span><br><span class="line">(param1, param2, …, paramN) =&gt; expression</span><br><span class="line">         <span class="comment">// equivalent to:  =&gt; &#123; return expression; &#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 如果只有一个参数，圆括号是可选的:</span></span><br><span class="line">(singleParam) =&gt; &#123; statements &#125;</span><br><span class="line">singleParam =&gt; &#123; statements &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 无参数的函数需要使用圆括号:</span></span><br><span class="line">() =&gt; &#123; statements &#125;</span><br></pre></td></tr></table></figure>
+<h4 id="高级语法"><a href="#高级语法" class="headerlink" title="高级语法"></a>高级语法</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 返回对象字面量时应当用圆括号将其包起来:</span></span><br><span class="line">params =&gt; (&#123;<span class="attr">foo</span>: bar&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 支持重置参数和默认参数:</span></span><br><span class="line">(param1, param2, ...rest) =&gt; &#123; statements &#125;</span><br><span class="line">(param1 = defaultValue1, param2, …, paramN = defaultValueN) =&gt; &#123; statements &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 支持解构参数</span></span><br><span class="line"><span class="keyword">var</span> f = <span class="function">(<span class="params">[a, b] = [<span class="number">1</span>, <span class="number">2</span>], &#123;x: c&#125; = &#123;x: a + b&#125;</span>) =&gt;</span> a + b + c;</span><br><span class="line">f();  <span class="comment">// 6</span></span><br></pre></td></tr></table></figure>
+<h2 id="简短函数书写"><a href="#简短函数书写" class="headerlink" title="简短函数书写"></a>简短函数书写</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// a is array</span></span><br><span class="line"><span class="keyword">var</span> a2 = a.map(<span class="function"><span class="keyword">function</span>(<span class="params">s</span>)</span>&#123; <span class="keyword">return</span> s.length &#125;);</span><br><span class="line"><span class="keyword">var</span> a3 = a.map( <span class="function"><span class="params">s</span> =&gt;</span> s.length );</span><br></pre></td></tr></table></figure>
+<h2 id="this词法解析"><a href="#this词法解析" class="headerlink" title="this词法解析"></a>this词法解析</h2><p>在箭头函数出现之前，每个新定义的函数都有其自己的this值。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ES5</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> self = <span class="keyword">this</span>; <span class="comment">// 也有人选择使用 `that` 而非 `self`. </span></span><br><span class="line">                   <span class="comment">// 只要保证一致就好.</span></span><br><span class="line">  self.age = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">  setInterval(<span class="function"><span class="keyword">function</span> <span class="title">growUp</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 回调里面的 `self` 变量就指向了期望的那个对象了</span></span><br><span class="line">    self.age++;</span><br><span class="line">  &#125;, <span class="number">1000</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ES6</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.age = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">  setInterval(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">this</span>.age++; <span class="comment">// |this| 正确地指向了 person 对象</span></span><br><span class="line">  &#125;, <span class="number">1000</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> p = <span class="keyword">new</span> Person();</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+      
+
+      
+      
+
+      <span class="post-tags">
+        <a href="/tags/javascript/">javascript</a><a href="/tags/es6/">es6</a>
+      </span>
+      
+
+    </div>
+
+    
+    <div class="article-meta pull-right">
+      <span>
+        <i class="icon-comments"></i>
+        <span>
+          <a href="/2016/09/27/es6箭头函数/#comment">
+            评论</a>
+        </span>
+      </span>
+    </div>
+    
+  </div>
+</article>
+
+
+
+<nav class="pagination">
+  
+  
+  <a href="/page/2/" class="pagination-next">
+    下一页</a>
+  
+</nav>
+    </main>
+
+    <footer class="site-footer">
+  <p class="site-info">
+    
+    &copy;
+    2019
+    elaine
+    
+  </p>
+</footer>
+    
+<script>
+    (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function () {
+            (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+    ga('create', 'UA-75095706-1', 'auto');
+    ga('send', 'pageview');
+</script>
+
+  </div>
+</div>
+</body>
+</html>

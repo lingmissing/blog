@@ -1,0 +1,209 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  
+  <title>
+    Sass基本语法（Map） | 时光的涂鸦墙 | this is subtitiek
+  </title>
+
+  
+  <meta name="author" content="elaine">
+  
+
+  
+  <meta name="description" content="JavaScript Developer">
+  
+
+  
+  
+  <meta name="keywords" content="Sass">
+  
+
+  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  
+  <meta property="og:title" content="Sass基本语法（Map）" />
+  
+
+  <meta property="og:site_name" content="时光的涂鸦墙" />
+
+  
+  <meta property="og:image" content="/favicon.ico" />
+  
+
+  <link href="/favicon.ico" rel="icon">
+  <link rel="alternate" href="/atom.xml"
+    title="时光的涂鸦墙" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+</head>
+
+<body>
+<div class="blog">
+  <div class="content">
+
+    <header>
+  <div class="site-branding">
+    <h1 class="site-title">
+      <a href="/">时光的涂鸦墙</a>
+    </h1>
+    <p class="site-description">this is subtitiek</p>
+  </div>
+  <nav class="site-navigation">
+    <ul>
+      
+        <li><a href="/">主页</a></li>
+      
+        <li><a href="/archives">归档</a></li>
+      
+        <li><a href="/tags">标签</a></li>
+      
+        <li><a href="/about">关于</a></li>
+      
+    </ul>
+  </nav>
+</header>
+
+    <main class="site-main posts-loop">
+    <article>
+
+  
+  
+  <h3 class="article-title"><span>
+      Sass基本语法（Map）</span></h3>
+  
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2016/03/25/Sass基本语法（Map）/" rel="bookmark">
+        <time class="entry-date published" datetime="2016-03-25T03:43:26.000Z">
+          2016-03-25
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+      <h2 id="声明-Map"><a href="#声明-Map" class="headerlink" title="声明 Map"></a>声明 Map</h2><p>sass 的 map 常常被称为数据地图，也有人称其为数组，因为他总是以 key:value 成对的出现，但其更像是一个 JSON 数据。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$map: (</span><br><span class="line">    $key1: value1,</span><br><span class="line">    $key2: value2,</span><br><span class="line">    $key3: value3</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<p>在 Sass 中常用下面的方式定义变量：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$default-color: #fff;</span><br><span class="line">$primary-color: #22ae39;</span><br></pre></td></tr></table></figure>
+<p>我们使用 map 可以更好的进行管理：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">$color: (</span><br><span class="line">    <span class="selector-tag">default</span>: <span class="selector-id">#fff</span>,</span><br><span class="line">    <span class="selector-tag">primary</span>: <span class="selector-id">#22ae39</span></span><br><span class="line">);</span><br><span class="line"></span><br><span class="line">$theme-color: (</span><br><span class="line">    <span class="selector-tag">default</span>: (</span><br><span class="line">        <span class="selector-tag">bgcolor</span>: <span class="selector-id">#fff</span>,</span><br><span class="line">        <span class="selector-tag">text-color</span>: <span class="selector-id">#444</span>,</span><br><span class="line">        <span class="selector-tag">link-color</span>: <span class="selector-id">#39f</span></span><br><span class="line">    ),</span><br><span class="line">    <span class="selector-tag">primary</span><span class="selector-pseudo">:(</span></span><br><span class="line">        <span class="selector-tag">bgcolor</span>: <span class="selector-id">#000</span>,</span><br><span class="line">        <span class="selector-tag">text-color</span>:<span class="selector-id">#fff</span>,</span><br><span class="line">        <span class="selector-tag">link-color</span>: <span class="selector-id">#93f</span></span><br><span class="line">    ),</span><br><span class="line">    <span class="selector-tag">negative</span>: (</span><br><span class="line">        <span class="selector-tag">bgcolor</span>: <span class="selector-id">#f36</span>,</span><br><span class="line">        <span class="selector-tag">text-color</span>: <span class="selector-id">#fefefe</span>,</span><br><span class="line">        <span class="selector-tag">link-color</span>: <span class="selector-id">#d4e</span></span><br><span class="line">    )</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<h2 id="获取-Map"><a href="#获取-Map" class="headerlink" title="获取 Map"></a>获取 Map</h2><p>Sass 中获取变量，或者对 map 做更多有意义的操作，我们必须借助于 map 的函数功能。在 Sass 中 map 自身带了七个函数：</p>
+<ul>
+<li>map-get($map,$key)：根据给定的 key 值，返回 map 中相关的值。</li>
+<li>map-merge($map1,$map2)：将两个 map 合并成一个新的 map。</li>
+<li>map-remove($map,$key)：从 map 中删除一个 key，返回一个新 map。</li>
+<li>map-keys($map)：返回 map 中所有的 key。</li>
+<li>map-values($map)：返回 map 中所有的 value。</li>
+<li>map-has-key($map,$key)：根据给定的 key 值判断 map 是否有对应的 value 值，如果有返回 true，否则返回 false。</li>
+<li>keywords($args)：返回一个函数的参数，这个参数可以动态的设置 key 和 value。</li>
+</ul>
+<p>案例:</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$social-colors: (</span><br><span class="line">    <span class="selector-tag">dribble</span>: <span class="selector-id">#ea4c89</span>,</span><br><span class="line">    <span class="selector-tag">facebook</span>: <span class="selector-id">#3b5998</span>,</span><br><span class="line">    <span class="selector-tag">github</span>: <span class="selector-id">#171515</span>,</span><br><span class="line">    <span class="selector-tag">google</span>: <span class="selector-id">#db4437</span>,</span><br><span class="line">    <span class="selector-tag">twitter</span>: <span class="selector-id">#55acee</span></span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<p>获取map的取值（ 如果 $key 不在 $map 中，不会编译出 CSS）</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.btn-facebook</span> &#123;</span><br><span class="line">  color: map-get($social-colors,facebook);===color:#3b5998</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>判断取值是否存在</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">@<span class="keyword">if</span> map-has-key($social-colors,facebook)&#123;</span><br><span class="line">    <span class="selector-class">.btn-facebook</span> &#123;</span><br><span class="line">        <span class="attribute">color</span>: <span class="built_in">map-get</span>($social-colors,facebook);</span><br><span class="line">    &#125;</span><br><span class="line">&#125; @<span class="keyword">else</span> &#123;</span><br><span class="line">    @<span class="keyword">warn</span> <span class="string">"No color found for faceboo in $social-colors map. Property ommitted."</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>获取map的所有key取值</p>
+<pre><code>map-keys($social-colors);
+==============&quot;dribble&quot;,&quot;facebook&quot;,&quot;github&quot;,&quot;google&quot;,&quot;twitter&quot;
+</code></pre><p>获取map的所有value取值</p>
+<pre><code>map-values($social-colors)
+==============#ea4c89,#3b5998,#171515,#db4437,#55acee
+</code></pre><p>合并map</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">$color: (</span><br><span class="line">    <span class="selector-tag">text</span>: <span class="selector-id">#f36</span>,</span><br><span class="line">    <span class="selector-tag">link</span>: <span class="selector-id">#f63</span>,</span><br><span class="line">    <span class="selector-tag">border</span>: <span class="selector-id">#ddd</span>,</span><br><span class="line">    <span class="selector-tag">backround</span>: <span class="selector-id">#fff</span></span><br><span class="line">);</span><br><span class="line">$typo: (</span><br><span class="line">    <span class="selector-tag">font-size</span>: 12<span class="selector-tag">px</span>,</span><br><span class="line">    <span class="selector-tag">line-height</span>: 1<span class="selector-class">.6</span></span><br><span class="line">);</span><br><span class="line">======$newmap: map-merge($color,$typo);</span><br><span class="line">======$newmap:(</span><br><span class="line">    <span class="selector-tag">text</span>: <span class="selector-id">#f36</span>,</span><br><span class="line">    <span class="selector-tag">link</span>: <span class="selector-id">#f63</span>,</span><br><span class="line">    <span class="selector-tag">border</span>: <span class="selector-id">#ddd</span>,</span><br><span class="line">    <span class="selector-tag">background</span>: <span class="selector-id">#fff</span>,</span><br><span class="line">    <span class="selector-tag">font-size</span>: 12<span class="selector-tag">px</span>,</span><br><span class="line">    <span class="selector-tag">line-height</span>: 1<span class="selector-class">.6</span></span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<p>删除某个key（若不存在则不变化）</p>
+<pre><code>$map:map-remove($social-colors,dribble);
+</code></pre><p>keywords(args)函数可以说是一个动态创建 map 的函数。<br>可以通过混合宏或函数的参数变创建 map。参数也是成对出现，<br>其中args变成 key(会自动去掉$符号)，而args对应的值就是value。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">@<span class="keyword">mixin</span> map($args...)&#123;</span><br><span class="line">    @<span class="keyword">debug</span> keywords($args);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@<span class="keyword">include</span> map(</span><br><span class="line">  $dribble: #ea4c89,</span><br><span class="line">  $facebook: #<span class="number">3</span>b5998,</span><br><span class="line">  $github: #<span class="number">171515</span>,</span><br><span class="line">  $google: #db4437,</span><br><span class="line">  $twitter: #<span class="number">55</span>acee</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<p>在命令终端可以看到一个输入的 @debug 信息：</p>
+<pre><code>DEBUG: (dribble: #ea4c89, facebook: #3b5998, github: #171515, google: #db4437, twitter: #55acee)
+</code></pre>
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+      
+
+      
+      
+
+      <span class="post-tags">
+        <a href="/tags/Sass/">Sass</a>
+      </span>
+      
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+<section id="comment" class="comment">
+	<div id="gitment"></div>
+</section>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+	var gitment = new Gitment({
+		owner: 'lingmissing',
+		repo: 'lingmissing-gitment',
+		oauth: {
+			client_id: 'c7675a51f3f7416ac3c0',
+			client_secret: 'cac3475af0adfc9d1669114ef89e8c6ff59ac758',
+		},
+	})
+	gitment.render('gitment')
+</script>
+
+
+
+    </main>
+
+    <footer class="site-footer">
+  <p class="site-info">
+    
+    &copy;
+    2019
+    elaine
+    
+  </p>
+</footer>
+    
+<script>
+    (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function () {
+            (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+    ga('create', 'UA-75095706-1', 'auto');
+    ga('send', 'pageview');
+</script>
+
+  </div>
+</div>
+</body>
+</html>

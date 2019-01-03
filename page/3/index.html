@@ -1,0 +1,895 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  
+  <title>
+    第 3 页 | 时光的涂鸦墙 | this is subtitiek
+  </title>
+
+  
+  <meta name="author" content="elaine">
+  
+
+  
+  <meta name="description" content="JavaScript Developer">
+  
+
+  
+
+  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  
+
+  <meta property="og:site_name" content="时光的涂鸦墙" />
+
+  
+  <meta property="og:image" content="/favicon.ico" />
+  
+
+  <link href="/favicon.ico" rel="icon">
+  <link rel="alternate" href="/atom.xml"
+    title="时光的涂鸦墙" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+</head>
+
+<body>
+<div class="blog">
+  <div class="content">
+
+    <header>
+  <div class="site-branding">
+    <h1 class="site-title">
+      <a href="/">时光的涂鸦墙</a>
+    </h1>
+    <p class="site-description">this is subtitiek</p>
+  </div>
+  <nav class="site-navigation">
+    <ul>
+      
+        <li><a href="/">主页</a></li>
+      
+        <li><a href="/archives">归档</a></li>
+      
+        <li><a href="/tags">标签</a></li>
+      
+        <li><a href="/about">关于</a></li>
+      
+    </ul>
+  </nav>
+</header>
+
+    <main class="site-main posts-loop">
+    
+  <article>
+
+  
+  
+  <h3 class="article-title"><a href="/2016/07/08/webpack/"><span>
+        webpack</span></a></h3>
+  
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2016/07/08/webpack/" rel="bookmark">
+        <time class="entry-date published" datetime="2016-07-08T05:44:12.000Z">
+          2016-07-08
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+      <h2 id="webpack是什么"><a href="#webpack是什么" class="headerlink" title="webpack是什么"></a>webpack是什么</h2><p><code>webpack</code>是近期最火的一款模块加载器兼打包工具，它能把各种资源，例如<code>JS</code>（含<code>JSX</code>）、<code>coffee</code>、样式（含<code>less</code>/<code>sass</code>）、图片等都作为模块来使用和处理。</p>
+<p>可以直接使用 <code>require(XXX)</code> 的形式来引入各模块，即使它们可能需要经过编译（比如<code>JSX</code>和<code>sass</code>）</p>
+<h2 id="webpack-的优势"><a href="#webpack-的优势" class="headerlink" title="webpack 的优势"></a>webpack 的优势</h2><ul>
+<li>webpack 是以 <code>commonJS</code> 的形式来书写脚本滴，但对 <code>AMD</code>/<code>CMD</code> 的支持也很全面，方便旧项目进行代码迁移。</li>
+<li>能被模块化的不仅仅是 JS 了。</li>
+<li>开发便捷，能替代部分 <code>grunt</code>/<code>gulp</code> 的工作，比如打包、压缩混淆、图片转base64等。</li>
+<li>扩展性强，插件机制完善，特别是支持 React 热插拔（见 <code>react-hot-loader</code> ）。</li>
+</ul>
+<h2 id="安装和配置"><a href="#安装和配置" class="headerlink" title="安装和配置"></a>安装和配置</h2><h4 id="创建一个文件夹，安装webpack依赖"><a href="#创建一个文件夹，安装webpack依赖" class="headerlink" title="创建一个文件夹，安装webpack依赖"></a>创建一个文件夹，安装<code>webpack</code>依赖</h4><pre><code>$ npm init
+$ npm install webpack --save-dev
+</code></pre><h4 id="配置-webpack-config-js"><a href="#配置-webpack-config-js" class="headerlink" title="配置 webpack.config.js"></a>配置 <code>webpack.config.js</code></h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> webpack = <span class="built_in">require</span>(<span class="string">'webpack'</span>);</span><br><span class="line"><span class="comment">//提取多个入口文件的公共脚本部分，然后生成一个 common.js</span></span><br><span class="line"><span class="keyword">var</span> commonsPlugin = <span class="keyword">new</span> webpack.optimize.CommonsChunkPlugin(<span class="string">'common.js'</span>);</span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    <span class="comment">//插件项</span></span><br><span class="line">    plugins: [commonsPlugin],</span><br><span class="line">    <span class="comment">//页面入口文件配置</span></span><br><span class="line">    entry: &#123;</span><br><span class="line">        index : <span class="string">'./src/js/page/index.js'</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">//入口文件输出配置</span></span><br><span class="line">    output: &#123;</span><br><span class="line">        path: <span class="string">'dist/js/page'</span>,</span><br><span class="line">        filename: <span class="string">'[name].js'</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="built_in">module</span>: &#123;</span><br><span class="line">        <span class="comment">//加载器配置</span></span><br><span class="line">        loaders: [</span><br><span class="line">            &#123; <span class="attr">test</span>: <span class="regexp">/\.css$/</span>, <span class="attr">loader</span>: <span class="string">'style-loader!css-loader'</span> &#125;,</span><br><span class="line">            &#123; <span class="attr">test</span>: <span class="regexp">/\.js$/</span>, <span class="attr">loader</span>: <span class="string">'jsx-loader?harmony'</span> &#125;,</span><br><span class="line">            &#123; <span class="attr">test</span>: <span class="regexp">/\.scss$/</span>, <span class="attr">loader</span>: <span class="string">'style!css!sass?sourceMap'</span>&#125;,</span><br><span class="line">            &#123; <span class="attr">test</span>: <span class="regexp">/\.(png|jpg)$/</span>, <span class="attr">loader</span>: <span class="string">'url-loader?limit=8192'</span>&#125;</span><br><span class="line">        ]</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">//其它解决方案配置</span></span><br><span class="line">    resolve: &#123;</span><br><span class="line">        root: <span class="string">'E:/github/flux-example/src'</span>, <span class="comment">//绝对路径</span></span><br><span class="line">        extensions: [<span class="string">''</span>, <span class="string">'.js'</span>, <span class="string">'.json'</span>, <span class="string">'.scss'</span>],</span><br><span class="line">        alias: &#123;</span><br><span class="line">            AppStore : <span class="string">'js/stores/AppStores.js'</span>,</span><br><span class="line">            ActionType : <span class="string">'js/actions/ActionType.js'</span>,</span><br><span class="line">            AppAction : <span class="string">'js/actions/AppAction.js'</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>plugins 是插件项</li>
+<li><p>entry 是页面入口文件配置，output 是对应输出项配置（即入口文件最终要生成什么名字的文件、存放到哪里），其语法大致为：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    entry: &#123;</span><br><span class="line">        page1: <span class="string">"./page1"</span>,</span><br><span class="line">        <span class="comment">//支持数组形式，将加载数组中的所有模块，但以最后一个模块作为输出</span></span><br><span class="line">        page2: [<span class="string">"./entry1"</span>, <span class="string">"./entry2"</span>]</span><br><span class="line">    &#125;,</span><br><span class="line">    output: &#123;</span><br><span class="line">        path: <span class="string">"dist/js/page"</span>,</span><br><span class="line">        filename: <span class="string">"[name].bundle.js"</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>该段代码最终会生成一个 page1.bundle.js 和 page2.bundle.js，并存放到 ./dist/js/page 文件夹下。</li>
+</ul>
+</li>
+<li><p>module.loaders 是最关键的一块配置。它告知 webpack 每一种文件都需要使用什么加载器来处理：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>: &#123;</span><br><span class="line">    <span class="comment">//加载器配置</span></span><br><span class="line">    loaders: [</span><br><span class="line">        <span class="comment">//.css 文件使用 style-loader 和 css-loader 来处理</span></span><br><span class="line">        &#123; <span class="attr">test</span>: <span class="regexp">/\.css$/</span>, <span class="attr">loader</span>: <span class="string">'style-loader!css-loader'</span> &#125;,</span><br><span class="line">        <span class="comment">//.js 文件使用 jsx-loader 来编译处理</span></span><br><span class="line">        &#123; <span class="attr">test</span>: <span class="regexp">/\.js$/</span>, <span class="attr">loader</span>: <span class="string">'jsx-loader?harmony'</span> &#125;,</span><br><span class="line">        <span class="comment">//.scss 文件使用 style-loader、css-loader 和 sass-loader 来编译处理</span></span><br><span class="line">        &#123; <span class="attr">test</span>: <span class="regexp">/\.scss$/</span>, <span class="attr">loader</span>: <span class="string">'style!css!sass?sourceMap'</span>&#125;,</span><br><span class="line">        <span class="comment">//图片文件使用 url-loader 来处理，小于8kb的直接转为base64</span></span><br><span class="line">		<span class="comment">//超过8kb的才使用 url-loader 来映射到文件，否则转为data url形式</span></span><br><span class="line">        &#123; <span class="attr">test</span>: <span class="regexp">/\.(png|jpg)$/</span>, <span class="attr">loader</span>: <span class="string">'url-loader?limit=8192'</span>&#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>“-loader”其实是可以省略不写的，多个loader之间用“!”连接起来。</li>
+<li>所有的加载器都需要通过 npm 来加载</li>
+</ul>
+</li>
+<li>resolve 配置<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">resolve: &#123;</span><br><span class="line">    <span class="comment">//查找module的话从这里开始查找</span></span><br><span class="line">    root: <span class="string">'E:/github/flux-example/src'</span>, <span class="comment">//绝对路径</span></span><br><span class="line">    <span class="comment">//自动扩展文件后缀名，意味着我们require模块可以省略不写后缀名</span></span><br><span class="line">    extensions: [<span class="string">''</span>, <span class="string">'.js'</span>, <span class="string">'.json'</span>, <span class="string">'.scss'</span>],</span><br><span class="line">    <span class="comment">//模块别名定义，方便后续直接引用别名，无须多写长长的地址</span></span><br><span class="line">    alias: &#123;</span><br><span class="line">        AppStore : <span class="string">'js/stores/AppStores.js'</span>,<span class="comment">//后续直接 require('AppStore') 即可</span></span><br><span class="line">        ActionType : <span class="string">'js/actions/ActionType.js'</span>,</span><br><span class="line">        AppAction : <span class="string">'js/actions/AppAction.js'</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="webpack的运行"><a href="#webpack的运行" class="headerlink" title="webpack的运行"></a>webpack的运行</h2><h4 id="模块引入"><a href="#模块引入" class="headerlink" title="模块引入"></a>模块引入</h4><p>直接在页面中引入打包好的脚本，样式不用引入，脚本执行时会动态生成<code>&lt;style&gt;</code>并标签打到<code>head</code>里。<br>入口entryjs：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// entry.js</span></span><br><span class="line"><span class="built_in">require</span>(<span class="string">'./style.css'</span>)</span><br><span class="line"><span class="built_in">document</span>.write(<span class="string">'It works.'</span>)</span><br><span class="line"><span class="built_in">document</span>.write(<span class="built_in">require</span>(<span class="string">'./module.js'</span>)) <span class="comment">// 添加模块</span></span><br></pre></td></tr></table></figure></p>
+<p>其他被引入文件：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// module.js</span></span><br><span class="line"><span class="built_in">module</span>.exports = <span class="string">'It works from module.js.'</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//style.css</span></span><br><span class="line">body &#123;</span><br><span class="line">	background: #f9f9f9;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h4><p>直接运行webpack即可编译文件。<br>    $ webpack –display-error-details<br>后面的参数<code>--display-error-details</code>是推荐加上的，方便出错时能查阅更详尽的信息。亦可省略。<br>其他部分参数：</p>
+<pre><code>$ webpack --config XXX.js   //使用另一份配置文件（比如webpack.config2.js）来打包
+
+$ webpack --watch   //监听变动并自动打包
+
+$ webpack -p    //压缩混淆脚本，这个非常非常重要！
+
+$ webpack -d    //生成map映射文件，告知哪些模块被最终打包到哪里了
+</code></pre><h4 id="开发环境"><a href="#开发环境" class="headerlink" title="开发环境"></a>开发环境</h4><p>当项目逐渐变大，webpack 的编译时间会变长，可以通过参数让编译的输出内容带有进度和颜色。<br>    $ webpack –progress –colors<br>如果不想每次修改模块后都重新编译，那么可以启动监听模式。开启监听模式后，没有变化的模块会在编译后缓存到内存中，而不会每次都被重新编译，所以监听模式的整体速度是很快的。<br>    $ webpack –progress –colors –watch<br>使用 webpack-dev-server 开发服务是一个更好的选择。它将在 localhost:8080 启动一个 express 静态资源 web 服务器，并且会以监听模式自动运行 webpack，在浏览器打开 <a href="http://localhost:8080/" target="_blank" rel="noopener">http://localhost:8080/</a> 或 <a href="http://localhost:8080/webpack-dev-server/" target="_blank" rel="noopener">http://localhost:8080/webpack-dev-server/</a> 可以浏览项目中的页面和编译后的资源输出，并且通过一个 socket.io 服务实时监听它们的变化并自动刷新页面。</p>
+<pre><code># 安装
+$ npm install webpack-dev-server -g
+
+# 运行
+$ webpack-dev-server --progress --colors
+</code></pre><h2 id="其他技巧"><a href="#其他技巧" class="headerlink" title="其他技巧"></a>其他技巧</h2><h4 id="自定义公共模块提取"><a href="#自定义公共模块提取" class="headerlink" title="自定义公共模块提取"></a>自定义公共模块提取</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> CommonsChunkPlugin = <span class="built_in">require</span>(<span class="string">"webpack/lib/optimize/CommonsChunkPlugin"</span>);</span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    entry: &#123;</span><br><span class="line">        p1: <span class="string">"./page1"</span>,</span><br><span class="line">        p2: <span class="string">"./page2"</span>,</span><br><span class="line">        p3: <span class="string">"./page3"</span>,</span><br><span class="line">        ap1: <span class="string">"./admin/page1"</span>,</span><br><span class="line">        ap2: <span class="string">"./admin/page2"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    output: &#123;</span><br><span class="line">        filename: <span class="string">"[name].js"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    plugins: [</span><br><span class="line">        <span class="keyword">new</span> CommonsChunkPlugin(<span class="string">"admin-commons.js"</span>, [<span class="string">"ap1"</span>, <span class="string">"ap2"</span>]),</span><br><span class="line">        <span class="keyword">new</span> CommonsChunkPlugin(<span class="string">"commons.js"</span>, [<span class="string">"p1"</span>, <span class="string">"p2"</span>, <span class="string">"admin-commons.js"</span>])</span><br><span class="line">    ]</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">// &lt;script&gt; required:</span></span><br><span class="line"><span class="comment">// page1.html: commons.js, p1.js</span></span><br><span class="line"><span class="comment">// page2.html: commons.js, p2.js</span></span><br><span class="line"><span class="comment">// page3.html: p3.js</span></span><br><span class="line"><span class="comment">// admin-page1.html: commons.js, admin-commons.js, ap1.js</span></span><br><span class="line"><span class="comment">// admin-page2.html: commons.js, admin-commons.js, ap2.js</span></span><br></pre></td></tr></table></figure>
+<h4 id="独立打包样式文件"><a href="#独立打包样式文件" class="headerlink" title="独立打包样式文件"></a>独立打包样式文件</h4><p>当项目的样式能不要被打包到脚本中，而是独立出来作为css时，这时候我们需要 <code>extract-text-webpack-plugin</code>来帮忙.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> webpack = <span class="built_in">require</span>(<span class="string">'webpack'</span>);</span><br><span class="line"><span class="keyword">var</span> ExtractTextPlugin = <span class="built_in">require</span>(<span class="string">"extract-text-webpack-plugin"</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  plugins: [<span class="keyword">new</span> ExtractTextPlugin(<span class="string">"[name].css"</span>)],</span><br><span class="line">  entry: <span class="string">'./entry.js'</span>,</span><br><span class="line">  output: &#123;</span><br><span class="line">    path: <span class="string">'dist/'</span>,</span><br><span class="line">    filename: <span class="string">'[name].js'</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="built_in">module</span>: &#123;</span><br><span class="line">    loaders: [</span><br><span class="line">      &#123;<span class="attr">test</span>: <span class="regexp">/\.css$/</span>, <span class="attr">loader</span>: <span class="string">'style!css'</span>&#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        test: <span class="regexp">/\.less$/</span>,</span><br><span class="line">        loader:  ExtractTextPlugin.extract(<span class="string">"style-loader"</span>, <span class="string">"css-loader!less-loader"</span>)</span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>转载自<a href="http://www.w2bc.com/Article/50764" title="webpack入门指南" target="_blank" rel="noopener">http://www.w2bc.com/Article/50764</a></p>
+</blockquote>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+      
+
+      
+      
+
+      <span class="post-tags">
+        <a href="/tags/webpack/">webpack</a>
+      </span>
+      
+
+    </div>
+
+    
+    <div class="article-meta pull-right">
+      <span>
+        <i class="icon-comments"></i>
+        <span>
+          <a href="/2016/07/08/webpack/#comment">
+            评论</a>
+        </span>
+      </span>
+    </div>
+    
+  </div>
+</article>
+
+
+  <article>
+
+  
+  
+  <h3 class="article-title"><a href="/2016/07/06/AngularJs中的directive（二）/"><span>
+        AngularJs中的directive（二）</span></a></h3>
+  
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2016/07/06/AngularJs中的directive（二）/" rel="bookmark">
+        <time class="entry-date published" datetime="2016-07-06T10:09:53.000Z">
+          2016-07-06
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+      <h2 id="require"><a href="#require" class="headerlink" title="require"></a>require</h2><ul>
+<li><code>?</code> 如果在当前指令中没有找到所需的控制器，就会将null传递给link函数中的第四个参数</li>
+<li><code>^</code> 如果添加了这个前缀，指令会在上游的指令链中查找require参数所指定的控制器</li>
+<li><code>?^</code> 合并了前面两个说法</li>
+<li>没有前缀  指令就会自身提供的控制器中查找，如果没有查找到，就会抛出异常来。</li>
+</ul>
+<h2 id="link"><a href="#link" class="headerlink" title="link"></a>link</h2><h4 id="对于link-与scope"><a href="#对于link-与scope" class="headerlink" title="对于link 与scope"></a>对于link 与scope</h4><p>scope，我们需要用到一个link函数，他由指令定义对象中的link属性配置。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">link:<span class="function"><span class="keyword">function</span>(<span class="params">scope,elem,attrs</span>)</span>&#123;</span><br><span class="line">    <span class="comment">// scope:父亲controller的scope</span></span><br><span class="line">    <span class="comment">// elem：jqLite(jquery的子集)包装的dom元素，不需要再使用$()包装了。</span></span><br><span class="line">    <span class="comment">// attrs:一个包含了指令所在元素的属性的标准化的参数对象，</span></span><br><span class="line">    <span class="comment">// 例子：比如你在html中添加一些属性，那么可以在link函数中通过attrs.someAttribute来使用他。</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>所以说：<code>link</code> 函数主要是为dom 元素添加事件监听，监听模型属性变化，以及更新dom。<br>另外如果有参数 <code>require</code> 的话，对于link 函数方面就会多一个参数 <code>controller</code><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line"><span class="built_in">require</span>:<span class="string">'?ngModal'</span>,</span><br><span class="line">link:<span class="function"><span class="keyword">function</span>(<span class="params">scope,element,attrs,ctrl</span>)</span>&#123;</span><br><span class="line">    <span class="comment">// 这里 ctrl 就是  require 进来的ctrl</span></span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>如果require的参数是数组的话。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line"><span class="built_in">require</span>:[<span class="string">'?ngModal'</span>,<span class="string">'?test'</span>],</span><br><span class="line">link:<span class="function"><span class="keyword">function</span>(<span class="params">scope,element,attrs,ctrls</span>)</span>&#123;</span><br><span class="line">    <span class="comment">// 这里 ctrl 就是  require 进来的ctrl</span></span><br><span class="line">    <span class="keyword">var</span> modalCtrl = ctrls[<span class="number">0</span>];</span><br><span class="line">    <span class="keyword">var</span> testCtrl = ctrls[<span class="number">1</span>];</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="controller"><a href="#controller" class="headerlink" title="controller"></a>controller</h2><p>类型：字符串或者函数</p>
+<ul>
+<li><p>若是为字符串，则将字符串当做是控制器的名字，来查找注册在应用中的控制器的构造函数。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">angular.module(<span class="string">'myApp'</span>, [])   </span><br><span class="line">.directive(<span class="string">'myDirective'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;   </span><br><span class="line">  restrict: <span class="string">'A'</span>, <span class="comment">// 始终需要  </span></span><br><span class="line">  controller: <span class="string">'SomeController'</span>   </span><br><span class="line">&#125;)   </span><br><span class="line"><span class="comment">// 应用中其他的地方，可以是同一个文件或被index.html包含的另一个文件  </span></span><br><span class="line">angular.module(<span class="string">'myApp'</span>)   </span><br><span class="line">.controller(<span class="string">'SomeController'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">$scope, $element, $attrs, $transclude</span>) </span>&#123;   </span><br><span class="line">  <span class="comment">// 控制器逻辑放在这里  </span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>若为匿名函数，直接在指令内部的定义为匿名函数，同样我们可以再这里注入任何服务（$log,$timeout等等）</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">angular.module(<span class="string">'myApp'</span>,[])   </span><br><span class="line">.directive(<span class="string">'myDirective'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;   </span><br><span class="line">  restrict: <span class="string">'A'</span>,   </span><br><span class="line">  controller:   </span><br><span class="line">    <span class="function"><span class="keyword">function</span>(<span class="params">$scope, $element, $attrs, $transclude</span>) </span>&#123;   </span><br><span class="line">      <span class="comment">// 控制器逻辑放在这里  </span></span><br><span class="line">    &#125;   </span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>另外还有一些特殊的服务（参数）可以注入:</p>
+<ul>
+<li><code>$scope</code>，与指令元素相关联的作用域</li>
+<li><code>$element</code>，当前指令对应的 元素</li>
+<li><code>$attrs</code>，由当前元素的属性组成的对象</li>
+<li><code>$transclude</code>，嵌入链接函数，实际被执行用来克隆元素和操作DOM的函数<br>注意： 除非是用来定义一些可复用的行为，一般不推荐在这使用<code>$transclude</code>。<br>指令的控制器和link函数（后面会讲）可以进行互换。区别在于，控制器主要是用来提供可在指令间复用的行为但link链接函数只能在当前内部指令中定义行为，且无法再指令间复用。<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">angular.module(<span class="string">'myApp'</span>,[]).directive(<span class="string">'mySite'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;  </span><br><span class="line"><span class="keyword">return</span> &#123;  </span><br><span class="line">    restrict: <span class="string">'EA'</span>,  </span><br><span class="line">    transclude: <span class="literal">true</span>, <span class="comment">//注意此处必须设置为true  </span></span><br><span class="line">    controller:  </span><br><span class="line">    <span class="function"><span class="keyword">function</span> (<span class="params">$scope, $element,$attrs,$transclude,$log</span>) </span>&#123;  <span class="comment">//在这里你可以注入你想注入的服务  </span></span><br><span class="line">        $transclude(<span class="function"><span class="keyword">function</span> (<span class="params">clone</span>) </span>&#123;                </span><br><span class="line">            <span class="keyword">var</span> a = angular.element(<span class="string">'&lt;a&gt;'</span>);  </span><br><span class="line">                a.attr(<span class="string">'href'</span>, $attrs.site);  </span><br><span class="line">                a.text(clone.text());  </span><br><span class="line">                $element.append(a);  </span><br><span class="line">            &#125;);  </span><br><span class="line">            $log.info(<span class="string">"hello everyone"</span>);  </span><br><span class="line">        &#125;  </span><br><span class="line">    &#125;;  </span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>HTML代码为：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">my-site</span> <span class="attr">site</span>=<span class="string">"http://www.cnblogs.com/cunjieliu"</span>&gt;</span>雷锋叔叔的博客<span class="tag">&lt;/<span class="name">my-site</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="controller函数与require"><a href="#controller函数与require" class="headerlink" title="controller函数与require"></a>controller函数与require</h4><p>如果你需要允许其他指令和你的指令发生交互的话，你需要使用controller函数，比如有些情况下，你需要通过组合两个指令来实现一个ui组件，那么你可以通过如下使用<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">app.directive(<span class="string">'outerDirective'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    scope: &#123;&#125;,</span><br><span class="line">    restrict: <span class="string">'AE'</span>,</span><br><span class="line">    controller: <span class="function"><span class="keyword">function</span>(<span class="params">$scope, $compile, $http</span>) </span>&#123;</span><br><span class="line">      <span class="comment">// $scope is the appropriate scope for the directive</span></span><br><span class="line">      <span class="keyword">this</span>.addChild = <span class="function"><span class="keyword">function</span>(<span class="params">nestedDirective</span>) </span>&#123; <span class="comment">// this refers to the controller</span></span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'Got the message from nested directive:'</span> + nestedDirective.message);</span><br><span class="line">      &#125;;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>当另外一个指令需要使用到这个controller的时候<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">app.directive(<span class="string">'innerDirective'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    scope: &#123;&#125;,</span><br><span class="line">    restrict: <span class="string">'AE'</span>,</span><br><span class="line">    <span class="built_in">require</span>: <span class="string">'^outerDirective'</span>,   <span class="comment">//  require controller 方法</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">// link 参数中就会多一个参数 就是那个require 进来的controller</span></span><br><span class="line">    link: <span class="function"><span class="keyword">function</span>(<span class="params">scope, elem, attrs, controllerInstance</span>) </span>&#123;</span><br><span class="line">      <span class="comment">//the fourth argument is the controller instance you require</span></span><br><span class="line">      scope.message = <span class="string">"Hi, Parent directive"</span>;</span><br><span class="line">      controllerInstance.addChild(scope);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+      
+
+      
+      
+
+      <span class="post-tags">
+        <a href="/tags/angular/">angular</a>
+      </span>
+      
+
+    </div>
+
+    
+    <div class="article-meta pull-right">
+      <span>
+        <i class="icon-comments"></i>
+        <span>
+          <a href="/2016/07/06/AngularJs中的directive（二）/#comment">
+            评论</a>
+        </span>
+      </span>
+    </div>
+    
+  </div>
+</article>
+
+
+  <article>
+
+  
+  
+  <h3 class="article-title"><a href="/2016/07/04/AngularJs中的provide/"><span>
+        AngularJs中的provide</span></a></h3>
+  
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2016/07/04/AngularJs中的provide/" rel="bookmark">
+        <time class="entry-date published" datetime="2016-07-04T09:26:54.000Z">
+          2016-07-04
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+      <p><code>AngularJS</code>用<code>$provide</code>去定义一个供应商,这个<code>$provide</code>有5个用来创建供应商的方法：</p>
+<ul>
+<li><code>constant</code></li>
+<li><code>value</code></li>
+<li><code>service</code></li>
+<li><code>factory</code></li>
+<li><code>provider</code></li>
+<li><code>decorator</code></li>
+</ul>
+<h2 id="Constant"><a href="#Constant" class="headerlink" title="Constant"></a>Constant</h2><p>定义常量用的，它定义的值当然就不能被改变，它可以被注入到任何地方，但是不能被装饰器(<code>decorator</code>)装饰</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> app = angular.module(<span class="string">'app'</span>, []);</span><br><span class="line"> </span><br><span class="line">app.config(<span class="function"><span class="keyword">function</span> (<span class="params">$provide</span>) </span>&#123;</span><br><span class="line">  $provide.constant(<span class="string">'movieTitle'</span>, <span class="string">'The Matrix'</span>);</span><br><span class="line">&#125;);</span><br><span class="line"> </span><br><span class="line">app.controller(<span class="string">'ctrl'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">movieTitle</span>) </span>&#123;</span><br><span class="line">  expect(movieTitle).toEqual(<span class="string">'The Matrix'</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>语法糖：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">app.constant(<span class="string">'movieTitle'</span>, <span class="string">'The Matrix'</span>);</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+      
+
+      
+      
+
+      <span class="post-tags">
+        <a href="/tags/angular/">angular</a>
+      </span>
+      
+
+    </div>
+
+    
+    <div class="article-meta pull-right">
+      <span>
+        <i class="icon-comments"></i>
+        <span>
+          <a href="/2016/07/04/AngularJs中的provide/#comment">
+            评论</a>
+        </span>
+      </span>
+    </div>
+    
+  </div>
+</article>
+
+
+  <article>
+
+  
+  
+  <h3 class="article-title"><a href="/2016/07/04/AngularJs中的directive(一)/"><span>
+        AngularJs中的directive（一）</span></a></h3>
+  
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2016/07/04/AngularJs中的directive(一)/" rel="bookmark">
+        <time class="entry-date published" datetime="2016-07-04T02:09:53.000Z">
+          2016-07-04
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+      <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">angular.module(<span class="string">"app"</span>,[]).directive(<span class="string">"directiveName"</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;  </span><br><span class="line">     <span class="keyword">return</span>&#123;  </span><br><span class="line">      <span class="comment">//通过设置项来定义  </span></span><br><span class="line">     &#125;;  </span><br><span class="line"> &#125;)</span><br></pre></td></tr></table></figure>
+<h2 id="restrict"><a href="#restrict" class="headerlink" title="restrict"></a>restrict</h2><p>类型：（字符串）可选参数</p>
+<p>取值有：<code>E</code>(元素),<code>A</code>(属性),<code>C</code>(类),<code>M</code>(注释)，其中默认值为<code>A</code>；</p>
+<ul>
+<li><code>E</code>(元素)：<code>&lt;directiveName&gt;&lt;/directiveName&gt;</code></li>
+<li><code>A</code>(属性)：<code>&lt;div directiveName=&#39;expression&#39;&gt;&lt;/div&gt;</code></li>
+<li><code>C</code>(类)：<code>&lt;div class=&#39;directiveName&#39;&gt;&lt;/div&gt;</code></li>
+<li><code>M</code>(注释)：<code>&lt;-- directive:directiveName expression--&gt;</code></li>
+</ul>
+<h2 id="template"><a href="#template" class="headerlink" title="template"></a>template</h2><p>类型：（字符串或者函数）可选参数</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> myModule = angular.module(<span class="string">"MyModule"</span>, []);</span><br><span class="line">myModule.directive(<span class="string">"hello"</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">        restrict: <span class="string">'AEMC'</span>,</span><br><span class="line">        template: <span class="string">'&lt;div&gt;Hi everyone!&lt;/div&gt;'</span>,</span><br><span class="line">        replace: <span class="literal">true</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+      
+
+      
+      
+
+      <span class="post-tags">
+        <a href="/tags/angular/">angular</a>
+      </span>
+      
+
+    </div>
+
+    
+    <div class="article-meta pull-right">
+      <span>
+        <i class="icon-comments"></i>
+        <span>
+          <a href="/2016/07/04/AngularJs中的directive(一)/#comment">
+            评论</a>
+        </span>
+      </span>
+    </div>
+    
+  </div>
+</article>
+
+
+  <article>
+
+  
+  
+  <h3 class="article-title"><a href="/2016/06/15/gulp常见插件列表/"><span>
+        gulp-常用插件列表</span></a></h3>
+  
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2016/06/15/gulp常见插件列表/" rel="bookmark">
+        <time class="entry-date published" datetime="2016-06-15T04:23:13.000Z">
+          2016-06-15
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+      <h2 id="安装说明"><a href="#安装说明" class="headerlink" title="安装说明"></a>安装说明</h2><pre><code>$ npm install --save-dev gulp-autoprefixer（插件名称，可以接多个，空格）
+</code></pre><h2 id="gulp-autoprefixer-自动补hack"><a href="#gulp-autoprefixer-自动补hack" class="headerlink" title="gulp-autoprefixer(自动补hack)"></a>gulp-autoprefixer(自动补hack)</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> gulp = <span class="built_in">require</span>(<span class="string">'gulp'</span>);</span><br><span class="line"><span class="keyword">var</span> autoprefixer = <span class="built_in">require</span>(<span class="string">'gulp-autoprefixer'</span>);</span><br><span class="line"> </span><br><span class="line">gulp.task(<span class="string">'default'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> gulp.src(<span class="string">'src/app.css'</span>)</span><br><span class="line">		.pipe(autoprefixer(&#123;</span><br><span class="line">			browsers: [<span class="string">'last 2 versions'</span>], <span class="comment">//兼容浏览器的最低版本</span></span><br><span class="line">			cascade: <span class="literal">false</span> <span class="comment">//</span></span><br><span class="line">		&#125;))</span><br><span class="line">		.pipe(gulp.dest(<span class="string">'dist'</span>));</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+      
+
+      
+      
+
+      <span class="post-tags">
+        <a href="/tags/gulp/">gulp</a>
+      </span>
+      
+
+    </div>
+
+    
+    <div class="article-meta pull-right">
+      <span>
+        <i class="icon-comments"></i>
+        <span>
+          <a href="/2016/06/15/gulp常见插件列表/#comment">
+            评论</a>
+        </span>
+      </span>
+    </div>
+    
+  </div>
+</article>
+
+
+  <article>
+
+  
+  
+  <h3 class="article-title"><a href="/2016/06/12/deferred延迟对象/"><span>
+        deferred延迟对象</span></a></h3>
+  
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2016/06/12/deferred延迟对象/" rel="bookmark">
+        <time class="entry-date published" datetime="2016-06-12T09:29:11.000Z">
+          2016-06-12
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+      <p>延迟对象,在jQuery 1.5中引入的,是通过调用jQuery.Deferred()方法创建的对象。它可以将多个回调存放为一个callback队列,并且返回成功或者失败的方法。<br>延迟对象拥有自己的方法。在创建一个延迟对象后，可以使用以下方法来调用。<br>deferred.always()<br>当Deferred（延迟）对象解决或拒绝时，调用添加处理程序。<br>deferred.done()<br>当Deferred（延迟）对象解决时，调用添加处理程序。<br>deferred.fail()<br>当Deferred（延迟）对象拒绝时，调用添加的处理程序。<br>deferred.notify()<br>根据给定的 args参数 调用Deferred（延迟）对象上进行中的回调 （progressCallbacks）。<br>deferred.notifyWith()<br>根据给定的上下文（context）和args递延调用Deferred（延迟）对象上进行中的回调（progressCallbacks ）。<br>deferred.progress()</p>
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+      
+
+      
+      
+
+      <span class="post-tags">
+        <a href="/tags/jquery/">jquery</a>
+      </span>
+      
+
+    </div>
+
+    
+    <div class="article-meta pull-right">
+      <span>
+        <i class="icon-comments"></i>
+        <span>
+          <a href="/2016/06/12/deferred延迟对象/#comment">
+            评论</a>
+        </span>
+      </span>
+    </div>
+    
+  </div>
+</article>
+
+
+  <article>
+
+  
+  
+  <h3 class="article-title"><a href="/2016/06/12/sessionStorage和localStorage/"><span>
+        sessionStorage和localStorage</span></a></h3>
+  
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2016/06/12/sessionStorage和localStorage/" rel="bookmark">
+        <time class="entry-date published" datetime="2016-06-12T06:10:32.000Z">
+          2016-06-12
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+      <h2 id="sessionStorage和localStorage区别"><a href="#sessionStorage和localStorage区别" class="headerlink" title="sessionStorage和localStorage区别"></a>sessionStorage和localStorage区别</h2><ul>
+<li><code>sessionStorage</code>用于本地存储一个会话（session）中的数据，这些数据只有在同一个会话中的页面才能访问并且当会话结束后数据也随之销毁。因此sessionStorage不是一种持久化的本地存储，仅仅是会话级别的存储。</li>
+<li><code>localStorage</code>用于持久化的本地存储，除非主动删除数据，否则数据是永远不会过期的。<h2 id="web-storage和cookie的区别"><a href="#web-storage和cookie的区别" class="headerlink" title="web storage和cookie的区别"></a>web storage和cookie的区别</h2></li>
+<li><code>Cookie</code>的大小是受限的，并且每次你请求一个新的页面的时候Cookie都会被发送过去，这样无形中浪费了带宽，另外cookie还需要指定作用域，不可以跨域调用。</li>
+<li><code>Web Storage</code>拥有setItem,getItem,removeItem,clear等方法，不像cookie需要前端开发者自己封装setCookie，getCookie。</li>
+<li><code>Cookie</code>的作用是与服务器进行交互，作为HTTP规范的一部分而存在 ，而<code>Web Storage</code>仅仅是为了在本地“存储”数据而生。<h2 id="localStorage和sessionStorage操作"><a href="#localStorage和sessionStorage操作" class="headerlink" title="localStorage和sessionStorage操作"></a>localStorage和sessionStorage操作</h2><h4 id="setItem存储value"><a href="#setItem存储value" class="headerlink" title="setItem存储value"></a>setItem存储value</h4>用途：将value存储到key字段<br>用法：.setItem( key, value)<br>代码示例：<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sessionStorage.setItem(<span class="string">"key"</span>, <span class="string">"value"</span>);         </span><br><span class="line">localStorage.setItem(<span class="string">"site"</span>, <span class="string">"js8.in"</span>);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="getItem获取value"><a href="#getItem获取value" class="headerlink" title="getItem获取value"></a>getItem获取value</h4><p>用途：获取指定key本地存储的值<br>用法：.getItem(key)<br>代码示例：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> value = sessionStorage.getItem(<span class="string">"key"</span>);     </span><br><span class="line"><span class="keyword">var</span> site = localStorage.getItem(<span class="string">"site"</span>);</span><br></pre></td></tr></table></figure></p>
+<h4 id="removeItem删除key"><a href="#removeItem删除key" class="headerlink" title="removeItem删除key"></a>removeItem删除key</h4><p>用途：删除指定key本地存储的值<br>用法：.removeItem(key)<br>代码示例：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sessionStorage.removeItem(<span class="string">"key"</span>);   </span><br><span class="line">localStorage.removeItem(<span class="string">"site"</span>);</span><br></pre></td></tr></table></figure></p>
+<h4 id="clear清除所有的key-value"><a href="#clear清除所有的key-value" class="headerlink" title="clear清除所有的key/value"></a>clear清除所有的key/value</h4><p>用途：清除所有的key/value<br>用法：.clear()<br>代码示例：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sessionStorage.clear();  </span><br><span class="line">localStorage.clear();</span><br></pre></td></tr></table></figure></p>
+<h4 id="其他操作方法：点操作和"><a href="#其他操作方法：点操作和" class="headerlink" title="其他操作方法：点操作和[]"></a>其他操作方法：点操作和[]</h4><p>web Storage不但可以用自身的setItem,getItem等方便存取，也可以像普通对象一样用点(.)操作符，及[]的方式进行数据存储，像如下的代码：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> storage = <span class="built_in">window</span>.localStorage; </span><br><span class="line">storage.key1 = <span class="string">"hello"</span>; </span><br><span class="line">storage[<span class="string">"key2"</span>] = <span class="string">"world"</span>; </span><br><span class="line"><span class="built_in">console</span>.log(storage.key1); </span><br><span class="line"><span class="built_in">console</span>.log(storage[<span class="string">"key2"</span>]);</span><br></pre></td></tr></table></figure></p>
+<h4 id="localStorage和sessionStorage的key和length属性实现遍历"><a href="#localStorage和sessionStorage的key和length属性实现遍历" class="headerlink" title="localStorage和sessionStorage的key和length属性实现遍历"></a>localStorage和sessionStorage的key和length属性实现遍历</h4><p>sessionStorage和localStorage提供的key()和length可以方便的实现存储的数据遍历，例如下面的代码：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> storage = <span class="built_in">window</span>.localStorage;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i=<span class="number">0</span>, len = storage.length; i &lt; len; i++)&#123;</span><br><span class="line">    <span class="keyword">var</span> key = storage.key(i);</span><br><span class="line">    <span class="keyword">var</span> value = storage.getItem(key);</span><br><span class="line">    <span class="built_in">console</span>.log(key + <span class="string">"="</span> + value);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="storage事件"><a href="#storage事件" class="headerlink" title="storage事件"></a>storage事件</h2><p>storage还提供了storage事件，当键值改变或者clear的时候，就可以触发storage事件，如下面的代码就添加了一个storage事件改变的监听：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(<span class="built_in">window</span>.addEventListener)&#123;  </span><br><span class="line">     <span class="built_in">window</span>.addEventListener(<span class="string">"storage"</span>,handle_storage,<span class="literal">false</span>);</span><br><span class="line">&#125;<span class="keyword">else</span> <span class="keyword">if</span>(<span class="built_in">window</span>.attachEvent)&#123;      </span><br><span class="line">     <span class="built_in">window</span>.attachEvent(<span class="string">"onstorage"</span>,handle_storage);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">handle_storage</span>(<span class="params">e</span>)</span>&#123; </span><br><span class="line">     <span class="keyword">if</span>(!e)&#123;e=<span class="built_in">window</span>.event;&#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>storage事件对象的具体属性如下表：</p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Property</td>
+<td>Type</td>
+<td>读取一个 jsons 文件</td>
+</tr>
+<tr>
+<td>key</td>
+<td>string</td>
+<td>less 编译</td>
+</tr>
+<tr>
+<td>oldValue</td>
+<td>any</td>
+<td>scss 编译</td>
+</tr>
+<tr>
+<td>newValue</td>
+<td>any</td>
+<td>css 插件处理器</td>
+</tr>
+<tr>
+<td>url/uri</td>
+<td>string</td>
+<td>解析 css 添加前缀 css 规则</td>
+</tr>
+</tbody>
+</table>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+      
+
+      
+      
+
+      <span class="post-tags">
+        <a href="/tags/html5/">html5</a>
+      </span>
+      
+
+    </div>
+
+    
+    <div class="article-meta pull-right">
+      <span>
+        <i class="icon-comments"></i>
+        <span>
+          <a href="/2016/06/12/sessionStorage和localStorage/#comment">
+            评论</a>
+        </span>
+      </span>
+    </div>
+    
+  </div>
+</article>
+
+
+  <article>
+
+  
+  
+  <h3 class="article-title"><a href="/2016/06/12/cookie使用说明/"><span>
+        cookie使用说明</span></a></h3>
+  
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2016/06/12/cookie使用说明/" rel="bookmark">
+        <time class="entry-date published" datetime="2016-06-12T05:28:09.000Z">
+          2016-06-12
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+      <h2 id="设置cookie"><a href="#设置cookie" class="headerlink" title="设置cookie"></a>设置cookie</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//设置cookie</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">setCookie</span>(<span class="params">cname, cvalue, exdays</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> d = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line">    d.setTime(d.getTime() + (exdays*<span class="number">24</span>*<span class="number">60</span>*<span class="number">60</span>*<span class="number">1000</span>));</span><br><span class="line">    <span class="keyword">var</span> expires = <span class="string">"expires="</span>+d.toUTCString();</span><br><span class="line">    <span class="built_in">document</span>.cookie = cname + <span class="string">"="</span> + cvalue + <span class="string">"; "</span> + expires;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="获取cookie"><a href="#获取cookie" class="headerlink" title="获取cookie"></a>获取cookie</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getCookie</span>(<span class="params">cname</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> name = cname + <span class="string">"="</span>;</span><br><span class="line">    <span class="keyword">var</span> ca = <span class="built_in">document</span>.cookie.split(<span class="string">';'</span>);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>; i&lt;ca.length; i++) &#123;</span><br><span class="line">        <span class="keyword">var</span> c = ca[i];</span><br><span class="line">        <span class="keyword">while</span> (c.charAt(<span class="number">0</span>)==<span class="string">' '</span>) c = c.substring(<span class="number">1</span>);</span><br><span class="line">        <span class="keyword">if</span> (c.indexOf(name) != <span class="number">-1</span>) <span class="keyword">return</span> c.substring(name.length, c.length);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">""</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+      
+
+      
+      
+
+      <span class="post-tags">
+        <a href="/tags/cookie/">cookie</a>
+      </span>
+      
+
+    </div>
+
+    
+    <div class="article-meta pull-right">
+      <span>
+        <i class="icon-comments"></i>
+        <span>
+          <a href="/2016/06/12/cookie使用说明/#comment">
+            评论</a>
+        </span>
+      </span>
+    </div>
+    
+  </div>
+</article>
+
+
+  <article>
+
+  
+  
+  <h3 class="article-title"><a href="/2016/05/28/面向对象和原型继承/"><span>
+        JavaScrip面向对象和原型继承</span></a></h3>
+  
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2016/05/28/面向对象和原型继承/" rel="bookmark">
+        <time class="entry-date published" datetime="2016-05-28T04:27:35.000Z">
+          2016-05-28
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+      <blockquote>
+<p>佛曰：对象本无根，类型亦无形。本来无一物，何处惹尘埃！ </p>
+</blockquote>
+<h3 id="理解对象"><a href="#理解对象" class="headerlink" title="理解对象"></a>理解对象</h3><ul>
+<li>一切事物皆对象；</li>
+<li>对象具有封装和继承特性；</li>
+</ul>
+<h3 id="创建对象"><a href="#创建对象" class="headerlink" title="创建对象"></a>创建对象</h3><ul>
+<li>通过object创建</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> person = <span class="keyword">new</span> object();</span><br><span class="line">	person.name = “Nicholas”;</span><br><span class="line">	person.age = <span class="number">19</span>;</span><br><span class="line">	person.job = “Software Engineer”;</span><br><span class="line">	person.sayName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">		alert(<span class="keyword">this</span>.name);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>通过字面量创建</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> person = &#123;</span><br><span class="line">	name: <span class="string">"Nicholas"</span>,</span><br><span class="line">	age: <span class="number">19</span>,</span><br><span class="line">	job: <span class="string">"Software Engineer"</span>,</span><br><span class="line">	sayName: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">		alert(<span class="keyword">this</span>.name);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+      
+
+      
+      
+
+      <span class="post-tags">
+        <a href="/tags/javascript/">javascript</a>
+      </span>
+      
+
+    </div>
+
+    
+    <div class="article-meta pull-right">
+      <span>
+        <i class="icon-comments"></i>
+        <span>
+          <a href="/2016/05/28/面向对象和原型继承/#comment">
+            评论</a>
+        </span>
+      </span>
+    </div>
+    
+  </div>
+</article>
+
+
+  <article>
+
+  
+  
+  <h3 class="article-title"><a href="/2016/05/19/$.each的用法/"><span>
+        jquery中each的用法</span></a></h3>
+  
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2016/05/19/$.each的用法/" rel="bookmark">
+        <time class="entry-date published" datetime="2016-05-19T08:33:32.000Z">
+          2016-05-19
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+      <h3 id="遍历html对象"><a href="#遍历html对象" class="headerlink" title="遍历html对象"></a>遍历html对象</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">'.obj'</span>).each(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> $<span class="keyword">this</span> = $(<span class="keyword">this</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h2 id="遍历对象"><a href="#遍历对象" class="headerlink" title="遍历对象"></a>遍历对象</h2><ul>
+<li>有附加参数</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$.each(<span class="built_in">Object</span>, <span class="function"><span class="keyword">function</span>(<span class="params">p1, p2</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>;   <span class="comment">//这里的this指向每次遍历中Object的当前属性值</span></span><br><span class="line">  p1; p2; <span class="comment">//访问附加参数</span></span><br><span class="line">&#125;, [<span class="string">'参数1'</span>, <span class="string">'参数2'</span>]);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>无附加参数</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$.each(<span class="built_in">Object</span>, <span class="function"><span class="keyword">function</span>(<span class="params">name, value</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>;      <span class="comment">//this指向当前属性的值</span></span><br><span class="line">  name;      <span class="comment">//name表示Object当前属性的名称</span></span><br><span class="line">  value;     <span class="comment">//value表示Object当前属性的值</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+      
+
+      
+      
+
+      <span class="post-tags">
+        <a href="/tags/jquery/">jquery</a>
+      </span>
+      
+
+    </div>
+
+    
+    <div class="article-meta pull-right">
+      <span>
+        <i class="icon-comments"></i>
+        <span>
+          <a href="/2016/05/19/$.each的用法/#comment">
+            评论</a>
+        </span>
+      </span>
+    </div>
+    
+  </div>
+</article>
+
+
+
+<nav class="pagination">
+  
+  <a href="/page/2/" class="pagination-prev">
+    上一页</a>
+  
+  
+  <a href="/page/4/" class="pagination-next">
+    下一页</a>
+  
+</nav>
+    </main>
+
+    <footer class="site-footer">
+  <p class="site-info">
+    
+    &copy;
+    2019
+    elaine
+    
+  </p>
+</footer>
+    
+<script>
+    (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function () {
+            (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+    ga('create', 'UA-75095706-1', 'auto');
+    ga('send', 'pageview');
+</script>
+
+  </div>
+</div>
+</body>
+</html>

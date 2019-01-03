@@ -1,0 +1,261 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  
+  <title>
+    flex布局 | 时光的涂鸦墙 | this is subtitiek
+  </title>
+
+  
+  <meta name="author" content="elaine">
+  
+
+  
+  <meta name="description" content="JavaScript Developer">
+  
+
+  
+  
+  <meta name="keywords" content="css3">
+  
+
+  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  
+  <meta property="og:title" content="flex布局" />
+  
+
+  <meta property="og:site_name" content="时光的涂鸦墙" />
+
+  
+  <meta property="og:image" content="/favicon.ico" />
+  
+
+  <link href="/favicon.ico" rel="icon">
+  <link rel="alternate" href="/atom.xml"
+    title="时光的涂鸦墙" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+</head>
+
+<body>
+<div class="blog">
+  <div class="content">
+
+    <header>
+  <div class="site-branding">
+    <h1 class="site-title">
+      <a href="/">时光的涂鸦墙</a>
+    </h1>
+    <p class="site-description">this is subtitiek</p>
+  </div>
+  <nav class="site-navigation">
+    <ul>
+      
+        <li><a href="/">主页</a></li>
+      
+        <li><a href="/archives">归档</a></li>
+      
+        <li><a href="/tags">标签</a></li>
+      
+        <li><a href="/about">关于</a></li>
+      
+    </ul>
+  </nav>
+</header>
+
+    <main class="site-main posts-loop">
+    <article>
+
+  
+  
+  <h3 class="article-title"><span>
+      flex布局</span></h3>
+  
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2016/08/19/flex布局/" rel="bookmark">
+        <time class="entry-date published" datetime="2016-08-19T06:41:02.000Z">
+          2016-08-19
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+      <h2 id="Flex容器属性"><a href="#Flex容器属性" class="headerlink" title="Flex容器属性"></a>Flex容器属性</h2><h5 id="display"><a href="#display" class="headerlink" title="display"></a>display</h5><p>定义一个Flex容器，根据其取的值来决定是内联还是块。Flex容器会为其内容建立新的伸缩格式化上下文。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.container</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: flex; <span class="comment">/* or inline-flex */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="flex-direction"><a href="#flex-direction" class="headerlink" title="flex-direction"></a>flex-direction</h5><p>指定容器内部排列的方向。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.container</span> &#123;</span><br><span class="line">  <span class="attribute">flex-direction</span>: row | row-reverse | column | column-reverse;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>row(默认值):如果书写方式是ltr，那么Flex项目从左向右排列；如果书写方式是rtl，那么Flex项目从右向左排列</li>
+<li>row-reverse:如果书写方式是ltr，那么Flex项目从右向左排列；如果书写方式是rtl，那么Flex项目从左向右排列</li>
+<li>column:和row类似，只不过方向是从上到下排列</li>
+<li>column-reverse:和row-reverse类似，只不过方向是从下向上排列</li>
+</ul>
+<h5 id="flex-wrap"><a href="#flex-wrap" class="headerlink" title="flex-wrap"></a>flex-wrap</h5><p>指定子元素是否可以换行。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.container</span>&#123;</span><br><span class="line">  <span class="attribute">flex-wrap</span>: nowrap | wrap | wrap-reverse;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>nowrap(默认值):单行显示，如果书写方式是ltr，Flex项目从左向右排列，反之rtl，从右向左排列</li>
+<li>wrap:多行显示，如果书写方式是ltr，Flex项目从左向右排列，反之rtl，从右向左排列</li>
+<li>wrap-reverse:多行显示，如果书写方式是ltr，Flex项目从右向左排列，反之rtl，从左向右排列</li>
+</ul>
+<h5 id="flex-flow-适用于flex容器元素"><a href="#flex-flow-适用于flex容器元素" class="headerlink" title="flex-flow(适用于flex容器元素)"></a>flex-flow(适用于flex容器元素)</h5><p>这是flex-direction和flex-wrap两个属性的缩写。两个属性决定了伸缩容器的主轴与侧轴。默认值是row nowrap（中间用空格隔开）。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flex-flow: &lt;‘flex-direction’&gt; || &lt;‘flex-wrap’&gt;</span><br></pre></td></tr></table></figure>
+<h5 id="justify-content"><a href="#justify-content" class="headerlink" title="justify-content"></a>justify-content</h5><p>用于在主轴上对齐伸缩项目。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.container</span> &#123;</span><br><span class="line">  <span class="attribute">justify-content</span>: flex-start | flex-end | center | space-between | space-around;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>flex-start(默认值):伸缩项目向一行的起始位置靠齐。该行的第一个伸缩项目在主轴起点边的外边距与该行在主轴起点的边对齐，同时所有后续的伸缩项目与其前一个项目对齐。</li>
+<li>flex-end:伸缩项目向一行的结束位置靠齐。该行的最后一个伸缩项目在主轴终点边的外边距与该行在主轴终点的边对齐，同时所有前面的伸缩项目与其后一个项目对齐。</li>
+<li>center:伸缩项目向一行的中间位置靠齐。该行的伸缩项目将相互对齐并在行中居中对齐，同时第一个项目与该行在主轴起点的边的距离等同与最后一个项目与该行在主轴终点的边的距离（如果剩余空间是负数，则保持两端溢出的长度相等）。</li>
+<li>space-between:伸缩项目会平均地分布在行里。如果剩余空间是负数，或该行只有一个伸缩项目，则此值等效于flex-start。在其它情况下，第一个项目在主轴起点边的外边距会与该行在主轴起点的边对齐，同时最后一个项目在主轴终点边的外边距与该行在主轴终点的边对齐，而剩下的伸缩项目在确保两两之间的空白空间相等下平均分布。</li>
+<li>space-around:伸缩项目会平均地分布在行里，两端保留一半的空间。如果剩余空间是负数，或该行只有一个伸缩项目，则该值等效于center。在其它情况下，伸缩项目在确保两两之间的空白空间相等，同时第一个元素前的空间以及最后一个元素后的空间为其他空白空间的一半下平均分布。</li>
+</ul>
+<h5 id="align-items"><a href="#align-items" class="headerlink" title="align-items"></a>align-items</h5><p>align-items可以用来设置伸缩容器中包括匿名伸缩项目的所有项目的对齐方式。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.container</span> &#123;</span><br><span class="line">  <span class="attribute">align-items</span>: flex-start | flex-end | center | baseline | stretch;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>flex-start:伸缩项目在侧轴起点边的外边距紧靠住该行在侧轴起始的边。</li>
+<li>flex-end:伸缩项目在侧轴终点边的外边距靠住该行在侧轴终点的边 。</li>
+<li>center:伸缩项目的外边距盒在该行的侧轴上居中放置。（如果伸缩行的尺寸小于伸缩项目，则伸缩项目会向两个方向溢出相同的量）。</li>
+<li>baseline:如果伸缩项目的行内轴与侧轴为同一条，则该值和flex-start等效。其它情况下，该值将参与基线对齐。所有参与该对齐方式的伸缩项目将按下列方式排列：首先将这些伸缩项目的基线进行对齐，随后其中基线至侧轴起点边的外边距距离最长的那个项目将紧靠住该行在侧轴起点的边。</li>
+<li>stretch:如果侧轴长度属性的值为auto，则此值会使项目的外边距盒的尺寸在遵照min/max-width/height属性的限制下尽可能接近所在行的尺寸。</li>
+</ul>
+<h5 id="align-content"><a href="#align-content" class="headerlink" title="align-content"></a>align-content</h5><p>当伸缩容器的侧轴还有多余空间时，align-content属性可以用来调准伸缩行在伸缩容器里的对齐方式.</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.container</span> &#123;</span><br><span class="line">  <span class="attribute">align-content</span>: flex-start | flex-end | center | space-between | space-around | stretch;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>flex-start:各行向伸缩容器的起点位置堆叠。伸缩容器中第一行在侧轴起点的边会紧靠住伸缩容器在侧轴起点的边，之后的每一行都紧靠住前面一行。</li>
+<li>flex-end:各行向伸缩容器的结束位置堆叠。伸缩容器中最后一行在侧轴终点的边会紧靠住该伸缩容器在侧轴终点的边，之前的每一行都紧靠住后面一行。</li>
+<li>center:各行向伸缩容器的中间位置堆叠。各行两两紧靠住同时在伸缩容器中居中对齐，保持伸缩容器在侧轴起点边的内容边和第一行之间的距离与该容器在侧轴终点边的内容边与第最后一行之间的距离相等。（如果剩下的空间是负数，则行的堆叠会向两个方向溢出的相等距离。）</li>
+<li>space-between:各行在伸缩容器中平均分布。如果剩余的空间是负数或伸缩容器中只有一行，该值等效于flex-start。在其它情况下，第一行在侧轴起点的边会紧靠住伸缩容器在侧轴起点边的内容边，最后一行在侧轴终点的边会紧靠住伸缩容器在侧轴终点的内容边，剩余的行在保持两两之间的空间相等的状况下排列。</li>
+<li>space-around:各行在伸缩容器中平均分布，在两边各有一半的空间。如果剩余的空间是负数或伸缩容器中只有一行，该值等效于center。在其它情况下，各行会在保持两两之间的空间相等，同时第一行前面及最后一行后面的空间是其他空间的一半的状况下排列。</li>
+<li>stretch:各行将会伸展以占用剩余的空间。如果剩余的空间是负数，该值等效于flex-start。在其它情况下，剩余空间被所有行平分，扩大各行的侧轴尺寸。</li>
+</ul>
+<h2 id="Flex项目属性"><a href="#Flex项目属性" class="headerlink" title="Flex项目属性"></a>Flex项目属性</h2><h5 id="order"><a href="#order" class="headerlink" title="order"></a>order</h5><p>默认情况，Flex项目是按文档源的流顺序排列。然而，在Flex容器中可以通过order属性来控制Flex项目的顺序源。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.item</span> &#123;</span><br><span class="line">  <span class="attribute">order</span>: &lt;integer&gt;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="flex-grow"><a href="#flex-grow" class="headerlink" title="flex-grow"></a>flex-grow</h5><p>如果所有Flex项目的flex-grow设置为1时，表示Flex容器中的Flex项目具有相等的尺寸。如果你给其中一个Flex项目设置flex-grow的值为2，那么这个Flex项目的尺寸将是其他Flex项目两倍。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.item</span> &#123;</span><br><span class="line">  <span class="attribute">flex-grow</span>: &lt;number&gt;; <span class="comment">/* default 0 */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="flex-shrink"><a href="#flex-shrink" class="headerlink" title="flex-shrink"></a>flex-shrink</h5><p>如果有必要，flex-shrink可以定义Flex项目的缩小比例。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.item</span> &#123;</span><br><span class="line">  <span class="attribute">flex-shrink</span>: &lt;number&gt;; <span class="comment">/* default 1 */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="flex-basis"><a href="#flex-basis" class="headerlink" title="flex-basis"></a>flex-basis</h5><p>flex-basis属性定义了Flex项目在分配Flex容器剩余空间之前的一个默认尺寸。main-size值使它具有匹配的宽度或高度，不过都需要取决于flex-direction的值。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.item</span> &#123;</span><br><span class="line">  <span class="attribute">flex-basis</span>: &lt;length&gt; | auto; <span class="comment">/* default auto */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="flex"><a href="#flex" class="headerlink" title="flex"></a>flex</h5><p>flex是flex-grow，flex-shrink和flex-basis三个属性的缩写。第二个和第三个参数(flex-shrink和flex-basis)是可选值。其默认值是0 1 auto。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.item</span> &#123;</span><br><span class="line">  <span class="attribute">flex</span>: none | [ &lt;<span class="string">'flex-grow'</span>&gt; &lt;<span class="string">'flex-shrink'</span>&gt;? || &lt;<span class="string">'flex-basis'</span>&gt; ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="align-self"><a href="#align-self" class="headerlink" title="align-self"></a>align-self</h5><p>align-self则用来在单独的伸缩项目上覆写默认的对齐方式。（对于匿名伸缩项目，align-self的值永远与其关联的伸缩容器的align-items的值相同。）</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.item</span> &#123;</span><br><span class="line">  <span class="attribute">align-self</span>: auto | flex-start | flex-end | center | baseline | stretch;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="常用案例"><a href="#常用案例" class="headerlink" title="常用案例"></a>常用案例</h2><ul>
+<li>子元素等分</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">ul</span>&#123;</span><br><span class="line">  <span class="attribute">display</span>:flex;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">li</span>&#123;</span><br><span class="line">  <span class="attribute">flex</span>:<span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>左右固定宽度，中间自适应</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">ul</span>&#123;</span><br><span class="line">  <span class="attribute">display</span>:flex;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">li</span><span class="selector-pseudo">:first-child</span>,</span><br><span class="line"><span class="selector-tag">li</span><span class="selector-pseudo">:last-child</span>&#123;</span><br><span class="line">  <span class="attribute">width</span>:<span class="number">50px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">li</span><span class="selector-pseudo">:nth-child(2)</span>&#123;</span><br><span class="line">  <span class="attribute">flex</span>:<span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>底部贴底</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">html</span>,<span class="selector-tag">body</span>,<span class="selector-tag">ul</span>&#123;</span><br><span class="line">  <span class="attribute">height</span>:<span class="number">100%</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">ul</span>&#123;</span><br><span class="line">  <span class="attribute">display</span>:flex;</span><br><span class="line">  <span class="attribute">flex-direction</span>:column;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">li</span><span class="selector-pseudo">:first-child</span>,</span><br><span class="line"><span class="selector-tag">li</span><span class="selector-pseudo">:last-child</span>&#123;</span><br><span class="line">  <span class="attribute">height</span>:<span class="number">50px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">li</span><span class="selector-pseudo">:nth-child(2)</span>&#123;</span><br><span class="line">  <span class="attribute">flex</span>:<span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>多行多列（商品列表）</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">ul</span>&#123;</span><br><span class="line">  <span class="attribute">display</span>:flex;</span><br><span class="line">  flex-wrap:wrap; //允许换行</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">li</span>&#123;</span><br><span class="line">  <span class="attribute">width</span>:<span class="number">50%</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>两端对齐垂直居中（导航）</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">header</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">h1</span>&gt;</span>标题<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">""</span>&gt;</span>更多<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">header</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">header</span>&#123;</span><br><span class="line">  <span class="attribute">display</span>:flex;</span><br><span class="line">  <span class="attribute">justify-content</span>:space-between;</span><br><span class="line">  <span class="attribute">align-items</span>:center;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>水平垂直居中（img）</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">header</span>&#123;</span><br><span class="line">  <span class="attribute">display</span>:flex;</span><br><span class="line">  <span class="attribute">justify-content</span>:center;</span><br><span class="line">  <span class="attribute">align-items</span>:center;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>子元素横向排列，超过父容器宽度不换行（slider）</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">ul</span>&#123;</span><br><span class="line">  <span class="attribute">display</span>:flex;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">li</span>&#123;</span><br><span class="line">  <span class="attribute">flex-shrink</span>:<span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>转载自<a href="http://www.w3cplus.com/css3/a-guide-to-flexbox-new.html" target="_blank" rel="noopener">一个完整的Flexbox指南</a></p>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+      
+
+      
+      
+
+      <span class="post-tags">
+        <a href="/tags/css3/">css3</a>
+      </span>
+      
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+<section id="comment" class="comment">
+	<div id="gitment"></div>
+</section>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+	var gitment = new Gitment({
+		owner: 'lingmissing',
+		repo: 'lingmissing-gitment',
+		oauth: {
+			client_id: 'c7675a51f3f7416ac3c0',
+			client_secret: 'cac3475af0adfc9d1669114ef89e8c6ff59ac758',
+		},
+	})
+	gitment.render('gitment')
+</script>
+
+
+
+    </main>
+
+    <footer class="site-footer">
+  <p class="site-info">
+    
+    &copy;
+    2019
+    elaine
+    
+  </p>
+</footer>
+    
+<script>
+    (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function () {
+            (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+    ga('create', 'UA-75095706-1', 'auto');
+    ga('send', 'pageview');
+</script>
+
+  </div>
+</div>
+</body>
+</html>

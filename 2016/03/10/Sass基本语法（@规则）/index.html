@@ -1,0 +1,187 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  
+  <title>
+    Sass基本语法（@规则） | 时光的涂鸦墙 | this is subtitiek
+  </title>
+
+  
+  <meta name="author" content="elaine">
+  
+
+  
+  <meta name="description" content="JavaScript Developer">
+  
+
+  
+  
+  <meta name="keywords" content="Sass">
+  
+
+  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  
+  <meta property="og:title" content="Sass基本语法（@规则）" />
+  
+
+  <meta property="og:site_name" content="时光的涂鸦墙" />
+
+  
+  <meta property="og:image" content="/favicon.ico" />
+  
+
+  <link href="/favicon.ico" rel="icon">
+  <link rel="alternate" href="/atom.xml"
+    title="时光的涂鸦墙" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+</head>
+
+<body>
+<div class="blog">
+  <div class="content">
+
+    <header>
+  <div class="site-branding">
+    <h1 class="site-title">
+      <a href="/">时光的涂鸦墙</a>
+    </h1>
+    <p class="site-description">this is subtitiek</p>
+  </div>
+  <nav class="site-navigation">
+    <ul>
+      
+        <li><a href="/">主页</a></li>
+      
+        <li><a href="/archives">归档</a></li>
+      
+        <li><a href="/tags">标签</a></li>
+      
+        <li><a href="/about">关于</a></li>
+      
+    </ul>
+  </nav>
+</header>
+
+    <main class="site-main posts-loop">
+    <article>
+
+  
+  
+  <h3 class="article-title"><span>
+      Sass基本语法（@规则）</span></h3>
+  
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2016/03/10/Sass基本语法（@规则）/" rel="bookmark">
+        <time class="entry-date published" datetime="2016-03-10T03:43:18.000Z">
+          2016-03-10
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+      <h2 id="import"><a href="#import" class="headerlink" title="@import"></a>@import</h2><p>Sass 扩展了 CSS 的 @import 规则，让它能够引入 SCSS 和 Sass 文件。 所有引入的 SCSS 和 Sass 文件都会被合并并输出一个单一的 CSS 文件。 另外，被导入的文件中所定义的变量或 mixins 都可以在主文件中使用。</p>
+<h2 id="media"><a href="#media" class="headerlink" title="@media"></a>@media</h2><p>sass 中的 @media 指令和 CSS 的使用规则一样的简单，但它有另外一个功能，可以嵌套在 CSS 规则中。有点类似 JS 的冒泡功能一样，如果在样式中使用 @media 指令，它将冒泡到外面。</p>
+<h2 id="extend"><a href="#extend" class="headerlink" title="@extend"></a>@extend</h2><p>Sass 中的 @extend 是用来扩展选择器或占位符。</p>
+<p>@extend不能继承选择器序列。</p>
+<p>@extend继承会把其下面的子类一起继承。</p>
+<p>解决方案：使用%来构建需要被继承的元素。但是代码不会被合并。</p>
+<h2 id="at-root"><a href="#at-root" class="headerlink" title="@at-root"></a>@at-root</h2><p>@at-root 从字面上解释就是跳出根元素。</p>
+<p>当你选择器嵌套多层之后，想让某个选择器跳出，此时就可以使用 @at-root。不适合嵌套过多的时候使用</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.a</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: red;</span><br><span class="line">  .b &#123;</span><br><span class="line">    <span class="selector-tag">color</span>: <span class="selector-tag">orange</span>;</span><br><span class="line">    <span class="selector-class">.c</span> &#123;</span><br><span class="line">      <span class="attribute">color</span>: yellow;</span><br><span class="line">      @at-root .d &#123;</span><br><span class="line">        <span class="selector-tag">color</span>: <span class="selector-tag">green</span>;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<p>编译出来的CSS</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.a</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: red;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.a</span> <span class="selector-class">.b</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: orange;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.a</span> <span class="selector-class">.b</span> <span class="selector-class">.c</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: yellow;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.d</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: green;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="debug"><a href="#debug" class="headerlink" title="@debug"></a>@debug</h2><p>@debug 在 Sass 中是用来调试的，当你的在 Sass 的源码中使用了 @debug 指令之后，Sass 代码在编译出错时，在命令终端会输出你设置的提示 Bug:</p>
+<h2 id="warn"><a href="#warn" class="headerlink" title="@warn"></a>@warn</h2><p>@warn 和 @debug 功能类似，用来帮助我们更好的调试 Sass。</p>
+<h2 id="error"><a href="#error" class="headerlink" title="@error"></a>@error</h2><p>@error 和 @warn、@debug 功能是如出一辙。</p>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+      
+
+      
+      
+
+      <span class="post-tags">
+        <a href="/tags/Sass/">Sass</a>
+      </span>
+      
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+<section id="comment" class="comment">
+	<div id="gitment"></div>
+</section>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+	var gitment = new Gitment({
+		owner: 'lingmissing',
+		repo: 'lingmissing-gitment',
+		oauth: {
+			client_id: 'c7675a51f3f7416ac3c0',
+			client_secret: 'cac3475af0adfc9d1669114ef89e8c6ff59ac758',
+		},
+	})
+	gitment.render('gitment')
+</script>
+
+
+
+    </main>
+
+    <footer class="site-footer">
+  <p class="site-info">
+    
+    &copy;
+    2019
+    elaine
+    
+  </p>
+</footer>
+    
+<script>
+    (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function () {
+            (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+    ga('create', 'UA-75095706-1', 'auto');
+    ga('send', 'pageview');
+</script>
+
+  </div>
+</div>
+</body>
+</html>

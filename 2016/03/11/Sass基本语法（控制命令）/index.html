@@ -1,0 +1,205 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  
+  <title>
+    Sass基本语法（控制命令） | 时光的涂鸦墙 | this is subtitiek
+  </title>
+
+  
+  <meta name="author" content="elaine">
+  
+
+  
+  <meta name="description" content="JavaScript Developer">
+  
+
+  
+  
+  <meta name="keywords" content="Sass">
+  
+
+  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  
+  <meta property="og:title" content="Sass基本语法（控制命令）" />
+  
+
+  <meta property="og:site_name" content="时光的涂鸦墙" />
+
+  
+  <meta property="og:image" content="/favicon.ico" />
+  
+
+  <link href="/favicon.ico" rel="icon">
+  <link rel="alternate" href="/atom.xml"
+    title="时光的涂鸦墙" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+</head>
+
+<body>
+<div class="blog">
+  <div class="content">
+
+    <header>
+  <div class="site-branding">
+    <h1 class="site-title">
+      <a href="/">时光的涂鸦墙</a>
+    </h1>
+    <p class="site-description">this is subtitiek</p>
+  </div>
+  <nav class="site-navigation">
+    <ul>
+      
+        <li><a href="/">主页</a></li>
+      
+        <li><a href="/archives">归档</a></li>
+      
+        <li><a href="/tags">标签</a></li>
+      
+        <li><a href="/about">关于</a></li>
+      
+    </ul>
+  </nav>
+</header>
+
+    <main class="site-main posts-loop">
+    <article>
+
+  
+  
+  <h3 class="article-title"><span>
+      Sass基本语法（控制命令）</span></h3>
+  
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2016/03/11/Sass基本语法（控制命令）/" rel="bookmark">
+        <time class="entry-date published" datetime="2016-03-11T03:43:08.000Z">
+          2016-03-11
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+      <h2 id="if"><a href="#if" class="headerlink" title="@if"></a>@if</h2><p>@if 指令是一个 SassScript，它可以根据条件来处理样式块，如果条件为 true 返回一个样式块，反之 false 返回另一个样式块。在 Sass 中除了 @if 之，还可以配合 @else if 和 @else 一起使用。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/** SCSS **/</span></span><br><span class="line">@<span class="keyword">mixin</span> blockOrHidden($boolean:true) &#123;</span><br><span class="line">  @<span class="keyword">if</span> $boolean &#123;</span><br><span class="line">      @<span class="keyword">debug</span> <span class="string">"$boolean is #&#123;$boolean&#125;"</span>;</span><br><span class="line">      display: block;  //当不写参数或者参数为true</span><br><span class="line">    &#125;</span><br><span class="line">  @<span class="keyword">else</span> &#123;</span><br><span class="line">      @<span class="keyword">debug</span> <span class="string">"$boolean is #&#123;$boolean&#125;"</span>;</span><br><span class="line">      display: none;  //参数为false</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.block</span> &#123;</span><br><span class="line">  @include blockOrHidden;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.hidden</span>&#123;</span><br><span class="line">  @include blockOrHidden(false);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<p>编译后的css：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.block</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: block; </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.hidden</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: none; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="for循环"><a href="#for循环" class="headerlink" title="@for循环"></a>@for循环</h2><p>Sass 的 @for 循环中有两种方式：</p>
+<pre><code>@for $i from &lt;start&gt; through &lt;end&gt;
+@for $i from &lt;start&gt; to &lt;end&gt;
+</code></pre><ul>
+<li>$i 表示变量</li>
+<li>start 表示起始值</li>
+<li>end 表示结束值</li>
+</ul>
+<p>这两个的区别是关键字 through 表示包括 end 这个数，而 to 则不包括 end 这个数。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/** SCSS------网格系统生成各个格子 **/</span></span><br><span class="line">$grid-prefix: span;</span><br><span class="line">$grid-width: 60px;</span><br><span class="line">$grid-gutter: 20px;</span><br><span class="line"></span><br><span class="line">%<span class="selector-tag">grid</span> &#123;</span><br><span class="line">  <span class="attribute">float</span>: left;</span><br><span class="line">  <span class="attribute">margin-left</span>: $grid-gutter / <span class="number">2</span>;</span><br><span class="line">  <span class="attribute">margin-right</span>: $grid-gutter / <span class="number">2</span>;</span><br><span class="line">&#125;</span><br><span class="line">@<span class="keyword">for</span> $i from <span class="number">1</span> through <span class="number">12</span> &#123;</span><br><span class="line">  .#&#123;$grid-prefix&#125;#&#123;$i&#125;&#123;</span><br><span class="line">    width: $grid-width * $i + $grid-gutter * ($i - 1);</span><br><span class="line">    @<span class="keyword">extend</span> %grid;</span><br><span class="line">  &#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>编译出css：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.span1</span>, <span class="selector-class">.span2</span>, <span class="selector-class">.span3</span>, <span class="selector-class">.span4</span>, <span class="selector-class">.span5</span>, <span class="selector-class">.span6</span>, <span class="selector-class">.span7</span>, <span class="selector-class">.span8</span>, <span class="selector-class">.span9</span>, <span class="selector-class">.span10</span>, <span class="selector-class">.span11</span>, <span class="selector-class">.span12</span> &#123;</span><br><span class="line">  <span class="attribute">float</span>: left;</span><br><span class="line">  <span class="attribute">margin-left</span>: <span class="number">10px</span>;</span><br><span class="line">  <span class="attribute">margin-right</span>: <span class="number">10px</span>; &#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.span1</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">60px</span>; &#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.span2</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">140px</span>; &#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.span3</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">220px</span>; &#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.span4</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">300px</span>; &#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.span5</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">380px</span>; &#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.span6</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">460px</span>; &#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.span7</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">540px</span>; &#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.span8</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">620px</span>; &#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.span9</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">700px</span>; &#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.span10</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">780px</span>; &#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.span11</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">860px</span>; &#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.span12</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">940px</span>; &#125;</span><br></pre></td></tr></table></figure>
+<h2 id="while循环"><a href="#while循环" class="headerlink" title="@while循环"></a>@while循环</h2><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/** SCSS **/</span></span><br><span class="line">$types: 4;</span><br><span class="line">$type-width: 20px;</span><br><span class="line"></span><br><span class="line">@<span class="keyword">while</span> $types &gt; <span class="number">0</span> &#123;</span><br><span class="line">    .while-#&#123;$types&#125; &#123;</span><br><span class="line">        width: $type-width + $types;</span><br><span class="line">    &#125;</span><br><span class="line">    $types: $types - 1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>编译出css：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.while-4</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">24px</span>; &#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.while-3</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">23px</span>; &#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.while-2</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">22px</span>; &#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.while-1</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">21px</span>; &#125;</span><br></pre></td></tr></table></figure>
+<h2 id="each循环"><a href="#each循环" class="headerlink" title="@each循环"></a>@each循环</h2><ul>
+<li>@each 循环就是去遍历一个列表，然后从列表中取出对应的值。</li>
+<li>@each 循环指令的形式：</li>
+<li>@each $var in <list></list></li>
+</ul>
+<p>$var 就是一个变量名，<list> 是一个 SassScript 表达式，他将返回一个列表值。变量 $var 会在列表中做遍历，并且遍历出与 $var 对应的样式块。</list></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">$list: adam john wynn mason kuroir;//$list 是一个列表</span><br><span class="line">@<span class="keyword">mixin</span> author-images &#123;</span><br><span class="line">    @<span class="keyword">each</span> $author in $list &#123;</span><br><span class="line">        .photo-#&#123;$author&#125; &#123;</span><br><span class="line">            background: url("/images/avatars/#&#123;$author&#125;.png") no-repeat;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.author-bio</span> &#123;</span><br><span class="line">    @include author-images;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>编译出 CSS:</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.author-bio</span> <span class="selector-class">.photo-adam</span> &#123;</span><br><span class="line">	<span class="attribute">background</span>: <span class="built_in">url</span>(<span class="string">"/images/avatars/adam.png"</span>) no-repeat;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.author-bio</span> <span class="selector-class">.photo-john</span> &#123;</span><br><span class="line">	<span class="attribute">background</span>: <span class="built_in">url</span>(<span class="string">"/images/avatars/john.png"</span>) no-repeat;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.author-bio</span> <span class="selector-class">.photo-wynn</span> &#123;</span><br><span class="line">	<span class="attribute">background</span>: <span class="built_in">url</span>(<span class="string">"/images/avatars/wynn.png"</span>) no-repeat;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.author-bio</span> <span class="selector-class">.photo-mason</span> &#123;</span><br><span class="line">	<span class="attribute">background</span>: <span class="built_in">url</span>(<span class="string">"/images/avatars/mason.png"</span>) no-repeat;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.author-bio</span> <span class="selector-class">.photo-kuroir</span> &#123;</span><br><span class="line">	<span class="attribute">background</span>: <span class="built_in">url</span>(<span class="string">"/images/avatars/kuroir.png"</span>) no-repeat;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="function"><a href="#function" class="headerlink" title="@function"></a>@function</h2><p>@function是一个自定义函数，虽然和@maxin一样都是通过传入变量改变数据，但是与之不同的是@mixin传入变量要带上前面的类型，比如width、font-size等待，而@function值传数据，这样可以用于多个属性。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$oneWidth: 10px;  </span><br><span class="line">$twoWidth: 40px;  </span><br><span class="line">  </span><br><span class="line">@<span class="keyword">function</span> widthFn($n) &#123;  </span><br><span class="line">  @<span class="keyword">return</span> $n * $twoWidth + ($n - <span class="number">1</span>) * $oneWidth;  </span><br><span class="line">&#125;    </span><br><span class="line"><span class="selector-class">.leng</span> &#123;   </span><br><span class="line">  <span class="attribute">width</span>: <span class="built_in">widthFn</span>(5);  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>编译出 CSS:</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.leng</span> &#123;  </span><br><span class="line">  <span class="attribute">width</span>: <span class="number">240px</span>;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+      
+
+      
+      
+
+      <span class="post-tags">
+        <a href="/tags/Sass/">Sass</a>
+      </span>
+      
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+<section id="comment" class="comment">
+	<div id="gitment"></div>
+</section>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+	var gitment = new Gitment({
+		owner: 'lingmissing',
+		repo: 'lingmissing-gitment',
+		oauth: {
+			client_id: 'c7675a51f3f7416ac3c0',
+			client_secret: 'cac3475af0adfc9d1669114ef89e8c6ff59ac758',
+		},
+	})
+	gitment.render('gitment')
+</script>
+
+
+
+    </main>
+
+    <footer class="site-footer">
+  <p class="site-info">
+    
+    &copy;
+    2019
+    elaine
+    
+  </p>
+</footer>
+    
+<script>
+    (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function () {
+            (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+    ga('create', 'UA-75095706-1', 'auto');
+    ga('send', 'pageview');
+</script>
+
+  </div>
+</div>
+</body>
+</html>

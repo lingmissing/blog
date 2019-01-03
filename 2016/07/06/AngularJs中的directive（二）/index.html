@@ -1,0 +1,201 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  
+  <title>
+    AngularJs中的directive（二） | 时光的涂鸦墙 | this is subtitiek
+  </title>
+
+  
+  <meta name="author" content="elaine">
+  
+
+  
+  <meta name="description" content="JavaScript Developer">
+  
+
+  
+  
+  <meta name="keywords" content="angular">
+  
+
+  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  
+  <meta property="og:title" content="AngularJs中的directive（二）" />
+  
+
+  <meta property="og:site_name" content="时光的涂鸦墙" />
+
+  
+  <meta property="og:image" content="/favicon.ico" />
+  
+
+  <link href="/favicon.ico" rel="icon">
+  <link rel="alternate" href="/atom.xml"
+    title="时光的涂鸦墙" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+</head>
+
+<body>
+<div class="blog">
+  <div class="content">
+
+    <header>
+  <div class="site-branding">
+    <h1 class="site-title">
+      <a href="/">时光的涂鸦墙</a>
+    </h1>
+    <p class="site-description">this is subtitiek</p>
+  </div>
+  <nav class="site-navigation">
+    <ul>
+      
+        <li><a href="/">主页</a></li>
+      
+        <li><a href="/archives">归档</a></li>
+      
+        <li><a href="/tags">标签</a></li>
+      
+        <li><a href="/about">关于</a></li>
+      
+    </ul>
+  </nav>
+</header>
+
+    <main class="site-main posts-loop">
+    <article>
+
+  
+  
+  <h3 class="article-title"><span>
+      AngularJs中的directive（二）</span></h3>
+  
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2016/07/06/AngularJs中的directive（二）/" rel="bookmark">
+        <time class="entry-date published" datetime="2016-07-06T10:09:53.000Z">
+          2016-07-06
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+      <h2 id="require"><a href="#require" class="headerlink" title="require"></a>require</h2><ul>
+<li><code>?</code> 如果在当前指令中没有找到所需的控制器，就会将null传递给link函数中的第四个参数</li>
+<li><code>^</code> 如果添加了这个前缀，指令会在上游的指令链中查找require参数所指定的控制器</li>
+<li><code>?^</code> 合并了前面两个说法</li>
+<li>没有前缀  指令就会自身提供的控制器中查找，如果没有查找到，就会抛出异常来。</li>
+</ul>
+<h2 id="link"><a href="#link" class="headerlink" title="link"></a>link</h2><h4 id="对于link-与scope"><a href="#对于link-与scope" class="headerlink" title="对于link 与scope"></a>对于link 与scope</h4><p>scope，我们需要用到一个link函数，他由指令定义对象中的link属性配置。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">link:<span class="function"><span class="keyword">function</span>(<span class="params">scope,elem,attrs</span>)</span>&#123;</span><br><span class="line">    <span class="comment">// scope:父亲controller的scope</span></span><br><span class="line">    <span class="comment">// elem：jqLite(jquery的子集)包装的dom元素，不需要再使用$()包装了。</span></span><br><span class="line">    <span class="comment">// attrs:一个包含了指令所在元素的属性的标准化的参数对象，</span></span><br><span class="line">    <span class="comment">// 例子：比如你在html中添加一些属性，那么可以在link函数中通过attrs.someAttribute来使用他。</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>所以说：<code>link</code> 函数主要是为dom 元素添加事件监听，监听模型属性变化，以及更新dom。<br>另外如果有参数 <code>require</code> 的话，对于link 函数方面就会多一个参数 <code>controller</code><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line"><span class="built_in">require</span>:<span class="string">'?ngModal'</span>,</span><br><span class="line">link:<span class="function"><span class="keyword">function</span>(<span class="params">scope,element,attrs,ctrl</span>)</span>&#123;</span><br><span class="line">    <span class="comment">// 这里 ctrl 就是  require 进来的ctrl</span></span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>如果require的参数是数组的话。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line"><span class="built_in">require</span>:[<span class="string">'?ngModal'</span>,<span class="string">'?test'</span>],</span><br><span class="line">link:<span class="function"><span class="keyword">function</span>(<span class="params">scope,element,attrs,ctrls</span>)</span>&#123;</span><br><span class="line">    <span class="comment">// 这里 ctrl 就是  require 进来的ctrl</span></span><br><span class="line">    <span class="keyword">var</span> modalCtrl = ctrls[<span class="number">0</span>];</span><br><span class="line">    <span class="keyword">var</span> testCtrl = ctrls[<span class="number">1</span>];</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="controller"><a href="#controller" class="headerlink" title="controller"></a>controller</h2><p>类型：字符串或者函数</p>
+<ul>
+<li><p>若是为字符串，则将字符串当做是控制器的名字，来查找注册在应用中的控制器的构造函数。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">angular.module(<span class="string">'myApp'</span>, [])   </span><br><span class="line">.directive(<span class="string">'myDirective'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;   </span><br><span class="line">  restrict: <span class="string">'A'</span>, <span class="comment">// 始终需要  </span></span><br><span class="line">  controller: <span class="string">'SomeController'</span>   </span><br><span class="line">&#125;)   </span><br><span class="line"><span class="comment">// 应用中其他的地方，可以是同一个文件或被index.html包含的另一个文件  </span></span><br><span class="line">angular.module(<span class="string">'myApp'</span>)   </span><br><span class="line">.controller(<span class="string">'SomeController'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">$scope, $element, $attrs, $transclude</span>) </span>&#123;   </span><br><span class="line">  <span class="comment">// 控制器逻辑放在这里  </span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>若为匿名函数，直接在指令内部的定义为匿名函数，同样我们可以再这里注入任何服务（$log,$timeout等等）</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">angular.module(<span class="string">'myApp'</span>,[])   </span><br><span class="line">.directive(<span class="string">'myDirective'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;   </span><br><span class="line">  restrict: <span class="string">'A'</span>,   </span><br><span class="line">  controller:   </span><br><span class="line">    <span class="function"><span class="keyword">function</span>(<span class="params">$scope, $element, $attrs, $transclude</span>) </span>&#123;   </span><br><span class="line">      <span class="comment">// 控制器逻辑放在这里  </span></span><br><span class="line">    &#125;   </span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>另外还有一些特殊的服务（参数）可以注入:</p>
+<ul>
+<li><code>$scope</code>，与指令元素相关联的作用域</li>
+<li><code>$element</code>，当前指令对应的 元素</li>
+<li><code>$attrs</code>，由当前元素的属性组成的对象</li>
+<li><code>$transclude</code>，嵌入链接函数，实际被执行用来克隆元素和操作DOM的函数<br>注意： 除非是用来定义一些可复用的行为，一般不推荐在这使用<code>$transclude</code>。<br>指令的控制器和link函数（后面会讲）可以进行互换。区别在于，控制器主要是用来提供可在指令间复用的行为但link链接函数只能在当前内部指令中定义行为，且无法再指令间复用。<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">angular.module(<span class="string">'myApp'</span>,[]).directive(<span class="string">'mySite'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;  </span><br><span class="line"><span class="keyword">return</span> &#123;  </span><br><span class="line">    restrict: <span class="string">'EA'</span>,  </span><br><span class="line">    transclude: <span class="literal">true</span>, <span class="comment">//注意此处必须设置为true  </span></span><br><span class="line">    controller:  </span><br><span class="line">    <span class="function"><span class="keyword">function</span> (<span class="params">$scope, $element,$attrs,$transclude,$log</span>) </span>&#123;  <span class="comment">//在这里你可以注入你想注入的服务  </span></span><br><span class="line">        $transclude(<span class="function"><span class="keyword">function</span> (<span class="params">clone</span>) </span>&#123;                </span><br><span class="line">            <span class="keyword">var</span> a = angular.element(<span class="string">'&lt;a&gt;'</span>);  </span><br><span class="line">                a.attr(<span class="string">'href'</span>, $attrs.site);  </span><br><span class="line">                a.text(clone.text());  </span><br><span class="line">                $element.append(a);  </span><br><span class="line">            &#125;);  </span><br><span class="line">            $log.info(<span class="string">"hello everyone"</span>);  </span><br><span class="line">        &#125;  </span><br><span class="line">    &#125;;  </span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>HTML代码为：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">my-site</span> <span class="attr">site</span>=<span class="string">"http://www.cnblogs.com/cunjieliu"</span>&gt;</span>雷锋叔叔的博客<span class="tag">&lt;/<span class="name">my-site</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="controller函数与require"><a href="#controller函数与require" class="headerlink" title="controller函数与require"></a>controller函数与require</h4><p>如果你需要允许其他指令和你的指令发生交互的话，你需要使用controller函数，比如有些情况下，你需要通过组合两个指令来实现一个ui组件，那么你可以通过如下使用<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">app.directive(<span class="string">'outerDirective'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    scope: &#123;&#125;,</span><br><span class="line">    restrict: <span class="string">'AE'</span>,</span><br><span class="line">    controller: <span class="function"><span class="keyword">function</span>(<span class="params">$scope, $compile, $http</span>) </span>&#123;</span><br><span class="line">      <span class="comment">// $scope is the appropriate scope for the directive</span></span><br><span class="line">      <span class="keyword">this</span>.addChild = <span class="function"><span class="keyword">function</span>(<span class="params">nestedDirective</span>) </span>&#123; <span class="comment">// this refers to the controller</span></span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'Got the message from nested directive:'</span> + nestedDirective.message);</span><br><span class="line">      &#125;;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>当另外一个指令需要使用到这个controller的时候<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">app.directive(<span class="string">'innerDirective'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    scope: &#123;&#125;,</span><br><span class="line">    restrict: <span class="string">'AE'</span>,</span><br><span class="line">    <span class="built_in">require</span>: <span class="string">'^outerDirective'</span>,   <span class="comment">//  require controller 方法</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">// link 参数中就会多一个参数 就是那个require 进来的controller</span></span><br><span class="line">    link: <span class="function"><span class="keyword">function</span>(<span class="params">scope, elem, attrs, controllerInstance</span>) </span>&#123;</span><br><span class="line">      <span class="comment">//the fourth argument is the controller instance you require</span></span><br><span class="line">      scope.message = <span class="string">"Hi, Parent directive"</span>;</span><br><span class="line">      controllerInstance.addChild(scope);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+      
+
+      
+      
+
+      <span class="post-tags">
+        <a href="/tags/angular/">angular</a>
+      </span>
+      
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+<section id="comment" class="comment">
+	<div id="gitment"></div>
+</section>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+	var gitment = new Gitment({
+		owner: 'lingmissing',
+		repo: 'lingmissing-gitment',
+		oauth: {
+			client_id: 'c7675a51f3f7416ac3c0',
+			client_secret: 'cac3475af0adfc9d1669114ef89e8c6ff59ac758',
+		},
+	})
+	gitment.render('gitment')
+</script>
+
+
+
+    </main>
+
+    <footer class="site-footer">
+  <p class="site-info">
+    
+    &copy;
+    2019
+    elaine
+    
+  </p>
+</footer>
+    
+<script>
+    (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function () {
+            (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+    ga('create', 'UA-75095706-1', 'auto');
+    ga('send', 'pageview');
+</script>
+
+  </div>
+</div>
+</body>
+</html>

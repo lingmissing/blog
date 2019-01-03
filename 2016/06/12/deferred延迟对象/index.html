@@ -1,0 +1,175 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  
+  <title>
+    deferred延迟对象 | 时光的涂鸦墙 | this is subtitiek
+  </title>
+
+  
+  <meta name="author" content="elaine">
+  
+
+  
+  <meta name="description" content="JavaScript Developer">
+  
+
+  
+  
+  <meta name="keywords" content="jquery">
+  
+
+  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  
+  <meta property="og:title" content="deferred延迟对象" />
+  
+
+  <meta property="og:site_name" content="时光的涂鸦墙" />
+
+  
+  <meta property="og:image" content="/favicon.ico" />
+  
+
+  <link href="/favicon.ico" rel="icon">
+  <link rel="alternate" href="/atom.xml"
+    title="时光的涂鸦墙" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+</head>
+
+<body>
+<div class="blog">
+  <div class="content">
+
+    <header>
+  <div class="site-branding">
+    <h1 class="site-title">
+      <a href="/">时光的涂鸦墙</a>
+    </h1>
+    <p class="site-description">this is subtitiek</p>
+  </div>
+  <nav class="site-navigation">
+    <ul>
+      
+        <li><a href="/">主页</a></li>
+      
+        <li><a href="/archives">归档</a></li>
+      
+        <li><a href="/tags">标签</a></li>
+      
+        <li><a href="/about">关于</a></li>
+      
+    </ul>
+  </nav>
+</header>
+
+    <main class="site-main posts-loop">
+    <article>
+
+  
+  
+  <h3 class="article-title"><span>
+      deferred延迟对象</span></h3>
+  
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2016/06/12/deferred延迟对象/" rel="bookmark">
+        <time class="entry-date published" datetime="2016-06-12T09:29:11.000Z">
+          2016-06-12
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+      <p>延迟对象,在jQuery 1.5中引入的,是通过调用jQuery.Deferred()方法创建的对象。它可以将多个回调存放为一个callback队列,并且返回成功或者失败的方法。<br>延迟对象拥有自己的方法。在创建一个延迟对象后，可以使用以下方法来调用。<br>deferred.always()<br>当Deferred（延迟）对象解决或拒绝时，调用添加处理程序。<br>deferred.done()<br>当Deferred（延迟）对象解决时，调用添加处理程序。<br>deferred.fail()<br>当Deferred（延迟）对象拒绝时，调用添加的处理程序。<br>deferred.notify()<br>根据给定的 args参数 调用Deferred（延迟）对象上进行中的回调 （progressCallbacks）。<br>deferred.notifyWith()<br>根据给定的上下文（context）和args递延调用Deferred（延迟）对象上进行中的回调（progressCallbacks ）。<br>deferred.progress()</p>
+<a id="more"></a>
+<p>当Deferred（延迟）对象生成进度通知时，调用添加处理程序。<br>deferred.promise()<br>返回Deferred(延迟)的Promise（承诺）对象。<br>deferred.reject()<br>拒绝Deferred（延迟）对象，并根据给定的args参数调用任何失败回调函数（failCallbacks）。<br>deferred.rejectWith()<br>拒绝Deferred（延迟）对象，并根据给定的 context和args参数调用任何失败回调函数（failCallbacks）。<br>deferred.resolve()<br>解决Deferred（延迟）对象，并根据给定的args参数调用任何完成回调函数（doneCallbacks）。<br>deferred.resolveWith()<br>解决Deferred（延迟）对象，并根据给定的 context和args参数调用任何完成回调函数（doneCallbacks）。<br>deferred.then()<br>当Deferred（延迟）对象解决，拒绝或仍在进行中时，调用添加处理程序。<br>deferred.state()<br>确定一个Deferred（延迟）对象的当前状态。<br>jQuery.when()<br>提供一种方法来执行一个或多个对象的回调函数， Deferred(延迟)对象通常表示异步事件。<br>.promise()<br>返回一个 Promise 对象，用来观察当某种类型的所有行动绑定到集合，排队与否还是已经完成。<br>jQuery.Deferred()<br>一个构造函数，返回一个链式实用对象方法来注册多个回调，回调队列，调用回调队列，并转达任何同步或异步函数的成功或失败状态。</p>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+      
+
+      
+      
+
+      <span class="post-tags">
+        <a href="/tags/jquery/">jquery</a>
+      </span>
+      
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+<section id="comment" class="comment">
+	<div id="gitment"></div>
+</section>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+	var gitment = new Gitment({
+		owner: 'lingmissing',
+		repo: 'lingmissing-gitment',
+		oauth: {
+			client_id: 'c7675a51f3f7416ac3c0',
+			client_secret: 'cac3475af0adfc9d1669114ef89e8c6ff59ac758',
+		},
+	})
+	gitment.render('gitment')
+</script>
+
+
+
+    </main>
+
+    <footer class="site-footer">
+  <p class="site-info">
+    
+    &copy;
+    2019
+    elaine
+    
+  </p>
+</footer>
+    
+<script>
+    (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function () {
+            (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+    ga('create', 'UA-75095706-1', 'auto');
+    ga('send', 'pageview');
+</script>
+
+  </div>
+</div>
+</body>
+</html>

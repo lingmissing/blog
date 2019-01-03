@@ -1,0 +1,212 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  
+  <title>
+    JS数据类型学习总结 | 时光的涂鸦墙 | this is subtitiek
+  </title>
+
+  
+  <meta name="author" content="elaine">
+  
+
+  
+  <meta name="description" content="JavaScript Developer">
+  
+
+  
+  
+  <meta name="keywords" content="javascript">
+  
+
+  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  
+  <meta property="og:title" content="JS数据类型学习总结" />
+  
+
+  <meta property="og:site_name" content="时光的涂鸦墙" />
+
+  
+  <meta property="og:image" content="/favicon.ico" />
+  
+
+  <link href="/favicon.ico" rel="icon">
+  <link rel="alternate" href="/atom.xml"
+    title="时光的涂鸦墙" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+</head>
+
+<body>
+<div class="blog">
+  <div class="content">
+
+    <header>
+  <div class="site-branding">
+    <h1 class="site-title">
+      <a href="/">时光的涂鸦墙</a>
+    </h1>
+    <p class="site-description">this is subtitiek</p>
+  </div>
+  <nav class="site-navigation">
+    <ul>
+      
+        <li><a href="/">主页</a></li>
+      
+        <li><a href="/archives">归档</a></li>
+      
+        <li><a href="/tags">标签</a></li>
+      
+        <li><a href="/about">关于</a></li>
+      
+    </ul>
+  </nav>
+</header>
+
+    <main class="site-main posts-loop">
+    <article>
+
+  
+  
+  <h3 class="article-title"><span>
+      JS数据类型学习总结</span></h3>
+  
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2016/04/06/JS数据类型学习总结/" rel="bookmark">
+        <time class="entry-date published" datetime="2016-04-06T07:06:28.000Z">
+          2016-04-06
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+      <h2 id="Undefined类型"><a href="#Undefined类型" class="headerlink" title="Undefined类型"></a>Undefined类型</h2><ul>
+<li>未赋值的数据为undefined，例如：</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> oTemp;</span><br><span class="line">alert(oTemp == <span class="literal">undefined</span>);  <span class="comment">//返回true</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> oTemp;</span><br><span class="line">alert(<span class="keyword">typeof</span> oTemp);   <span class="comment">//输出为 “undefined"</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>如果函数没有返回值，则默认为undefined，例如：</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">testFunc</span>(<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line">alert(testFunc() == <span class="literal">undefined</span>);  <span class="comment">//输出为 “true"</span></span><br><span class="line">alert(<span class="literal">null</span> == <span class="literal">undefined</span>);   <span class="comment">//输出为 “true"</span></span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<h2 id="布尔类型"><a href="#布尔类型" class="headerlink" title="布尔类型"></a>布尔类型</h2><ul>
+<li>尽管false不等于0，但在用于判断时，0是会被转换为false。例如：</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(<span class="number">0</span>)&#123; alert(<span class="string">"0会被转换为false"</span>); &#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>空字符串将被转换为false，例如：</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(<span class="string">""</span>)&#123; alert(<span class="string">"空字符串被转换为false"</span>); &#125;  <span class="comment">//将会弹出警告框</span></span><br><span class="line"><span class="keyword">if</span>(<span class="string">"www.itxueyuan.com/javascript/"</span>)&#123; alert(<span class="string">"非空字符串将被转换为true"</span>); &#125;  <span class="comment">//将会弹出警告框</span></span><br><span class="line"><span class="keyword">if</span>(<span class="string">"false"</span>)&#123; alert(<span class="string">"字符串 false 同样会被转换为true"</span>); &#125;  <span class="comment">//将会弹出警告框</span></span><br></pre></td></tr></table></figure>
+<h2 id="数字类型"><a href="#数字类型" class="headerlink" title="数字类型"></a>数字类型</h2><ul>
+<li>几种数字的表示方法</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> iNum = <span class="number">55</span>;</span><br><span class="line"><span class="keyword">var</span> iNum = <span class="number">070</span>; <span class="comment">//八进制070等于十进制的56</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> iNum = <span class="number">0x1f</span>; <span class="comment">//十六进制0x1f等于十进制31</span></span><br><span class="line"><span class="keyword">var</span> iNum2 = <span class="number">0xAB</span>; <span class="comment">//十六进制0xAB等于171</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> fNum = <span class="number">3.125e7</span>;  <span class="comment">//3.125 × 107, 也就是 3.125 × 10 × 10 × 10 × 10 × 10 × 10 × 10.</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>一些常量数字：</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Number</span>.MAX_VALUE  <span class="comment">//Javascript所能表示的数字的最大值</span></span><br><span class="line"><span class="built_in">Number</span>.POSITIVE_INFINITY <span class="comment">//无穷大</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">Number</span>.MIN_VALUE  <span class="comment">//Javascript所能表示的数字的最小值</span></span><br><span class="line"><span class="built_in">Number</span>.NEGATIVE_INFINITY  <span class="comment">//无穷小</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>函数isFinite用于判断一个数字是否为有穷数</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="literal">NaN</span> <span class="comment">//不是一个数字</span></span><br><span class="line">alert(<span class="literal">NaN</span> == <span class="literal">NaN</span>); <span class="comment">//输出为 "false"</span></span><br><span class="line"></span><br><span class="line">alert(<span class="built_in">isNaN</span>(<span class="string">"blue"</span>)); <span class="comment">//输出为 "true"</span></span><br><span class="line">alert(<span class="built_in">isNaN</span>(<span class="string">"123"</span>)); <span class="comment">//输出为 "false"</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>特殊符号表：</p>
+</li>
+<li><p>数字转换为不同进制的字符串示例：</p>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> iNum = <span class="number">10</span>;</span><br><span class="line">alert(iNum1.toString(<span class="number">2</span>)); <span class="comment">//输出为 "1010"</span></span><br><span class="line">alert(iNum1.toString(<span class="number">8</span>)); <span class="comment">//输出为 "12"</span></span><br><span class="line">alert(iNum1.toString(<span class="number">16</span>)); <span class="comment">//输出为 "A"</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>将字符串转换为数字</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> iNum1 = <span class="built_in">parseInt</span>(<span class="string">"1234www.itxueyuan.com"</span>); <span class="comment">//结果为 1234</span></span><br><span class="line"><span class="keyword">var</span> iNum2 = <span class="built_in">parseInt</span>(<span class="string">"0xA"</span>); <span class="comment">//结果为 10</span></span><br><span class="line"><span class="keyword">var</span> iNum3 = <span class="built_in">parseInt</span>(<span class="string">"22.5"</span>); <span class="comment">//结果为 22</span></span><br><span class="line"><span class="keyword">var</span> iNum4 = <span class="built_in">parseInt</span>(<span class="string">"blue"</span>); <span class="comment">//结果为 NaN</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> iNum1 = <span class="built_in">parseInt</span>(<span class="string">"AF"</span>, <span class="number">16</span>); <span class="comment">//结果为 175</span></span><br><span class="line"><span class="keyword">var</span> iNum1 = <span class="built_in">parseInt</span>(<span class="string">"10"</span>, <span class="number">2</span>); <span class="comment">//结果为 2</span></span><br><span class="line"><span class="keyword">var</span> iNum2 = <span class="built_in">parseInt</span>(<span class="string">"10"</span>, <span class="number">8</span>); <span class="comment">//结果为 8</span></span><br><span class="line"><span class="keyword">var</span> iNum2 = <span class="built_in">parseInt</span>(<span class="string">"10"</span>, <span class="number">10</span>); <span class="comment">//结果为 10</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> fNum1 = <span class="built_in">parseFloat</span>(<span class="string">"1234blue"</span>); <span class="comment">//结果为 1234.0</span></span><br><span class="line"><span class="keyword">var</span> fNum2 = <span class="built_in">parseFloat</span>(<span class="string">"0xA"</span>); <span class="comment">//结果为 NaN</span></span><br><span class="line"><span class="keyword">var</span> fNum3 = <span class="built_in">parseFloat</span>(<span class="string">"22.5"</span>); <span class="comment">//结果为 22.5</span></span><br><span class="line"><span class="keyword">var</span> fNum4 = <span class="built_in">parseFloat</span>(<span class="string">"22.34.5"</span>); <span class="comment">//结果为 22.34</span></span><br><span class="line"><span class="keyword">var</span> fNum5 = <span class="built_in">parseFloat</span>(<span class="string">"0908"</span>); <span class="comment">//结果为 908</span></span><br><span class="line"><span class="keyword">var</span> fNum6 = <span class="built_in">parseFloat</span>(<span class="string">"blue"</span>); <span class="comment">//结果为 NaN</span></span><br></pre></td></tr></table></figure>
+<h2 id="类型转换"><a href="#类型转换" class="headerlink" title="类型转换"></a>类型转换</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> b1 = <span class="built_in">Boolean</span>(<span class="string">""</span>); <span class="comment">//false – empty string</span></span><br><span class="line"><span class="keyword">var</span> b2 = <span class="built_in">Boolean</span>(<span class="string">"hi"</span>); <span class="comment">//true – non-empty string</span></span><br><span class="line"><span class="keyword">var</span> b3 = <span class="built_in">Boolean</span>(<span class="number">100</span>); <span class="comment">//true – non-zero number</span></span><br><span class="line"><span class="keyword">var</span> b4 = <span class="built_in">Boolean</span>(<span class="literal">null</span>); <span class="comment">//false - null</span></span><br><span class="line"><span class="keyword">var</span> b5 = <span class="built_in">Boolean</span>(<span class="number">0</span>); <span class="comment">//false - zero</span></span><br><span class="line"><span class="keyword">var</span> b6 = <span class="built_in">Boolean</span>(<span class="keyword">new</span> <span class="built_in">Object</span>()); <span class="comment">//true – object</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">Number</span>(<span class="literal">false</span>) <span class="comment">//0</span></span><br><span class="line"><span class="built_in">Number</span>(<span class="literal">true</span>) <span class="comment">//1</span></span><br><span class="line"><span class="built_in">Number</span>(<span class="literal">undefined</span>) <span class="comment">//NaN</span></span><br><span class="line"><span class="built_in">Number</span>(<span class="literal">null</span>) <span class="comment">//0</span></span><br><span class="line"><span class="built_in">Number</span>(<span class="string">"5.5"</span>) <span class="comment">//5.5</span></span><br><span class="line"><span class="built_in">Number</span>(<span class="string">"56"</span>) <span class="comment">//56</span></span><br><span class="line"><span class="built_in">Number</span>(<span class="string">"5.6.7"</span>) <span class="comment">//NaN</span></span><br><span class="line"><span class="built_in">Number</span>(<span class="keyword">new</span> <span class="built_in">Object</span>()) <span class="comment">//NaN</span></span><br><span class="line"><span class="built_in">Number</span>(<span class="number">100</span>) <span class="comment">//100</span></span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+      
+
+      
+      
+
+      <span class="post-tags">
+        <a href="/tags/javascript/">javascript</a>
+      </span>
+      
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+<section id="comment" class="comment">
+	<div id="gitment"></div>
+</section>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+	var gitment = new Gitment({
+		owner: 'lingmissing',
+		repo: 'lingmissing-gitment',
+		oauth: {
+			client_id: 'c7675a51f3f7416ac3c0',
+			client_secret: 'cac3475af0adfc9d1669114ef89e8c6ff59ac758',
+		},
+	})
+	gitment.render('gitment')
+</script>
+
+
+
+    </main>
+
+    <footer class="site-footer">
+  <p class="site-info">
+    
+    &copy;
+    2019
+    elaine
+    
+  </p>
+</footer>
+    
+<script>
+    (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function () {
+            (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+    ga('create', 'UA-75095706-1', 'auto');
+    ga('send', 'pageview');
+</script>
+
+  </div>
+</div>
+</body>
+</html>

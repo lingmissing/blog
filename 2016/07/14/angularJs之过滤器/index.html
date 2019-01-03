@@ -1,0 +1,241 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  
+  <title>
+    angularJs之过滤器 | 时光的涂鸦墙 | this is subtitiek
+  </title>
+
+  
+  <meta name="author" content="elaine">
+  
+
+  
+  <meta name="description" content="JavaScript Developer">
+  
+
+  
+  
+  <meta name="keywords" content="angular">
+  
+
+  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  
+  <meta property="og:title" content="angularJs之过滤器" />
+  
+
+  <meta property="og:site_name" content="时光的涂鸦墙" />
+
+  
+  <meta property="og:image" content="/favicon.ico" />
+  
+
+  <link href="/favicon.ico" rel="icon">
+  <link rel="alternate" href="/atom.xml"
+    title="时光的涂鸦墙" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+</head>
+
+<body>
+<div class="blog">
+  <div class="content">
+
+    <header>
+  <div class="site-branding">
+    <h1 class="site-title">
+      <a href="/">时光的涂鸦墙</a>
+    </h1>
+    <p class="site-description">this is subtitiek</p>
+  </div>
+  <nav class="site-navigation">
+    <ul>
+      
+        <li><a href="/">主页</a></li>
+      
+        <li><a href="/archives">归档</a></li>
+      
+        <li><a href="/tags">标签</a></li>
+      
+        <li><a href="/about">关于</a></li>
+      
+    </ul>
+  </nav>
+</header>
+
+    <main class="site-main posts-loop">
+    <article>
+
+  
+  
+  <h3 class="article-title"><span>
+      angularJs之过滤器</span></h3>
+  
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2016/07/14/angularJs之过滤器/" rel="bookmark">
+        <time class="entry-date published" datetime="2016-07-14T02:12:06.000Z">
+          2016-07-14
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+      <h3 id="filter的使用方法"><a href="#filter的使用方法" class="headerlink" title="filter的使用方法"></a>filter的使用方法</h3><ul>
+<li>在模板中使用<code>filter</code></li>
+</ul>
+<p>我们可以直接使用<code>filter</code>，跟在表达式后面用 | 分割</p>
+<pre><code>{{ expression | filter }}
+</code></pre><p>也可以多个<code>filter</code>连用，上一个<code>filter</code>的输出将作为下一个<code>filter</code>的输入</p>
+<pre><code>{{ expression | filter1 | filter2 | ... }}
+</code></pre><p><code>filter</code>可以接收参数，参数用 : 进行分割</p>
+<pre><code>{{ expression | filter:argument1:argument2:... }}
+</code></pre><p>除了对数据进行格式化，我们还可以在指令中使用<code>filter</code>，例如先对数组<code>array</code>进行过滤处理，然后再循环输出：</p>
+<pre><code>&lt;span ng-repeat=&quot;a in array | filter &quot;&gt;
+</code></pre><a id="more"></a>
+<ul>
+<li>在<code>controller</code>和<code>service</code>中使用<code>filter</code></li>
+</ul>
+<p>我们的js代码中也可以使用过滤器，方式就是我们熟悉的依赖注入，例如我要在<code>controller</code>中使用<code>currency</code>过滤器，只需将它注入到该<code>controller</code>中即可，代码如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">app.controller(<span class="string">'testC'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">$scope,currencyFilter</span>)</span>&#123;</span><br><span class="line">    $scope.num = currencyFilter(<span class="number">123534</span>);  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在模板中使用<code></code>就可以直接输出$123,534.00了！在服务中使用<code>filter</code>也是同样的道理。</p>
+<p>此时你可能会有疑惑，如果我要在<code>controller</code>中使用多个<code>filter</code>，难道要一个一个注入吗？ng提供了一个<code>$filter</code>服务可以来调用所需的<code>filter</code>，你只需注入一个<code>$filter</code>就够了，使用方法如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">app.controller(<span class="string">'testC'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">$scope,$filter</span>)</span>&#123;</span><br><span class="line">    $scope.num = $filter(<span class="string">'currency'</span>)(<span class="number">123534</span>);</span><br><span class="line">　　$scope.date = $filter(<span class="string">'date'</span>)(<span class="keyword">new</span> <span class="built_in">Date</span>());  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="内置过滤器"><a href="#内置过滤器" class="headerlink" title="内置过滤器"></a>内置过滤器</h3><ul>
+<li><code>currency</code> (货币处理)</li>
+</ul>
+<p>使用<code>currency</code>可以将数字格式化为货币，默认是美元符号，你可以自己传入所需的符号，例如我传入人民币：</p>
+<pre><code>{{num | currency : '￥'}}
+</code></pre><ul>
+<li><code>date</code> (日期格式化)</li>
+</ul>
+<p>原生的js对日期的格式化能力有限，ng提供的date过滤器基本可以满足一般的格式化要求。用法如下：</p>
+<pre><code>{{date | date : 'yyyy-MM-dd hh:mm:ss EEEE'}}
+</code></pre><p>　　参数用来指定所要的格式，y M d h m s E 分别表示 年 月 日 时 分 秒 星期，你可以自由组合它们。也可以使用不同的个数来限制格式化的位数。另外参数也可以使用特定的描述性字符串，例如“shortTime”将会把时间格式为12:05 pm这样的。ng提供了八种描述性的字符串，个人觉得这些有点多余，我完全可以根据自己的意愿组合出想要的格式，不愿意去记这么多单词~</p>
+<ul>
+<li><code>filter</code>(匹配子串)</li>
+</ul>
+<p>　　这个名叫<code>filter</code>的<code>filter</code>（不得不说这名字起的，真让人容易混淆——！）用来处理一个数组，然后可以过滤出含有某个子串的元素，作为一个子数组来返回。可以是字符串数组，也可以是对象数组。如果是对象数组，可以匹配属性的值。它接收一个参数，用来定义子串的匹配规则。下面举个例子说明一下参数的用法，我用现在特别火的几个孩子定义了一个数组：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">$scope.childrenArray = [</span><br><span class="line">        &#123;<span class="attr">name</span>:<span class="string">'kimi'</span>,<span class="attr">age</span>:<span class="number">3</span>&#125;,</span><br><span class="line">        &#123;<span class="attr">name</span>:<span class="string">'cindy'</span>,<span class="attr">age</span>:<span class="number">4</span>&#125;,</span><br><span class="line">        &#123;<span class="attr">name</span>:<span class="string">'anglar'</span>,<span class="attr">age</span>:<span class="number">4</span>&#125;,</span><br><span class="line">        &#123;<span class="attr">name</span>:<span class="string">'shitou'</span>,<span class="attr">age</span>:<span class="number">6</span>&#125;,</span><br><span class="line">        &#123;<span class="attr">name</span>:<span class="string">'tiantian'</span>,<span class="attr">age</span>:<span class="number">5</span>&#125;</span><br><span class="line">    ];</span><br><span class="line">$scope.func = <span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;<span class="keyword">return</span> e.age&gt;<span class="number">4</span>;&#125;</span><br><span class="line"></span><br><span class="line">&#123;&#123; childrenArray | filter : <span class="string">'a'</span> &#125;&#125; <span class="comment">//匹配属性值中含有a的</span></span><br><span class="line">&#123;&#123; childrenArray | filter : <span class="number">4</span> &#125;&#125;  <span class="comment">//匹配属性值中含有4的</span></span><br><span class="line">&#123;&#123; childrenArray | filter : &#123;<span class="attr">name</span> : <span class="string">'i'</span>&#125; &#125;&#125; <span class="comment">//参数是对象，匹配name属性中含有i的</span></span><br><span class="line">&#123;&#123;childrenArray | filter : func &#125;&#125;  <span class="comment">//参数是函数，指定返回age&gt;4的</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>json</code>(格式化json对象)</li>
+</ul>
+<p>　　<code>json</code>过滤器可以把一个js对象格式化为<code>json</code>字符串，没有参数。这东西有什么用呢，我一般也不会在页面上输出一个json串啊，官网说它可以用来进行调试，嗯，是个不错的选择。或者，也可以用在js中使用，作用就和我们熟悉的<code>JSON.stringify()</code>一样。用法超级简单：</p>
+<pre><code>{{ jsonTest | json}}
+</code></pre><ul>
+<li><code>limitTo</code>(限制数组长度或字符串长度)</li>
+</ul>
+<p>　　<code>limitTo</code>过滤器用来截取数组或字符串，接收一个参数用来指定截取的长度，如果参数是负值，则从数组尾部开始截取。个人觉得这个<code>filter</code>有点鸡肋，首先只能从数组或字符串的开头/尾部进行截取，其次，js原生的函数就可以代替它了，看看怎么用吧：</p>
+<pre><code>{{ childrenArray | limitTo : 2 }}  //将会显示数组中的前两项
+</code></pre><ul>
+<li><code>lowercase</code>(小写)</li>
+</ul>
+<p>　　把数据转化为全部小写。太简单了，不多解释。同样是很鸡肋的一个filter，没有参数，只能把整个字符串变为小写，不能指定字母。</p>
+<ul>
+<li><p><code>uppercase</code>(大写)<br>　　同上。</p>
+</li>
+<li><p><code>number</code>(格式化数字)</p>
+</li>
+</ul>
+<p>　　<code>number</code>过滤器可以为一个数字加上千位分割，像这样，123,456,789。同时接收一个参数，可以指定float类型保留几位小数：</p>
+<pre><code>{{ num | number : 2 }}
+</code></pre><ul>
+<li><code>orderBy</code>(排序)</li>
+</ul>
+<p>　　<code>orderBy</code>过滤器可以将一个数组中的元素进行排序，接收一个参数来指定排序规则，参数可以是一个字符串，表示以该属性名称进行排序。可以是一个函数，定义排序属性。还可以是一个数组，表示依次按数组中的属性值进行排序（若按第一项比较的值相等，再按第二项比较），还是拿上面的孩子数组举例：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span>&#123;&#123; childrenArray | orderBy : 'age' &#125;&#125;<span class="tag">&lt;/<span class="name">div</span>&gt;</span>      //按age属性值进行排序，若是-age，则倒序</span><br><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span>&#123;&#123; childrenArray | orderBy : orderFunc &#125;&#125;<span class="tag">&lt;/<span class="name">div</span>&gt;</span>   //按照函数的返回值进行排序</span><br><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span>&#123;&#123; childrenArray | orderBy : ['age','name'] &#125;&#125;<span class="tag">&lt;/<span class="name">div</span>&gt;</span>  //如果age相同，按照name进行排序</span><br></pre></td></tr></table></figure>
+<p>　　</p>
+<h3 id="自定义过滤器"><a href="#自定义过滤器" class="headerlink" title="自定义过滤器"></a>自定义过滤器</h3><p>filter的自定义方式也很简单，使用<code>module</code>的<code>filter</code>方法，返回一个函数，该函数接收输入值，并返回处理后的结果。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">app.filter(<span class="string">'odditems'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">inputArray</span>)</span>&#123;</span><br><span class="line">        <span class="keyword">var</span> array = [];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;inputArray.length;i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(i%<span class="number">2</span>!==<span class="number">0</span>)&#123;</span><br><span class="line">                array.push(inputArray[i]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> array;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>格式就是这样，你的处理逻辑就写在内部的那个闭包函数中。你也可以让自己的过滤器接收参数，参数就定义在<code>return</code>的那个函数中，作为第二个参数，或者更多个参数也可以。</p>
+<p>下面看一个完整案例：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">ng-controller</span>=<span class="string">"myAppCtrl"</span>&gt;</span></span><br><span class="line">    name:&#123;&#123; name &#125;&#125;<span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">    reverse name:&#123;&#123; name | reverse &#125;&#125;<span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">    reverse&amp;uppercase name:&#123;&#123; name | reverse:true &#125;&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> myAppModule = angular.module(<span class="string">"myApp"</span>,[]);</span><br><span class="line"></span><br><span class="line">myAppModule.controller(<span class="string">"myAppCtrl"</span>,[<span class="string">"$scope"</span>,<span class="function"><span class="keyword">function</span>(<span class="params">$scope</span>)</span>&#123;</span><br><span class="line">    $scope.name = <span class="string">"xingoo"</span>;</span><br><span class="line">&#125;]);</span><br><span class="line"></span><br><span class="line">myAppModule.filter(<span class="string">"reverse"</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">input,uppercase</span>)</span>&#123;</span><br><span class="line">        <span class="keyword">var</span> out = <span class="string">""</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span> ; i&lt;input.length; i++)&#123;</span><br><span class="line">            out = input.charAt(i)+out;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(uppercase)&#123;</span><br><span class="line">            out = out.toUpperCase();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> out;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+      
+
+      
+      
+
+      <span class="post-tags">
+        <a href="/tags/angular/">angular</a>
+      </span>
+      
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+<section id="comment" class="comment">
+	<div id="gitment"></div>
+</section>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+	var gitment = new Gitment({
+		owner: 'lingmissing',
+		repo: 'lingmissing-gitment',
+		oauth: {
+			client_id: 'c7675a51f3f7416ac3c0',
+			client_secret: 'cac3475af0adfc9d1669114ef89e8c6ff59ac758',
+		},
+	})
+	gitment.render('gitment')
+</script>
+
+
+
+    </main>
+
+    <footer class="site-footer">
+  <p class="site-info">
+    
+    &copy;
+    2019
+    elaine
+    
+  </p>
+</footer>
+    
+<script>
+    (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function () {
+            (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+    ga('create', 'UA-75095706-1', 'auto');
+    ga('send', 'pageview');
+</script>
+
+  </div>
+</div>
+</body>
+</html>

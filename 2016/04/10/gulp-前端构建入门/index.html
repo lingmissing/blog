@@ -1,0 +1,194 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  
+  <title>
+    gulp-前端构建入门 | 时光的涂鸦墙 | this is subtitiek
+  </title>
+
+  
+  <meta name="author" content="elaine">
+  
+
+  
+  <meta name="description" content="JavaScript Developer">
+  
+
+  
+  
+  <meta name="keywords" content="gulp">
+  
+
+  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  
+  <meta property="og:title" content="gulp-前端构建入门" />
+  
+
+  <meta property="og:site_name" content="时光的涂鸦墙" />
+
+  
+  <meta property="og:image" content="/favicon.ico" />
+  
+
+  <link href="/favicon.ico" rel="icon">
+  <link rel="alternate" href="/atom.xml"
+    title="时光的涂鸦墙" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+</head>
+
+<body>
+<div class="blog">
+  <div class="content">
+
+    <header>
+  <div class="site-branding">
+    <h1 class="site-title">
+      <a href="/">时光的涂鸦墙</a>
+    </h1>
+    <p class="site-description">this is subtitiek</p>
+  </div>
+  <nav class="site-navigation">
+    <ul>
+      
+        <li><a href="/">主页</a></li>
+      
+        <li><a href="/archives">归档</a></li>
+      
+        <li><a href="/tags">标签</a></li>
+      
+        <li><a href="/about">关于</a></li>
+      
+    </ul>
+  </nav>
+</header>
+
+    <main class="site-main posts-loop">
+    <article>
+
+  
+  
+  <h3 class="article-title"><span>
+      gulp-前端构建入门</span></h3>
+  
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2016/04/10/gulp-前端构建入门/" rel="bookmark">
+        <time class="entry-date published" datetime="2016-04-10T03:33:08.000Z">
+          2016-04-10
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+      <h3 id="安装-gulp"><a href="#安装-gulp" class="headerlink" title="安装 gulp"></a>安装 gulp</h3><p>在 cmd 中输入命令全局安装 gulp</p>
+<pre><code>sudo npm install -g gulp 
+</code></pre><p>安装完成后再输入检查是否安装成功</p>
+<pre><code>gulp -v
+</code></pre><p>接下来，将 gulp 安装到项目本地，作为项目的开发依赖（devDependencies）安装</p>
+<pre><code>npm install --save-dev gulp
+</code></pre><p>在项目根目录下创建一个名为 gulpfile.js 的文件     </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> gulp = <span class="built_in">require</span>(<span class="string">'gulp'</span>);</span><br><span class="line"></span><br><span class="line">gulp.task(<span class="string">'default'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 将你的默认的任务代码放在这</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<h3 id="安装依赖"><a href="#安装依赖" class="headerlink" title="安装依赖"></a>安装依赖</h3><p>现在，我们需要执行哪些任务，安装对应依赖的组件包。</p>
+<p>1、编译 sass（或者 less）文件<br>2、压缩 js 文件<br>3、监听文件变更</p>
+<pre><code>npm install --save-dev gulp-sass gulp-uglify
+</code></pre><p>（ 注意： npm install –save-dev (依赖包名) 下载的是最新版本的 ）</p>
+<h3 id="修改-gulpfile-js-文件"><a href="#修改-gulpfile-js-文件" class="headerlink" title="修改 gulpfile.js 文件"></a>修改 gulpfile.js 文件</h3><p>gulp 只有5个方法：task，run，watch，src，dest，粘贴下面的代码到 gulpfile.js 里</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 引入 gulp</span></span><br><span class="line"><span class="keyword">var</span> gulp = <span class="built_in">require</span>(<span class="string">'gulp'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 引入依赖的组件包</span></span><br><span class="line"><span class="keyword">var</span> sass = <span class="built_in">require</span>(<span class="string">'gulp-sass'</span>);</span><br><span class="line"><span class="keyword">var</span> uglify = <span class="built_in">require</span>(<span class="string">'gulp-uglify'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 编译 sass</span></span><br><span class="line">gulp.task(<span class="string">'sass'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    gulp.src(<span class="string">'./scss/*.scss'</span>)</span><br><span class="line">        .pipe(sass())</span><br><span class="line">        .pipe(gulp.dest(<span class="string">'./css'</span>));</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 压缩 js</span></span><br><span class="line">gulp.task(<span class="string">'uglify'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    gulp.src(<span class="string">'./js-build/*.js'</span>)</span><br><span class="line">        .pipe(uglify())</span><br><span class="line">        .pipe(gulp.dest(<span class="string">'./js'</span>));</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 默认任务</span></span><br><span class="line">gulp.task(<span class="string">'default'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 运行默认需要执行的任务</span></span><br><span class="line">    gulp.run(<span class="string">'sass'</span>, <span class="string">'uglify'</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 监听文件的变化</span></span><br><span class="line">    gulp.watch([<span class="string">'./scss/*.scss'</span>, <span class="string">'./js-build/*.js'</span>], <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="comment">// 执行文件变更后需要做的任务</span></span><br><span class="line">        gulp.run(<span class="string">'sass'</span>, <span class="string">'uglify'</span>);</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p><img src="https://orzhtml.github.io/img/temporary/QQ20160413-0.png" alt=""></p>
+<p>1、任务的名字可以换成你想要的名字</p>
+<pre><code>gulp.task(&apos;sass&apos;)
+</code></pre><p>2、gulpfile.js中定义的任意任务可以单独运行，例如命令行输入 </p>
+<pre><code>gulp sass
+</code></pre><p>最后项目目录如下</p>
+<p><img src="https://orzhtml.github.io/img/temporary/QQ20160413-1.png" alt=""></p>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+      
+
+      
+      
+
+      <span class="post-tags">
+        <a href="/tags/gulp/">gulp</a>
+      </span>
+      
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+<section id="comment" class="comment">
+	<div id="gitment"></div>
+</section>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+	var gitment = new Gitment({
+		owner: 'lingmissing',
+		repo: 'lingmissing-gitment',
+		oauth: {
+			client_id: 'c7675a51f3f7416ac3c0',
+			client_secret: 'cac3475af0adfc9d1669114ef89e8c6ff59ac758',
+		},
+	})
+	gitment.render('gitment')
+</script>
+
+
+
+    </main>
+
+    <footer class="site-footer">
+  <p class="site-info">
+    
+    &copy;
+    2019
+    elaine
+    
+  </p>
+</footer>
+    
+<script>
+    (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function () {
+            (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+    ga('create', 'UA-75095706-1', 'auto');
+    ga('send', 'pageview');
+</script>
+
+  </div>
+</div>
+</body>
+</html>

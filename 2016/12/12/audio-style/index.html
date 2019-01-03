@@ -1,0 +1,215 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  
+  <title>
+    基于react的audio组件 | 时光的涂鸦墙 | this is subtitiek
+  </title>
+
+  
+  <meta name="author" content="elaine">
+  
+
+  
+  <meta name="description" content="JavaScript Developer">
+  
+
+  
+  
+  <meta name="keywords" content="react ,html5">
+  
+
+  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  
+  <meta property="og:title" content="基于react的audio组件" />
+  
+
+  <meta property="og:site_name" content="时光的涂鸦墙" />
+
+  
+  <meta property="og:image" content="/favicon.ico" />
+  
+
+  <link href="/favicon.ico" rel="icon">
+  <link rel="alternate" href="/atom.xml"
+    title="时光的涂鸦墙" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+</head>
+
+<body>
+<div class="blog">
+  <div class="content">
+
+    <header>
+  <div class="site-branding">
+    <h1 class="site-title">
+      <a href="/">时光的涂鸦墙</a>
+    </h1>
+    <p class="site-description">this is subtitiek</p>
+  </div>
+  <nav class="site-navigation">
+    <ul>
+      
+        <li><a href="/">主页</a></li>
+      
+        <li><a href="/archives">归档</a></li>
+      
+        <li><a href="/tags">标签</a></li>
+      
+        <li><a href="/about">关于</a></li>
+      
+    </ul>
+  </nav>
+</header>
+
+    <main class="site-main posts-loop">
+    <article>
+
+  
+  
+  <h3 class="article-title"><span>
+      基于react的audio组件</span></h3>
+  
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2016/12/12/audio-style/" rel="bookmark">
+        <time class="entry-date published" datetime="2016-12-12T03:30:32.000Z">
+          2016-12-12
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+      <blockquote>
+<p>由于mac和window的样式不一致导致~~</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 组件调用</span><br><span class="line"><span class="tag">&lt;<span class="name">Audio</span> <span class="attr">src</span>=<span class="string">&#123;src地址&#125;</span> <span class="attr">id</span>=<span class="string">&#123;srcID&#125;/</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h1 id="audio属性"><a href="#audio属性" class="headerlink" title="audio属性"></a>audio属性</h1><ul>
+<li><code>src</code> 歌曲的路径</li>
+<li><code>preload</code> 是否在页面加载后立即加载（设置autoplay后无效）</li>
+<li><code>controls</code>  显示audio自带的播放控件</li>
+<li><code>loop</code> 音频循环</li>
+<li><code>autoplay</code> 音频加载后自动播放</li>
+<li><code>currentTime</code> 音频当前播放时间</li>
+<li><code>duration</code> 音频总长度</li>
+<li><code>ended</code> 音频是否结束</li>
+<li><code>muted</code> 音频静音为true</li>
+<li><code>volume</code> 当前音频音量</li>
+<li><code>readyState</code>    音频当前的就绪状态</li>
+</ul>
+<h1 id="audio事件"><a href="#audio事件" class="headerlink" title="audio事件"></a>audio事件</h1><ul>
+<li><code>abort</code>    当音频/视频的加载已放弃时</li>
+<li><code>canplay</code>    当浏览器可以播放音频/视频时</li>
+<li><code>canplaythrough</code>    当浏览器可在不因缓冲而停顿的情况下进行播放时</li>
+<li><code>durationchange</code>    当音频/视频的时长已更改时</li>
+<li><code>emptied</code>    当目前的播放列表为空时</li>
+<li><code>ended</code>    当目前的播放列表已结束时</li>
+<li><code>error</code>    当在音频/视频加载期间发生错误时</li>
+<li><code>loadeddata</code>    当浏览器已加载音频/视频的当前帧时</li>
+<li><code>loadedmetadata</code>    当浏览器已加载音频/视频的元数据时</li>
+<li><code>loadstart</code>    当浏览器开始查找音频/视频时</li>
+<li><code>pause</code>    当音频/视频已暂停时</li>
+<li><code>play</code>    当音频/视频已开始或不再暂停时</li>
+<li><code>playing</code>    当音频/视频在已因缓冲而暂停或停止后已就绪时</li>
+<li><code>progress</code>    当浏览器正在下载音频/视频时</li>
+<li><code>ratechange</code>    当音频/视频的播放速度已更改时</li>
+<li><code>seeked</code>    当用户已移动/跳跃到音频/视频中的新位置时</li>
+<li><code>seeking</code>    当用户开始移动/跳跃到音频/视频中的新位置时</li>
+<li><code>stalled</code>    当浏览器尝试获取媒体数据，但数据不可用时</li>
+<li><code>suspend</code>    当浏览器刻意不获取媒体数据时</li>
+<li><code>timeupdate</code>    当目前的播放位置已更改时</li>
+<li><code>volumechange</code>    当音量已更改时</li>
+<li><code>waiting</code>    当视频由于需要缓冲下一帧而停止</li>
+</ul>
+<h1 id="组件结构"><a href="#组件结构" class="headerlink" title="组件结构"></a>组件结构</h1><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"> <span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">"audioBox"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">audio</span> </span></span><br><span class="line"><span class="tag">    <span class="attr">id</span>=<span class="string">&#123;</span>`<span class="attr">audio</span>$&#123;<span class="attr">id</span>&#125;`&#125;</span></span><br><span class="line"><span class="tag">    <span class="attr">src</span>=<span class="string">&#123;src&#125;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">preload</span>=<span class="string">&#123;true&#125;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">onCanPlay</span>=<span class="string">&#123;()</span> =&gt;</span> this.controlAudio('allTime')&#125;</span><br><span class="line">    onTimeUpdate=&#123;(e) =&gt; this.controlAudio('getCurrentTime')&#125;</span><br><span class="line">  &gt;</span><br><span class="line">    您的浏览器不支持 audio 标签。</span><br><span class="line">  <span class="tag">&lt;/<span class="name">audio</span>&gt;</span>  </span><br><span class="line">  <span class="tag">&lt;<span class="name">i</span> </span></span><br><span class="line"><span class="tag">    <span class="attr">className</span>=<span class="string">&#123;isPlay</span> ? '<span class="attr">pause</span>' <span class="attr">:</span> '<span class="attr">play</span>'&#125; </span></span><br><span class="line"><span class="tag">    <span class="attr">onClick</span>=<span class="string">&#123;()</span> =&gt;</span> this.controlAudio(isPlay ? 'pause' : 'play')&#125;</span><br><span class="line">  /&gt;</span><br><span class="line">  <span class="tag">&lt;<span class="name">span</span> <span class="attr">className</span>=<span class="string">"current"</span>&gt;</span></span><br><span class="line">    &#123;this.millisecondToDate(currentTime)+'/'+this.millisecondToDate(allTime)&#125;</span><br><span class="line">  <span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span> </span></span><br><span class="line"><span class="tag">    <span class="attr">type</span>=<span class="string">"range"</span> </span></span><br><span class="line"><span class="tag">    <span class="attr">className</span>=<span class="string">"time"</span> </span></span><br><span class="line"><span class="tag">    <span class="attr">step</span>=<span class="string">"0.01"</span> </span></span><br><span class="line"><span class="tag">    <span class="attr">max</span>=<span class="string">&#123;allTime&#125;</span>     </span></span><br><span class="line"><span class="tag">    <span class="attr">value</span>=<span class="string">&#123;currentTime&#125;</span>  </span></span><br><span class="line"><span class="tag">    <span class="attr">onChange</span>=<span class="string">&#123;(value)</span> =&gt;</span> this.controlAudio('changeCurrentTime',value)&#125; </span><br><span class="line">  /&gt;</span><br><span class="line">  <span class="tag">&lt;<span class="name">i</span> </span></span><br><span class="line"><span class="tag">    <span class="attr">className</span>=<span class="string">&#123;isMuted</span> ? '<span class="attr">mute</span>' <span class="attr">:</span> '<span class="attr">nomute</span>'&#125; </span></span><br><span class="line"><span class="tag">    <span class="attr">onClick</span>=<span class="string">&#123;()</span> =&gt;</span> this.controlAudio('muted')&#125;</span><br><span class="line">  /&gt;</span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span> </span></span><br><span class="line"><span class="tag">    <span class="attr">type</span>=<span class="string">"range"</span> </span></span><br><span class="line"><span class="tag">    <span class="attr">className</span>=<span class="string">"volume"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">onChange</span>=<span class="string">&#123;(value)</span> =&gt;</span> this.controlAudio('changeVolume',value)&#125; </span><br><span class="line">    value=&#123;isMuted ? 0 : volume&#125; </span><br><span class="line">  /&gt;</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h1 id="组件javascript"><a href="#组件javascript" class="headerlink" title="组件javascript"></a>组件javascript</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">constructor</span>(props) &#123;</span><br><span class="line">  <span class="keyword">super</span>(props)</span><br><span class="line">  <span class="keyword">this</span>.state = &#123;</span><br><span class="line">    isPlay: <span class="literal">false</span>,</span><br><span class="line">    isMuted: <span class="literal">false</span>,</span><br><span class="line">    volume: <span class="number">100</span>,</span><br><span class="line">    allTime: <span class="number">0</span>,</span><br><span class="line">    currentTime: <span class="number">0</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">millisecondToDate(time) &#123;</span><br><span class="line">  <span class="keyword">const</span> second = <span class="built_in">Math</span>.floor(time % <span class="number">60</span>)</span><br><span class="line">  <span class="keyword">let</span> minite = <span class="built_in">Math</span>.floor(time / <span class="number">60</span>)</span><br><span class="line">  <span class="comment">// let hour</span></span><br><span class="line">  <span class="comment">// if(minite &gt; 60) &#123;</span></span><br><span class="line">  <span class="comment">//   hour = minite / 60</span></span><br><span class="line">  <span class="comment">//   minite = minite % 60</span></span><br><span class="line">  <span class="comment">//   return `$&#123;Math.floor(hour)&#125;:$&#123;Math.floor(minite)&#125;:$&#123;Math.floor(second)&#125;`</span></span><br><span class="line">  <span class="comment">// &#125;</span></span><br><span class="line">  <span class="keyword">return</span> <span class="string">`<span class="subst">$&#123;minite&#125;</span>:<span class="subst">$&#123;second &gt;= <span class="number">10</span> ? second : <span class="string">`0<span class="subst">$&#123;second&#125;</span>`</span>&#125;</span>`</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">controlAudio(type,value) &#123;</span><br><span class="line">  <span class="keyword">const</span> &#123; id,src &#125; = <span class="keyword">this</span>.props</span><br><span class="line">  <span class="keyword">const</span> audio = <span class="built_in">document</span>.getElementById(<span class="string">`audio<span class="subst">$&#123;id&#125;</span>`</span>)</span><br><span class="line">  <span class="keyword">switch</span>(type) &#123;</span><br><span class="line">    <span class="keyword">case</span> <span class="string">'allTime'</span>:</span><br><span class="line">      <span class="keyword">this</span>.setState(&#123;</span><br><span class="line">        allTime: audio.duration</span><br><span class="line">      &#125;)</span><br><span class="line">      <span class="keyword">break</span></span><br><span class="line">    <span class="keyword">case</span> <span class="string">'play'</span>:</span><br><span class="line">      audio.play()</span><br><span class="line">      <span class="keyword">this</span>.setState(&#123;</span><br><span class="line">        isPlay: <span class="literal">true</span></span><br><span class="line">      &#125;)</span><br><span class="line">      <span class="keyword">break</span></span><br><span class="line">    <span class="keyword">case</span> <span class="string">'pause'</span>:</span><br><span class="line">      audio.pause()</span><br><span class="line">      <span class="keyword">this</span>.setState(&#123;</span><br><span class="line">        isPlay: <span class="literal">false</span></span><br><span class="line">      &#125;)</span><br><span class="line">      <span class="keyword">break</span></span><br><span class="line">    <span class="keyword">case</span> <span class="string">'muted'</span>:</span><br><span class="line">      <span class="keyword">this</span>.setState(&#123;</span><br><span class="line">        isMuted: !audio.muted</span><br><span class="line">      &#125;)</span><br><span class="line">      audio.muted = !audio.muted</span><br><span class="line">      <span class="keyword">break</span></span><br><span class="line">    <span class="keyword">case</span> <span class="string">'changeCurrentTime'</span>:</span><br><span class="line">      <span class="keyword">this</span>.setState(&#123;</span><br><span class="line">        currentTime: value</span><br><span class="line">      &#125;)</span><br><span class="line">      audio.currentTime = value</span><br><span class="line">      <span class="keyword">if</span>(value == audio.duration) &#123;</span><br><span class="line">        <span class="keyword">this</span>.setState(&#123;</span><br><span class="line">          isPlay: <span class="literal">false</span></span><br><span class="line">        &#125;)</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">break</span></span><br><span class="line">    <span class="keyword">case</span> <span class="string">'getCurrentTime'</span>:</span><br><span class="line">      <span class="keyword">this</span>.setState(&#123;</span><br><span class="line">        currentTime: audio.currentTime</span><br><span class="line">      &#125;)</span><br><span class="line">      <span class="keyword">if</span>(audio.currentTime == audio.duration) &#123;</span><br><span class="line">        <span class="keyword">this</span>.setState(&#123;</span><br><span class="line">          isPlay: <span class="literal">false</span></span><br><span class="line">        &#125;)</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">break</span></span><br><span class="line">    <span class="keyword">case</span> <span class="string">'changeVolume'</span>:</span><br><span class="line">      audio.volume = value / <span class="number">100</span></span><br><span class="line">      <span class="keyword">this</span>.setState(&#123;</span><br><span class="line">        volume: value,</span><br><span class="line">        isMuted: !value</span><br><span class="line">      &#125;)</span><br><span class="line">      <span class="keyword">break</span>  </span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+      
+
+      
+      
+
+      <span class="post-tags">
+        <a href="/tags/react/">react</a><a href="/tags/html5/">html5</a>
+      </span>
+      
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+<section id="comment" class="comment">
+	<div id="gitment"></div>
+</section>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+	var gitment = new Gitment({
+		owner: 'lingmissing',
+		repo: 'lingmissing-gitment',
+		oauth: {
+			client_id: 'c7675a51f3f7416ac3c0',
+			client_secret: 'cac3475af0adfc9d1669114ef89e8c6ff59ac758',
+		},
+	})
+	gitment.render('gitment')
+</script>
+
+
+
+    </main>
+
+    <footer class="site-footer">
+  <p class="site-info">
+    
+    &copy;
+    2019
+    elaine
+    
+  </p>
+</footer>
+    
+<script>
+    (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function () {
+            (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+    ga('create', 'UA-75095706-1', 'auto');
+    ga('send', 'pageview');
+</script>
+
+  </div>
+</div>
+</body>
+</html>

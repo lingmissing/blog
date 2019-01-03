@@ -1,0 +1,182 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  
+  <title>
+    javascript递归 | 时光的涂鸦墙 | this is subtitiek
+  </title>
+
+  
+  <meta name="author" content="elaine">
+  
+
+  
+  <meta name="description" content="JavaScript Developer">
+  
+
+  
+  
+  <meta name="keywords" content="javascript">
+  
+
+  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  
+  <meta property="og:title" content="javascript递归" />
+  
+
+  <meta property="og:site_name" content="时光的涂鸦墙" />
+
+  
+  <meta property="og:image" content="/favicon.ico" />
+  
+
+  <link href="/favicon.ico" rel="icon">
+  <link rel="alternate" href="/atom.xml"
+    title="时光的涂鸦墙" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+</head>
+
+<body>
+<div class="blog">
+  <div class="content">
+
+    <header>
+  <div class="site-branding">
+    <h1 class="site-title">
+      <a href="/">时光的涂鸦墙</a>
+    </h1>
+    <p class="site-description">this is subtitiek</p>
+  </div>
+  <nav class="site-navigation">
+    <ul>
+      
+        <li><a href="/">主页</a></li>
+      
+        <li><a href="/archives">归档</a></li>
+      
+        <li><a href="/tags">标签</a></li>
+      
+        <li><a href="/about">关于</a></li>
+      
+    </ul>
+  </nav>
+</header>
+
+    <main class="site-main posts-loop">
+    <article>
+
+  
+  
+  <h3 class="article-title"><span>
+      javascript递归</span></h3>
+  
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2016/12/12/javascript递归/" rel="bookmark">
+        <time class="entry-date published" datetime="2016-12-12T06:18:17.000Z">
+          2016-12-12
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+      <blockquote>
+<p>调用自身的函数称为递归函数</p>
+</blockquote>
+<ul>
+<li>缺点：递归占用的内存和资源比较多，同时难以实现和维护。</li>
+<li>优点：在处理DOM之类的树形结构数据时，非常适合用递归。</li>
+</ul>
+<h1 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h1><h4 id="数字-n-的阶乘通过乘以-1-2-3-…-n-进行计算"><a href="#数字-n-的阶乘通过乘以-1-2-3-…-n-进行计算" class="headerlink" title="数字 n 的阶乘通过乘以 1  2  3 *… n 进行计算"></a>数字 n 的阶乘通过乘以 1 <em> 2 </em> 3 *… n 进行计算</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> f = <span class="function"><span class="keyword">function</span> (<span class="params">x</span>) </span>&#123;  </span><br><span class="line">  <span class="keyword">if</span> (x === <span class="number">1</span>) &#123;  </span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;  </span><br><span class="line">    <span class="keyword">return</span> x * f(x - <span class="number">1</span>)</span><br><span class="line">  &#125;  </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> result = f(n)</span><br></pre></td></tr></table></figure>
+<h4 id="获取存在某个字段的节点"><a href="#获取存在某个字段的节点" class="headerlink" title="获取存在某个字段的节点"></a>获取存在某个字段的节点</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> new_array = []</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">_getChilds</span>(<span class="params">data</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">if</span>(data.ObjType == <span class="string">"某个数"</span>)&#123;</span><br><span class="line">    new_array.push(data)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span>(data.Childs &amp;&amp; data.Childs.length &gt; <span class="number">0</span>)&#123;</span><br><span class="line">    getChilds(data.Childs)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getChilds</span>(<span class="params">childData</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; childData.length; i++)&#123;</span><br><span class="line">      _getChilds(childData[i])</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 或者</span></span><br><span class="line">  <span class="comment">// childData.map(item =&gt; _getChilds(item))</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="js递归实现数组转树结构"><a href="#js递归实现数组转树结构" class="headerlink" title="js递归实现数组转树结构"></a>js递归实现数组转树结构</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> jsonArr = [</span><br><span class="line">  &#123;<span class="attr">name</span>:<span class="string">'a'</span>,<span class="attr">id</span>:<span class="number">1</span>,<span class="attr">pid</span>:<span class="number">0</span>&#125;,</span><br><span class="line">  &#123;<span class="attr">name</span>:<span class="string">'b'</span>,<span class="attr">id</span>:<span class="number">2</span>,<span class="attr">pid</span>:<span class="number">1</span>&#125;,</span><br><span class="line">  &#123;<span class="attr">name</span>:<span class="string">'c'</span>,<span class="attr">id</span>:<span class="number">3</span>,<span class="attr">pid</span>:<span class="number">1</span>&#125;,</span><br><span class="line">  &#123;<span class="attr">name</span>:<span class="string">'d'</span>,<span class="attr">id</span>:<span class="number">4</span>,<span class="attr">pid</span>:<span class="number">2</span>&#125;,</span><br><span class="line">  &#123;<span class="attr">name</span>:<span class="string">'e'</span>,<span class="attr">id</span>:<span class="number">5</span>,<span class="attr">pid</span>:<span class="number">2</span>&#125;</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params">data, pid</span>) </span>&#123; </span><br><span class="line">  <span class="keyword">let</span> result = []</span><br><span class="line">  <span class="keyword">let</span> temp</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; data.length; i++) &#123; </span><br><span class="line">    <span class="keyword">if</span> (data[i].pid == pid) &#123; </span><br><span class="line">      <span class="keyword">let</span> obj = &#123;</span><br><span class="line">        <span class="string">'name'</span>: data[i].name,</span><br><span class="line">        <span class="string">'id'</span>: data[i].id</span><br><span class="line">      &#125;</span><br><span class="line">      temp = fn(data, data[i].id)</span><br><span class="line">      <span class="keyword">if</span> (temp.length &gt; <span class="number">0</span>) &#123; </span><br><span class="line">        obj.children = temp</span><br><span class="line">      &#125; </span><br><span class="line">      result.push(obj)</span><br><span class="line">    &#125; </span><br><span class="line">  &#125; </span><br><span class="line">  <span class="keyword">return</span> result</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//调用</span></span><br><span class="line"><span class="keyword">const</span> result = fn(jsonArr,<span class="number">0</span>)</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+      
+
+      
+      
+
+      <span class="post-tags">
+        <a href="/tags/javascript/">javascript</a>
+      </span>
+      
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+<section id="comment" class="comment">
+	<div id="gitment"></div>
+</section>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+	var gitment = new Gitment({
+		owner: 'lingmissing',
+		repo: 'lingmissing-gitment',
+		oauth: {
+			client_id: 'c7675a51f3f7416ac3c0',
+			client_secret: 'cac3475af0adfc9d1669114ef89e8c6ff59ac758',
+		},
+	})
+	gitment.render('gitment')
+</script>
+
+
+
+    </main>
+
+    <footer class="site-footer">
+  <p class="site-info">
+    
+    &copy;
+    2019
+    elaine
+    
+  </p>
+</footer>
+    
+<script>
+    (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function () {
+            (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+    ga('create', 'UA-75095706-1', 'auto');
+    ga('send', 'pageview');
+</script>
+
+  </div>
+</div>
+</body>
+</html>

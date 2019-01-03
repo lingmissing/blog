@@ -1,0 +1,225 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  
+  <title>
+    正则表达式（上篇） | 时光的涂鸦墙 | this is subtitiek
+  </title>
+
+  
+  <meta name="author" content="elaine">
+  
+
+  
+  <meta name="description" content="JavaScript Developer">
+  
+
+  
+  
+  <meta name="keywords" content="正则表达式">
+  
+
+  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  
+  <meta property="og:title" content="正则表达式（上篇）" />
+  
+
+  <meta property="og:site_name" content="时光的涂鸦墙" />
+
+  
+  <meta property="og:image" content="/favicon.ico" />
+  
+
+  <link href="/favicon.ico" rel="icon">
+  <link rel="alternate" href="/atom.xml"
+    title="时光的涂鸦墙" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+</head>
+
+<body>
+<div class="blog">
+  <div class="content">
+
+    <header>
+  <div class="site-branding">
+    <h1 class="site-title">
+      <a href="/">时光的涂鸦墙</a>
+    </h1>
+    <p class="site-description">this is subtitiek</p>
+  </div>
+  <nav class="site-navigation">
+    <ul>
+      
+        <li><a href="/">主页</a></li>
+      
+        <li><a href="/archives">归档</a></li>
+      
+        <li><a href="/tags">标签</a></li>
+      
+        <li><a href="/about">关于</a></li>
+      
+    </ul>
+  </nav>
+</header>
+
+    <main class="site-main posts-loop">
+    <article>
+
+  
+  
+  <h3 class="article-title"><span>
+      正则表达式（上篇）</span></h3>
+  
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2016/03/28/正则表达式（上篇）/" rel="bookmark">
+        <time class="entry-date published" datetime="2016-03-28T01:59:50.000Z">
+          2016-03-28
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+      <h2 id="元字符"><a href="#元字符" class="headerlink" title="元字符"></a>元字符</h2><ul>
+<li><code>.</code>  匹配除换行符以外的任意字符</li>
+<li><code>\w</code> 匹配字母或数字或下划线或汉字</li>
+<li><code>\s</code> 匹配一个空白字符，包括空格、制表符、换页符和换行符。</li>
+<li><code>\d</code> 匹配数字</li>
+<li><code>\b</code> 匹配单词的开始或结束</li>
+<li><code>^</code>  匹配字符串的开始</li>
+<li><code>$</code>  匹配字符串的结束</li>
+<li><code>\n</code> 匹配一个换行符</li>
+<li><code>\r</code> 匹配一个回车符</li>
+<li><code>\0nn</code> ASCII代码中八进制代码为nn的字符</li>
+<li><code>\xnn</code> ASCII代码中十六进制代码为nn的字符</li>
+<li><code>\unnnn</code> Unicode代码中十六进制代码为nnnn的字符 <code>[\u4e00-\u9fa5]</code></li>
+</ul>
+<a id="more"></a>
+<p>如果我们要查找元字符本身需要加上 <code>\</code> 转义，如：<code>\*</code>  <code>\\w</code></p>
+<h2 id="重复"><a href="#重复" class="headerlink" title="重复"></a>重复</h2><ul>
+<li><code>*</code> 重复零次或更多次</li>
+<li><code>+</code> 重复一次或更多次</li>
+<li><code>?</code> 重复零次或一次</li>
+<li><code>{n}</code> 重复n次</li>
+<li><code>{n,}</code> 重复n次或更多次</li>
+<li><code>{n,m}</code> 重复n到m次</li>
+</ul>
+<h2 id="字符类"><a href="#字符类" class="headerlink" title="字符类"></a>字符类</h2><ul>
+<li>[a-zA-Z]</li>
+<li>[\w] </li>
+<li>[0-9]</li>
+</ul>
+<h2 id="分枝条件"><a href="#分枝条件" class="headerlink" title="分枝条件"></a>分枝条件</h2><ul>
+<li><code>|</code> 或</li>
+</ul>
+<h2 id="分组"><a href="#分组" class="headerlink" title="分组"></a>分组</h2><ul>
+<li>(\d{1,3}){3}</li>
+</ul>
+<h2 id="反义"><a href="#反义" class="headerlink" title="反义"></a>反义</h2><ul>
+<li><code>\W</code> 匹配任意不是字母，数字，下划线，汉字的字符</li>
+<li><code>\S</code> 匹配任意不是空白符的字符</li>
+<li><code>\D</code> 匹配任意非数字的字符</li>
+<li><code>\B</code> 匹配不是单词开头或结束的位置</li>
+<li><code>[^x]</code> 匹配除了x以外的任意字符</li>
+<li><code>[^aeiou]</code> 匹配除了aeiou这几个字母以外的任意字符</li>
+</ul>
+<h2 id="操练"><a href="#操练" class="headerlink" title="操练"></a>操练</h2><ul>
+<li>0\d{2}-\d{8}</li>
+<li>(?0\d{2})?[- ]?\d{8}|0\d{2}[- ]?\d{8}</li>
+<li>((2[0-4]\d|25[0-5]|[01]?\d\d?).){3}(2[0-4]\d|25[0-5]|[01]?\d\d?)</li>
+<li>/(?\d{3})?([-\/.])\d{3}\1\d{4}/</li>
+</ul>
+<h2 id="反向引用"><a href="#反向引用" class="headerlink" title="反向引用"></a>反向引用</h2><h2 id="捕获"><a href="#捕获" class="headerlink" title="捕获"></a>捕获</h2><h2 id="零宽断言"><a href="#零宽断言" class="headerlink" title="零宽断言"></a>零宽断言</h2><h2 id="贪婪与懒惰"><a href="#贪婪与懒惰" class="headerlink" title="贪婪与懒惰"></a>贪婪与懒惰</h2><h2 id="其它"><a href="#其它" class="headerlink" title="其它"></a>其它</h2><h2 id="Javascript-中的应用"><a href="#Javascript-中的应用" class="headerlink" title="Javascript 中的应用"></a>Javascript 中的应用</h2><h2 id="相关参考："><a href="#相关参考：" class="headerlink" title="相关参考："></a>相关参考：</h2><blockquote>
+<p><a href="http://deerchao.net/tutorials/regex/regex.htm" target="_blank" rel="noopener">参考链接-01</a></p>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Regular_Expressions" target="_blank" rel="noopener">参考链接-02</a></p>
+</blockquote>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+      
+
+      
+      
+
+      <span class="post-tags">
+        <a href="/tags/正则表达式/">正则表达式</a>
+      </span>
+      
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+<section id="comment" class="comment">
+	<div id="gitment"></div>
+</section>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+	var gitment = new Gitment({
+		owner: 'lingmissing',
+		repo: 'lingmissing-gitment',
+		oauth: {
+			client_id: 'c7675a51f3f7416ac3c0',
+			client_secret: 'cac3475af0adfc9d1669114ef89e8c6ff59ac758',
+		},
+	})
+	gitment.render('gitment')
+</script>
+
+
+
+    </main>
+
+    <footer class="site-footer">
+  <p class="site-info">
+    
+    &copy;
+    2019
+    elaine
+    
+  </p>
+</footer>
+    
+<script>
+    (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function () {
+            (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+    ga('create', 'UA-75095706-1', 'auto');
+    ga('send', 'pageview');
+</script>
+
+  </div>
+</div>
+</body>
+</html>

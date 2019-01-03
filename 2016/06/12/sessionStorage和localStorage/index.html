@@ -1,0 +1,223 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  
+  <title>
+    sessionStorage和localStorage | 时光的涂鸦墙 | this is subtitiek
+  </title>
+
+  
+  <meta name="author" content="elaine">
+  
+
+  
+  <meta name="description" content="JavaScript Developer">
+  
+
+  
+  
+  <meta name="keywords" content="html5">
+  
+
+  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  
+  <meta property="og:title" content="sessionStorage和localStorage" />
+  
+
+  <meta property="og:site_name" content="时光的涂鸦墙" />
+
+  
+  <meta property="og:image" content="/favicon.ico" />
+  
+
+  <link href="/favicon.ico" rel="icon">
+  <link rel="alternate" href="/atom.xml"
+    title="时光的涂鸦墙" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+</head>
+
+<body>
+<div class="blog">
+  <div class="content">
+
+    <header>
+  <div class="site-branding">
+    <h1 class="site-title">
+      <a href="/">时光的涂鸦墙</a>
+    </h1>
+    <p class="site-description">this is subtitiek</p>
+  </div>
+  <nav class="site-navigation">
+    <ul>
+      
+        <li><a href="/">主页</a></li>
+      
+        <li><a href="/archives">归档</a></li>
+      
+        <li><a href="/tags">标签</a></li>
+      
+        <li><a href="/about">关于</a></li>
+      
+    </ul>
+  </nav>
+</header>
+
+    <main class="site-main posts-loop">
+    <article>
+
+  
+  
+  <h3 class="article-title"><span>
+      sessionStorage和localStorage</span></h3>
+  
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2016/06/12/sessionStorage和localStorage/" rel="bookmark">
+        <time class="entry-date published" datetime="2016-06-12T06:10:32.000Z">
+          2016-06-12
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+      <h2 id="sessionStorage和localStorage区别"><a href="#sessionStorage和localStorage区别" class="headerlink" title="sessionStorage和localStorage区别"></a>sessionStorage和localStorage区别</h2><ul>
+<li><code>sessionStorage</code>用于本地存储一个会话（session）中的数据，这些数据只有在同一个会话中的页面才能访问并且当会话结束后数据也随之销毁。因此sessionStorage不是一种持久化的本地存储，仅仅是会话级别的存储。</li>
+<li><code>localStorage</code>用于持久化的本地存储，除非主动删除数据，否则数据是永远不会过期的。<h2 id="web-storage和cookie的区别"><a href="#web-storage和cookie的区别" class="headerlink" title="web storage和cookie的区别"></a>web storage和cookie的区别</h2></li>
+<li><code>Cookie</code>的大小是受限的，并且每次你请求一个新的页面的时候Cookie都会被发送过去，这样无形中浪费了带宽，另外cookie还需要指定作用域，不可以跨域调用。</li>
+<li><code>Web Storage</code>拥有setItem,getItem,removeItem,clear等方法，不像cookie需要前端开发者自己封装setCookie，getCookie。</li>
+<li><code>Cookie</code>的作用是与服务器进行交互，作为HTTP规范的一部分而存在 ，而<code>Web Storage</code>仅仅是为了在本地“存储”数据而生。<h2 id="localStorage和sessionStorage操作"><a href="#localStorage和sessionStorage操作" class="headerlink" title="localStorage和sessionStorage操作"></a>localStorage和sessionStorage操作</h2><h4 id="setItem存储value"><a href="#setItem存储value" class="headerlink" title="setItem存储value"></a>setItem存储value</h4>用途：将value存储到key字段<br>用法：.setItem( key, value)<br>代码示例：<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sessionStorage.setItem(<span class="string">"key"</span>, <span class="string">"value"</span>);         </span><br><span class="line">localStorage.setItem(<span class="string">"site"</span>, <span class="string">"js8.in"</span>);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="getItem获取value"><a href="#getItem获取value" class="headerlink" title="getItem获取value"></a>getItem获取value</h4><p>用途：获取指定key本地存储的值<br>用法：.getItem(key)<br>代码示例：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> value = sessionStorage.getItem(<span class="string">"key"</span>);     </span><br><span class="line"><span class="keyword">var</span> site = localStorage.getItem(<span class="string">"site"</span>);</span><br></pre></td></tr></table></figure></p>
+<h4 id="removeItem删除key"><a href="#removeItem删除key" class="headerlink" title="removeItem删除key"></a>removeItem删除key</h4><p>用途：删除指定key本地存储的值<br>用法：.removeItem(key)<br>代码示例：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sessionStorage.removeItem(<span class="string">"key"</span>);   </span><br><span class="line">localStorage.removeItem(<span class="string">"site"</span>);</span><br></pre></td></tr></table></figure></p>
+<h4 id="clear清除所有的key-value"><a href="#clear清除所有的key-value" class="headerlink" title="clear清除所有的key/value"></a>clear清除所有的key/value</h4><p>用途：清除所有的key/value<br>用法：.clear()<br>代码示例：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sessionStorage.clear();  </span><br><span class="line">localStorage.clear();</span><br></pre></td></tr></table></figure></p>
+<h4 id="其他操作方法：点操作和"><a href="#其他操作方法：点操作和" class="headerlink" title="其他操作方法：点操作和[]"></a>其他操作方法：点操作和[]</h4><p>web Storage不但可以用自身的setItem,getItem等方便存取，也可以像普通对象一样用点(.)操作符，及[]的方式进行数据存储，像如下的代码：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> storage = <span class="built_in">window</span>.localStorage; </span><br><span class="line">storage.key1 = <span class="string">"hello"</span>; </span><br><span class="line">storage[<span class="string">"key2"</span>] = <span class="string">"world"</span>; </span><br><span class="line"><span class="built_in">console</span>.log(storage.key1); </span><br><span class="line"><span class="built_in">console</span>.log(storage[<span class="string">"key2"</span>]);</span><br></pre></td></tr></table></figure></p>
+<h4 id="localStorage和sessionStorage的key和length属性实现遍历"><a href="#localStorage和sessionStorage的key和length属性实现遍历" class="headerlink" title="localStorage和sessionStorage的key和length属性实现遍历"></a>localStorage和sessionStorage的key和length属性实现遍历</h4><p>sessionStorage和localStorage提供的key()和length可以方便的实现存储的数据遍历，例如下面的代码：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> storage = <span class="built_in">window</span>.localStorage;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i=<span class="number">0</span>, len = storage.length; i &lt; len; i++)&#123;</span><br><span class="line">    <span class="keyword">var</span> key = storage.key(i);</span><br><span class="line">    <span class="keyword">var</span> value = storage.getItem(key);</span><br><span class="line">    <span class="built_in">console</span>.log(key + <span class="string">"="</span> + value);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="storage事件"><a href="#storage事件" class="headerlink" title="storage事件"></a>storage事件</h2><p>storage还提供了storage事件，当键值改变或者clear的时候，就可以触发storage事件，如下面的代码就添加了一个storage事件改变的监听：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(<span class="built_in">window</span>.addEventListener)&#123;  </span><br><span class="line">     <span class="built_in">window</span>.addEventListener(<span class="string">"storage"</span>,handle_storage,<span class="literal">false</span>);</span><br><span class="line">&#125;<span class="keyword">else</span> <span class="keyword">if</span>(<span class="built_in">window</span>.attachEvent)&#123;      </span><br><span class="line">     <span class="built_in">window</span>.attachEvent(<span class="string">"onstorage"</span>,handle_storage);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">handle_storage</span>(<span class="params">e</span>)</span>&#123; </span><br><span class="line">     <span class="keyword">if</span>(!e)&#123;e=<span class="built_in">window</span>.event;&#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>storage事件对象的具体属性如下表：</p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Property</td>
+<td>Type</td>
+<td>读取一个 jsons 文件</td>
+</tr>
+<tr>
+<td>key</td>
+<td>string</td>
+<td>less 编译</td>
+</tr>
+<tr>
+<td>oldValue</td>
+<td>any</td>
+<td>scss 编译</td>
+</tr>
+<tr>
+<td>newValue</td>
+<td>any</td>
+<td>css 插件处理器</td>
+</tr>
+<tr>
+<td>url/uri</td>
+<td>string</td>
+<td>解析 css 添加前缀 css 规则</td>
+</tr>
+</tbody>
+</table>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+      
+
+      
+      
+
+      <span class="post-tags">
+        <a href="/tags/html5/">html5</a>
+      </span>
+      
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+<section id="comment" class="comment">
+	<div id="gitment"></div>
+</section>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+	var gitment = new Gitment({
+		owner: 'lingmissing',
+		repo: 'lingmissing-gitment',
+		oauth: {
+			client_id: 'c7675a51f3f7416ac3c0',
+			client_secret: 'cac3475af0adfc9d1669114ef89e8c6ff59ac758',
+		},
+	})
+	gitment.render('gitment')
+</script>
+
+
+
+    </main>
+
+    <footer class="site-footer">
+  <p class="site-info">
+    
+    &copy;
+    2019
+    elaine
+    
+  </p>
+</footer>
+    
+<script>
+    (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function () {
+            (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+    ga('create', 'UA-75095706-1', 'auto');
+    ga('send', 'pageview');
+</script>
+
+  </div>
+</div>
+</body>
+</html>

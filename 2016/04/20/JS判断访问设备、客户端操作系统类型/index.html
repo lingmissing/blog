@@ -1,0 +1,196 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  
+  <title>
+    JS判断访问设备、客户端操作系统类型 | 时光的涂鸦墙 | this is subtitiek
+  </title>
+
+  
+  <meta name="author" content="elaine">
+  
+
+  
+  <meta name="description" content="JavaScript Developer">
+  
+
+  
+  
+  <meta name="keywords" content="javascript">
+  
+
+  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  
+  <meta property="og:title" content="JS判断访问设备、客户端操作系统类型" />
+  
+
+  <meta property="og:site_name" content="时光的涂鸦墙" />
+
+  
+  <meta property="og:image" content="/favicon.ico" />
+  
+
+  <link href="/favicon.ico" rel="icon">
+  <link rel="alternate" href="/atom.xml"
+    title="时光的涂鸦墙" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+</head>
+
+<body>
+<div class="blog">
+  <div class="content">
+
+    <header>
+  <div class="site-branding">
+    <h1 class="site-title">
+      <a href="/">时光的涂鸦墙</a>
+    </h1>
+    <p class="site-description">this is subtitiek</p>
+  </div>
+  <nav class="site-navigation">
+    <ul>
+      
+        <li><a href="/">主页</a></li>
+      
+        <li><a href="/archives">归档</a></li>
+      
+        <li><a href="/tags">标签</a></li>
+      
+        <li><a href="/about">关于</a></li>
+      
+    </ul>
+  </nav>
+</header>
+
+    <main class="site-main posts-loop">
+    <article>
+
+  
+  
+  <h3 class="article-title"><span>
+      JS判断访问设备、客户端操作系统类型</span></h3>
+  
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2016/04/20/JS判断访问设备、客户端操作系统类型/" rel="bookmark">
+        <time class="entry-date published" datetime="2016-04-20T06:01:12.000Z">
+          2016-04-20
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+      <h3 id="判断当前设备操作系统"><a href="#判断当前设备操作系统" class="headerlink" title="判断当前设备操作系统"></a>判断当前设备操作系统</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>判断操作系统<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">      <span class="function"><span class="keyword">function</span> <span class="title">detectOS</span>(<span class="params"></span>) </span>&#123; </span></span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> sUserAgent = navigator.userAgent; </span></span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> isWin = (navigator.platform == <span class="string">"Win32"</span>) || (navigator.platform == <span class="string">"Windows"</span>); </span></span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> isMac = (navigator.platform == <span class="string">"Mac68K"</span>) || (navigator.platform == <span class="string">"MacPPC"</span>) || (navigator.platform == <span class="string">"Macintosh"</span>) || (navigator.platform == <span class="string">"MacIntel"</span>); </span></span><br><span class="line"><span class="javascript">        <span class="keyword">if</span> (isMac) <span class="keyword">return</span> <span class="string">"Mac"</span>; </span></span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> isUnix = (navigator.platform == <span class="string">"X11"</span>) &amp;&amp; !isWin &amp;&amp; !isMac; </span></span><br><span class="line"><span class="javascript">        <span class="keyword">if</span> (isUnix) <span class="keyword">return</span> <span class="string">"Unix"</span>; </span></span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> isLinux = (<span class="built_in">String</span>(navigator.platform).indexOf(<span class="string">"Linux"</span>) &gt; <span class="number">-1</span>); </span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> bIsAndroid = sUserAgent.toLowerCase().match(<span class="regexp">/android/i</span>) == <span class="string">"android"</span>;</span></span><br><span class="line"><span class="javascript">        <span class="keyword">if</span> (isLinux) &#123;</span></span><br><span class="line"><span class="javascript">          <span class="keyword">if</span>(bIsAndroid) <span class="keyword">return</span> <span class="string">"Android"</span>;</span></span><br><span class="line"><span class="javascript">        <span class="keyword">else</span> <span class="keyword">return</span> <span class="string">"Linux"</span>; </span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="javascript">        <span class="keyword">if</span> (isWin) &#123; </span></span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> isWin2K = sUserAgent.indexOf(<span class="string">"Windows NT 5.0"</span>) &gt; <span class="number">-1</span> || sUserAgent.indexOf(<span class="string">"Windows 2000"</span>) &gt; <span class="number">-1</span>; </span></span><br><span class="line"><span class="javascript">        <span class="keyword">if</span> (isWin2K) <span class="keyword">return</span> <span class="string">"Win2000"</span>; </span></span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> isWinXP = sUserAgent.indexOf(<span class="string">"Windows NT 5.1"</span>) &gt; <span class="number">-1</span> || sUserAgent.indexOf(<span class="string">"Windows XP"</span>) &gt; <span class="number">-1</span>; </span></span><br><span class="line"><span class="javascript">        <span class="keyword">if</span> (isWinXP) <span class="keyword">return</span> <span class="string">"WinXP"</span>; </span></span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> isWin2003 = sUserAgent.indexOf(<span class="string">"Windows NT 5.2"</span>) &gt; <span class="number">-1</span> || sUserAgent.indexOf(<span class="string">"Windows 2003"</span>) &gt; <span class="number">-1</span>; </span></span><br><span class="line"><span class="javascript">        <span class="keyword">if</span> (isWin2003) <span class="keyword">return</span> <span class="string">"Win2003"</span>; </span></span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> isWinVista= sUserAgent.indexOf(<span class="string">"Windows NT 6.0"</span>) &gt; <span class="number">-1</span> || sUserAgent.indexOf(<span class="string">"Windows Vista"</span>) &gt; <span class="number">-1</span>; </span></span><br><span class="line"><span class="javascript">        <span class="keyword">if</span> (isWinVista) <span class="keyword">return</span> <span class="string">"WinVista"</span>; </span></span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> isWin7 = sUserAgent.indexOf(<span class="string">"Windows NT 6.1"</span>) &gt; <span class="number">-1</span> || sUserAgent.indexOf(<span class="string">"Windows 7"</span>) &gt; <span class="number">-1</span>; </span></span><br><span class="line"><span class="javascript">        <span class="keyword">if</span> (isWin7) <span class="keyword">return</span> <span class="string">"Win7"</span>; </span></span><br><span class="line"><span class="undefined">        &#125; </span></span><br><span class="line"><span class="javascript">        <span class="keyword">return</span> <span class="string">"other"</span>; </span></span><br><span class="line"><span class="undefined">      &#125; </span></span><br><span class="line"><span class="javascript">      <span class="built_in">document</span>.writeln(<span class="string">"您的操作系统是："</span> + detectOS()); </span></span><br><span class="line"><span class="undefined">      alert(detectOS());</span></span><br><span class="line"><span class="undefined">    </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span> </span><br><span class="line">  </span><br><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<h3 id="判断当前访问网站的设备是否是PC"><a href="#判断当前访问网站的设备是否是PC" class="headerlink" title="判断当前访问网站的设备是否是PC"></a>判断当前访问网站的设备是否是PC</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//平台、设备和操作系统</span></span><br><span class="line"><span class="keyword">var</span> system =&#123;</span><br><span class="line">  win : <span class="literal">false</span>,</span><br><span class="line">  mac : <span class="literal">false</span>,</span><br><span class="line">  xll : <span class="literal">false</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">//检测平台</span></span><br><span class="line"><span class="keyword">var</span> p = navigator.platform;</span><br><span class="line">system.win = p.indexOf(<span class="string">"Win"</span>) == <span class="number">0</span>;</span><br><span class="line">system.mac = p.indexOf(<span class="string">"Mac"</span>) == <span class="number">0</span>;</span><br><span class="line">system.x11 = (p == <span class="string">"X11"</span>) || (p.indexOf(<span class="string">"Linux"</span>) == <span class="number">0</span>);</span><br><span class="line"><span class="comment">//跳转语句</span></span><br><span class="line"><span class="keyword">if</span>(system.win||system.mac||system.xll)&#123;</span><br><span class="line">  alert(<span class="string">"PC访问"</span>);</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">  alert(<span class="string">"非PC访问"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="JS判断访问设备-userAgent-加载不同页面。代码如下："><a href="#JS判断访问设备-userAgent-加载不同页面。代码如下：" class="headerlink" title="JS判断访问设备(userAgent)加载不同页面。代码如下："></a>JS判断访问设备(userAgent)加载不同页面。代码如下：</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">browserRedirect</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> sUserAgent = navigator.userAgent.toLowerCase();</span><br><span class="line">  <span class="keyword">var</span> bIsIpad = sUserAgent.match(<span class="regexp">/ipad/i</span>) == <span class="string">"ipad"</span>;</span><br><span class="line">  <span class="keyword">var</span> bIsIphoneOs = sUserAgent.match(<span class="regexp">/iphone os/i</span>) == <span class="string">"iphone os"</span>;</span><br><span class="line">  <span class="keyword">var</span> bIsMidp = sUserAgent.match(<span class="regexp">/midp/i</span>) == <span class="string">"midp"</span>;</span><br><span class="line">  <span class="keyword">var</span> bIsUc7 = sUserAgent.match(<span class="regexp">/rv:1.2.3.4/i</span>) == <span class="string">"rv:1.2.3.4"</span>;</span><br><span class="line">  <span class="keyword">var</span> bIsUc = sUserAgent.match(<span class="regexp">/ucweb/i</span>) == <span class="string">"ucweb"</span>;</span><br><span class="line">  <span class="keyword">var</span> bIsAndroid = sUserAgent.match(<span class="regexp">/android/i</span>) == <span class="string">"android"</span>;</span><br><span class="line">  <span class="keyword">var</span> bIsCE = sUserAgent.match(<span class="regexp">/windows ce/i</span>) == <span class="string">"windows ce"</span>;</span><br><span class="line">  <span class="keyword">var</span> bIsWM = sUserAgent.match(<span class="regexp">/windows mobile/i</span>) == <span class="string">"windows mobile"</span>;</span><br><span class="line">  <span class="keyword">if</span> (! (bIsIpad || bIsIphoneOs || bIsMidp || bIsUc7 || bIsUc || bIsAndroid || bIsCE || bIsWM)) &#123;</span><br><span class="line">    <span class="built_in">window</span>.location.href = B页面;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">browserRedirect();</span><br></pre></td></tr></table></figure>
+<h3 id="JS判断客户端操作系统类型-platform-来定义不同的字体表现"><a href="#JS判断客户端操作系统类型-platform-来定义不同的字体表现" class="headerlink" title="JS判断客户端操作系统类型(platform)来定义不同的字体表现"></a>JS判断客户端操作系统类型(platform)来定义不同的字体表现</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 更详细的探测当前客户端使用的操作系统</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">detectOS</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> sUserAgent = navigator.userAgent;</span><br><span class="line">  <span class="keyword">var</span> isWin = (navigator.platform == <span class="string">"Win32"</span>) || (navigator.platform == <span class="string">"Windows"</span>);</span><br><span class="line">  <span class="keyword">var</span> isMac = (navigator.platform == <span class="string">"Mac68K"</span>) || (navigator.platform == <span class="string">"MacPPC"</span>) || (navigator.platform == <span class="string">"Macintosh"</span>) || (navigator.platform == <span class="string">"MacIntel"</span>); </span><br><span class="line">  <span class="keyword">if</span> (isMac) <span class="keyword">return</span> <span class="string">"Mac"</span>;</span><br><span class="line">  <span class="keyword">var</span> isUnix = (navigator.platform == <span class="string">"X11"</span>) &amp;&amp; !isWin &amp;&amp; !isMac;</span><br><span class="line">  <span class="keyword">if</span> (isUnix) <span class="keyword">return</span> <span class="string">"Unix"</span>;</span><br><span class="line">  <span class="keyword">var</span> isLinux = (<span class="built_in">String</span>(navigator.platform).indexOf(<span class="string">"Linux"</span>) &gt; <span class="number">-1</span>);</span><br><span class="line">  <span class="keyword">if</span> (isLinux) <span class="keyword">return</span> <span class="string">"Linux"</span>;</span><br><span class="line">  <span class="keyword">if</span> (isWin) &#123;</span><br><span class="line">    <span class="keyword">var</span> isWin2K = sUserAgent.indexOf(<span class="string">"Windows NT 5.0"</span>) &gt; <span class="number">-1</span> || sUserAgent.indexOf(<span class="string">"Windows 2000"</span>) &gt; <span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">if</span> (isWin2K) <span class="keyword">return</span> <span class="string">"Win2000"</span>;</span><br><span class="line">    <span class="keyword">var</span> isWinXP = sUserAgent.indexOf(<span class="string">"Windows NT 5.1"</span>) &gt; <span class="number">-1</span> || sUserAgent.indexOf(<span class="string">"Windows XP"</span>) &gt; <span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">if</span> (isWinXP) <span class="keyword">return</span> <span class="string">"WinXP"</span>;</span><br><span class="line">    <span class="keyword">var</span> isWin2003 = sUserAgent.indexOf(<span class="string">"Windows NT 5.2"</span>) &gt; <span class="number">-1</span> || sUserAgent.indexOf(<span class="string">"Windows 2003"</span>) &gt; <span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">if</span> (isWin2003) <span class="keyword">return</span> <span class="string">"Win2003"</span>;</span><br><span class="line">    <span class="keyword">var</span> isWin2003 = sUserAgent.indexOf(<span class="string">"Windows NT 6.0"</span>) &gt; <span class="number">-1</span> || sUserAgent.indexOf(<span class="string">"Windows Vista"</span>) &gt; <span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">if</span> (isWin2003) <span class="keyword">return</span> <span class="string">"WinVista"</span>; </span><br><span class="line">    <span class="keyword">var</span> isWin2003 = sUserAgent.indexOf(<span class="string">"Windows NT 6.1"</span>) &gt; <span class="number">-1</span> || sUserAgent.indexOf(<span class="string">"Windows 7"</span>) &gt; <span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">if</span> (isWin2003) <span class="keyword">return</span> <span class="string">"Win7"</span>;</span><br><span class="line">  &#125; </span><br><span class="line">  <span class="keyword">return</span> <span class="string">"other"</span>; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="另一种方法，使用mootools框架"><a href="#另一种方法，使用mootools框架" class="headerlink" title="另一种方法，使用mootools框架"></a>另一种方法，使用mootools框架</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> s = <span class="literal">null</span>;</span><br><span class="line">s = Browser.Platform.linux;</span><br><span class="line">alert(s);</span><br><span class="line"><span class="keyword">if</span> (Browser.Platform.linux)</span><br><span class="line">  alert(<span class="string">"linux"</span>);</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">  alert(<span class="string">"not linux"</span>);</span><br></pre></td></tr></table></figure>
+<h3 id="使用JS架框有现成的判断"><a href="#使用JS架框有现成的判断" class="headerlink" title="使用JS架框有现成的判断"></a>使用JS架框有现成的判断</h3><p>例如motools架框中：</p>
+<ul>
+<li><p>Browser.Platform.mac - (boolean) 当前操作系统是否为Mac</p>
+</li>
+<li><p>Browser.Platform.win - (boolean) 当前操作系统是否为Windows</p>
+</li>
+<li><p>Browser.Platform.linux - (boolean) 当前操作系统是否为Linux</p>
+</li>
+<li><p>Browser.Platform.ipod - (boolean) 当前操作系统是否为iPod Touch / iPhone</p>
+</li>
+<li><p>Browser.Platform.other - (boolean) 当前操作系统即不是Mac, 也不是Windows或Linux</p>
+</li>
+<li><p>Browser.Platform.name - (string) 当前操作系统的名称</p>
+</li>
+</ul>
+<blockquote>
+<p>转载自：<a href="http://www.cnblogs.com/duanguyuan/p/3534470.html" target="_blank" rel="noopener">http://www.cnblogs.com/duanguyuan/p/3534470.html</a></p>
+</blockquote>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+      
+
+      
+      
+
+      <span class="post-tags">
+        <a href="/tags/javascript/">javascript</a>
+      </span>
+      
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+<section id="comment" class="comment">
+	<div id="gitment"></div>
+</section>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+	var gitment = new Gitment({
+		owner: 'lingmissing',
+		repo: 'lingmissing-gitment',
+		oauth: {
+			client_id: 'c7675a51f3f7416ac3c0',
+			client_secret: 'cac3475af0adfc9d1669114ef89e8c6ff59ac758',
+		},
+	})
+	gitment.render('gitment')
+</script>
+
+
+
+    </main>
+
+    <footer class="site-footer">
+  <p class="site-info">
+    
+    &copy;
+    2019
+    elaine
+    
+  </p>
+</footer>
+    
+<script>
+    (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function () {
+            (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+    ga('create', 'UA-75095706-1', 'auto');
+    ga('send', 'pageview');
+</script>
+
+  </div>
+</div>
+</body>
+</html>

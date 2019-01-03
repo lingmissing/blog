@@ -1,0 +1,228 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  
+  <title>
+    angularJs之路由 | 时光的涂鸦墙 | this is subtitiek
+  </title>
+
+  
+  <meta name="author" content="elaine">
+  
+
+  
+  <meta name="description" content="JavaScript Developer">
+  
+
+  
+  
+  <meta name="keywords" content="angular">
+  
+
+  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  
+  <meta property="og:title" content="angularJs之路由" />
+  
+
+  <meta property="og:site_name" content="时光的涂鸦墙" />
+
+  
+  <meta property="og:image" content="/favicon.ico" />
+  
+
+  <link href="/favicon.ico" rel="icon">
+  <link rel="alternate" href="/atom.xml"
+    title="时光的涂鸦墙" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+</head>
+
+<body>
+<div class="blog">
+  <div class="content">
+
+    <header>
+  <div class="site-branding">
+    <h1 class="site-title">
+      <a href="/">时光的涂鸦墙</a>
+    </h1>
+    <p class="site-description">this is subtitiek</p>
+  </div>
+  <nav class="site-navigation">
+    <ul>
+      
+        <li><a href="/">主页</a></li>
+      
+        <li><a href="/archives">归档</a></li>
+      
+        <li><a href="/tags">标签</a></li>
+      
+        <li><a href="/about">关于</a></li>
+      
+    </ul>
+  </nav>
+</header>
+
+    <main class="site-main posts-loop">
+    <article>
+
+  
+  
+  <h3 class="article-title"><span>
+      angularJs之路由</span></h3>
+  
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2016/07/12/angular路由/" rel="bookmark">
+        <time class="entry-date published" datetime="2016-07-12T09:19:01.000Z">
+          2016-07-12
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+      <h2 id="为什么需要前端路由"><a href="#为什么需要前端路由" class="headerlink" title="为什么需要前端路由"></a>为什么需要前端路由</h2><ul>
+<li><code>Ajax</code>请求不会留下<code>history</code>记录</li>
+<li>用户无法直接通过url进入应用中的指定页面（保存书签，链接分享给朋友）</li>
+<li><code>Ajax</code>对<code>SEO</code>不友好（没法让搜索引擎索引）</li>
+</ul>
+<h2 id="Angular-路由"><a href="#Angular-路由" class="headerlink" title="Angular 路由"></a>Angular 路由</h2><p>在<code>APP</code>中定义多个页面的控制器，并给出对应的模板。然后<code>$routeProvider</code>进行配置，即可将URL映射到这些控制器和视图。 首先定义一个基本的Angular APP，并引入<code>ngRoute</code>：</p>
+<blockquote>
+<p>Angular<code>$routeService</code>在<code>ngRoute</code>模块里。需要引入它对应的JavaScript文件，并在我们的APP里<code>ngRoute</code>添加为模块依赖。</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> app = angular.module(<span class="string">'ngRouteExample'</span>, [<span class="string">'ngRoute'</span>])</span><br><span class="line">    .controller(<span class="string">'MainController'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">$scope</span>) </span>&#123;</span><br><span class="line">    &#125;)</span><br><span class="line">    .config(<span class="function"><span class="keyword">function</span>(<span class="params">$routeProvider, $locationProvider</span>) </span>&#123;</span><br><span class="line">      $routeProvider</span><br><span class="line">          .when(<span class="string">'/users'</span>, &#123;</span><br><span class="line">              templateUrl: <span class="string">'user-list.html'</span>,</span><br><span class="line">              controller: <span class="string">'UserListCtrl'</span></span><br><span class="line">          &#125;)</span><br><span class="line">          .when(<span class="string">'/users/:username'</span>, &#123;</span><br><span class="line">              templateUrl: <span class="string">'user.html'</span>,</span><br><span class="line">              controller: <span class="string">'UserCtrl'</span></span><br><span class="line">          &#125;)</span><br><span class="line">		  .otherwise(&#123;</span><br><span class="line">		  	  redirectTo: <span class="string">'/hello'</span></span><br><span class="line">		  &#125;);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// configure html5</span></span><br><span class="line">        $locationProvider.html5Mode(<span class="literal">true</span>);</span><br><span class="line">    &#125;);</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<p>上述代码中，<code>$routeProvider</code>定义了两个URL的映射：<code>/users</code>使用<code>user-list.html</code>作为模板，<code>UserListCtrl</code>作为控制器；<code>/users/:username</code>则会匹配类似<code>/users/alice</code>之类的URL，稍后你会看到如何获得<code>:username</code>匹配到的值。先看首页的模板：</p>
+<blockquote>
+<p><code>HTML5Mode</code>： 服务器端路由和客户端路由的URL以#分隔。例如<code>/foo/bar#/users/alice</code>，Angular通过操作锚点来进行路由。 然而<code>html5Mode(true)</code>将会去除#，URL变成<code>/foo/bar/users/alice</code>（这需要浏览器支持HTML5的，因为此时Angular通过<code>pushState</code>来进行路由）。 此时服务器对所有的客户端路由的URL都需要返回首页（<code>/foo/bar</code>）视图，再交给Angular路由到<code>/foo/bar/users/alice</code>对应的视图。</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">ng-controller</span>=<span class="string">"MainController"</span>&gt;</span></span><br><span class="line">  Choose:</span><br><span class="line">  <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"users"</span>&gt;</span>user list<span class="tag">&lt;/<span class="name">a</span>&gt;</span> |</span><br><span class="line">  <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"users/alice"</span>&gt;</span>user: alice<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">ng-view</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>注意到模板文件中有一个<code>div[ng-view]</code>，子页面将会载入到这里。</p>
+<h4 id="路由参数"><a href="#路由参数" class="headerlink" title="路由参数"></a>路由参数</h4><p>用户列表页面：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">app.controller(<span class="string">'UserListCtrl'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">$scope</span>) </span>&#123;&#125;);</span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--user-list.html--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>User List Page<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>用户页面：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">app.controller(<span class="string">'UserCtrl'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">$scope, $routeParams</span>) </span>&#123;</span><br><span class="line">    $scope.params = $routeParams;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--user.html--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>User Page<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">span</span> <span class="attr">ng-bind</span>=<span class="string">"params.userName"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>我们点击首页的<code>/users/alice</code>时，将会载入<code>user.html</code>，<code>span</code>的值为<code>alice</code>。<code>$routeParams</code>提供了当前的路由参数，例如：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Given:</span></span><br><span class="line"><span class="comment">// URL: http://server.com/index.html#/Chapter/1/Section/2?search=moby</span></span><br><span class="line"><span class="comment">// Route: /Chapter/:chapterId/Section/:sectionId</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">// Then</span></span><br><span class="line">$routeParams ==&gt; &#123;<span class="attr">chapterId</span>:<span class="string">'1'</span>, <span class="attr">sectionId</span>:<span class="string">'2'</span>, <span class="attr">search</span>:<span class="string">'moby'</span>&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="UI-Router"><a href="#UI-Router" class="headerlink" title="UI-Router"></a>UI-Router</h2><p>UI-Router是Angular-UI提供的客户端路由框架，它解决了原生的ng-route的很多不足：</p>
+<ul>
+<li>视图不能嵌套。这意味着<code>$scope</code>会发生不必要的重新载入。这也是我们在<code>Onboar</code>d中引入ui-route的原因。</li>
+<li>同一URL下不支持多个视图。这一需求也是常见的：我们希望导航栏用一个视图（和相应的控制器）、内容部分用另一个视图（和相应的控制器）。</li>
+</ul>
+<p>UI-Router提出了<code>$state</code>的概念。一个<code>$state</code>是一个当前导航和UI的状态，每个<code>$state</code>需要绑定一个URL Pattern。 在控制器和模板中，通过改变<code>$state</code>来进行URL的跳转和路由。这是一个简单的例子：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- in index.html --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span> <span class="attr">ng-controller</span>=<span class="string">"MainCtrl"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">section</span> <span class="attr">ui-view</span>&gt;</span><span class="tag">&lt;/<span class="name">section</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// in app-states.js</span></span><br><span class="line"><span class="keyword">var</span> myUIRoute = angular.module(<span class="string">'MyUIRoute'</span>, [<span class="string">'ui.router'</span>, <span class="string">'ngAnimate'</span>]);</span><br><span class="line">myUIRoute.config(<span class="function"><span class="keyword">function</span>(<span class="params">$stateProvider, $urlRouterProvider</span>) </span>&#123;</span><br><span class="line">    $urlRouterProvider.otherwise(<span class="string">"/contacts"</span>);</span><br><span class="line">    $stateProvider</span><br><span class="line">        .state(<span class="string">'contacts'</span>, &#123;</span><br><span class="line">            url: <span class="string">'/contacts'</span>,</span><br><span class="line">            template: <span class="string">'contacts.html'</span>,</span><br><span class="line">            controller: <span class="string">'ContactCtrl'</span></span><br><span class="line">        &#125;)</span><br><span class="line">        .state(<span class="string">'contacts.detail'</span>, &#123;</span><br><span class="line">            url: <span class="string">"/contacts/:contactId"</span>,</span><br><span class="line">            templateUrl: <span class="string">'contacts.detail.html'</span>,</span><br><span class="line">            controller: <span class="function"><span class="keyword">function</span> (<span class="params">$stateParams</span>) </span>&#123;</span><br><span class="line">                <span class="comment">// If we got here from a url of /contacts/42</span></span><br><span class="line">                $stateParams.contactId === <span class="string">"42"</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>当访问<code>/contacts</code>时，<code>contacts $state</code>被激活，载入对应的控制器和视图。在ui-router时，通常使用<code>$state</code>来完成页面跳转， 而不是直接操作URL。例如，在脚本使用<code>$state.go</code>：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$state.go(<span class="string">'contacts'</span>);  <span class="comment">// 指定state名，相当于跳转到 /contacts</span></span><br><span class="line">$state.go(<span class="string">'contacts.detail'</span>, &#123;<span class="attr">contactId</span>: <span class="number">42</span>&#125;);  <span class="comment">// 相当于跳转到 /contacts/42</span></span><br></pre></td></tr></table></figure>
+<p>在模板中使用<code>ui-sref</code>（这是一个Directive）：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">ui-sref</span>=<span class="string">"contacts"</span>&gt;</span>Contacts<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">ui-sref</span>=<span class="string">"contacts.detail(&#123;contactId: 42&#125;)"</span>&gt;</span>Contact 42<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="嵌套视图"><a href="#嵌套视图" class="headerlink" title="嵌套视图"></a>嵌套视图</h4><p>不同于Angular原生的<code>ng-route</code>，ui-router的视图可以嵌套，视图嵌套通常对应着<code>$state</code>的嵌套。 <code>contacts.detail</code>是<code>contacts</code>的子<code>$state</code>，<code>contacts.detail.html</code>也将作为<code>contacts.html</code>的子页面：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- contacts.html --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>My Contacts<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">ui-view</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- contacts.detail.html --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">span</span> <span class="attr">ng-bind</span>=<span class="string">'contactId'</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>上述<code>ui-view</code>的用法和<code>ng-view</code>看起来很相似，但不同的是<code>ui-view</code>可以配合<code>$state</code>进行任意层级的嵌套， 即<code>contacts.detail.html</code>中仍然可以包含一个<code>ui-view</code>，它的<code>$state</code>可能是<code>contacts.detail.hobbies</code>。</p>
+<h4 id="命名视图"><a href="#命名视图" class="headerlink" title="命名视图"></a>命名视图</h4><p>在ui-router中，一个<code>$state</code>下可以有多个视图，它们有各自的模板和控制器。这一点也是<code>ng-route</code>所没有的， 给了前端路由极大的灵活性。来看例子：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- index.html --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">ui-view</span>=<span class="string">"filters"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">ui-view</span>=<span class="string">"tabledata"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">ui-view</span>=<span class="string">"graph"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>这一个模板包含了三个命名的<code>ui-view</code>，可以给它们分别设置模板和控制器：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">$stateProvider</span><br><span class="line">  .state(<span class="string">'report'</span>,&#123;</span><br><span class="line">    views: &#123;</span><br><span class="line">      <span class="string">'filters'</span>: &#123;</span><br><span class="line">        templateUrl: <span class="string">'report-filters.html'</span>,</span><br><span class="line">        controller: <span class="function"><span class="keyword">function</span>(<span class="params">$scope</span>)</span>&#123; ... controller stuff just <span class="keyword">for</span> filters view ... &#125;</span><br><span class="line">      &#125;,</span><br><span class="line">      <span class="string">'tabledata'</span>: &#123;</span><br><span class="line">        templateUrl: <span class="string">'report-table.html'</span>,</span><br><span class="line">        controller: <span class="function"><span class="keyword">function</span>(<span class="params">$scope</span>)</span>&#123; ... controller stuff just <span class="keyword">for</span> tabledata view ... &#125;</span><br><span class="line">      &#125;,</span><br><span class="line">      <span class="string">'graph'</span>: &#123;</span><br><span class="line">        templateUrl: <span class="string">'report-graph.html'</span>,</span><br><span class="line">        controller: <span class="function"><span class="keyword">function</span>(<span class="params">$scope</span>)</span>&#123; ... controller stuff just <span class="keyword">for</span> graph view ... &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br></pre></td></tr></table></figure>
+<h4 id="综合实例"><a href="#综合实例" class="headerlink" title="综合实例"></a>综合实例</h4><p>HTML:</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//uiRoute.html</span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">ui-view</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">//index.html</span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container"</span>&gt;</span></span><br><span class="line">	//头部</span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">ui-view</span>=<span class="string">"topbar"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">	//主体</span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">ui-view</span>=<span class="string">"main"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">//topbar.html</span><br><span class="line">//顶部</span><br><span class="line"><span class="tag">&lt;<span class="name">nav</span> <span class="attr">class</span>=<span class="string">"navbar navbar-inverse"</span> <span class="attr">role</span>=<span class="string">"navigation"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"navbar-header"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">a</span> <span class="attr">class</span>=<span class="string">"navbar-brand"</span> <span class="attr">ui-sref</span>=<span class="string">"#"</span>&gt;</span>ui-router综合实例<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">ul</span> <span class="attr">class</span>=<span class="string">"nav navbar-nav"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">li</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">a</span> <span class="attr">ui-sref</span>=<span class="string">"index"</span>&gt;</span>首页<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">li</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">a</span> <span class="attr">ui-sref</span>=<span class="string">"index.usermng"</span>&gt;</span>用户管理<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">nav</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">//usermng.html</span><br><span class="line">//左侧</span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"row"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-md-3"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"row"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-md-12"</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"list-group"</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">a</span> <span class="attr">ui-sref</span>=<span class="string">"#"</span> <span class="attr">class</span>=<span class="string">"list-group-item active"</span>&gt;</span>用户分类<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">a</span> <span class="attr">ui-sref</span>=<span class="string">"index.usermng.highendusers"</span> <span class="attr">class</span>=<span class="string">"list-group-item"</span>&gt;</span>高端用户<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"row"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-md-12"</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">button</span> <span class="attr">class</span>=<span class="string">"btn btn-primary"</span> <span class="attr">ng-click</span>=<span class="string">"addUserType()"</span>&gt;</span>新增用户<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-md-9"</span>&gt;</span></span><br><span class="line">		//用于存放右边部分</span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">ui-view</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//highendusers.html</span><br><span class="line">。。。</span><br></pre></td></tr></table></figure>
+<p>javascript:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> routerApp = angular.module(<span class="string">'routerApp'</span>, [<span class="string">'ui.router'</span>]);</span><br><span class="line">routerApp.config(<span class="function"><span class="keyword">function</span>(<span class="params">$stateProvider, $urlRouterProvider</span>) </span>&#123;</span><br><span class="line">    $urlRouterProvider.otherwise(<span class="string">'/index'</span>);</span><br><span class="line">    $stateProvider</span><br><span class="line">        .state(<span class="string">'index'</span>, &#123;</span><br><span class="line">            url: <span class="string">'/index'</span>,</span><br><span class="line">            views: &#123;</span><br><span class="line">                <span class="string">''</span>: &#123;</span><br><span class="line">                    templateUrl: <span class="string">'tpls/index.html'</span></span><br><span class="line">                &#125;,</span><br><span class="line">                <span class="string">'topbar@index'</span>: &#123;</span><br><span class="line">                    templateUrl: <span class="string">'tpls/topbar.html'</span></span><br><span class="line">                &#125;,</span><br><span class="line">                <span class="string">'main@index'</span>: &#123;</span><br><span class="line">                    templateUrl: <span class="string">'tpls/home.html'</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">        .state(<span class="string">'index.usermng'</span>, &#123;</span><br><span class="line">            url: <span class="string">'/usermng'</span>,</span><br><span class="line">            views: &#123;</span><br><span class="line">                <span class="string">'main@index'</span>: &#123;</span><br><span class="line">                    templateUrl: <span class="string">'tpls/usermng.html'</span>,</span><br><span class="line">                    controller: <span class="function"><span class="keyword">function</span>(<span class="params">$scope, $state</span>) </span>&#123;</span><br><span class="line">                        $scope.addUserType = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">                            $state.go(<span class="string">"index.usermng.addusertype"</span>);</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">        .state(<span class="string">'index.usermng.highendusers'</span>, &#123;</span><br><span class="line">            url: <span class="string">'/highendusers'</span>,</span><br><span class="line">            templateUrl: <span class="string">'tpls/highendusers.html'</span></span><br><span class="line">        &#125;)</span><br><span class="line">        .state(<span class="string">'index.usermng.addusertype'</span>, &#123;</span><br><span class="line">            url: <span class="string">'/addusertype'</span>,</span><br><span class="line">            templateUrl: <span class="string">'tpls3/addusertypeform.html'</span>,</span><br><span class="line">            controller: <span class="function"><span class="keyword">function</span>(<span class="params">$scope, $state</span>) </span>&#123;</span><br><span class="line">                $scope.backToPrevious = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">                    <span class="built_in">window</span>.history.back();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>转载自：<a href="http://harttle.com/2015/06/10/angular-route.html" title="ng-route 与 ui-router" target="_blank" rel="noopener">http://harttle.com/2015/06/10/angular-route.html</a></p>
+</blockquote>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+      
+
+      
+      
+
+      <span class="post-tags">
+        <a href="/tags/angular/">angular</a>
+      </span>
+      
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+<section id="comment" class="comment">
+	<div id="gitment"></div>
+</section>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+	var gitment = new Gitment({
+		owner: 'lingmissing',
+		repo: 'lingmissing-gitment',
+		oauth: {
+			client_id: 'c7675a51f3f7416ac3c0',
+			client_secret: 'cac3475af0adfc9d1669114ef89e8c6ff59ac758',
+		},
+	})
+	gitment.render('gitment')
+</script>
+
+
+
+    </main>
+
+    <footer class="site-footer">
+  <p class="site-info">
+    
+    &copy;
+    2019
+    elaine
+    
+  </p>
+</footer>
+    
+<script>
+    (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function () {
+            (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+    ga('create', 'UA-75095706-1', 'auto');
+    ga('send', 'pageview');
+</script>
+
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,183 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  
+  <title>
+    JS刷新页面方法 | 时光的涂鸦墙 | this is subtitiek
+  </title>
+
+  
+  <meta name="author" content="elaine">
+  
+
+  
+  <meta name="description" content="JavaScript Developer">
+  
+
+  
+  
+  <meta name="keywords" content="javascript">
+  
+
+  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  
+  <meta property="og:title" content="JS刷新页面方法" />
+  
+
+  <meta property="og:site_name" content="时光的涂鸦墙" />
+
+  
+  <meta property="og:image" content="/favicon.ico" />
+  
+
+  <link href="/favicon.ico" rel="icon">
+  <link rel="alternate" href="/atom.xml"
+    title="时光的涂鸦墙" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+</head>
+
+<body>
+<div class="blog">
+  <div class="content">
+
+    <header>
+  <div class="site-branding">
+    <h1 class="site-title">
+      <a href="/">时光的涂鸦墙</a>
+    </h1>
+    <p class="site-description">this is subtitiek</p>
+  </div>
+  <nav class="site-navigation">
+    <ul>
+      
+        <li><a href="/">主页</a></li>
+      
+        <li><a href="/archives">归档</a></li>
+      
+        <li><a href="/tags">标签</a></li>
+      
+        <li><a href="/about">关于</a></li>
+      
+    </ul>
+  </nav>
+</header>
+
+    <main class="site-main posts-loop">
+    <article>
+
+  
+  
+  <h3 class="article-title"><span>
+      JS刷新页面方法</span></h3>
+  
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2016/03/06/JS刷新页面方法/" rel="bookmark">
+        <time class="entry-date published" datetime="2016-03-06T07:14:06.000Z">
+          2016-03-06
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+      <h2 id="基本刷新页面方法"><a href="#基本刷新页面方法" class="headerlink" title="基本刷新页面方法"></a>基本刷新页面方法</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"refresh"</span><span class="attr">content</span>=<span class="string">"10;url=跳转的页面"</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 10表示间隔10秒刷新一次 --&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">language</span>=<span class="string">''</span><span class="attr">javascript</span>''&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">  <span class="built_in">window</span>.location.reload(<span class="literal">true</span>);</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 如果是你要刷新某一个iframe就把window给换成frame的名字或ID号 --&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">language</span>=<span class="string">''</span><span class="attr">javascript</span>''&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">  <span class="built_in">window</span>.navigate(<span class="string">"本页面url"</span>);</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">abc</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">window</span>.location.href=<span class="string">"/blog/window.location.href"</span>;</span><br><span class="line">  setTimeout(<span class="string">"abc()"</span>,<span class="number">10000</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="刷新本页"><a href="#刷新本页" class="headerlink" title="刷新本页"></a>刷新本页</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Response.Write(<span class="string">"</span></span><br><span class="line"><span class="string">	&lt;script type="</span>text/javascript<span class="string">"&gt;</span></span><br><span class="line"><span class="string">		window.location.href = window.location.href;</span></span><br><span class="line"><span class="string">	&lt;/script&gt;</span></span><br><span class="line"><span class="string">"</span>)</span><br></pre></td></tr></table></figure>
+<h4 id="刷新父页"><a href="#刷新父页" class="headerlink" title="刷新父页"></a>刷新父页</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Response.Write(<span class="string">"</span></span><br><span class="line"><span class="string">	&lt;script type="</span>text/javascript<span class="string">" &gt;</span></span><br><span class="line"><span class="string">		opener.location.href = opener.location.href;</span></span><br><span class="line"><span class="string">	&lt;/script&gt;</span></span><br><span class="line"><span class="string">"</span>)</span><br></pre></td></tr></table></figure>
+<h4 id="转到指定页"><a href="#转到指定页" class="headerlink" title="转到指定页"></a>转到指定页</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Response.Write(<span class="string">"</span></span><br><span class="line"><span class="string">	&lt;script type="</span>text/javascript<span class="string">" &gt;</span></span><br><span class="line"><span class="string">		window.location.href = 'yourpage.aspx';</span></span><br><span class="line"><span class="string">	&lt;/script&gt;</span></span><br><span class="line"><span class="string">"</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="定时刷新页面方法"><a href="#定时刷新页面方法" class="headerlink" title="定时刷新页面方法"></a>定时刷新页面方法</h2><h4 id="在html中设置"><a href="#在html中设置" class="headerlink" title="在html中设置"></a>在html中设置</h4><p>在<head>标签中加入下面一行代码：<br>10代表刷新间隔，单位为秒。<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"refresh"</span> <span class="attr">content</span>=<span class="string">"10"</span>&gt;</span></span><br></pre></td></tr></table></figure></head></p>
+<h4 id="jsp方法"><a href="#jsp方法" class="headerlink" title="jsp方法"></a>jsp方法</h4><p>1代表每一秒刷新一次。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">%</span> <span class="attr">response.setHeader</span>("<span class="attr">refresh</span>","<span class="attr">1</span>"); %&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="javascript方法"><a href="#javascript方法" class="headerlink" title="javascript方法"></a>javascript方法</h4><p>1000代表1000毫秒，即1秒。<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">    setTimeout(<span class="string">"self.location.reload();"</span>,<span class="number">1000</span>);</span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span></span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+      
+
+      
+      
+
+      <span class="post-tags">
+        <a href="/tags/javascript/">javascript</a>
+      </span>
+      
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+<section id="comment" class="comment">
+	<div id="gitment"></div>
+</section>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+	var gitment = new Gitment({
+		owner: 'lingmissing',
+		repo: 'lingmissing-gitment',
+		oauth: {
+			client_id: 'c7675a51f3f7416ac3c0',
+			client_secret: 'cac3475af0adfc9d1669114ef89e8c6ff59ac758',
+		},
+	})
+	gitment.render('gitment')
+</script>
+
+
+
+    </main>
+
+    <footer class="site-footer">
+  <p class="site-info">
+    
+    &copy;
+    2019
+    elaine
+    
+  </p>
+</footer>
+    
+<script>
+    (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function () {
+            (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+    ga('create', 'UA-75095706-1', 'auto');
+    ga('send', 'pageview');
+</script>
+
+  </div>
+</div>
+</body>
+</html>

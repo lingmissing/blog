@@ -1,0 +1,81 @@
+article .tags-cloud {
+  width: 100%;
+  margin: 8rem 0;
+  text-align: center;
+  line-height: 2rem;
+}
+article .tags-cloud > spannot(last-child) {
+  margin-right: 3rem;
+}
+article .tags-cloud > span {
+  display: inline-block;
+}
+article .tags-cloud > span > span {
+  line-height: 1;
+  vertical-align: middle;
+}
+article .archive-tags,
+article .archive-tags > spannot(last-child) {
+  margin-right: 3rem;
+}
+article .archive-tags > span {
+  display: inline-block;
+}
+article .archive-tags > span > span {
+  line-height: 1;
+  vertical-align: middle;
+}
+article .archive-tags,
+article .tags-cloud {
+  margin: 8rem 0;
+  font-size: 1.3rem;
+  color: #9e9e9e;
+}
+article .archive-tags a,
+article .tags-cloud a {
+  color: #9e9e9e;
+}
+article .archive-tags a:hover,
+article .tags-cloud a:hover {
+  color: #de4c4f;
+}
+article .archive-tags i,
+article .tags-cloud i {
+  vertical-align: middle;
+  color: #9e9e9e;
+  margin-right: 0.5rem;
+}
+article .archive-tags .post-tags,
+article .tags-cloud .post-tags {
+  display: inline-block;
+  background: #b8bfc2;
+  padding: 0em 0.5em;
+  border-radius: 1em;
+  text-indent: 0;
+  line-height: 1.7em;
+  transition: all 0.3s;
+  margin-bottom: 1em;
+  box-sizing: border-box;
+}
+article .archive-tags .post-tags:hover,
+article .tags-cloud .post-tags:hover {
+  opacity: 0.8;
+  background: #fcfcfc;
+}
+article .archive-tags .post-tags:hover a,
+article .tags-cloud .post-tags:hover a {
+  color: #de4c4f;
+}
+article .archive-tags .post-tags a,
+article .tags-cloud .post-tags a {
+  color: #fff;
+}
+article .archive-tags .post-tags a:before,
+article .tags-cloud .post-tags a:before {
+  content: "#";
+}
+article .archive-tags .post-tags a:not(:last-of-type):after,
+article .tags-cloud .post-tags a:not(:last-of-type):after {
+  content: ",";
+  padding-right: 5px;
+}

@@ -1,0 +1,181 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  
+  <title>
+    javascript 自动提示/ 键盘上下键滚动选项/ 回车选择 | 时光的涂鸦墙 | this is subtitiek
+  </title>
+
+  
+  <meta name="author" content="elaine">
+  
+
+  
+  <meta name="description" content="JavaScript Developer">
+  
+
+  
+  
+  <meta name="keywords" content="jquery ,javascript">
+  
+
+  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  
+  <meta property="og:title" content="javascript 自动提示/ 键盘上下键滚动选项/ 回车选择" />
+  
+
+  <meta property="og:site_name" content="时光的涂鸦墙" />
+
+  
+  <meta property="og:image" content="/favicon.ico" />
+  
+
+  <link href="/favicon.ico" rel="icon">
+  <link rel="alternate" href="/atom.xml"
+    title="时光的涂鸦墙" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+</head>
+
+<body>
+<div class="blog">
+  <div class="content">
+
+    <header>
+  <div class="site-branding">
+    <h1 class="site-title">
+      <a href="/">时光的涂鸦墙</a>
+    </h1>
+    <p class="site-description">this is subtitiek</p>
+  </div>
+  <nav class="site-navigation">
+    <ul>
+      
+        <li><a href="/">主页</a></li>
+      
+        <li><a href="/archives">归档</a></li>
+      
+        <li><a href="/tags">标签</a></li>
+      
+        <li><a href="/about">关于</a></li>
+      
+    </ul>
+  </nav>
+</header>
+
+    <main class="site-main posts-loop">
+    <article>
+
+  
+  
+  <h3 class="article-title"><span>
+      javascript 自动提示/ 键盘上下键滚动选项/ 回车选择</span></h3>
+  
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2016/03/21/javascript-自动提示-键盘上下键滚动选项-回车选择/" rel="bookmark">
+        <time class="entry-date published" datetime="2016-03-21T07:43:59.000Z">
+          2016-03-21
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+      <p>在输入框中输入内容，下拉出现自动提示列表，鼠标上下键选择提示中的项，然后回车选择相应的项。<br>实现原理：JS监听输入框的kedown、keyup、focusout事件。</p>
+<ol>
+<li>输入内容的时候keyup触发调取后台数据，并接收返回的数据弹出自动提示内容。</li>
+<li>键盘按下的时候keydown判断是否是上下键、回车键、退格删除键，如果是上下键，通过js改变相应内容的显示状态标为当前状态，如果是回车键，将标记为当前选中状态的内容添加到目标HTML标签中，如果是回退删除键判断下输入框里面是否有内容，如果没内容删除目标HTML标签中最后添加的元素。</li>
+<li>当input框失去焦点的时候出发focusout事件，执行隐藏提示内容。</li>
+</ol>
+<p>下面看下示例代码吧！</p>
+<a id="more"></a>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    $(<span class="string">'#tag-search'</span>).on(<span class="string">'keydown'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">event</span>)</span>&#123;</span><br><span class="line">        <span class="keyword">var</span> curKeyCode = event.keyCode || event.which;</span><br><span class="line">        <span class="keyword">if</span> (curKeyCode == <span class="number">38</span>) &#123;<span class="comment">//上方向键</span></span><br><span class="line">            keychang(<span class="string">"up"</span>);</span><br><span class="line">            event.preventDefault();</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (curKeyCode == <span class="number">40</span>) &#123;<span class="comment">//下方向键</span></span><br><span class="line">            keychang();</span><br><span class="line">            event.preventDefault();</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (curKeyCode == <span class="number">13</span>) &#123;<span class="comment">//回车键</span></span><br><span class="line">            checkTagname();</span><br><span class="line">            $(<span class="string">'#tag-tip'</span>).hide();</span><br><span class="line">            event.preventDefault();</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (curKeyCode == <span class="number">8</span>) &#123;<span class="comment">//回退删除键</span></span><br><span class="line">            <span class="keyword">if</span> ($(<span class="string">'#tag-search'</span>).val() == <span class="string">''</span>) &#123;</span><br><span class="line">                $(<span class="string">'#tag-content :last-child.span-one-tag'</span>).remove();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;).on(<span class="string">'focusout'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        $(<span class="string">'#tag-tip'</span>).hide();</span><br><span class="line">    &#125;).on(<span class="string">'keyup'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">var</span> tagname = $(<span class="string">'#tag-search'</span>).val();</span><br><span class="line">        <span class="keyword">if</span> (tagname != searchForTagname) &#123;</span><br><span class="line">            searchForTagname = tagname;</span><br><span class="line">            $.ajax(&#123;</span><br><span class="line">                type:<span class="string">'GET'</span></span><br><span class="line">                ,<span class="attr">url</span>:apiSearchTag</span><br><span class="line">                ,<span class="attr">data</span>: &#123;<span class="attr">tagname</span>:tagname&#125;</span><br><span class="line">                ,<span class="attr">dataType</span>:<span class="string">'json'</span></span><br><span class="line">                ,<span class="attr">success</span>:<span class="function"><span class="keyword">function</span>(<span class="params">response</span>) </span>&#123;</span><br><span class="line">                    <span class="keyword">var</span> tags = response.data;</span><br><span class="line">                    <span class="keyword">if</span> (tags.length &gt; <span class="number">0</span>) &#123;</span><br><span class="line">                        <span class="keyword">var</span> tiphtml = [<span class="string">'&lt;ul class="tag-search-list"&gt;'</span>];</span><br><span class="line">                        <span class="keyword">var</span> i=<span class="number">0</span>;</span><br><span class="line">                        <span class="keyword">for</span>(<span class="keyword">var</span> i= <span class="number">0</span>; i&lt;tags.length; i++) &#123;</span><br><span class="line">                            tiphtml.push(<span class="string">'&lt;li data-id="'</span>+tags[i][<span class="string">'id'</span>]+<span class="string">'"&gt;'</span>+</span><br><span class="line">                            tags[i][<span class="string">'tagname'</span>]+<span class="string">'&lt;/li&gt;'</span>);</span><br><span class="line">                        &#125;</span><br><span class="line">                        tiphtml.push(<span class="string">'&lt;/ul&gt;'</span>)</span><br><span class="line">                        tiphtml = tiphtml.join(<span class="string">''</span>);</span><br><span class="line">                        $(<span class="string">'#tag-tip'</span>).html(tiphtml).show();</span><br><span class="line">                        $(<span class="string">'#tag-tip&gt;ul&gt;li:eq(0)'</span>).addClass(<span class="string">'hover'</span>);</span><br><span class="line">                    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                        <span class="keyword">if</span> ($(<span class="string">'#tag-tip'</span>).html() != <span class="string">''</span>) &#123;</span><br><span class="line">                            $(<span class="string">'#tag-tip'</span>).html(<span class="string">''</span>);</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">    $(<span class="string">'#tag-tip'</span>).on(<span class="string">'mouseenter'</span>, <span class="string">'.tag-search-list li'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        $(<span class="keyword">this</span>).addClass(<span class="string">'hover'</span>).siblings().removeClass(<span class="string">'hover'</span>);</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 提示信息上下键功能</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">keychang</span>(<span class="params">up</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> $list = $(<span class="string">'.tag-search-list'</span>);</span><br><span class="line">        <span class="keyword">var</span> hover = $list.children(<span class="string">'.hover'</span>), index = hover.index();</span><br><span class="line">        <span class="keyword">if</span> (up == <span class="string">"up"</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (index == <span class="number">0</span>) &#123;</span><br><span class="line">                hover.removeClass(<span class="string">'hover'</span>);</span><br><span class="line">                $list.children(<span class="string">'li:last'</span>).addClass(<span class="string">'hover'</span>);</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                hover.removeClass(<span class="string">'hover'</span>).prev().addClass(<span class="string">'hover'</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> (index == ($list.children(<span class="string">'li'</span>).length - <span class="number">1</span>)) &#123;</span><br><span class="line">                hover.removeClass(<span class="string">'hover'</span>);</span><br><span class="line">                $list.children(<span class="string">'li:first'</span>).addClass(<span class="string">'hover'</span>);</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                hover.removeClass(<span class="string">'hover'</span>).next().addClass(<span class="string">'hover'</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">checkTagname</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> tagname = $(<span class="string">'.tag-search-list'</span>).children(<span class="string">'.hover'</span>).text();</span><br><span class="line">        <span class="keyword">var</span> tagid = $(<span class="string">'.tag-search-list'</span>).children(<span class="string">'.hover'</span>).attr(<span class="string">'data-id'</span>);</span><br><span class="line">        $(<span class="string">'#tag-content'</span>).append(<span class="string">'&lt;span class="span-one-tag"&gt;#'</span>+</span><br><span class="line">        tagname+<span class="string">'&lt;input type="hidden" name="tag[]" </span></span><br><span class="line"><span class="string">        value="'</span>+tagid+<span class="string">'"&gt;&lt;span&gt;x&lt;/span&gt;&lt;/span&gt;'</span>);</span><br><span class="line">        $(<span class="string">'#tag-search'</span>).val(<span class="string">''</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    $(<span class="string">'#tag-content'</span>).on(<span class="string">'click'</span>, <span class="string">'.span-one-tag span'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        $(<span class="keyword">this</span>).parent().remove();</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+      
+
+      
+      
+
+      <span class="post-tags">
+        <a href="/tags/jquery/">jquery</a><a href="/tags/javascript/">javascript</a>
+      </span>
+      
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+<section id="comment" class="comment">
+	<div id="gitment"></div>
+</section>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+	var gitment = new Gitment({
+		owner: 'lingmissing',
+		repo: 'lingmissing-gitment',
+		oauth: {
+			client_id: 'c7675a51f3f7416ac3c0',
+			client_secret: 'cac3475af0adfc9d1669114ef89e8c6ff59ac758',
+		},
+	})
+	gitment.render('gitment')
+</script>
+
+
+
+    </main>
+
+    <footer class="site-footer">
+  <p class="site-info">
+    
+    &copy;
+    2019
+    elaine
+    
+  </p>
+</footer>
+    
+<script>
+    (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function () {
+            (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+    ga('create', 'UA-75095706-1', 'auto');
+    ga('send', 'pageview');
+</script>
+
+  </div>
+</div>
+</body>
+</html>

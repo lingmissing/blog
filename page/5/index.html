@@ -1,0 +1,826 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  
+  <title>
+    第 5 页 | 时光的涂鸦墙 | this is subtitiek
+  </title>
+
+  
+  <meta name="author" content="elaine">
+  
+
+  
+  <meta name="description" content="JavaScript Developer">
+  
+
+  
+
+  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  
+
+  <meta property="og:site_name" content="时光的涂鸦墙" />
+
+  
+  <meta property="og:image" content="/favicon.ico" />
+  
+
+  <link href="/favicon.ico" rel="icon">
+  <link rel="alternate" href="/atom.xml"
+    title="时光的涂鸦墙" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+</head>
+
+<body>
+<div class="blog">
+  <div class="content">
+
+    <header>
+  <div class="site-branding">
+    <h1 class="site-title">
+      <a href="/">时光的涂鸦墙</a>
+    </h1>
+    <p class="site-description">this is subtitiek</p>
+  </div>
+  <nav class="site-navigation">
+    <ul>
+      
+        <li><a href="/">主页</a></li>
+      
+        <li><a href="/archives">归档</a></li>
+      
+        <li><a href="/tags">标签</a></li>
+      
+        <li><a href="/about">关于</a></li>
+      
+    </ul>
+  </nav>
+</header>
+
+    <main class="site-main posts-loop">
+    
+  <article>
+
+  
+  
+  <h3 class="article-title"><a href="/2016/03/28/Emmet语法总结（css篇）/"><span>
+        Emmet语法总结（css篇）</span></a></h3>
+  
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2016/03/28/Emmet语法总结（css篇）/" rel="bookmark">
+        <time class="entry-date published" datetime="2016-03-28T04:27:35.000Z">
+          2016-03-28
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+      <h2 id="值"><a href="#值" class="headerlink" title="值"></a>值</h2><p>比如要定义元素的宽度，只需输入w100，即可生成<br>    <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">width: 100px;</span><br></pre></td></tr></table></figure></p>
+<p>除了px，也可以生成其他单位，比如输入h10p+m5e，结果如下：<br>    <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">height</span>: 10%;</span><br><span class="line"><span class="selector-tag">margin</span>: 5<span class="selector-tag">em</span>;</span><br></pre></td></tr></table></figure></p>
+<p>单位别名列表： </p>
+<ul>
+<li>p 表示%</li>
+<li>e 表示 em</li>
+<li>x 表示 ex</li>
+</ul>
+<h2 id="附加属性"><a href="#附加属性" class="headerlink" title="附加属性"></a>附加属性</h2><p><code>@f</code></p>
+<pre><code><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@<span class="keyword">font-face</span> &#123;</span><br><span class="line">	<span class="attribute">font-family</span>:;</span><br><span class="line">	<span class="attribute">src</span>:<span class="built_in">url</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</code></pre><p><code>@f+</code></p>
+<pre><code><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">@<span class="keyword">font-face</span> &#123;</span><br><span class="line"><span class="attribute">font-family</span>: <span class="string">'FontName'</span>;</span><br><span class="line"><span class="attribute">src</span>: <span class="built_in">url</span>(<span class="string">'FileName.eot'</span>);</span><br><span class="line"><span class="attribute">src</span>: <span class="built_in">url</span>(<span class="string">'FileName.eot?#iefix'</span>) <span class="built_in">format</span>(<span class="string">'embedded-opentype'</span>),</span><br><span class="line">	 <span class="built_in">url</span>(<span class="string">'FileName.woff'</span>) <span class="built_in">format</span>(<span class="string">'woff'</span>),</span><br><span class="line">	 <span class="built_in">url</span>(<span class="string">'FileName.ttf'</span>) <span class="built_in">format</span>(<span class="string">'truetype'</span>),</span><br><span class="line">	 <span class="built_in">url</span>(<span class="string">'FileName.svg#FontName'</span>) <span class="built_in">format</span>(<span class="string">'svg'</span>);</span><br><span class="line"><span class="attribute">font-style</span>: normal;</span><br><span class="line"><span class="attribute">font-weight</span>: normal;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+</code></pre><h2 id="模糊匹配"><a href="#模糊匹配" class="headerlink" title="模糊匹配"></a>模糊匹配</h2><p>如果有些缩写你拿不准，Emmet会根据你的输入内容匹配最接近的语法，比如输入ov:h、ov-h、ovh和oh，生成的代码是相同的：<br><code>overflow: hidden;</code></p>
+<h2 id="供应商前缀"><a href="#供应商前缀" class="headerlink" title="供应商前缀"></a>供应商前缀</h2><p>如果输入非W3C标准的CSS属性，Emmet会自动加上供应商前缀，比如输入-trs，则会生成：</p>
+<pre><code><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">-webkit-transition</span>: <span class="selector-tag">prop</span> <span class="selector-tag">time</span>;</span><br><span class="line"><span class="selector-tag">-o-transition</span>: <span class="selector-tag">prop</span> <span class="selector-tag">time</span>;</span><br><span class="line"><span class="selector-tag">transition</span>: <span class="selector-tag">prop</span> <span class="selector-tag">time</span>;</span><br></pre></td></tr></table></figure>
+</code></pre><p>如果不希望加上所有前缀，可以使用缩写来指定，比如-wm-trf表示只加上-webkit和-moz前缀：</p>
+<p>前缀缩写如下： </p>
+<ul>
+<li>w 表示 -webkit-</li>
+<li>m 表示 -moz-</li>
+<li>s 表示 -ms-</li>
+<li>o 表示 -o-</li>
+</ul>
+<h2 id="渐变"><a href="#渐变" class="headerlink" title="渐变"></a>渐变</h2><p><code>lg(left, #fff 50%, #000)</code></p>
+<pre><code><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">background-image</span>: <span class="selector-tag">-webkit-linear-gradient</span>(<span class="selector-tag">left</span>, <span class="selector-id">#fff</span> 50%, <span class="selector-id">#000</span>);</span><br><span class="line"><span class="selector-tag">background-image</span>: <span class="selector-tag">-o-linear-gradient</span>(<span class="selector-tag">left</span>, <span class="selector-id">#fff</span> 50%, <span class="selector-id">#000</span>);</span><br><span class="line"><span class="selector-tag">background-image</span>: <span class="selector-tag">linear-gradient</span>(<span class="selector-tag">to</span> <span class="selector-tag">right</span>, <span class="selector-id">#fff</span> 50%, <span class="selector-id">#000</span>);</span><br></pre></td></tr></table></figure>
+</code></pre>
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+      
+
+      
+      
+
+      <span class="post-tags">
+        <a href="/tags/emmet/">emmet</a>
+      </span>
+      
+
+    </div>
+
+    
+    <div class="article-meta pull-right">
+      <span>
+        <i class="icon-comments"></i>
+        <span>
+          <a href="/2016/03/28/Emmet语法总结（css篇）/#comment">
+            评论</a>
+        </span>
+      </span>
+    </div>
+    
+  </div>
+</article>
+
+
+  <article>
+
+  
+  
+  <h3 class="article-title"><a href="/2016/03/28/Emmet语法总结（html篇）/"><span>
+        Emmet语法总结（html篇）</span></a></h3>
+  
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2016/03/28/Emmet语法总结（html篇）/" rel="bookmark">
+        <time class="entry-date published" datetime="2016-03-28T02:58:35.000Z">
+          2016-03-28
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+      <h2 id="初始化界面"><a href="#初始化界面" class="headerlink" title="初始化界面"></a>初始化界面</h2><p>HTML文档需要包含一些固定的标签，比如<html>、<head>、</head><body>等，现在你只需要1秒钟就可以输入这些标签。比如输入“!”或“html:5”，然后按Tab键：</body></html></p>
+<p><code>html:5</code> </p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">  	<span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">  	<span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  </span><br><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+      
+
+      
+      
+
+      <span class="post-tags">
+        <a href="/tags/emmet/">emmet</a>
+      </span>
+      
+
+    </div>
+
+    
+    <div class="article-meta pull-right">
+      <span>
+        <i class="icon-comments"></i>
+        <span>
+          <a href="/2016/03/28/Emmet语法总结（html篇）/#comment">
+            评论</a>
+        </span>
+      </span>
+    </div>
+    
+  </div>
+</article>
+
+
+  <article>
+
+  
+  
+  <h3 class="article-title"><a href="/2016/03/28/正则表达式（上篇）/"><span>
+        正则表达式（上篇）</span></a></h3>
+  
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2016/03/28/正则表达式（上篇）/" rel="bookmark">
+        <time class="entry-date published" datetime="2016-03-28T01:59:50.000Z">
+          2016-03-28
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+      <h2 id="元字符"><a href="#元字符" class="headerlink" title="元字符"></a>元字符</h2><ul>
+<li><code>.</code>  匹配除换行符以外的任意字符</li>
+<li><code>\w</code> 匹配字母或数字或下划线或汉字</li>
+<li><code>\s</code> 匹配一个空白字符，包括空格、制表符、换页符和换行符。</li>
+<li><code>\d</code> 匹配数字</li>
+<li><code>\b</code> 匹配单词的开始或结束</li>
+<li><code>^</code>  匹配字符串的开始</li>
+<li><code>$</code>  匹配字符串的结束</li>
+<li><code>\n</code> 匹配一个换行符</li>
+<li><code>\r</code> 匹配一个回车符</li>
+<li><code>\0nn</code> ASCII代码中八进制代码为nn的字符</li>
+<li><code>\xnn</code> ASCII代码中十六进制代码为nn的字符</li>
+<li><code>\unnnn</code> Unicode代码中十六进制代码为nnnn的字符 <code>[\u4e00-\u9fa5]</code></li>
+</ul>
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+      
+
+      
+      
+
+      <span class="post-tags">
+        <a href="/tags/正则表达式/">正则表达式</a>
+      </span>
+      
+
+    </div>
+
+    
+    <div class="article-meta pull-right">
+      <span>
+        <i class="icon-comments"></i>
+        <span>
+          <a href="/2016/03/28/正则表达式（上篇）/#comment">
+            评论</a>
+        </span>
+      </span>
+    </div>
+    
+  </div>
+</article>
+
+
+  <article>
+
+  
+  
+  <h3 class="article-title"><a href="/2016/03/25/Sass基本语法（Map）/"><span>
+        Sass基本语法（Map）</span></a></h3>
+  
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2016/03/25/Sass基本语法（Map）/" rel="bookmark">
+        <time class="entry-date published" datetime="2016-03-25T03:43:26.000Z">
+          2016-03-25
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+      <h2 id="声明-Map"><a href="#声明-Map" class="headerlink" title="声明 Map"></a>声明 Map</h2><p>sass 的 map 常常被称为数据地图，也有人称其为数组，因为他总是以 key:value 成对的出现，但其更像是一个 JSON 数据。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$map: (</span><br><span class="line">    $key1: value1,</span><br><span class="line">    $key2: value2,</span><br><span class="line">    $key3: value3</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<p>在 Sass 中常用下面的方式定义变量：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$default-color: #fff;</span><br><span class="line">$primary-color: #22ae39;</span><br></pre></td></tr></table></figure>
+<p>我们使用 map 可以更好的进行管理：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">$color: (</span><br><span class="line">    <span class="selector-tag">default</span>: <span class="selector-id">#fff</span>,</span><br><span class="line">    <span class="selector-tag">primary</span>: <span class="selector-id">#22ae39</span></span><br><span class="line">);</span><br><span class="line"></span><br><span class="line">$theme-color: (</span><br><span class="line">    <span class="selector-tag">default</span>: (</span><br><span class="line">        <span class="selector-tag">bgcolor</span>: <span class="selector-id">#fff</span>,</span><br><span class="line">        <span class="selector-tag">text-color</span>: <span class="selector-id">#444</span>,</span><br><span class="line">        <span class="selector-tag">link-color</span>: <span class="selector-id">#39f</span></span><br><span class="line">    ),</span><br><span class="line">    <span class="selector-tag">primary</span><span class="selector-pseudo">:(</span></span><br><span class="line">        <span class="selector-tag">bgcolor</span>: <span class="selector-id">#000</span>,</span><br><span class="line">        <span class="selector-tag">text-color</span>:<span class="selector-id">#fff</span>,</span><br><span class="line">        <span class="selector-tag">link-color</span>: <span class="selector-id">#93f</span></span><br><span class="line">    ),</span><br><span class="line">    <span class="selector-tag">negative</span>: (</span><br><span class="line">        <span class="selector-tag">bgcolor</span>: <span class="selector-id">#f36</span>,</span><br><span class="line">        <span class="selector-tag">text-color</span>: <span class="selector-id">#fefefe</span>,</span><br><span class="line">        <span class="selector-tag">link-color</span>: <span class="selector-id">#d4e</span></span><br><span class="line">    )</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+      
+
+      
+      
+
+      <span class="post-tags">
+        <a href="/tags/Sass/">Sass</a>
+      </span>
+      
+
+    </div>
+
+    
+    <div class="article-meta pull-right">
+      <span>
+        <i class="icon-comments"></i>
+        <span>
+          <a href="/2016/03/25/Sass基本语法（Map）/#comment">
+            评论</a>
+        </span>
+      </span>
+    </div>
+    
+  </div>
+</article>
+
+
+  <article>
+
+  
+  
+  <h3 class="article-title"><a href="/2016/03/25/Git常用命令赏析/"><span>
+        Git常用命令赏析</span></a></h3>
+  
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2016/03/25/Git常用命令赏析/" rel="bookmark">
+        <time class="entry-date published" datetime="2016-03-25T03:15:04.000Z">
+          2016-03-25
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+      <h1 id="新建代码库"><a href="#新建代码库" class="headerlink" title="新建代码库"></a>新建代码库</h1><pre><code># 在当前目录新建一个Git代码库
+$ git init
+
+# 新建一个目录，将其初始化为Git代码库
+$ git init [project-name]
+
+# 下载一个项目和它的整个代码历史
+$ git clone [url]
+</code></pre><h1 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h1><pre><code># 显示当前的Git配置
+$ git config --list
+
+# 编辑Git配置文件
+$ git config -e [--global]
+
+# 设置提交代码时的用户信息
+$ git config [--global] user.name &quot;[name]&quot;
+$ git config [--global] user.email &quot;[email address]&quot;
+</code></pre>
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+      
+
+      
+      
+
+      <span class="post-tags">
+        <a href="/tags/Git/">Git</a>
+      </span>
+      
+
+    </div>
+
+    
+    <div class="article-meta pull-right">
+      <span>
+        <i class="icon-comments"></i>
+        <span>
+          <a href="/2016/03/25/Git常用命令赏析/#comment">
+            评论</a>
+        </span>
+      </span>
+    </div>
+    
+  </div>
+</article>
+
+
+  <article>
+
+  
+  
+  <h3 class="article-title"><a href="/2016/03/24/Git-Hexo搭建静态博客网站/"><span>
+        Git+Hexo搭建静态博客网站</span></a></h3>
+  
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2016/03/24/Git-Hexo搭建静态博客网站/" rel="bookmark">
+        <time class="entry-date published" datetime="2016-03-24T06:28:09.000Z">
+          2016-03-24
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+      <h1 id="安装环境"><a href="#安装环境" class="headerlink" title="安装环境"></a>安装环境</h1><h3 id="安装Git"><a href="#安装Git" class="headerlink" title="安装Git"></a>安装Git</h3><p>下载地址：<a href="https://git-scm.com/download/" target="_blank" rel="noopener">https://git-scm.com/download/</a></p>
+<h3 id="安装node-js"><a href="#安装node-js" class="headerlink" title="安装node.js"></a>安装node.js</h3><p>下载地址： <a href="http://nodejs.org/download/" target="_blank" rel="noopener">http://nodejs.org/download/</a></p>
+<h1 id="配置Github"><a href="#配置Github" class="headerlink" title="配置Github"></a>配置Github</h1><h3 id="建立github仓库"><a href="#建立github仓库" class="headerlink" title="建立github仓库"></a>建立github仓库</h3><p>仓库命名规范：</p>
+<ul>
+<li>【your_user_name.github.com】</li>
+</ul>
+<p>访问域名：your_user_name.github.io</p>
+<ul>
+<li>【your_user_name】</li>
+</ul>
+<p>访问域名：username.github.com/your_user_name</p>
+<ul>
+<li><p>注意：github账户必须已经邮箱验证过（github—setting—email）</p>
+</li>
+<li><p>注意：此处假设仓库名为hexo.github.com，此仓库存在两个分支，master作为自动发布的分支，gh-pages作为本地修改并发布的分支，首先将两个分支内容清空</p>
+</li>
+</ul>
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+      
+
+      
+      
+
+      <span class="post-tags">
+        <a href="/tags/Git/">Git</a><a href="/tags/hexo/">hexo</a>
+      </span>
+      
+
+    </div>
+
+    
+    <div class="article-meta pull-right">
+      <span>
+        <i class="icon-comments"></i>
+        <span>
+          <a href="/2016/03/24/Git-Hexo搭建静态博客网站/#comment">
+            评论</a>
+        </span>
+      </span>
+    </div>
+    
+  </div>
+</article>
+
+
+  <article>
+
+  
+  
+  <h3 class="article-title"><a href="/2016/03/21/javascript-自动提示-键盘上下键滚动选项-回车选择/"><span>
+        javascript 自动提示/ 键盘上下键滚动选项/ 回车选择</span></a></h3>
+  
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2016/03/21/javascript-自动提示-键盘上下键滚动选项-回车选择/" rel="bookmark">
+        <time class="entry-date published" datetime="2016-03-21T07:43:59.000Z">
+          2016-03-21
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+      <p>在输入框中输入内容，下拉出现自动提示列表，鼠标上下键选择提示中的项，然后回车选择相应的项。<br>实现原理：JS监听输入框的kedown、keyup、focusout事件。</p>
+<ol>
+<li>输入内容的时候keyup触发调取后台数据，并接收返回的数据弹出自动提示内容。</li>
+<li>键盘按下的时候keydown判断是否是上下键、回车键、退格删除键，如果是上下键，通过js改变相应内容的显示状态标为当前状态，如果是回车键，将标记为当前选中状态的内容添加到目标HTML标签中，如果是回退删除键判断下输入框里面是否有内容，如果没内容删除目标HTML标签中最后添加的元素。</li>
+<li>当input框失去焦点的时候出发focusout事件，执行隐藏提示内容。</li>
+</ol>
+<p>下面看下示例代码吧！</p>
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+      
+
+      
+      
+
+      <span class="post-tags">
+        <a href="/tags/jquery/">jquery</a><a href="/tags/javascript/">javascript</a>
+      </span>
+      
+
+    </div>
+
+    
+    <div class="article-meta pull-right">
+      <span>
+        <i class="icon-comments"></i>
+        <span>
+          <a href="/2016/03/21/javascript-自动提示-键盘上下键滚动选项-回车选择/#comment">
+            评论</a>
+        </span>
+      </span>
+    </div>
+    
+  </div>
+</article>
+
+
+  <article>
+
+  
+  
+  <h3 class="article-title"><a href="/2016/03/18/Sass基本语法（运算）/"><span>
+        Sass基本语法（运算）</span></a></h3>
+  
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2016/03/18/Sass基本语法（运算）/" rel="bookmark">
+        <time class="entry-date published" datetime="2016-03-18T03:42:56.000Z">
+          2016-03-18
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+      <h2 id="运算"><a href="#运算" class="headerlink" title="运算"></a>运算</h2><ul>
+<li>加法/减法</li>
+</ul>
+<p>加法/减法运算是 Sass 中运算中的一种，在变量或属性中都可以做加法运算。</p>
+<p>但对于携带不同类型的单位时，在 Sass 中计算会报错：<code>20px + 3em</code>错误</p>
+<ul>
+<li>乘法/除法</li>
+</ul>
+<p>当一个单位同时声明两个值时会有问题。<code>2px*3px</code>错误</p>
+<p>Sass 的乘法运算和加法、减法运算一样，在运算中有不同类型的单位时，也将会报错，<code>20px * 3em</code>错误。</p>
+<ul>
+<li>除法</li>
+</ul>
+<p><code>/</code>符号在 CSS 中已做为一种符号使用。因此在 Sass 中做除法运算时，直接使用“/”符号做为除号时，将不会生效，编译时既得不到我们需要的效果，也不会报错。</p>
+<p>生效的前提条件：</p>
+<ol>
+<li>如果数值或它的任意部分是存储在一个变量中或是函数的返回值。</li>
+<li>如果数值被圆括号包围。</li>
+<li>如果数值是另一个数学表达式的一部分。</li>
+</ol>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">p</span> &#123;</span><br><span class="line">  font: 10px/8px;             // 纯 CSS，不是除法运算</span><br><span class="line">  $width: 1000px;</span><br><span class="line">  width: $width/2;            // 使用了变量，是除法运算</span><br><span class="line">  width: round(1.5)/2;        // 使用了函数，是除法运算</span><br><span class="line">  height: (500px/2);          // 使用了圆括号，是除法运算</span><br><span class="line">  margin-left: 5px + 8px/2px; // 使用了加（+）号，是除法运算</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+      
+
+      
+      
+
+      <span class="post-tags">
+        <a href="/tags/Sass/">Sass</a>
+      </span>
+      
+
+    </div>
+
+    
+    <div class="article-meta pull-right">
+      <span>
+        <i class="icon-comments"></i>
+        <span>
+          <a href="/2016/03/18/Sass基本语法（运算）/#comment">
+            评论</a>
+        </span>
+      </span>
+    </div>
+    
+  </div>
+</article>
+
+
+  <article>
+
+  
+  
+  <h3 class="article-title"><a href="/2016/03/11/Sass基本语法（控制命令）/"><span>
+        Sass基本语法（控制命令）</span></a></h3>
+  
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2016/03/11/Sass基本语法（控制命令）/" rel="bookmark">
+        <time class="entry-date published" datetime="2016-03-11T03:43:08.000Z">
+          2016-03-11
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+      <h2 id="if"><a href="#if" class="headerlink" title="@if"></a>@if</h2><p>@if 指令是一个 SassScript，它可以根据条件来处理样式块，如果条件为 true 返回一个样式块，反之 false 返回另一个样式块。在 Sass 中除了 @if 之，还可以配合 @else if 和 @else 一起使用。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/** SCSS **/</span></span><br><span class="line">@<span class="keyword">mixin</span> blockOrHidden($boolean:true) &#123;</span><br><span class="line">  @<span class="keyword">if</span> $boolean &#123;</span><br><span class="line">      @<span class="keyword">debug</span> <span class="string">"$boolean is #&#123;$boolean&#125;"</span>;</span><br><span class="line">      display: block;  //当不写参数或者参数为true</span><br><span class="line">    &#125;</span><br><span class="line">  @<span class="keyword">else</span> &#123;</span><br><span class="line">      @<span class="keyword">debug</span> <span class="string">"$boolean is #&#123;$boolean&#125;"</span>;</span><br><span class="line">      display: none;  //参数为false</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.block</span> &#123;</span><br><span class="line">  @include blockOrHidden;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.hidden</span>&#123;</span><br><span class="line">  @include blockOrHidden(false);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+      
+
+      
+      
+
+      <span class="post-tags">
+        <a href="/tags/Sass/">Sass</a>
+      </span>
+      
+
+    </div>
+
+    
+    <div class="article-meta pull-right">
+      <span>
+        <i class="icon-comments"></i>
+        <span>
+          <a href="/2016/03/11/Sass基本语法（控制命令）/#comment">
+            评论</a>
+        </span>
+      </span>
+    </div>
+    
+  </div>
+</article>
+
+
+  <article>
+
+  
+  
+  <h3 class="article-title"><a href="/2016/03/10/JS回到顶部效果/"><span>
+        JS回到顶部效果</span></a></h3>
+  
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2016/03/10/JS回到顶部效果/" rel="bookmark">
+        <time class="entry-date published" datetime="2016-03-10T07:48:32.000Z">
+          2016-03-10
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+      <p>话不多说，直接粘上代码啦！</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">id</span>=<span class="string">"totop"</span> <span class="attr">href</span>=<span class="string">"javascript:void(0);"</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-id">#totop</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">20px</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">20px</span>;</span><br><span class="line">  <span class="attribute">position</span>: fixed;</span><br><span class="line">  <span class="attribute">bottom</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">right</span>: <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+      
+
+      
+      
+
+      <span class="post-tags">
+        <a href="/tags/jquery/">jquery</a><a href="/tags/javascript/">javascript</a>
+      </span>
+      
+
+    </div>
+
+    
+    <div class="article-meta pull-right">
+      <span>
+        <i class="icon-comments"></i>
+        <span>
+          <a href="/2016/03/10/JS回到顶部效果/#comment">
+            评论</a>
+        </span>
+      </span>
+    </div>
+    
+  </div>
+</article>
+
+
+
+<nav class="pagination">
+  
+  <a href="/page/4/" class="pagination-prev">
+    上一页</a>
+  
+  
+  <a href="/page/6/" class="pagination-next">
+    下一页</a>
+  
+</nav>
+    </main>
+
+    <footer class="site-footer">
+  <p class="site-info">
+    
+    &copy;
+    2019
+    elaine
+    
+  </p>
+</footer>
+    
+<script>
+    (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function () {
+            (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+    ga('create', 'UA-75095706-1', 'auto');
+    ga('send', 'pageview');
+</script>
+
+  </div>
+</div>
+</body>
+</html>

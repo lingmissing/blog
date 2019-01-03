@@ -1,0 +1,217 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  
+  <title>
+    jquery中each的用法 | 时光的涂鸦墙 | this is subtitiek
+  </title>
+
+  
+  <meta name="author" content="elaine">
+  
+
+  
+  <meta name="description" content="JavaScript Developer">
+  
+
+  
+  
+  <meta name="keywords" content="jquery">
+  
+
+  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  
+  <meta property="og:title" content="jquery中each的用法" />
+  
+
+  <meta property="og:site_name" content="时光的涂鸦墙" />
+
+  
+  <meta property="og:image" content="/favicon.ico" />
+  
+
+  <link href="/favicon.ico" rel="icon">
+  <link rel="alternate" href="/atom.xml"
+    title="时光的涂鸦墙" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+</head>
+
+<body>
+<div class="blog">
+  <div class="content">
+
+    <header>
+  <div class="site-branding">
+    <h1 class="site-title">
+      <a href="/">时光的涂鸦墙</a>
+    </h1>
+    <p class="site-description">this is subtitiek</p>
+  </div>
+  <nav class="site-navigation">
+    <ul>
+      
+        <li><a href="/">主页</a></li>
+      
+        <li><a href="/archives">归档</a></li>
+      
+        <li><a href="/tags">标签</a></li>
+      
+        <li><a href="/about">关于</a></li>
+      
+    </ul>
+  </nav>
+</header>
+
+    <main class="site-main posts-loop">
+    <article>
+
+  
+  
+  <h3 class="article-title"><span>
+      jquery中each的用法</span></h3>
+  
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2016/05/19/$.each的用法/" rel="bookmark">
+        <time class="entry-date published" datetime="2016-05-19T08:33:32.000Z">
+          2016-05-19
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+      <h3 id="遍历html对象"><a href="#遍历html对象" class="headerlink" title="遍历html对象"></a>遍历html对象</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">'.obj'</span>).each(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> $<span class="keyword">this</span> = $(<span class="keyword">this</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h2 id="遍历对象"><a href="#遍历对象" class="headerlink" title="遍历对象"></a>遍历对象</h2><ul>
+<li>有附加参数</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$.each(<span class="built_in">Object</span>, <span class="function"><span class="keyword">function</span>(<span class="params">p1, p2</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>;   <span class="comment">//这里的this指向每次遍历中Object的当前属性值</span></span><br><span class="line">  p1; p2; <span class="comment">//访问附加参数</span></span><br><span class="line">&#125;, [<span class="string">'参数1'</span>, <span class="string">'参数2'</span>]);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>无附加参数</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$.each(<span class="built_in">Object</span>, <span class="function"><span class="keyword">function</span>(<span class="params">name, value</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>;      <span class="comment">//this指向当前属性的值</span></span><br><span class="line">  name;      <span class="comment">//name表示Object当前属性的名称</span></span><br><span class="line">  value;     <span class="comment">//value表示Object当前属性的值</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<h2 id="遍历数组"><a href="#遍历数组" class="headerlink" title="遍历数组"></a>遍历数组</h2><ul>
+<li>有附加参数</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$.each(<span class="built_in">Array</span>, <span class="function"><span class="keyword">function</span>(<span class="params">p1, p2</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">this</span>;       <span class="comment">//这里的this指向每次遍历中Array的当前元素</span></span><br><span class="line">  p1; p2;     <span class="comment">//访问附加参数</span></span><br><span class="line">&#125;, [<span class="string">'参数1'</span>, <span class="string">'参数2'</span>]);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>无附加参数</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$.each(<span class="built_in">Array</span>, <span class="function"><span class="keyword">function</span>(<span class="params">i, value</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>;      <span class="comment">//this指向当前元素</span></span><br><span class="line">  i;         <span class="comment">//i表示Array当前下标</span></span><br><span class="line">  value;     <span class="comment">//value表示Array当前元素</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h2 id="案例分析"><a href="#案例分析" class="headerlink" title="案例分析"></a>案例分析</h2><p>Js代码1：</p>
+<pre><code class="javascript"><span class="keyword">var</span> arr = [ <span class="string">"one"</span>, <span class="string">"two"</span>, <span class="string">"three"</span>, <span class="string">"four"</span>];     
+$.each(arr, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{     
+  alert(<span class="keyword">this</span>);     
+}); 
+</code></pre>
+<p>上面这个each输出的结果分别为：</p>
+<p> <code>one,two,three,four</code> </p>
+<p>Js代码2:</p>
+<pre><code class="javascript"><span class="keyword">var</span> arr1 = [[<span class="number">1</span>, <span class="number">4</span>, <span class="number">3</span>], [<span class="number">4</span>, <span class="number">6</span>, <span class="number">6</span>], [<span class="number">7</span>, <span class="number">20</span>, <span class="number">9</span>]];     
+$.each(arr1, <span class="function"><span class="keyword">function</span>(<span class="params">i, item</span>)</span>{     
+  alert(item[<span class="number">0</span>]);     
+}); 
+</code></pre>
+<p>其实arr1为一个二维数组，item相当于取每一个一维数组，item[0]相对于取每一个一维数组里的第一个值,所以上面这个each输出分别为：</p>
+<pre><code>`1   4   7`    
+</code></pre><p>Js代码3:</p>
+<pre><code class="javascript"><span class="keyword">var</span> obj = { <span class="attr">one</span>:<span class="number">1</span>, <span class="attr">two</span>:<span class="number">2</span>, <span class="attr">three</span>:<span class="number">3</span>, <span class="attr">four</span>:<span class="number">4</span>};     
+$.each(obj, <span class="function"><span class="keyword">function</span>(<span class="params">key, val</span>) </span>{     
+  alert(obj[key]); 
+  <span class="comment">// alert(val);  效果相同        </span>
+}); 
+</code></pre>
+<p>这个each能循环每一个属性,输出结果为：<br>    <code>1  2  3  4</code></p>
+<blockquote>
+<p>转载：<a href="http://wenku.baidu.com/view/4796b6145f0e7cd18425368e.html" title="$.each的用法" target="_blank" rel="noopener">http://wenku.baidu.com/view/4796b6145f0e7cd18425368e.html</a></p>
+</blockquote>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+      
+
+      
+      
+
+      <span class="post-tags">
+        <a href="/tags/jquery/">jquery</a>
+      </span>
+      
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+<section id="comment" class="comment">
+	<div id="gitment"></div>
+</section>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+	var gitment = new Gitment({
+		owner: 'lingmissing',
+		repo: 'lingmissing-gitment',
+		oauth: {
+			client_id: 'c7675a51f3f7416ac3c0',
+			client_secret: 'cac3475af0adfc9d1669114ef89e8c6ff59ac758',
+		},
+	})
+	gitment.render('gitment')
+</script>
+
+
+
+    </main>
+
+    <footer class="site-footer">
+  <p class="site-info">
+    
+    &copy;
+    2019
+    elaine
+    
+  </p>
+</footer>
+    
+<script>
+    (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function () {
+            (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+    ga('create', 'UA-75095706-1', 'auto');
+    ga('send', 'pageview');
+</script>
+
+  </div>
+</div>
+</body>
+</html>
