@@ -3,16 +3,16 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: DaraW
-subtitle: Code is Poetry
+title: 时光的涂鸦墙
+subtitle: this is subtitiek
 description: JavaScript Developer
-author: DaraW
+author: elaine
 language: zh-CN
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: https://blog.daraw.cn
-root: /
+url: https://lingmissing.github.io
+root: /blog/
 permalink: :year/:month/:day/:title/
 permalink_defaults:
 
@@ -62,7 +62,7 @@ pagination_dir: page
 # Extensions
 ## Plugins: http://hexo.io/plugins/
 ## Themes: http://hexo.io/themes/
-theme: Hacker
+theme: bear
 
 feed:
   type: atom
@@ -70,6 +70,9 @@ feed:
 
 # Deployment
 ## Docs: http://hexo.io/docs/deployment.html
+
 deploy:
   type: git
-  repo: git@github.com:CodeDaraW/CodeDaraW.github.io.git
+  # repo: git@github.com:lingmissing/myBlog.git
+  repo: https://github.com/lingmissing/myBlog.git
+  branch: gh-pages

@@ -1,0 +1,21 @@
+menu:
+  Home: /
+  Archives: /archives
+  Tags: /tags
+  About: /about
+  # Categories: /categories
+  # RSS: /atom.xml
+
+# gitment
+gitment: true
+gitment_owner: lingmissing
+gitment_repo: lingmissing-gitment
+gitment_client_id: c7675a51f3f7416ac3c0
+gitment_client_secret: cac3475af0adfc9d1669114ef89e8c6ff59ac758
+
+# disqus comment
+disqus: false
+disqus_shortname: lingmissing
+
+# google analytics
+googleTrackId: UA-75095706-1
