@@ -6,32 +6,33 @@ $articleTextColor = #424242
 article
   position relative
   padding 8rem 0
-  font-size 14px
+  font-size 1.4em
   ol, ul 
     margin 0
     padding 0
-    margin-bottom .31429em
+    margin .31429em 0
     list-style none
 
     ol, ul
       margin-left: 1.25714em;
+    li
+      font-size 1em
+      position relative
+      &:before
+        position absolute
+        left -1em
 
-  ul li 
-    text-indent -0.35em
-    font-size 14px
 
+  ul li
     &:before
       content '•'
       color #e06e73
       display inline-block
-      margin-right 0.3em
+
   ol
     counter-reset ol 0
 
     li
-      text-indent -0.35em
-      font-size 14px
-    
       &:before
         content counter(ol) "."
         counter-increment ol
@@ -39,7 +40,6 @@ article
         text-align right
         display inline-block
         min-width 1em
-        margin-right 0.5em
 
   del
     color #878787
@@ -67,9 +67,16 @@ article
 
   blockquote
     display block
-    margin 1em 0 1em -1em;
-    padding-left 0.8em
-    border-left 0.2em solid #e06e73
+    margin 1em 0
+    position relative
+    &:before
+      content ""
+      display block
+      position absolute
+      left -0.9em
+      width 0.2em
+      height 100%
+      background #e06e73
 
   .article-title
     position relative
