@@ -531,3 +531,8 @@ body {
   height: 100%;
   overflow-y: auto;
 }
+
+p,
+li {
+  line-height: 24px;
+}
