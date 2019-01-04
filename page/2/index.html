@@ -36,10 +36,10 @@
 </head>
 
 <body>
-<div class="blog">
-  <div class="content">
+  <div class="blog">
+    <div class="content">
 
-    <header>
+      <header>
   <div class="site-branding">
     <h1 class="site-title">
       <a href="/blog/">时光的涂鸦墙</a>
@@ -61,8 +61,8 @@
   </nav>
 </header>
 
-    <main class="site-main posts-loop">
-    
+      <main class="site-main posts-loop">
+        
   <article>
 
   
@@ -89,194 +89,13 @@
     <div class="entry">
       
       <h3 id="高层级的变化"><a href="#高层级的变化" class="headerlink" title="高层级的变化"></a>高层级的变化</h3><ul>
-<li>模板解析器不再依赖于DOM（除非你使用真正的DOM作为模板），因此只要你使用字符串模板，你将不再受到任何1.0版本中的解析限制。但是，如果你依赖在存在的内容中挂载一个元素作为模板（使用<code>el</code>元素），你将依然受到这些限制。</li>
+<li>模板解析器不再依赖于 DOM（除非你使用真正的 DOM 作为模板），因此只要你使用字符串模板，你将不再受到任何 1.0 版本中的解析限制。但是，如果你依赖在存在的内容中挂载一个元素作为模板（使用<code>el</code>元素），你将依然受到这些限制。</li>
 <li>编译器（将字符串模板转换为渲染方法的部分）和运行时间现在能够被分开。这里有两种不同的构建：<ul>
 <li>独立构建：包括编译并且运行。这种方式和<code>vue 1.0</code>几乎完全一样。</li>
-<li>运行时编译：由于它不包括编译器，在编译步骤时要么预编译模板，要么手动编写渲染功能。npm包默认导出这个版本，那么你需要有一个编译的过程（使用<code>Browserify</code>或<code>Webpack</code>）,从中<code>vueify</code>或<code>vue-loader</code>将可以进行模板预编译。</li>
+<li>运行时编译：由于它不包括编译器，在编译步骤时要么预编译模板，要么手动编写渲染功能。npm 包默认导出这个版本，那么你需要有一个编译的过程（使用<code>Browserify</code>或<code>Webpack</code>）,从中<code>vueify</code>或<code>vue-loader</code>将可以进行模板预编译。</li>
 </ul>
 </li>
 </ul>
-<h3 id="全局配置"><a href="#全局配置" class="headerlink" title="全局配置"></a>全局配置</h3><ul>
-<li><code>Vue.config.silent</code></li>
-<li><code>Vue.config.optionMergeStrategies</code></li>
-<li><code>Vue.config.devtools</code></li>
-<li><strong><code>Vue.config.errorHandler</code></strong>（新API，全局的挂钩用于在组件渲染和监控的时候处理未捕获的错误）</li>
-<li><code>Vue.config.keyCodes</code>（新API，为<code>v-on</code>配置自定义的<code>key</code>的别名）</li>
-<li><del><code>Vue.config.debug</code></del>（已丢弃）</li>
-<li><del><code>Vue.config.async</code></del>（已丢弃）</li>
-<li><del><code>Vue.config.delimiters</code></del>(已丢弃)</li>
-<li><del><code>Vue.config.unsafeDelimiters</code></del>（已丢弃，使用<code>v-html</code>）</li>
-</ul>
-<h3 id="全局API"><a href="#全局API" class="headerlink" title="全局API"></a>全局API</h3><ul>
-<li><code>Vue.extend</code></li>
-<li><code>Vue.nextTick</code></li>
-<li><code>Vue.set</code></li>
-<li><code>Vue.delete</code></li>
-<li><code>Vue.directive</code></li>
-<li><code>Vue.component</code></li>
-<li><code>Vue.use</code></li>
-<li><code>Vue.mixin</code></li>
-<li><strong><code>Vue.compile</code></strong>（新API，只能用于独立版本构建） </li>
-<li><code>Vue.transition</code><ul>
-<li><del><code>stagger</code></del>（已丢弃，在<code>el</code>上设置</li>
-</ul>
-</li>
-<li><code>Vue.filter</code></li>
-<li><del><code>Vue.elementDirective</code></del>（已丢弃，使用组件）</li>
-<li><del><code>Vue.partial</code></del> （已丢弃，使用功能组件）</li>
-</ul>
-<h3 id="选项"><a href="#选项" class="headerlink" title="选项"></a>选项</h3><h4 id="data"><a href="#data" class="headerlink" title="data"></a>data</h4><ul>
-<li><code>data</code></li>
-<li><code>props</code><ul>
-<li><code>prop</code></li>
-<li><code>default</code></li>
-<li><del><code>coerce</code></del>（已丢弃，如果你需要转换<code>prop</code>,请使用<code>compute</code>属性）</li>
-<li><del><code>prop binding modes</code></del>（已丢弃，<code>v-model</code>在组件上可以工作</li>
-</ul>
-</li>
-<li><strong><code>propsData</code></strong>（新API）只能用于实例</li>
-<li><code>computed</code></li>
-<li><code>methods</code></li>
-<li><code>watch</code></li>
-</ul>
-<h4 id="DOM"><a href="#DOM" class="headerlink" title="DOM"></a>DOM</h4><ul>
-<li><code>el</code></li>
-<li><code>template</code></li>
-<li><strong><code>render</code></strong>（新API）</li>
-<li><del><code>replace</code></del>（已丢弃，组件现在必须有一个根元素）</li>
-</ul>
-<h4 id="生命周期钩子"><a href="#生命周期钩子" class="headerlink" title="生命周期钩子"></a>生命周期钩子</h4><ul>
-<li><del><code>init</code></del>（已丢弃，请使用<code>beforeCreate</code>）</li>
-<li><code>created</code></li>
-<li><code>beforeDestroy</code></li>
-<li><code>destroyed</code></li>
-<li><strong><code>beforeMount</code></strong>(新API)</li>
-<li><strong><code>mounted</code></strong>（新API）</li>
-<li><strong><code>beforeUpdate</code></strong>（新API）</li>
-<li><strong><code>updated</code></strong>（新API）</li>
-<li><strong><code>activated</code></strong>(新API，用于<code>keep-alive</code>)</li>
-<li><strong><code>deactivated</code></strong>（新API用于<code>keep-alive</code>）</li>
-<li><del><code>ready</code></del>（已丢弃，使用<code>mounted</code>）</li>
-<li><del><code>activate</code></del>（已丢弃，迁移到<code>vue-router</code>）</li>
-<li><del><code>beforeCompile</code></del>（已丢弃，使用<code>created</code>）</li>
-<li><del><code>compiled</code></del>（已丢弃，使用<code>mounted</code>）</li>
-<li><del><code>attached</code></del>（已丢弃）</li>
-<li><del><code>detached</code></del>（已丢弃，同上）</li>
-</ul>
-<h4 id="Assets"><a href="#Assets" class="headerlink" title="Assets"></a>Assets</h4><ul>
-<li><code>directives</code></li>
-<li><code>components</code></li>
-<li><code>transitions</code></li>
-<li><code>filters</code></li>
-<li><del><code>partials</code></del>（已丢弃）</li>
-<li><del><code>elementDirectives</code></del>（已丢弃）</li>
-</ul>
-<h4 id="杂项"><a href="#杂项" class="headerlink" title="杂项"></a>杂项</h4><ul>
-<li><code>parent</code></li>
-<li><code>mixins</code></li>
-<li><code>name</code></li>
-<li><code>extends</code></li>
-<li><strong><code>delimiters</code></strong>（新API，替代原版的全局配置选项，只在独立构建中可用）</li>
-<li><strong><code>functional</code></strong>（新API）</li>
-<li><del><code>events</code></del>（已丢弃）</li>
-</ul>
-<h3 id="实例方法"><a href="#实例方法" class="headerlink" title="实例方法"></a>实例方法</h3><h4 id="data-1"><a href="#data-1" class="headerlink" title="data"></a>data</h4><ul>
-<li><code>vm.$watch</code></li>
-<li><del><code>vm.$get</code></del>（已丢弃，直接检索值）</li>
-<li><del><code>vm.$set</code></del>（已丢弃，使用<code>Vue.set</code>）</li>
-<li><del><code>vm.$delete</code></del>（已丢弃，使用<code>Vue.delete</code>）</li>
-<li><del><code>vm.$eval</code></del>（已丢弃，没有真正的使用）</li>
-<li><del><code>vm.$interpolate</code></del>（已丢弃，同上）</li>
-<li><del><code>vm.$log</code></del>（已丢弃，使用<code>devtools</code>）</li>
-</ul>
-<h4 id="events"><a href="#events" class="headerlink" title="events"></a>events</h4><ul>
-<li><code>vm.$on</code></li>
-<li><code>vm.$once</code></li>
-<li><code>vm.$off</code></li>
-<li><code>vm.$emit</code></li>
-<li><del><code>vm.$dispatch</code></del>（已丢弃，使用全局的事件或使用<code>vuex</code>，见下面）</li>
-<li><del><code>vm.$broadcast</code></del>（已丢弃，同上）</li>
-</ul>
-<h4 id="DOM-1"><a href="#DOM-1" class="headerlink" title="DOM"></a>DOM</h4><ul>
-<li><code>vm.$nextTick</code></li>
-<li><del><code>vm.$appendTo</code></del>（已丢弃，在<code>vm.$el</code>上使用本地API）</li>
-<li><del><code>vm.$before</code></del>（已丢弃）</li>
-<li><del><code>vm.$after</code></del>（已丢弃）</li>
-<li><del><code>vm.$remove</code></del>（已丢弃）</li>
-</ul>
-<h4 id="生命周期"><a href="#生命周期" class="headerlink" title="生命周期"></a>生命周期</h4><ul>
-<li><code>vm.$mount</code></li>
-<li><code>vm.$destroy</code></li>
-</ul>
-<h3 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h3><ul>
-<li><code>v-text</code></li>
-<li><code>v-html</code>（注意三次括号被丢弃）</li>
-<li><code>v-if</code></li>
-<li><code>v-show</code></li>
-<li><code>v-else</code></li>
-<li><code>v-for</code><ul>
-<li><strong><code>key</code></strong> (替代 <code>track-by</code>)</li>
-<li><code>object v-for</code></li>
-<li><code>range v-for</code></li>
-<li>参数顺序更新：数组中使用<code>(value, index) in arr</code>，对象中使用<code>(value, key, index) in obj</code></li>
-<li><del><code>$index</code></del>和<del><code>$key</code></del>被丢弃</li>
-</ul>
-</li>
-<li><code>v-on</code><ul>
-<li><code>modifiers</code></li>
-<li>on child component</li>
-<li>自定义键码，目前版本<code>Vue.config.keyCodes</code>代替原来的<code>Vue.directive(&#39;on&#39;).keyCodes</code></li>
-</ul>
-</li>
-<li><code>v-bind</code><ul>
-<li>作为<code>prop</code></li>
-<li><code>xlink</code></li>
-<li>绑定对象</li>
-</ul>
-</li>
-<li><code>v-bind:style</code><ul>
-<li><code>prefix sniffing</code></li>
-</ul>
-</li>
-<li><code>v-bind:class</code></li>
-<li><code>v-model</code><ul>
-<li><code>lazy</code> (as modifier)</li>
-<li><code>number</code> (as modifier)</li>
-<li>`ignoring composition events</li>
-<li><del><code>debounce</code></del>（已丢弃，使用<code>v-on:input</code>）</li>
-</ul>
-</li>
-<li><code>v-cloak</code></li>
-<li><code>v-pre</code></li>
-<li><strong><code>v-once</code></strong>（新API）</li>
-<li><del><code>v-ref</code></del>（已丢弃，现在只是一个特殊的属性<code>ref</code>）</li>
-<li><del><code>v-el</code></del>（和<code>ref</code>合并）</li>
-</ul>
-<h3 id="特殊组件"><a href="#特殊组件" class="headerlink" title="特殊组件"></a>特殊组件</h3><ul>
-<li><code>&lt;component&gt;</code><ul>
-<li><code>:is</code></li>
-<li><code>async组件</code></li>
-<li><code>inline-template</code></li>
-</ul>
-</li>
-<li><code>&lt;transition&gt;</code></li>
-<li><code>&lt;transition-group&gt;</code></li>
-<li><code>&lt;keep-alive&gt;</code></li>
-<li><code>&lt;slot&gt;</code></li>
-<li><del><code>partial</code></del>（已丢弃）</li>
-</ul>
-<h3 id="特殊属性"><a href="#特殊属性" class="headerlink" title="特殊属性"></a>特殊属性</h3><ul>
-<li><code>key</code></li>
-<li><code>ref</code></li>
-<li><code>slot</code><h3 id="服务器端渲染"><a href="#服务器端渲染" class="headerlink" title="服务器端渲染"></a>服务器端渲染</h3></li>
-<li><code>renderToString</code></li>
-<li><code>renderToStream</code></li>
-<li><code>client-side hydration</code></li>
-</ul>
-<blockquote>
-<p>翻译自<a href="https://github.com/vuejs/vue/issues/2873" target="_blank" rel="noopener">2.0 Changes</a></p>
-</blockquote>
-
       
     </div>
 
@@ -291,7 +110,7 @@
       
 
       <span class="post-tags">
-        <a href="/blog/tags/vue/">tags/vue/</a>
+        <a href="/blog/tags/vue/">vue</a>
       </span>
       
 
@@ -338,94 +157,6 @@
     <div class="entry">
       
       <p>由于 <code>Fetch</code>API 是基于 <code>Promise</code> 设计，有必要先学习一下 <code>Promise</code>，推荐阅读<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Promise" target="_blank" rel="noopener"> MDN Promise 教程 </a><br>本文章内容推荐阅读<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/GlobalFetch/fetch" target="_blank" rel="noopener"> MDN Fetch 教程</a></p>
-<h2 id="语法说明"><a href="#语法说明" class="headerlink" title="语法说明"></a>语法说明</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">fetch(url, options).then(<span class="function"><span class="keyword">function</span>(<span class="params">response</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// handle HTTP response</span></span><br><span class="line">&#125;, <span class="function"><span class="keyword">function</span>(<span class="params">error</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// handle network error</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<p>具体参数案例：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//兼容包</span></span><br><span class="line"><span class="built_in">require</span>(<span class="string">'babel-polyfill'</span>)</span><br><span class="line"><span class="built_in">require</span>(<span class="string">'es6-promise'</span>).polyfill()</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">'whatwg-fetch'</span></span><br><span class="line"></span><br><span class="line">fetch(url, &#123;</span><br><span class="line">  method: <span class="string">"POST"</span>,</span><br><span class="line">  body: <span class="built_in">JSON</span>.stringify(data),</span><br><span class="line">  headers: &#123;</span><br><span class="line">    <span class="string">"Content-Type"</span>: <span class="string">"application/json"</span></span><br><span class="line">  &#125;,</span><br><span class="line">  credentials: <span class="string">"same-origin"</span></span><br><span class="line">&#125;).then(<span class="function"><span class="keyword">function</span>(<span class="params">response</span>) </span>&#123;</span><br><span class="line">  response.status     <span class="comment">//=&gt; number 100–599</span></span><br><span class="line">  response.statusText <span class="comment">//=&gt; String</span></span><br><span class="line">  response.headers    <span class="comment">//=&gt; Headers</span></span><br><span class="line">  response.url        <span class="comment">//=&gt; String</span></span><br><span class="line"></span><br><span class="line">  response.text().then(<span class="function"><span class="keyword">function</span>(<span class="params">responseText</span>) </span>&#123; ... &#125;)</span><br><span class="line">&#125;, <span class="function"><span class="keyword">function</span>(<span class="params">error</span>) </span>&#123;</span><br><span class="line">  error.message <span class="comment">//=&gt; String</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<h4 id="url"><a href="#url" class="headerlink" title="url"></a>url</h4><p>定义要获取的资源。这可能是：</p>
-<ul>
-<li>一个 <code>USVString</code> 字符串，包含要获取资源的 <code>URL</code>。</li>
-<li>一个 <code>Request</code> 对象。</li>
-</ul>
-<h4 id="options（可选）"><a href="#options（可选）" class="headerlink" title="options（可选）"></a>options（可选）</h4><p>一个配置项对象，包括所有对请求的设置。可选的参数有：</p>
-<ul>
-<li><code>method</code>: 请求使用的方法，如 <code>GET</code>、<code>POST</code>。</li>
-<li><code>headers</code>: 请求的头信息，形式为 <code>Headers</code> 对象或 <code>ByteString</code>。</li>
-<li><code>body</code>: 请求的 <code>body</code> 信息：可能是一个 <code>Blob</code>、<code>BufferSource</code>、<code>FormData</code>、<code>URLSearchParams</code> 或者 <code>USVString</code> 对象。注意 <code>GET</code> 或 <code>HEAD</code> 方法的请求不能包含 <code>body</code> 信息。</li>
-<li><code>mode</code>: 请求的模式，如 <code>cors</code>、 <code>no-cors</code> 或者 <code>same-origin</code>。</li>
-<li><code>credentials</code>: 请求的 <code>credentials</code>，如 <code>omit</code>、<code>same-origin</code> 或者 <code>include</code>。</li>
-<li><code>cache</code>:  请求的 <code>cache</code> 模式: <code>default</code>, <code>no-store</code>, <code>reload</code>, <code>no-cache</code>, <code>force-cache</code>, 或者 <code>only-if-cached</code>。</li>
-</ul>
-<h4 id="response"><a href="#response" class="headerlink" title="response"></a>response</h4><p>一个 <code>Promise</code>，<code>resolve</code> 时回传 <code>Response</code> 对象：</p>
-<ul>
-<li>属性：<ul>
-<li><code>status (number)</code> - HTTP请求结果参数，在100–599 范围</li>
-<li><code>statusText (String)</code> - 服务器返回的状态报告</li>
-<li><code>ok (boolean)</code> - 如果返回200表示请求成功则为true</li>
-<li><code>headers (Headers)</code> - 返回头部信息，下面详细介绍</li>
-<li><code>url (String)</code> - 请求的地址</li>
-</ul>
-</li>
-<li>方法：<ul>
-<li><code>text()</code> - 以<code>string</code>的形式生成请求text</li>
-<li><code>json()</code> - 生成<code>JSON.parse(responseText)</code>的结果</li>
-<li><code>blob()</code> - 生成一个<code>Blob</code></li>
-<li><code>arrayBuffer()</code> - 生成一个<code>ArrayBuffer</code></li>
-<li><code>formData()</code> - 生成格式化的数据，可用于其他的请求</li>
-</ul>
-</li>
-<li>其他方法：<ul>
-<li><code>clone()</code></li>
-<li><code>Response.error()</code></li>
-<li><code>Response.redirect()</code></li>
-</ul>
-</li>
-</ul>
-<h4 id="response-headers"><a href="#response-headers" class="headerlink" title="response.headers"></a>response.headers</h4><ul>
-<li><code>has(name) (boolean)</code> - 判断是否存在该信息头</li>
-<li><code>get(name) (String)</code> - 获取信息头的数据</li>
-<li><code>getAll(name) (Array)</code> - 获取所有头部数据</li>
-<li><code>set(name, value)</code> - 设置信息头的参数</li>
-<li><code>append(name, value)</code> - 添加header的内容</li>
-<li><code>delete(name)</code> - 删除header的信息</li>
-<li><code>forEach(function(value, name){ ... }, [thisContext])</code> - 循环读取header的信息</li>
-</ul>
-<h2 id="使用案例"><a href="#使用案例" class="headerlink" title="使用案例"></a>使用案例</h2><h4 id="GET请求"><a href="#GET请求" class="headerlink" title="GET请求"></a>GET请求</h4><ul>
-<li><p>HTML</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">fetch(<span class="string">'/users.html'</span>)</span><br><span class="line">  .then(<span class="function"><span class="keyword">function</span>(<span class="params">response</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> response.text()</span><br><span class="line">  &#125;).then(<span class="function"><span class="keyword">function</span>(<span class="params">body</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">document</span>.body.innerHTML = body</span><br><span class="line">  &#125;)</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>IMAGE</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> myImage = <span class="built_in">document</span>.querySelector(<span class="string">'img'</span>);</span><br><span class="line"></span><br><span class="line">fetch(<span class="string">'flowers.jpg'</span>)</span><br><span class="line">  .then(<span class="function"><span class="keyword">function</span>(<span class="params">response</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> response.blob();</span><br><span class="line">  &#125;)</span><br><span class="line">  .then(<span class="function"><span class="keyword">function</span>(<span class="params">myBlob</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> objectURL = URL.createObjectURL(myBlob);</span><br><span class="line">    myImage.src = objectURL;</span><br><span class="line">  &#125;);</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>JSON</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">fetch(url)</span><br><span class="line">  .then(<span class="function"><span class="keyword">function</span>(<span class="params">response</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> response.json();</span><br><span class="line">  &#125;).then(<span class="function"><span class="keyword">function</span>(<span class="params">data</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(data);</span><br><span class="line">  &#125;).catch(<span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"Oops, error"</span>);</span><br><span class="line">  &#125;);</span><br></pre></td></tr></table></figure>
-<p>使用 ES6 的 箭头函数 后：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">fetch(url)</span><br><span class="line">  .then(<span class="function"><span class="params">response</span> =&gt;</span> response.json())</span><br><span class="line">  .then(<span class="function"><span class="params">data</span> =&gt;</span> <span class="built_in">console</span>.log(data))</span><br><span class="line">  .catch(<span class="function"><span class="params">e</span> =&gt;</span> <span class="built_in">console</span>.log(<span class="string">"Oops, error"</span>, e))</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>  response的数据</p>
-  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">fetch(<span class="string">'/users.json'</span>).then(<span class="function"><span class="keyword">function</span>(<span class="params">response</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(response.headers.get(<span class="string">'Content-Type'</span>))</span><br><span class="line">  <span class="built_in">console</span>.log(response.headers.get(<span class="string">'Date'</span>))</span><br><span class="line">  <span class="built_in">console</span>.log(response.status)</span><br><span class="line">  <span class="built_in">console</span>.log(response.statusText)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<h4 id="POST请求"><a href="#POST请求" class="headerlink" title="POST请求"></a>POST请求</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">fetch(<span class="string">'/users'</span>, &#123;</span><br><span class="line">  method: <span class="string">'POST'</span>,</span><br><span class="line">  headers: &#123;</span><br><span class="line">    <span class="string">'Accept'</span>: <span class="string">'application/json'</span>,</span><br><span class="line">    <span class="string">'Content-Type'</span>: <span class="string">'application/json'</span></span><br><span class="line">  &#125;,</span><br><span class="line">  body: <span class="built_in">JSON</span>.stringify(&#123;</span><br><span class="line">    name: <span class="string">'Hubot'</span>,</span><br><span class="line">    login: <span class="string">'hubot'</span>,</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<p>检查请求状态</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">checkStatus</span>(<span class="params">response</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (response.status &gt;= <span class="number">200</span> &amp;&amp; response.status &lt; <span class="number">300</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> response</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> error = <span class="keyword">new</span> <span class="built_in">Error</span>(response.statusText)</span><br><span class="line">    error.response = response</span><br><span class="line">    <span class="keyword">throw</span> error</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">parseJSON</span>(<span class="params">response</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> response.json()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">fetch(<span class="string">'/users'</span>)</span><br><span class="line">  .then(checkStatus)</span><br><span class="line">  .then(parseJSON)</span><br><span class="line">  .then(<span class="function"><span class="keyword">function</span>(<span class="params">data</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'request succeeded with JSON response'</span>, data)</span><br><span class="line">  &#125;).catch(<span class="function"><span class="keyword">function</span>(<span class="params">error</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'request failed'</span>, error)</span><br><span class="line">  &#125;)</span><br></pre></td></tr></table></figure>
-<h2 id="采用promise形式"><a href="#采用promise形式" class="headerlink" title="采用promise形式"></a>采用promise形式</h2><p>Promise 对象是一个返回值的代理，这个返回值在promise对象创建时未必已知。它允许你为异步操作的成功或失败指定处理方法。 这使得异步方法可以像同步方法那样返回值：异步方法会返回一个包含了原返回值的 promise 对象来替代原返回值。</p>
-<p>Promise构造函数接受一个函数作为参数，该函数的两个参数分别是<code>resolve</code>方法和<code>reject</code>方法。如果异步操作成功，则用<code>resolve</code>方法将<code>Promise</code>对象的状态变为“成功”（即从pending变为resolved）；如果异步操作失败，则用reject方法将状态变为“失败”（即从pending变为rejected）。</p>
-<p>promise实例生成以后，可以用then方法分别指定resolve方法和reject方法的回调函数。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//创建一个promise对象</span></span><br><span class="line"><span class="keyword">var</span> promise = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve, reject</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (<span class="comment">/* 异步操作成功 */</span>)&#123;</span><br><span class="line">    resolve(value);</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    reject(error);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">//then方法可以接受两个回调函数作为参数。</span></span><br><span class="line"><span class="comment">//第一个回调函数是Promise对象的状态变为Resolved时调用，第二个回调函数是Promise对象的状态变为Reject时调用。</span></span><br><span class="line"><span class="comment">//其中，第二个函数是可选的，不一定要提供。这两个函数都接受Promise对象传出的值作为参数。</span></span><br><span class="line">promise.then(<span class="function"><span class="keyword">function</span>(<span class="params">value</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// success</span></span><br><span class="line">&#125;, <span class="function"><span class="keyword">function</span>(<span class="params">value</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// failure</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<p>那么结合promise后fetch的用法：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Fetch.js</span></span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">Fetch</span>(<span class="params">url, options</span>) </span>&#123;</span><br><span class="line">  options.body = <span class="built_in">JSON</span>.stringify(options.body)</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> defer = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">    fetch(url, options)</span><br><span class="line">      .then(<span class="function"><span class="params">response</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> response.json()</span><br><span class="line">      &#125;)</span><br><span class="line">      .then(<span class="function"><span class="params">data</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (data.code === <span class="number">0</span>) &#123;</span><br><span class="line">          resolve(data) <span class="comment">//返回成功数据</span></span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">			<span class="keyword">if</span> (data.code === <span class="number">401</span>) &#123;</span><br><span class="line">            <span class="comment">//失败后的一种状态</span></span><br><span class="line">			&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="comment">//失败的另一种状态</span></span><br><span class="line">			&#125;</span><br><span class="line">          reject(data) <span class="comment">//返回失败数据</span></span><br><span class="line">        &#125;</span><br><span class="line">      &#125;)</span><br><span class="line">      .catch(<span class="function"><span class="params">error</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="comment">//捕获异常</span></span><br><span class="line">        <span class="built_in">console</span>.log(error.msg)</span><br><span class="line">        reject() </span><br><span class="line">      &#125;)</span><br><span class="line">  &#125;)</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> defer</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>调用Fech方法：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; Fetch &#125; <span class="keyword">from</span> <span class="string">'./Fetch'</span></span><br><span class="line"></span><br><span class="line">Fetch(getAPI(<span class="string">'search'</span>), &#123;</span><br><span class="line">  method: <span class="string">'POST'</span>,</span><br><span class="line">  options</span><br><span class="line">&#125;)</span><br><span class="line">.then(<span class="function"><span class="params">data</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(data)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<h2 id="支持状况及解决方案"><a href="#支持状况及解决方案" class="headerlink" title="支持状况及解决方案"></a>支持状况及解决方案</h2><p>原生支持率并不高，幸运的是，引入下面这些 <code>polyfill</code> 后可以完美支持 IE8+ ：</p>
-<ul>
-<li>由于 IE8 是 ES3，需要引入 ES5 的 <code>polyfill</code>: <code>es5-shim</code>, <code>es5-sham</code></li>
-<li>引入 <code>Promise</code> 的 <code>polyfill</code>: <code>es6-promise</code></li>
-<li>引入 <code>fetch</code> 探测库：<code>fetch-detector</code></li>
-<li>引入 <code>fetch</code> 的 <code>polyfill</code>: <code>fetch-ie8</code></li>
-<li>可选：如果你还使用了 <code>jsonp</code>，引入 <code>fetch-jsonp</code></li>
-<li>可选：开启 <code>Babel</code> 的 <code>runtime</code> 模式，现在就使用 <code>async</code>/<code>await</code></li>
-</ul>
-<p>翻译自 <a href="https://github.github.io/fetch/" target="_blank" rel="noopener">Fetch</a></p>
-
       
     </div>
 
@@ -440,7 +171,7 @@
       
 
       <span class="post-tags">
-        <a href="/blog/tags/javascript/">tags/javascript/</a><a href="/blog/tags/es6/">tags/es6/</a>
+        <a href="/blog/tags/javascript/">javascript</a><a href="/blog/tags/es6/">es6</a>
       </span>
       
 
@@ -487,109 +218,6 @@
     <div class="entry">
       
       <h3 id="数组的创建"><a href="#数组的创建" class="headerlink" title="数组的创建"></a>数组的创建</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arrayObj = []; <span class="comment">//普通数组创建</span></span><br><span class="line"><span class="keyword">var</span> arrayObj = <span class="keyword">new</span> <span class="built_in">Array</span>();　<span class="comment">//创建一个数组</span></span><br><span class="line"><span class="keyword">var</span> arrayObj = <span class="keyword">new</span> <span class="built_in">Array</span>([size]);　<span class="comment">//创建一个数组并指定长度，注意不是上限，是长度</span></span><br><span class="line"><span class="keyword">var</span> arrayObj = <span class="keyword">new</span> <span class="built_in">Array</span>([element0[, element1[, ...[, elementN]]]]);　<span class="comment">//创建一个数组并赋值</span></span><br></pre></td></tr></table></figure>
-<h3 id="数组的添加"><a href="#数组的添加" class="headerlink" title="数组的添加"></a>数组的添加</h3><ul>
-<li><p><code>push()</code>方法将一个或多个新元素添加到数组结尾，并返回数组新长度,数组不变</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>]</span><br><span class="line"><span class="built_in">console</span>.log(arr.push(<span class="number">2</span>)) <span class="comment">//2</span></span><br><span class="line"><span class="built_in">console</span>.log(arr) <span class="comment">//[1, 2]</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p><code>unshift()</code>方法将一个或多个新元素添加到数组头部，并返回数组新长度,数组不变</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>]</span><br><span class="line"><span class="built_in">console</span>.log(arr.unshift(<span class="number">2</span>)) <span class="comment">//2</span></span><br><span class="line"><span class="built_in">console</span>.log(arr) <span class="comment">//[2, 1]</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p><code>splice()</code>将一个或多个新元素插入到数组的指定位置，插入位置的元素自动后移，返回””。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>]</span><br><span class="line">arr.splice(<span class="number">2</span>,<span class="number">0</span>,<span class="string">'insert'</span>) <span class="comment">//表示在第二个位置插入，删除0个元素,返回[]</span></span><br><span class="line"><span class="built_in">console</span>.log(arr) <span class="comment">//[1, 2, "insert", 3, 4, 5]</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> newArr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>]</span><br><span class="line">newArr.splice(<span class="number">2</span>,<span class="number">1</span>,<span class="string">'insert'</span>) <span class="comment">//表示删除第二个位置后的1个元素并插入</span></span><br><span class="line"><span class="built_in">console</span>.log(newArr) <span class="comment">//[1, 2, "insert", 4, 5]</span></span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="数组的删除"><a href="#数组的删除" class="headerlink" title="数组的删除"></a>数组的删除</h3><ul>
-<li><code>pop()</code>移除最后一个元素并返回该元素值</li>
-<li><code>shift()</code>移除最前一个元素并返回该元素值，数组中元素自动前移</li>
-<li><code>splice(deletePos,deleteCount)</code>删除从指定位置deletePos开始的指定数量deleteCount的元素，数组形式返回所移除的元素</li>
-</ul>
-<h3 id="数组的截取和合并"><a href="#数组的截取和合并" class="headerlink" title="数组的截取和合并"></a>数组的截取和合并</h3><ul>
-<li><p><code>concat()</code>将多个数组（也可以是字符串，或者是数组和字符串的混合）连接为一个数组，返回连接好的新的数组</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [<span class="number">1</span>]</span><br><span class="line"><span class="keyword">var</span> b = [<span class="number">2</span>]</span><br><span class="line">a.concat(b) <span class="comment">//[1,2] 既不是a也不是b</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p><code>slice(start, [end])</code>以数组的形式返回数组的一部分，注意不包括 end 对应的元素，如果省略 end 将复制 start 之后的所有元素</p>
-</li>
-</ul>
-<h3 id="数组的拷贝"><a href="#数组的拷贝" class="headerlink" title="数组的拷贝"></a>数组的拷贝</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">arrayObj.slice(<span class="number">0</span>); <span class="comment">//返回数组的拷贝数组，注意是一个新的数组，不是指向</span></span><br><span class="line">arrayObj.concat(); <span class="comment">//返回数组的拷贝数组，注意是一个新的数组，不是指向</span></span><br></pre></td></tr></table></figure>
-<h3 id="数组元素的排序"><a href="#数组元素的排序" class="headerlink" title="数组元素的排序"></a>数组元素的排序</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">arrayObj.reverse(); <span class="comment">//反转元素（最前的排到最后、最后的排到最前），返回数组地址</span></span><br><span class="line">arrayObj.sort(); <span class="comment">//对数组元素排序，返回数组地址</span></span><br></pre></td></tr></table></figure>
-<h3 id="数组元素的字符串化"><a href="#数组元素的字符串化" class="headerlink" title="数组元素的字符串化"></a>数组元素的字符串化</h3><p><code>join()</code>方法是一个非常实用的方法，它把当前Array的每个元素都用指定的字符串连接起来，然后返回连接后的字符串：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">arrayObj.join(separator); <span class="comment">//返回字符串，这个字符串将数组的每一个元素值连接在一起，中间用 separator 隔开。</span></span><br><span class="line"><span class="keyword">var</span> arr = [<span class="string">'A'</span>, <span class="string">'B'</span>, <span class="string">'C'</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line">arr.join(<span class="string">'-'</span>); <span class="comment">// 'A-B-C-1-2-3'</span></span><br></pre></td></tr></table></figure>
-<h3 id="数组的查找"><a href="#数组的查找" class="headerlink" title="数组的查找"></a>数组的查找</h3><ul>
-<li>indexOf()</li>
-<li>lastIndexOf()</li>
-<li><p><code>find()</code>方法，用于找出第一个符合条件的数组成员</p>
-<p>find方法的回调函数可以接受三个参数，依次为当前的值、当前的位置和原数组。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[<span class="number">1</span>, <span class="number">5</span>, <span class="number">10</span>, <span class="number">15</span>].find(<span class="function"><span class="keyword">function</span>(<span class="params">value, index, arr</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> value &gt; <span class="number">9</span>;</span><br><span class="line">&#125;) <span class="comment">// 10</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p><code>findIndex()</code>返回第一个符合条件的数组成员的位置，如果所有成员都不符合条件，则返回-1。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[<span class="number">1</span>, <span class="number">5</span>, <span class="number">10</span>, <span class="number">15</span>].findIndex(<span class="function"><span class="keyword">function</span>(<span class="params">value, index, arr</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> value &gt; <span class="number">9</span>;</span><br><span class="line">&#125;) <span class="comment">// 2</span></span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="判断是否为数组"><a href="#判断是否为数组" class="headerlink" title="判断是否为数组"></a>判断是否为数组</h3><ul>
-<li><p><code>typeof</code> 操作符</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr=<span class="keyword">new</span> <span class="built_in">Array</span>(<span class="string">"1"</span>,<span class="string">"2"</span>,<span class="string">"3"</span>,<span class="string">"4"</span>,<span class="string">"5"</span>);</span><br><span class="line">alert(<span class="keyword">typeof</span>(arr));  <span class="comment">// Object</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p><code>instanceof()</code>运算符会返回一个 Boolean 值，指出对象是否是特定类的一个实例。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arrayStr=<span class="keyword">new</span> <span class="built_in">Array</span>(<span class="string">"1"</span>,<span class="string">"2"</span>,<span class="string">"3"</span>,<span class="string">"4"</span>,<span class="string">"5"</span>);</span><br><span class="line">alert(arrayStr <span class="keyword">instanceof</span> <span class="built_in">Array</span>);  <span class="comment">//true</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p><code>Array.isArray()</code>用来判断某个值是否为数组。如果是，则返回 true，否则返回 false。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 下面的函数调用都返回 true</span></span><br><span class="line"><span class="built_in">Array</span>.isArray([]);</span><br><span class="line"><span class="built_in">Array</span>.isArray([<span class="number">1</span>]);</span><br><span class="line"><span class="built_in">Array</span>.isArray(<span class="keyword">new</span> <span class="built_in">Array</span>());</span><br><span class="line"><span class="comment">// 鲜为人知的事实：其实 Array.prototype 也是一个数组。</span></span><br><span class="line"><span class="built_in">Array</span>.isArray(<span class="built_in">Array</span>.prototype);</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="数组迭代"><a href="#数组迭代" class="headerlink" title="数组迭代"></a>数组迭代</h3><ul>
-<li><p><code>filter()</code>使用指定的函数测试所有元素，并创建一个包含所有通过测试的元素的新数组。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isBigEnough</span>(<span class="params">element</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> element &gt;= <span class="number">10</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> filtered = [<span class="number">12</span>, <span class="number">5</span>, <span class="number">8</span>, <span class="number">130</span>, <span class="number">44</span>].filter(isBigEnough);</span><br><span class="line"><span class="comment">// filtered is [12, 130, 44]</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p><code>forEach()</code>让数组的每一项都执行一次给定的函数。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">logArrayElements</span>(<span class="params">element, index, array</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"a["</span> + index + <span class="string">"] = "</span> + element);</span><br><span class="line">&#125;</span><br><span class="line">[<span class="number">2</span>, <span class="number">5</span>, <span class="number">9</span>].forEach(logArrayElements);</span><br><span class="line"><span class="comment">// logs:</span></span><br><span class="line"><span class="comment">// a[0] = 2</span></span><br><span class="line"><span class="comment">// a[1] = 5</span></span><br><span class="line"><span class="comment">// a[2] = 9</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p><code>every()</code>测试数组的所有元素是否都通过了指定函数的测试。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//检测数组中的所有元素是否都大于 10</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isBigEnough</span>(<span class="params">element, index, array</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> (element &gt;= <span class="number">10</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> passed = [<span class="number">12</span>, <span class="number">5</span>, <span class="number">8</span>, <span class="number">130</span>, <span class="number">44</span>].every(isBigEnough);</span><br><span class="line"><span class="comment">// passed is false</span></span><br><span class="line">passed = [<span class="number">12</span>, <span class="number">54</span>, <span class="number">18</span>, <span class="number">130</span>, <span class="number">44</span>].every(isBigEnough);</span><br><span class="line"><span class="comment">// passed is true</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p><code>map()</code>返回一个由原数组中的每个元素调用一个指定方法后的返回值组成的新数组。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br><span class="line">arr.map(<span class="function">(<span class="params">item,index</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(item)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><code>some()</code>测试数组中的某些元素是否通过了指定函数的测试。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//检测在数组中是否有元素大于 10。</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isBigEnough</span>(<span class="params">element, index, array</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> (element &gt;= <span class="number">10</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> passed = [<span class="number">2</span>, <span class="number">5</span>, <span class="number">8</span>, <span class="number">1</span>, <span class="number">4</span>].some(isBigEnough);</span><br><span class="line"><span class="comment">// passed is false</span></span><br><span class="line">passed = [<span class="number">12</span>, <span class="number">5</span>, <span class="number">8</span>, <span class="number">1</span>, <span class="number">4</span>].some(isBigEnough);</span><br><span class="line"><span class="comment">// passed is true</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p><code>reduce()</code>接收一个函数作为累加器（accumulator），数组中的每个值（从左到右）开始缩减，最终为一个值。</p>
-<p>语法: arr.reduce(callback,[initialValue]) callback:执行数组中每个值的函数，包含四个参数</p>
-<ul>
-<li><code>previousValue</code> 上一次调用回调返回的值，或者是提供的初始值（initialValue）</li>
-<li><code>currentValue</code> 数组中当前被处理的元素</li>
-<li><code>index</code> 当前元素在数组中的索引</li>
-<li><code>array</code> 调用 reduce 的数组 initialValue: 作为第一次调用 callback 的第一个参数。</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> total = [<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>].reduce(<span class="function"><span class="keyword">function</span>(<span class="params">a, b</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> a + b;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">// total == 6</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p><code>Array.from()</code>用于将两类对象转为真正的数组：类似数组的对象（array-like object）和可遍历（iterable）的对象（包括ES6新增的数据结构Set和Map）。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arrayLike = &#123;</span><br><span class="line">  <span class="string">'0'</span>: <span class="string">'a'</span>,</span><br><span class="line">  <span class="string">'1'</span>: <span class="string">'b'</span>,</span><br><span class="line">  <span class="string">'2'</span>: <span class="string">'c'</span>,</span><br><span class="line">  length: <span class="number">3</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// ES6的写法</span></span><br><span class="line"><span class="keyword">let</span> arr2 = <span class="built_in">Array</span>.from(arrayLike); <span class="comment">// ['a', 'b', 'c']</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p><code>Array.of()</code>方法用于将一组值，转换为数组。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Array</span>.of(<span class="number">3</span>, <span class="number">11</span>, <span class="number">8</span>) <span class="comment">// [3,11,8]</span></span><br><span class="line"><span class="built_in">Array</span>.of(<span class="number">3</span>) <span class="comment">// [3]</span></span><br><span class="line"><span class="built_in">Array</span>.of(<span class="number">3</span>).length <span class="comment">// 1</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p><code>fill()</code>方法使用给定值，填充一个数组。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>].fill(<span class="number">7</span>)</span><br><span class="line"><span class="comment">// [7, 7, 7]</span></span><br><span class="line"><span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">3</span>).fill(<span class="number">7</span>)</span><br><span class="line"><span class="comment">// [7, 7, 7]</span></span><br></pre></td></tr></table></figure>
-<p><code>fill</code>方法还可以接受第二个和第三个参数，用于指定填充的起始位置和结束位置。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>].fill(<span class="number">7</span>, <span class="number">1</span>, <span class="number">2</span>)</span><br><span class="line"><span class="comment">// ['a', 7, 'c']</span></span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="遍历数组"><a href="#遍历数组" class="headerlink" title="遍历数组"></a>遍历数组</h3><ul>
-<li><p>·keys()`是对键名的遍历</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> index <span class="keyword">of</span> [<span class="string">'a'</span>, <span class="string">'b'</span>].keys()) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(index);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 0</span></span><br><span class="line"><span class="comment">// 1</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p><code>values()</code>是对键值的遍历</p>
-</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> elem <span class="keyword">of</span> [<span class="string">'a'</span>, <span class="string">'b'</span>].values()) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(elem);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 'a'</span></span><br><span class="line"><span class="comment">// 'b'</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li><code>entries()</code>是对键值对的遍历。</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> [index, elem] <span class="keyword">of</span> [<span class="string">'a'</span>, <span class="string">'b'</span>].entries()) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(index, elem);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 0 "a"</span></span><br><span class="line"><span class="comment">// 1 "b"</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li>includes()</li>
-</ul>
-
       
     </div>
 
@@ -604,7 +232,7 @@
       
 
       <span class="post-tags">
-        <a href="/blog/tags/javascript/">tags/javascript/</a>
+        <a href="/blog/tags/javascript/">javascript</a>
       </span>
       
 
@@ -652,49 +280,12 @@
       
       <h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><ul>
 <li><p>用于函数调用</p>
-  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">myFunction(...iterableObj);</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">myFunction(...iterableObj)</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>用于数组字面量</p>
-  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[...iterableObj, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>]</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">;[...iterableObj, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>]</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<h3 id="函数传参"><a href="#函数传参" class="headerlink" title="函数传参"></a>函数传参</h3><p>目前为止,我们都是使用<code>Function.prototype.apply</code>方法来将一个数组展开成多个参数:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">myFunction</span>(<span class="params">x, y, z</span>) </span>&#123; &#125;</span><br><span class="line"><span class="keyword">var</span> args = [<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>];</span><br><span class="line">myFunction.apply(<span class="literal">null</span>, args);</span><br></pre></td></tr></table></figure>
-<p>使用es6的展开运算符可以这么写：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">myFunction</span>(<span class="params">x, y, z</span>) </span>&#123; &#125;</span><br><span class="line"><span class="keyword">var</span> args = [<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>];</span><br><span class="line">myFunction(...args);</span><br></pre></td></tr></table></figure>
-<ul>
-<li>选择性传参  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">filter</span>(<span class="params">type, ...items</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> items.filter(<span class="function"><span class="params">item</span> =&gt;</span> <span class="keyword">typeof</span> item === type);</span><br><span class="line">&#125;</span><br><span class="line">filter(<span class="string">'boolean'</span>, <span class="literal">true</span>, <span class="number">0</span>, <span class="literal">false</span>);        <span class="comment">// =&gt; [true, false]</span></span><br><span class="line">filter(<span class="string">'number'</span>, <span class="literal">false</span>, <span class="number">4</span>, <span class="string">'Welcome'</span>, <span class="number">7</span>); <span class="comment">// =&gt; [4, 7]</span></span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>还可以同时展开多个数组：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">myFunction</span>(<span class="params">v, w, x, y, z</span>) </span>&#123; &#125;</span><br><span class="line"><span class="keyword">var</span> args = [<span class="number">0</span>, <span class="number">1</span>];</span><br><span class="line">myFunction(<span class="number">-1</span>, ...args, <span class="number">2</span>, ...[<span class="number">3</span>]);</span><br></pre></td></tr></table></figure>
-<h3 id="数据解构"><a href="#数据解构" class="headerlink" title="数据解构"></a>数据解构</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> cold = [<span class="string">'autumn'</span>, <span class="string">'winter'</span>];</span><br><span class="line"><span class="keyword">let</span> warm = [<span class="string">'spring'</span>, <span class="string">'summer'</span>];</span><br><span class="line"><span class="comment">// 析构数组</span></span><br><span class="line"><span class="keyword">let</span> otherSeasons, autumn;</span><br><span class="line">[autumn, ...otherSeasons] = cold;</span><br><span class="line">otherSeasons      <span class="comment">// =&gt; ['winter']</span></span><br></pre></td></tr></table></figure>
-<h3 id="数据构造"><a href="#数据构造" class="headerlink" title="数据构造"></a>数据构造</h3><ul>
-<li><p>两个对象连接返回新的对象</p>
-  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> a = &#123;<span class="attr">aa</span>:<span class="string">'aa'</span>&#125;</span><br><span class="line"><span class="keyword">let</span> b = &#123;<span class="attr">bb</span>:<span class="string">'bb'</span>&#125;</span><br><span class="line"><span class="keyword">let</span> c = &#123;...a,...b&#125;</span><br><span class="line"><span class="built_in">console</span>.log(c)</span><br><span class="line"><span class="comment">// &#123;"aa":"aa","bb":"bb"&#125;</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>两个数组连接返回新的数组</p>
-  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> d = [<span class="string">'dd'</span>]</span><br><span class="line"><span class="keyword">let</span> e = [<span class="string">'ee'</span>]</span><br><span class="line"><span class="keyword">let</span> f = [...d,...e]</span><br><span class="line"><span class="built_in">console</span>.log(f)</span><br><span class="line"><span class="comment">// ["dd","ee"]</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li><p>在中间插入数组</p>
-  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> parts = [<span class="string">'shoulder'</span>, <span class="string">'knees'</span>];</span><br><span class="line"><span class="keyword">var</span> lyrics = [<span class="string">'head'</span>, ...parts, <span class="string">'and'</span>, <span class="string">'toes'</span>]; <span class="comment">// ["head", "shoulders", "knees", "and", "toes"]</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>在尾部插入数组</p>
-  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ES5</span></span><br><span class="line"><span class="keyword">var</span> arr1 = [<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>];</span><br><span class="line"><span class="keyword">var</span> arr2 = [<span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>];</span><br><span class="line"><span class="comment">// 将arr2中的所有元素添加到arr1中</span></span><br><span class="line"><span class="built_in">Array</span>.prototype.push.apply(arr1, arr2);</span><br><span class="line"></span><br><span class="line"><span class="comment">// ES6</span></span><br><span class="line"><span class="keyword">var</span> arr1 = [<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>];</span><br><span class="line"><span class="keyword">var</span> arr2 = [<span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>];</span><br><span class="line">arr1.push(...arr2);</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-<li><p>数组加上对象返回新的数组</p>
-  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> g = [&#123;<span class="attr">gg</span>:<span class="string">'gg'</span>&#125;]</span><br><span class="line"><span class="keyword">let</span> h = &#123;<span class="attr">hh</span>:<span class="string">'hh'</span>&#125;</span><br><span class="line"><span class="keyword">let</span> i = [...g,h]</span><br><span class="line"><span class="built_in">console</span>.log(i)</span><br><span class="line"><span class="comment">// [&#123;"gg":"gg"&#125;,&#123;"hh":"hh"&#125;</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>数组+字符串</p>
-  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> j = [<span class="string">'jj'</span>]</span><br><span class="line"><span class="keyword">let</span> k = <span class="string">'kk'</span></span><br><span class="line"><span class="keyword">let</span> l = [...j,k]</span><br><span class="line"><span class="built_in">console</span>.log(l)</span><br><span class="line"><span class="comment">// ["jj","kk"]</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>带有数组和对象的结合</p>
-  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> state = &#123;</span><br><span class="line">    resultList: [],</span><br><span class="line">    currentPage: <span class="number">0</span>,</span><br><span class="line">    totalRows: &#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> data = &#123;</span><br><span class="line">    resultList: [&#123;<span class="attr">new</span>:<span class="string">'new'</span>&#125;],</span><br><span class="line">    currentPage: <span class="number">2</span>,</span><br><span class="line">    totalRows: &#123;<span class="attr">row</span>:<span class="string">'row'</span>&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> combile = &#123;</span><br><span class="line">                ...state,</span><br><span class="line">                resultList: [</span><br><span class="line">                    ...state.resultList,</span><br><span class="line">                    ...data.resultList</span><br><span class="line">                ],</span><br><span class="line">                currentPage: data.currentPage,</span><br><span class="line">                totalRows: data.totalRows</span><br><span class="line">            &#125;</span><br><span class="line"><span class="built_in">console</span>.log(combile)</span><br><span class="line"><span class="comment">// &#123;"resultList":[&#123;"new":"new"&#125;],"currentPage":2,"totalRows":&#123;"row":"row"&#125;&#125;</span></span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-
       
     </div>
 
@@ -709,7 +300,7 @@
       
 
       <span class="post-tags">
-        <a href="/blog/tags/javascript/">tags/javascript/</a>
+        <a href="/blog/tags/javascript/">javascript</a>
       </span>
       
 
@@ -755,96 +346,8 @@
   <div class="article-content">
     <div class="entry">
       
-      <h2 id="Flex容器属性"><a href="#Flex容器属性" class="headerlink" title="Flex容器属性"></a>Flex容器属性</h2><h5 id="display"><a href="#display" class="headerlink" title="display"></a>display</h5><p>定义一个Flex容器，根据其取的值来决定是内联还是块。Flex容器会为其内容建立新的伸缩格式化上下文。</p>
+      <h2 id="Flex-容器属性"><a href="#Flex-容器属性" class="headerlink" title="Flex 容器属性"></a>Flex 容器属性</h2><h5 id="display"><a href="#display" class="headerlink" title="display"></a>display</h5><p>定义一个 Flex 容器，根据其取的值来决定是内联还是块。Flex 容器会为其内容建立新的伸缩格式化上下文。</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.container</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: flex; <span class="comment">/* or inline-flex */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h5 id="flex-direction"><a href="#flex-direction" class="headerlink" title="flex-direction"></a>flex-direction</h5><p>指定容器内部排列的方向。</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.container</span> &#123;</span><br><span class="line">  <span class="attribute">flex-direction</span>: row | row-reverse | column | column-reverse;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>row(默认值):如果书写方式是ltr，那么Flex项目从左向右排列；如果书写方式是rtl，那么Flex项目从右向左排列</li>
-<li>row-reverse:如果书写方式是ltr，那么Flex项目从右向左排列；如果书写方式是rtl，那么Flex项目从左向右排列</li>
-<li>column:和row类似，只不过方向是从上到下排列</li>
-<li>column-reverse:和row-reverse类似，只不过方向是从下向上排列</li>
-</ul>
-<h5 id="flex-wrap"><a href="#flex-wrap" class="headerlink" title="flex-wrap"></a>flex-wrap</h5><p>指定子元素是否可以换行。</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.container</span>&#123;</span><br><span class="line">  <span class="attribute">flex-wrap</span>: nowrap | wrap | wrap-reverse;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>nowrap(默认值):单行显示，如果书写方式是ltr，Flex项目从左向右排列，反之rtl，从右向左排列</li>
-<li>wrap:多行显示，如果书写方式是ltr，Flex项目从左向右排列，反之rtl，从右向左排列</li>
-<li>wrap-reverse:多行显示，如果书写方式是ltr，Flex项目从右向左排列，反之rtl，从左向右排列</li>
-</ul>
-<h5 id="flex-flow-适用于flex容器元素"><a href="#flex-flow-适用于flex容器元素" class="headerlink" title="flex-flow(适用于flex容器元素)"></a>flex-flow(适用于flex容器元素)</h5><p>这是flex-direction和flex-wrap两个属性的缩写。两个属性决定了伸缩容器的主轴与侧轴。默认值是row nowrap（中间用空格隔开）。</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flex-flow: &lt;‘flex-direction’&gt; || &lt;‘flex-wrap’&gt;</span><br></pre></td></tr></table></figure>
-<h5 id="justify-content"><a href="#justify-content" class="headerlink" title="justify-content"></a>justify-content</h5><p>用于在主轴上对齐伸缩项目。</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.container</span> &#123;</span><br><span class="line">  <span class="attribute">justify-content</span>: flex-start | flex-end | center | space-between | space-around;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>flex-start(默认值):伸缩项目向一行的起始位置靠齐。该行的第一个伸缩项目在主轴起点边的外边距与该行在主轴起点的边对齐，同时所有后续的伸缩项目与其前一个项目对齐。</li>
-<li>flex-end:伸缩项目向一行的结束位置靠齐。该行的最后一个伸缩项目在主轴终点边的外边距与该行在主轴终点的边对齐，同时所有前面的伸缩项目与其后一个项目对齐。</li>
-<li>center:伸缩项目向一行的中间位置靠齐。该行的伸缩项目将相互对齐并在行中居中对齐，同时第一个项目与该行在主轴起点的边的距离等同与最后一个项目与该行在主轴终点的边的距离（如果剩余空间是负数，则保持两端溢出的长度相等）。</li>
-<li>space-between:伸缩项目会平均地分布在行里。如果剩余空间是负数，或该行只有一个伸缩项目，则此值等效于flex-start。在其它情况下，第一个项目在主轴起点边的外边距会与该行在主轴起点的边对齐，同时最后一个项目在主轴终点边的外边距与该行在主轴终点的边对齐，而剩下的伸缩项目在确保两两之间的空白空间相等下平均分布。</li>
-<li>space-around:伸缩项目会平均地分布在行里，两端保留一半的空间。如果剩余空间是负数，或该行只有一个伸缩项目，则该值等效于center。在其它情况下，伸缩项目在确保两两之间的空白空间相等，同时第一个元素前的空间以及最后一个元素后的空间为其他空白空间的一半下平均分布。</li>
-</ul>
-<h5 id="align-items"><a href="#align-items" class="headerlink" title="align-items"></a>align-items</h5><p>align-items可以用来设置伸缩容器中包括匿名伸缩项目的所有项目的对齐方式。</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.container</span> &#123;</span><br><span class="line">  <span class="attribute">align-items</span>: flex-start | flex-end | center | baseline | stretch;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>flex-start:伸缩项目在侧轴起点边的外边距紧靠住该行在侧轴起始的边。</li>
-<li>flex-end:伸缩项目在侧轴终点边的外边距靠住该行在侧轴终点的边 。</li>
-<li>center:伸缩项目的外边距盒在该行的侧轴上居中放置。（如果伸缩行的尺寸小于伸缩项目，则伸缩项目会向两个方向溢出相同的量）。</li>
-<li>baseline:如果伸缩项目的行内轴与侧轴为同一条，则该值和flex-start等效。其它情况下，该值将参与基线对齐。所有参与该对齐方式的伸缩项目将按下列方式排列：首先将这些伸缩项目的基线进行对齐，随后其中基线至侧轴起点边的外边距距离最长的那个项目将紧靠住该行在侧轴起点的边。</li>
-<li>stretch:如果侧轴长度属性的值为auto，则此值会使项目的外边距盒的尺寸在遵照min/max-width/height属性的限制下尽可能接近所在行的尺寸。</li>
-</ul>
-<h5 id="align-content"><a href="#align-content" class="headerlink" title="align-content"></a>align-content</h5><p>当伸缩容器的侧轴还有多余空间时，align-content属性可以用来调准伸缩行在伸缩容器里的对齐方式.</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.container</span> &#123;</span><br><span class="line">  <span class="attribute">align-content</span>: flex-start | flex-end | center | space-between | space-around | stretch;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>flex-start:各行向伸缩容器的起点位置堆叠。伸缩容器中第一行在侧轴起点的边会紧靠住伸缩容器在侧轴起点的边，之后的每一行都紧靠住前面一行。</li>
-<li>flex-end:各行向伸缩容器的结束位置堆叠。伸缩容器中最后一行在侧轴终点的边会紧靠住该伸缩容器在侧轴终点的边，之前的每一行都紧靠住后面一行。</li>
-<li>center:各行向伸缩容器的中间位置堆叠。各行两两紧靠住同时在伸缩容器中居中对齐，保持伸缩容器在侧轴起点边的内容边和第一行之间的距离与该容器在侧轴终点边的内容边与第最后一行之间的距离相等。（如果剩下的空间是负数，则行的堆叠会向两个方向溢出的相等距离。）</li>
-<li>space-between:各行在伸缩容器中平均分布。如果剩余的空间是负数或伸缩容器中只有一行，该值等效于flex-start。在其它情况下，第一行在侧轴起点的边会紧靠住伸缩容器在侧轴起点边的内容边，最后一行在侧轴终点的边会紧靠住伸缩容器在侧轴终点的内容边，剩余的行在保持两两之间的空间相等的状况下排列。</li>
-<li>space-around:各行在伸缩容器中平均分布，在两边各有一半的空间。如果剩余的空间是负数或伸缩容器中只有一行，该值等效于center。在其它情况下，各行会在保持两两之间的空间相等，同时第一行前面及最后一行后面的空间是其他空间的一半的状况下排列。</li>
-<li>stretch:各行将会伸展以占用剩余的空间。如果剩余的空间是负数，该值等效于flex-start。在其它情况下，剩余空间被所有行平分，扩大各行的侧轴尺寸。</li>
-</ul>
-<h2 id="Flex项目属性"><a href="#Flex项目属性" class="headerlink" title="Flex项目属性"></a>Flex项目属性</h2><h5 id="order"><a href="#order" class="headerlink" title="order"></a>order</h5><p>默认情况，Flex项目是按文档源的流顺序排列。然而，在Flex容器中可以通过order属性来控制Flex项目的顺序源。</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.item</span> &#123;</span><br><span class="line">  <span class="attribute">order</span>: &lt;integer&gt;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h5 id="flex-grow"><a href="#flex-grow" class="headerlink" title="flex-grow"></a>flex-grow</h5><p>如果所有Flex项目的flex-grow设置为1时，表示Flex容器中的Flex项目具有相等的尺寸。如果你给其中一个Flex项目设置flex-grow的值为2，那么这个Flex项目的尺寸将是其他Flex项目两倍。</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.item</span> &#123;</span><br><span class="line">  <span class="attribute">flex-grow</span>: &lt;number&gt;; <span class="comment">/* default 0 */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h5 id="flex-shrink"><a href="#flex-shrink" class="headerlink" title="flex-shrink"></a>flex-shrink</h5><p>如果有必要，flex-shrink可以定义Flex项目的缩小比例。</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.item</span> &#123;</span><br><span class="line">  <span class="attribute">flex-shrink</span>: &lt;number&gt;; <span class="comment">/* default 1 */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h5 id="flex-basis"><a href="#flex-basis" class="headerlink" title="flex-basis"></a>flex-basis</h5><p>flex-basis属性定义了Flex项目在分配Flex容器剩余空间之前的一个默认尺寸。main-size值使它具有匹配的宽度或高度，不过都需要取决于flex-direction的值。</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.item</span> &#123;</span><br><span class="line">  <span class="attribute">flex-basis</span>: &lt;length&gt; | auto; <span class="comment">/* default auto */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h5 id="flex"><a href="#flex" class="headerlink" title="flex"></a>flex</h5><p>flex是flex-grow，flex-shrink和flex-basis三个属性的缩写。第二个和第三个参数(flex-shrink和flex-basis)是可选值。其默认值是0 1 auto。</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.item</span> &#123;</span><br><span class="line">  <span class="attribute">flex</span>: none | [ &lt;<span class="string">'flex-grow'</span>&gt; &lt;<span class="string">'flex-shrink'</span>&gt;? || &lt;<span class="string">'flex-basis'</span>&gt; ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h5 id="align-self"><a href="#align-self" class="headerlink" title="align-self"></a>align-self</h5><p>align-self则用来在单独的伸缩项目上覆写默认的对齐方式。（对于匿名伸缩项目，align-self的值永远与其关联的伸缩容器的align-items的值相同。）</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.item</span> &#123;</span><br><span class="line">  <span class="attribute">align-self</span>: auto | flex-start | flex-end | center | baseline | stretch;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="常用案例"><a href="#常用案例" class="headerlink" title="常用案例"></a>常用案例</h2><ul>
-<li>子元素等分</li>
-</ul>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">ul</span>&#123;</span><br><span class="line">  <span class="attribute">display</span>:flex;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">li</span>&#123;</span><br><span class="line">  <span class="attribute">flex</span>:<span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>左右固定宽度，中间自适应</li>
-</ul>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">ul</span>&#123;</span><br><span class="line">  <span class="attribute">display</span>:flex;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">li</span><span class="selector-pseudo">:first-child</span>,</span><br><span class="line"><span class="selector-tag">li</span><span class="selector-pseudo">:last-child</span>&#123;</span><br><span class="line">  <span class="attribute">width</span>:<span class="number">50px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">li</span><span class="selector-pseudo">:nth-child(2)</span>&#123;</span><br><span class="line">  <span class="attribute">flex</span>:<span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>底部贴底</li>
-</ul>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">html</span>,<span class="selector-tag">body</span>,<span class="selector-tag">ul</span>&#123;</span><br><span class="line">  <span class="attribute">height</span>:<span class="number">100%</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">ul</span>&#123;</span><br><span class="line">  <span class="attribute">display</span>:flex;</span><br><span class="line">  <span class="attribute">flex-direction</span>:column;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">li</span><span class="selector-pseudo">:first-child</span>,</span><br><span class="line"><span class="selector-tag">li</span><span class="selector-pseudo">:last-child</span>&#123;</span><br><span class="line">  <span class="attribute">height</span>:<span class="number">50px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">li</span><span class="selector-pseudo">:nth-child(2)</span>&#123;</span><br><span class="line">  <span class="attribute">flex</span>:<span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>多行多列（商品列表）</li>
-</ul>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">ul</span>&#123;</span><br><span class="line">  <span class="attribute">display</span>:flex;</span><br><span class="line">  flex-wrap:wrap; //允许换行</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">li</span>&#123;</span><br><span class="line">  <span class="attribute">width</span>:<span class="number">50%</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>两端对齐垂直居中（导航）</li>
-</ul>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">header</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">h1</span>&gt;</span>标题<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">""</span>&gt;</span>更多<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">header</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">header</span>&#123;</span><br><span class="line">  <span class="attribute">display</span>:flex;</span><br><span class="line">  <span class="attribute">justify-content</span>:space-between;</span><br><span class="line">  <span class="attribute">align-items</span>:center;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>水平垂直居中（img）</li>
-</ul>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">header</span>&#123;</span><br><span class="line">  <span class="attribute">display</span>:flex;</span><br><span class="line">  <span class="attribute">justify-content</span>:center;</span><br><span class="line">  <span class="attribute">align-items</span>:center;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>子元素横向排列，超过父容器宽度不换行（slider）</li>
-</ul>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">ul</span>&#123;</span><br><span class="line">  <span class="attribute">display</span>:flex;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">li</span>&#123;</span><br><span class="line">  <span class="attribute">flex-shrink</span>:<span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>转载自<a href="http://www.w3cplus.com/css3/a-guide-to-flexbox-new.html" target="_blank" rel="noopener">一个完整的Flexbox指南</a></p>
-
       
     </div>
 
@@ -859,7 +362,7 @@
       
 
       <span class="post-tags">
-        <a href="/blog/tags/css3/">tags/css3/</a>
+        <a href="/blog/tags/css3/">css3</a>
       </span>
       
 
@@ -909,58 +412,8 @@
 <p>原理：</p>
 <ul>
 <li><code>view</code>直接触发<code>dispatch</code>；</li>
-<li>将<code>action</code>发送到<code>reducer</code>中后，根节点上会更新    <code>state</code>，改变全局<code>view</code>。</li>
+<li>将<code>action</code>发送到<code>reducer</code>中后，根节点上会更新 <code>state</code>，改变全局<code>view</code>。</li>
 </ul>
-<p>本案例以一个提到TODOLIST为案例。</p>
-<h2 id="Action"><a href="#Action" class="headerlink" title="Action"></a>Action</h2><p>在 <code>Redux</code> 中，<code>action</code> 主要用来传递操作 <code>State</code> 的信息，只是一种命令，并没有实际改变<code>state</code>。</p>
-<p>我们约定，<code>action</code> 内必须使用一个字符串类型的 <code>type</code> 字段来表示将要执行的动作。<code>type</code> 属性是必要的，除了 <code>type</code> 字段外，<code>action</code> 对象的结构完全取决于你，建议尽可能简单。<code>type</code> 一般用来表达处理 <code>state</code> 数据的方式。</p>
-<p>比如添加<code>todo</code>的<code>action</code>：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> ADD_TODO = <span class="string">'ADD_TODO'</span></span><br><span class="line">&#123;</span><br><span class="line">  type: ADD_TODO,</span><br><span class="line">  text: <span class="string">'Build my first Redux app'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>这个动作需要改变哪些属性就传递这些属性。</p>
-<h5 id="创建函数"><a href="#创建函数" class="headerlink" title="创建函数"></a>创建函数</h5><p>如果有多个数据是同样的动作，那么我们就需要一个通用的函数来传递数据。在 <code>Redux</code> 中的 <code>action</code> 创建函数只是简单的返回一个 <code>action</code>:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//actions</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> ADD_TODO = <span class="string">'ADD_TODO'</span></span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">addTodo</span>(<span class="params">text</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    type: ADD_TODO,</span><br><span class="line">    text</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>或者</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//actions</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> ADD_TODO = <span class="string">'ADD_TODO'</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> addTodo = <span class="function">(<span class="params">text</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    type: ADD_TODO,</span><br><span class="line">    text</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>在组件的事件中，<code>Redux</code> 中只需把 <code>action</code> 创建函数的结果传给 <code>dispatch()</code> 方法即可发起一次 <code>dispatch</code> 过程。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dispatch(addTodo(text))</span><br></pre></td></tr></table></figure>
-<p>或者</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> boundAddTodo = <span class="function">(<span class="params">text</span>) =&gt;</span> dispatch(addTodo(text))</span><br><span class="line">boundAddTodo(text);</span><br></pre></td></tr></table></figure>
-<h5 id="bindActionCreators"><a href="#bindActionCreators" class="headerlink" title="bindActionCreators"></a>bindActionCreators</h5><p>如上所示，我们每次都需要调用时dispatch这个action。</p>
-<p>在 React 组件中，如果你希望让组件通过调用函数来更新 state，可以通过使用 const actions = bindActionCreators(FilmActions, dispatch); 将 actions 和 dispatch 揉在一起，成为具备操作 store.state 的 actions。</p>
-<h2 id="Reducer"><a href="#Reducer" class="headerlink" title="Reducer"></a>Reducer</h2><p>Action 只是描述了有事情发生了这一事实，并没有指明应用如何更新 state。而这正是 reducer 要做的事情。</p>
-<p>当明确action的任务，就可以开始编写 reducer，并让它来处理之前定义过的 action。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//reducers</span></span><br><span class="line"><span class="keyword">import</span> &#123; addTodo,ADD_TODO &#125; <span class="keyword">from</span> <span class="string">'./actions'</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">todoApp</span>(<span class="params">state = initialState, action</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">switch</span> (action.type) &#123;</span><br><span class="line">    <span class="keyword">case</span> ADD_TODO:</span><br><span class="line">      <span class="keyword">return</span> <span class="built_in">Object</span>.assign(&#123;&#125;, state, &#123;</span><br><span class="line">        text: action.text</span><br><span class="line">      &#125;)</span><br><span class="line">    <span class="keyword">default</span>:</span><br><span class="line">      <span class="keyword">return</span> state</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>注意：</p>
-<ul>
-<li>不要修改 state。 使用 Object.assign() 新建了一个副本。为了对ES7提案对象展开运算符的支持, 也可以使用 { …state, …newState } 达到相同的目的。</li>
-<li>在 default 情况下返回旧的 state。遇到未知的 action 时，一定要返回旧的 state。</li>
-<li>reducer中的一个fun在store里作为一个对象存储。</li>
-</ul>
-<h5 id="combineReducers"><a href="#combineReducers" class="headerlink" title="combineReducers"></a>combineReducers</h5><p>combineReducers() 所做的只是生成一个函数，这个函数来调用你的一系列 reducer，每个 reducer 根据它们的 key 来筛选出 state 中的一部分数据并处理，然后这个生成的函数再将所有 reducer 的结果合并成一个大的对象。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; combineReducers &#125; <span class="keyword">from</span> <span class="string">'redux'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> todoApp = combineReducers(&#123;</span><br><span class="line">  todoApp</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> todoApp;</span><br></pre></td></tr></table></figure>
-<h2 id="Store"><a href="#Store" class="headerlink" title="Store"></a>Store</h2><p><code>Store</code> 就是把<code>action</code>和<code>reducer</code>联系到一起的对象。<code>Store</code> 有以下职责：</p>
-<ul>
-<li>维持应用的 <code>state</code>；</li>
-<li>提供 <code>getState()</code> 方法获取 <code>state</code>；</li>
-<li>提供 <code>dispatch(action)</code> 方法更新 <code>state</code>；</li>
-<li>通过 <code>subscribe(listener)</code> 注册监听器;</li>
-<li>通过 <code>subscribe(listener)</code> 返回的函数注销监听器。</li>
-</ul>
-<blockquote>
-<p><code>Redux</code> 应用只有一个单一的 <code>store</code>。当需要拆分数据处理逻辑时，你应该使用 <code>reducer</code>组合 而不是创建多个 <code>store</code>。</p>
-</blockquote>
-<p>我们使用 <code>combineReducers()</code> 将多个 <code>reducer</code> 合并成为一个。现在我们将其导入，并传递 <code>createStore()</code>。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; createStore &#125; <span class="keyword">from</span> <span class="string">'redux'</span></span><br><span class="line"><span class="keyword">import</span> todoApp <span class="keyword">from</span> <span class="string">'./reducers'</span></span><br><span class="line"><span class="keyword">let</span> store = createStore(todoApp)</span><br></pre></td></tr></table></figure>
-<h5 id="Middleware"><a href="#Middleware" class="headerlink" title="Middleware"></a>Middleware</h5><p><code>redux</code>中的<code>middleware</code>还是比较简单的，它只是针对于<code>dispatch</code>方法做了<code>middleware</code>处理；也就是说，只接受一个<code>action</code>对象；</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span>  createLogger <span class="keyword">from</span> <span class="string">'redux-logger'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; createStore, applyMiddleware &#125; <span class="keyword">from</span> <span class="string">'redux'</span>;</span><br><span class="line"><span class="keyword">import</span> thunk <span class="keyword">from</span> <span class="string">'redux-thunk'</span>;</span><br><span class="line"><span class="keyword">import</span> reducers <span class="keyword">from</span> <span class="string">'./reducers'</span>;</span><br><span class="line"><span class="keyword">const</span> logger = createLogger();</span><br><span class="line"><span class="keyword">let</span> thunkStore = applyMiddleware(thunk,logger)(createStore);</span><br><span class="line"><span class="keyword">let</span> store = thunkStore(reducers);</span><br></pre></td></tr></table></figure>
-<h2 id="connect"><a href="#connect" class="headerlink" title="connect"></a>connect</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">connect(mapStateToProps, mapDispatchToProps, mergeToProps)(App);</span><br></pre></td></tr></table></figure>
-<p>第一个函数接收store中state和props，使页面可以根据当前的store中state和props返回新的<code>stateProps</code>;<br>第二个函数接收store中的dispatch和props，使页面可以复写dispatch方法，返回新的<code>dispatchProps</code>；<br>第三个函数接收前2个函数生成的<code>stateProps</code>和<code>dispatchProps</code>，在加上原始的<code>props</code>，合并成新的<code>props</code>，并传给原始根节点的<code>props</code>。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> mapStateToProps = <span class="function">(<span class="params">state, ownProps</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    active: ownProps.filter === state.visibilityFilter</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> mapDispatchToProps = <span class="function">(<span class="params">dispatch, ownProps</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    onClick: <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">      dispatch(setVisibilityFilter(ownProps.filter))</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> FilterLink = connect(</span><br><span class="line">  mapStateToProps,</span><br><span class="line">  mapDispatchToProps</span><br><span class="line">)(Link)</span><br></pre></td></tr></table></figure>
-<h2 id="Provider"><a href="#Provider" class="headerlink" title="Provider"></a>Provider</h2><p><provider store=""> 使组件层级中的 connect() 方法都能够获得 Redux store。正常情况下，你的根组件应该嵌套在 <provider> 中才能使用 connect() 方法。</provider></provider></p>
-<p><code>react-redux</code>首先提供了一个<code>Provider</code>，可以将从<code>createStore</code>返回的<code>store</code>放入<code>context</code>中，使子集可以获取到<code>store</code>并进行操作；</p>
-<p>Connect 组件需要 store。这个需求由 Redux 提供的另一个组件 Provider 来提供。源码中，Provider 继承了 React.Component，所以可以以 React 组件的形式来为 Provider 注入 store，从而使得其子组件能够在上下文中得到 store 对象。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;Provider store=&#123;store&#125;&gt;</span><br><span class="line">    &lt;App/&gt;</span><br><span class="line">&lt;<span class="regexp">/Provider&gt;</span></span><br></pre></td></tr></table></figure>
-
       
     </div>
 
@@ -975,7 +428,7 @@
       
 
       <span class="post-tags">
-        <a href="/blog/tags/react/">tags/react/</a><a href="/blog/tags/redux/">tags/redux/</a>
+        <a href="/blog/tags/react/">react</a><a href="/blog/tags/redux/">redux</a>
       </span>
       
 
@@ -1023,104 +476,10 @@
       
       <p>组件的生命周期包含三个主要部分：</p>
 <ul>
-<li>挂载： 组件被插入到DOM中。</li>
-<li>更新： 组件被重新渲染，查明DOM是否应该刷新。</li>
-<li>移除： 组件从DOM中移除。</li>
+<li>挂载： 组件被插入到 DOM 中。</li>
+<li>更新： 组件被重新渲染，查明 DOM 是否应该刷新。</li>
+<li>移除： 组件从 DOM 中移除。</li>
 </ul>
-<blockquote>
-<p>React提供生命周期方法，你可以在这些方法中放入自己的代码。我们提供will方法，会在某些行为发生之前调用，和did方法，会在某些行为发生之后调用。</p>
-</blockquote>
-<p><img src="/myBlog/artical_imgs/component-lifecycle.jpg"></p>
-<h3 id="装载组件触发"><a href="#装载组件触发" class="headerlink" title="装载组件触发"></a>装载组件触发</h3><h5 id="getInitialState"><a href="#getInitialState" class="headerlink" title="getInitialState"></a>getInitialState</h5><p><code>object</code>在组件被挂载之前调用。状态化的组件应该实现这个方法，返回初始的<code>state</code>数据。</p>
-<p>初始化 <code>this.state</code> 的值，只在组件装载之前调用一次。</p>
-<p>如果是使用 ES6 的语法，你也可以在构造函数中初始化状态，比如：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Counter</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>(props) &#123;</span><br><span class="line">    <span class="keyword">super</span>(props);</span><br><span class="line">    <span class="keyword">this</span>.state = &#123; <span class="attr">count</span>: props.initialCount &#125;;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h5 id="getDefaultProps"><a href="#getDefaultProps" class="headerlink" title="getDefaultProps"></a>getDefaultProps</h5><p>只在组件创建时调用一次并缓存返回的对象（即在 <code>React.createClass</code> 之后就会调用）。</p>
-<p>因为这个方法在实例初始化之前调用，所以在这个方法里面不能依赖 <code>this</code> 获取到这个组件的实例。<br>在组件装载之后，这个方法缓存的结果会用来保证访问 <code>this.props</code> 的属性时，当这个属性没有在父组件中传入（在这个组件的 JSX 属性里设置），也总是有值的。</p>
-<p>如果是使用 ES6 语法，可以直接定义 <code>defaultProps</code> 这个类属性来替代，这样能更直观的知道 <code>default props</code> 是预先定义好的对象值：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Counter.defaultProps = &#123; <span class="attr">initialCount</span>: <span class="number">0</span> &#125;;</span><br></pre></td></tr></table></figure>
-<h5 id="componentWillMount"><a href="#componentWillMount" class="headerlink" title="componentWillMount()"></a>componentWillMount()</h5><p><code>componentWillMount()</code>只会在装载之前调用一次，在 <code>render</code> 之前调用，你可以在这个方法里面调用 <code>setState</code> 改变状态，并且不会导致额外调用一次 <code>render</code>。</p>
-<h5 id="render"><a href="#render" class="headerlink" title="render()"></a>render()</h5><p>组装生成这个组件的 <code>HTML</code> 结构（使用原生 <code>HTML</code> 标签或者子组件），也可以返回 <code>null</code>或者 <code>false</code>，这时候 <code>ReactDOM.findDOMNode(this)</code> 会返回 <code>null</code>。</p>
-<h5 id="componentDidMount"><a href="#componentDidMount" class="headerlink" title="componentDidMount()"></a>componentDidMount()</h5><p><code>componentDidMount()</code>在挂载结束之后马上被调用。只会在装载完成之后调用一次，在 render 之后调用，从这里开始可以通过 <code>ReactDOM.findDOMNode(this)</code> 获取到组件的 DOM 节点。</p>
-<h3 id="更新组件触发"><a href="#更新组件触发" class="headerlink" title="更新组件触发"></a>更新组件触发</h3><h5 id="componentWillReceiveProps-object-nextProps"><a href="#componentWillReceiveProps-object-nextProps" class="headerlink" title="componentWillReceiveProps(object nextProps)"></a>componentWillReceiveProps(object nextProps)</h5><p>当一个挂载的组件接收到新的props的时候被调用。该方法应该用于比较<code>this.props</code>和<code>nextProps</code>，然后使用<code>this.setState()</code>来改变<code>state</code>。</p>
-<p>在初始化渲染的时候，该方法不会调用。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">componentWillReceiveProps: <span class="function"><span class="keyword">function</span>(<span class="params">nextProps</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.setState(&#123;</span><br><span class="line">    likesIncreasing: nextProps.likeCount &gt; <span class="keyword">this</span>.props.likeCount</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h5 id="shouldComponentUpdate-object-nextProps-object-nextState-boolean"><a href="#shouldComponentUpdate-object-nextProps-object-nextState-boolean" class="headerlink" title="shouldComponentUpdate(object nextProps, object nextState): boolean"></a>shouldComponentUpdate(object nextProps, object nextState): boolean</h5><p>当组件做出是否要更新DOM的决定的时候被调用。</p>
-<p>在接收到新的 <code>props</code>或者 <code>state</code>，将要渲染之前调用。该方法在初始化渲染的时候不会调用，在使用 forceUpdate 方法的时候也不会。</p>
-<p>如果确定新的 <code>props</code> 和 <code>state</code> 不会导致组件更新，则此处应该返回 <code>false</code>。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">shouldComponentUpdate: <span class="function"><span class="keyword">function</span>(<span class="params">nextProps, nextState</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> nextProps.id !== <span class="keyword">this</span>.props.id;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>如果 <code>shouldComponentUpdate</code> 返回 <code>false</code>，则 <code>render()</code> 将不会执行，直到下一次 <code>state</code> 改变。</p>
-<h5 id="componentWillUpdate-object-nextProps-object-nextState"><a href="#componentWillUpdate-object-nextProps-object-nextState" class="headerlink" title="componentWillUpdate(object nextProps, object nextState)"></a>componentWillUpdate(object nextProps, object nextState)</h5><p>在更新发生之前被调用。你可以在这里调用<code>this.setState()</code>。</p>
-<h5 id="componentDidUpdate-object-prevProps-object-prevState"><a href="#componentDidUpdate-object-prevProps-object-prevState" class="headerlink" title="componentDidUpdate(object prevProps, object prevState)"></a>componentDidUpdate(object prevProps, object prevState)</h5><p>在更新发生之后调用。</p>
-<h3 id="卸载组件触发"><a href="#卸载组件触发" class="headerlink" title="卸载组件触发"></a>卸载组件触发</h3><h5 id="componentWillUnmount"><a href="#componentWillUnmount" class="headerlink" title="componentWillUnmount()"></a>componentWillUnmount()</h5><p>在组件移除和销毁之前被调用。清理工作应该放在这里。比如无效的定时器，或者清除在 componentDidMount 中创建的 DOM 元素。</p>
-<h3 id="装载的方法"><a href="#装载的方法" class="headerlink" title="装载的方法"></a>装载的方法</h3><h5 id="getDOMNode"><a href="#getDOMNode" class="headerlink" title="getDOMNode()"></a>getDOMNode()</h5><p>DOMElement可以在任何挂载的组件上面调用，用于获取一个指向它的渲染DOM节点的引用。</p>
-<h5 id="forceUpdate"><a href="#forceUpdate" class="headerlink" title="forceUpdate()"></a>forceUpdate()</h5><p>当你知道一些很深的组件state已经改变了的时候，可以在该组件上面调用，而不是使用<code>this.setState()</code>。</p>
-<blockquote>
-<p>完整实例展示</p>
-</blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> Button = React.createClass(&#123;</span><br><span class="line">  getInitialState: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">      data:<span class="number">0</span></span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;,</span><br><span class="line">  setNewNumber: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.setState(&#123;<span class="attr">data</span>: <span class="keyword">this</span>.state.data + <span class="number">1</span>&#125;)</span><br><span class="line">  &#125;,</span><br><span class="line">  render: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> (</span><br><span class="line">         &lt;div&gt;</span><br><span class="line">            &lt;button onClick = &#123;<span class="keyword">this</span>.setNewNumber&#125;&gt;INCREMENT&lt;<span class="regexp">/button&gt;</span></span><br><span class="line"><span class="regexp">            &lt;Content myNumber = &#123;this.state.data&#125;&gt;&lt;/</span>Content&gt;</span><br><span class="line">         &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">      );</span></span><br><span class="line"><span class="regexp">    &#125;</span></span><br><span class="line"><span class="regexp">&#125;)</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">var Content = React.createClass(&#123;</span></span><br><span class="line"><span class="regexp">  componentWillMount:function() &#123;</span></span><br><span class="line"><span class="regexp">      console.log('Component WILL MOUNT!')</span></span><br><span class="line"><span class="regexp">  &#125;,</span></span><br><span class="line"><span class="regexp">  componentDidMount:function() &#123;</span></span><br><span class="line"><span class="regexp">       console.log('Component DID MOUNT!')</span></span><br><span class="line"><span class="regexp">  &#125;,</span></span><br><span class="line"><span class="regexp">  componentWillReceiveProps:function(newProps) &#123;</span></span><br><span class="line"><span class="regexp">        console.log('Component WILL RECIEVE PROPS!')</span></span><br><span class="line"><span class="regexp">  &#125;,</span></span><br><span class="line"><span class="regexp">  shouldComponentUpdate:function(newProps, newState) &#123;</span></span><br><span class="line"><span class="regexp">        return true;</span></span><br><span class="line"><span class="regexp">  &#125;,</span></span><br><span class="line"><span class="regexp">  componentWillUpdate:function(nextProps, nextState) &#123;</span></span><br><span class="line"><span class="regexp">        console.log('Component WILL UPDATE!');</span></span><br><span class="line"><span class="regexp">  &#125;,</span></span><br><span class="line"><span class="regexp">  componentDidUpdate:function(prevProps, prevState) &#123;</span></span><br><span class="line"><span class="regexp">        console.log('Component DID UPDATE!')</span></span><br><span class="line"><span class="regexp">  &#125;,</span></span><br><span class="line"><span class="regexp">  componentWillUnmount:function() &#123;</span></span><br><span class="line"><span class="regexp">         console.log('Component WILL UNMOUNT!')</span></span><br><span class="line"><span class="regexp">  &#125;,</span></span><br><span class="line"><span class="regexp">  render: function () &#123;</span></span><br><span class="line"><span class="regexp">    return (</span></span><br><span class="line"><span class="regexp">      &lt;div&gt;</span></span><br><span class="line"><span class="regexp">        &lt;h3&gt;&#123;this.props.myNumber&#125;&lt;/</span>h3&gt;</span><br><span class="line">      &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">    );</span></span><br><span class="line"><span class="regexp">  &#125;</span></span><br><span class="line"><span class="regexp">&#125;);</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">ReactDOM.render(</span></span><br><span class="line"><span class="regexp">   &lt;div&gt;</span></span><br><span class="line"><span class="regexp">      &lt;Button /</span>&gt;</span><br><span class="line">   &lt;<span class="regexp">/div&gt;,</span></span><br><span class="line"><span class="regexp">  document.getElementById('example')</span></span><br><span class="line"><span class="regexp">);</span></span><br></pre></td></tr></table></figure>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><table>
-<thead>
-<tr>
-<th>生命周期</th>
-<th>调用次数</th>
-<th>能否使用setSate()</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>getDefaultProps</td>
-<td>1(全局调用一次)</td>
-<td>否</td>
-</tr>
-<tr>
-<td>getInitialState</td>
-<td>1</td>
-<td>否</td>
-</tr>
-<tr>
-<td>componentWillMount</td>
-<td>1</td>
-<td>是</td>
-</tr>
-<tr>
-<td>render</td>
-<td>&gt;=1</td>
-<td>否</td>
-</tr>
-<tr>
-<td>componentDidMount</td>
-<td>1</td>
-<td>是</td>
-</tr>
-<tr>
-<td>componentWillReceiveProps</td>
-<td>&gt;=0</td>
-<td>是</td>
-</tr>
-<tr>
-<td>shouldComponentUpdate</td>
-<td>&gt;=0</td>
-<td>否</td>
-</tr>
-<tr>
-<td>componentWillUpdate</td>
-<td>&gt;=0</td>
-<td>否</td>
-</tr>
-<tr>
-<td>componentDidUpdate</td>
-<td>&gt;=0</td>
-<td>否</td>
-</tr>
-<tr>
-<td>componentWillUnmount</td>
-<td>1</td>
-<td>否</td>
-</tr>
-</tbody>
-</table>
-
       
     </div>
 
@@ -1135,7 +494,7 @@
       
 
       <span class="post-tags">
-        <a href="/blog/tags/react/">tags/react/</a>
+        <a href="/blog/tags/react/">react</a>
       </span>
       
 
@@ -1185,188 +544,8 @@
 <p><a href="https://github.com/reactjs/react-router/blob/master/docs/API.md" target="_blank" rel="noopener">react-router API</a></p>
 </blockquote>
 <h2 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h2><p>安装命令：</p>
-<pre><code>$ npm install -S react-router
-</code></pre><p>使用展示：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; Router &#125; <span class="keyword">from</span> <span class="string">'react-router'</span>;</span><br><span class="line">render(<span class="xml"><span class="tag">&lt;<span class="name">Router</span>/&gt;</span></span>, <span class="built_in">document</span>.getElementById(<span class="string">'app'</span>));</span><br></pre></td></tr></table></figure>
-<p>Router组件本身只是一个容器，真正的路由要通过Route组件定义。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; Router, Route, hashHistory &#125; <span class="keyword">from</span> <span class="string">'react-router'</span>;</span><br><span class="line"></span><br><span class="line">render((</span><br><span class="line">  &lt;Router history=&#123;hashHistory&#125;&gt;</span><br><span class="line">    &lt;Route path=<span class="string">"/"</span> component=&#123;App&#125;/&gt;</span><br><span class="line">  &lt;<span class="regexp">/Router&gt;</span></span><br><span class="line"><span class="regexp">), document.getElementById('app'));</span></span><br></pre></td></tr></table></figure>
-<p>代码解释：</p>
-<ul>
-<li>用户访问根路由<code>/</code>（比如<code>http://www.example.com/</code>），组件<code>APP</code>就会加载到document.getElementById(‘app’)。</li>
-<li><code>Router</code>组件有一个参数<code>history</code>，它的值<code>hashHistory</code>表示，路由的切换由URL的<code>hash</code>变化决定，即URL的#部分发生变化。举例来说，用户访问<code>http://www.example.com/</code>，实际会看到的是<code>http://www.example.com/#/</code>。</li>
-</ul>
-<h2 id="嵌套路由"><a href="#嵌套路由" class="headerlink" title="嵌套路由"></a>嵌套路由</h2><p><code>Route</code>组件定义了URL路径与组件的对应关系。你可以同时使用多个Route组件。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;Router history=&#123;hashHistory&#125;&gt;</span><br><span class="line">  &lt;Route path=<span class="string">"/"</span> component=&#123;App&#125;/&gt;</span><br><span class="line">  &lt;Route path=<span class="string">"/repos"</span> component=&#123;Repos&#125;/&gt;</span><br><span class="line">  &lt;Route path=<span class="string">"/about"</span> component=&#123;About&#125;/&gt;</span><br><span class="line">&lt;<span class="regexp">/Router&gt;</span></span><br></pre></td></tr></table></figure>
-<p>上面代码中，用户访问<code>/repos</code>时，会先加载<code>App</code>组件，然后在它的内部再加载<code>Repos</code>组件。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;App&gt;</span><br><span class="line">  &lt;Repos/&gt;</span><br><span class="line">&lt;<span class="regexp">/App&gt;</span></span><br></pre></td></tr></table></figure>
-<p>App组件要写成下面的样子。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> React.createClass(&#123;</span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="xml">      &#123;this.props.children&#125;</span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<p>上面代码中，App组件的<code>this.props.children</code>属性就是子组件。</p>
-<p>子路由也可以不写在<code>Router</code>组件里面，单独传入<code>Router</code>组件的<code>routes</code>属性。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> routes = <span class="xml"><span class="tag">&lt;<span class="name">Route</span> <span class="attr">path</span>=<span class="string">"/"</span> <span class="attr">component</span>=<span class="string">&#123;App&#125;</span>&gt;</span></span></span><br><span class="line">  &lt;Route path="/repos" component=&#123;Repos&#125;/&gt;</span><br><span class="line">  &lt;Route path="/about" component=&#123;About&#125;/&gt;</span><br><span class="line">&lt;/Route&gt;;</span><br><span class="line"></span><br><span class="line">&lt;Router routes=&#123;routes&#125; history=&#123;browserHistory&#125;/&gt;</span><br></pre></td></tr></table></figure>
-<h2 id="path属性"><a href="#path属性" class="headerlink" title="path属性"></a>path属性</h2><p><code>Route</code>组件的<code>path</code>属性指定路由的匹配规则。这个属性是可以省略的，这样的话，不管路径是否匹配，总是会加载指定组件。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;Route path=<span class="string">"inbox"</span> component=&#123;Inbox&#125;&gt;</span><br><span class="line">   &lt;Route path=<span class="string">"messages/:id"</span> component=&#123;Message&#125; /&gt;</span><br><span class="line">&lt;<span class="regexp">/Route&gt;</span></span><br></pre></td></tr></table></figure>
-<p>上面代码中，当用户访问<code>/inbox/messages/:id</code>时，会加载下面的组件。</p>
-<p>如果省略外层<code>Route</code>的<code>path</code>参数，写成下面的样子。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;Route component=&#123;Inbox&#125;&gt;</span><br><span class="line">  &lt;Route path=<span class="string">"inbox/messages/:id"</span> component=&#123;Message&#125; /&gt;</span><br><span class="line">&lt;<span class="regexp">/Route&gt;</span></span><br></pre></td></tr></table></figure>
-<h2 id="通配符"><a href="#通配符" class="headerlink" title="通配符"></a>通配符</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;Route path=<span class="string">"/hello/:name"</span>&gt;</span><br><span class="line"><span class="comment">// 匹配 /hello/michael</span></span><br><span class="line"><span class="comment">// 匹配 /hello/ryan</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;Route path=<span class="string">"/hello(/:name)"</span>&gt;</span><br><span class="line"><span class="comment">// 匹配 /hello</span></span><br><span class="line"><span class="comment">// 匹配 /hello/michael</span></span><br><span class="line"><span class="comment">// 匹配 /hello/ryan</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;Route path=<span class="string">"/files/*.*"</span>&gt;</span><br><span class="line"><span class="comment">// 匹配 /files/hello.jpg</span></span><br><span class="line"><span class="comment">// 匹配 /files/hello.html</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;Route path=<span class="string">"/files/*"</span>&gt;</span><br><span class="line"><span class="comment">// 匹配 /files/ </span></span><br><span class="line"><span class="comment">// 匹配 /files/a</span></span><br><span class="line"><span class="comment">// 匹配 /files/a/b</span></span><br></pre></td></tr></table></figure>
-<p>通配符规则：</p>
-<ul>
-<li><code>:paramName</code>匹配URL的一个部分，直到遇到下一个/、?、#为止。这个路径参数可以通过this.props.params.paramName取出。</li>
-<li><code>()</code>表示URL的这个部分是可选的。</li>
-<li><code>*</code>匹配任意字符，直到模式里面的下一个字符为止。匹配方式是非贪婪模式。</li>
-<li><code>**</code>匹配任意字符，直到下一个/、?、#为止。匹配方式是贪婪模式。</li>
-</ul>
-<h2 id="常用组件"><a href="#常用组件" class="headerlink" title="常用组件"></a>常用组件</h2><h4 id="IndexRoute"><a href="#IndexRoute" class="headerlink" title="IndexRoute"></a>IndexRoute</h4><p>上面的代码会发现访问根路径会加载不到子组件。<code>IndexRoute</code>就是解决这个问题，显式指定<code>Home</code>是根路由的子组件，即指定默认情况下加载的子组件。你可以把<code>IndexRoute</code>想象成某个路径的index.html。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;Router&gt;</span><br><span class="line">  &lt;Route path=<span class="string">"/"</span> component=&#123;App&#125;&gt;</span><br><span class="line">    &lt;IndexRoute component=&#123;Home&#125;/&gt;</span><br><span class="line">    &lt;Route path=<span class="string">"accounts"</span> component=&#123;Accounts&#125;/&gt;</span><br><span class="line">    &lt;Route path=<span class="string">"statements"</span> component=&#123;Statements&#125;/&gt;</span><br><span class="line">  &lt;<span class="regexp">/Route&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>Router&gt;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p><code>IndexRoute</code>组件没有路径参数<code>path</code>。</p>
-</blockquote>
-<h4 id="Redirect"><a href="#Redirect" class="headerlink" title="Redirect"></a>Redirect</h4><p><code>&lt;Redirect&gt;</code>组件用于路由的跳转，即用户访问一个路由，会自动跳转到另一个路由。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;Route path=<span class="string">"inbox"</span> component=&#123;Inbox&#125;&gt;</span><br><span class="line">  &#123;<span class="comment">/* 从 /inbox/messages/:id 跳转到 /messages/:id */</span>&#125;</span><br><span class="line">  ＜Redirect <span class="keyword">from</span>=<span class="string">"messages/:id"</span> to=<span class="string">"/messages/:id"</span> /&gt;</span><br><span class="line">&lt;<span class="regexp">/Route&gt;</span></span><br></pre></td></tr></table></figure>
-<h4 id="IndexRedirect"><a href="#IndexRedirect" class="headerlink" title="IndexRedirect"></a>IndexRedirect</h4><p><code>IndexRedirect</code>组件用于访问根路由的时候，将用户重定向到某个子组件。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;Route path=<span class="string">"/"</span> component=&#123;App&#125;&gt;</span><br><span class="line">  ＜IndexRedirect to=<span class="string">"/welcome"</span> /&gt;</span><br><span class="line">  &lt;Route path=<span class="string">"welcome"</span> component=&#123;Welcome&#125; /&gt;</span><br><span class="line">  &lt;Route path=<span class="string">"about"</span> component=&#123;About&#125; /&gt;</span><br><span class="line">&lt;<span class="regexp">/Route&gt;</span></span><br></pre></td></tr></table></figure>
-<h4 id="RouterContext"><a href="#RouterContext" class="headerlink" title="RouterContext"></a>RouterContext</h4><ul>
-<li><p>push(pathOrLoc)</p>
-  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">router.push(<span class="string">'/users/12'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// or with a location descriptor object</span></span><br><span class="line">router.push(&#123;</span><br><span class="line"> pathname: <span class="string">'/users/12'</span>,</span><br><span class="line"> query: &#123; <span class="attr">modal</span>: <span class="literal">true</span> &#125;,</span><br><span class="line"> state: &#123; <span class="attr">fromDashboard</span>: <span class="literal">true</span> &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>replace(pathOrLoc)</p>
-</li>
-<li>go(n)</li>
-<li>goBack()</li>
-<li>goForward()</li>
-<li>setRouteLeaveHook(route, hook)</li>
-</ul>
-<h2 id="Link"><a href="#Link" class="headerlink" title="Link"></a>Link</h2><p><code>Link</code>组件用于取代<code>&lt;a&gt;</code>元素，生成一个链接，允许用户点击后跳转到另一个路由。它基本上就是<code>&lt;a&gt;</code>元素的<code>React 版本，可以接收Router</code>的状态。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">render() &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span></span><br><span class="line">    &lt;ul role="nav"&gt;</span><br><span class="line">      &lt;li&gt;&lt;Link to="/about"&gt;About&lt;/Link&gt;&lt;/li&gt;</span><br><span class="line">      &lt;li&gt;&lt;Link to="/repos"&gt;Repos&lt;/Link&gt;&lt;/li&gt;</span><br><span class="line"><span class="xml">    <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span></span><br><span class="line"><span class="xml">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>如果希望当前的路由与其他路由有不同样式，这时可以使用<code>Link</code>组件的<code>activeStyle</code>属性</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;Link to=<span class="string">"/about"</span> activeStyle=&#123;&#123;<span class="attr">color</span>: <span class="string">'red'</span>&#125;&#125;&gt;About&lt;<span class="regexp">/Link&gt;</span></span><br><span class="line"><span class="regexp">&lt;Link to="/</span>repos<span class="string">" activeStyle=&#123;&#123;color: 'red'&#125;&#125;&gt;Repos&lt;/Link&gt;</span></span><br></pre></td></tr></table></figure>
-<p>另一种做法是，使用<code>activeClassName</code>指定当前路由的<code>Class</code>。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;Link to=<span class="string">"/about"</span> activeClassName=<span class="string">"active"</span>&gt;About&lt;<span class="regexp">/Link&gt;</span></span><br><span class="line"><span class="regexp">&lt;Link to="/</span>repos<span class="string">" activeClassName="</span>active<span class="string">"&gt;Repos&lt;/Link&gt;</span></span><br></pre></td></tr></table></figure>
-<h2 id="IndexLink"><a href="#IndexLink" class="headerlink" title="IndexLink"></a>IndexLink</h2><p>如果链接到根路由<code>/</code>，不要使用<code>Link</code>组件，而要使用<code>IndexLink</code>组件。</p>
-<p>这是因为对于根路由来说，<code>activeStyle</code>和<code>activeClassName</code>会失效，或者说总是生效，因为<code>/</code>会匹配任何子路由。而IndexLink组件会使用路径的精确匹配。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;IndexLink to=<span class="string">"/"</span> activeClassName=<span class="string">"active"</span>&gt;</span><br><span class="line">  Home</span><br><span class="line">&lt;<span class="regexp">/IndexLink&gt;</span></span><br></pre></td></tr></table></figure>
-<p>另一种方法是使用<code>Link</code>组件的<code>onlyActiveOnIndex</code>属性，也能达到同样效果。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;Link to=<span class="string">"/"</span> activeClassName=<span class="string">"active"</span> onlyActiveOnIndex=&#123;<span class="literal">true</span>&#125;&gt;</span><br><span class="line">  Home</span><br><span class="line">&lt;<span class="regexp">/Link&gt;</span></span><br></pre></td></tr></table></figure>
-<p>实际上，<code>IndexLink</code>就是对<code>Link</code>组件的<code>onlyActiveOnIndex</code>属性的包装。</p>
-<h2 id="history"><a href="#history" class="headerlink" title="history"></a>history</h2><p><code>Router</code>组件的<code>history</code>属性，用来监听浏览器地址栏的变化，并将URL解析成一个地址对象，供 React Router 匹配。</p>
-<ul>
-<li><code>hashHistory</code><ul>
-<li>如果设为<code>hashHistory</code>，路由将通过URL的hash部分（#）切换，URL的形式类似example.com/#/some/path。</li>
-</ul>
-</li>
-<li><code>browserHistory</code><ul>
-<li>如果设为<code>browserHistory</code>，浏览器的路由就不再通过Hash完成了，而显示正常的路径example.com/some/path，背后调用的是浏览器的History API</li>
-<li>种情况需要对服务器改造。否则用户直接向服务器请求某个子路由，会显示网页找不到的404错误。</li>
-</ul>
-</li>
-<li><p><code>createMemoryHistory</code></p>
-<ul>
-<li><code>createMemoryHistory</code>主要用于服务器渲染。它创建一个内存中的history对象，不与浏览器URL互动。<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> history = createMemoryHistory(location)</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-<li><p><code>useRouterHistory(createHistory)</code></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> createHashHistory <span class="keyword">from</span> <span class="string">'history/lib/createHashHistory'</span></span><br><span class="line"><span class="keyword">const</span> history = useRouterHistory(createHashHistory)(&#123; <span class="attr">queryKey</span>: <span class="literal">false</span> &#125;)</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h2 id="表单处理"><a href="#表单处理" class="headerlink" title="表单处理"></a>表单处理</h2><p><code>Link</code>组件用于正常的用户点击跳转，但是有时还需要表单跳转、点击按钮跳转等操作。这些情况怎么跟React Router对接呢？</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;form onSubmit=&#123;<span class="keyword">this</span>.handleSubmit&#125;&gt;</span><br><span class="line">  &lt;input type=<span class="string">"text"</span> placeholder=<span class="string">"userName"</span>/&gt;</span><br><span class="line">  &lt;input type=<span class="string">"text"</span> placeholder=<span class="string">"repo"</span>/&gt;</span><br><span class="line">  &lt;button type=<span class="string">"submit"</span>&gt;Go&lt;<span class="regexp">/button&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>form&gt;</span><br></pre></td></tr></table></figure>
-<p>第一种方法是使用<code>browserHistory.push</code></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; browserHistory &#125; <span class="keyword">from</span> <span class="string">'react-router'</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// ...</span></span><br><span class="line">  handleSubmit(event) &#123;</span><br><span class="line">    event.preventDefault()</span><br><span class="line">    <span class="keyword">const</span> userName = event.target.elements[<span class="number">0</span>].value</span><br><span class="line">    <span class="keyword">const</span> repo = event.target.elements[<span class="number">1</span>].value</span><br><span class="line">    <span class="keyword">const</span> path = <span class="string">`/repos/<span class="subst">$&#123;userName&#125;</span>/<span class="subst">$&#123;repo&#125;</span>`</span></span><br><span class="line">    browserHistory.push(path)</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
-<p>第二种方法是使用<code>context</code>对象。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> React.createClass(&#123;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// ask for `router` from context</span></span><br><span class="line">  contextTypes: &#123;</span><br><span class="line">    router: React.PropTypes.object</span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  handleSubmit(event) &#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">    <span class="keyword">this</span>.context.router.push(path)</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<h2 id="常见配置方案"><a href="#常见配置方案" class="headerlink" title="常见配置方案"></a>常见配置方案</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">React.render((</span><br><span class="line">  &lt;Router&gt;</span><br><span class="line">    &lt;Route path=<span class="string">"/"</span> component=&#123;App&#125;&gt;</span><br><span class="line">      &lt;Route path=<span class="string">"about"</span> component=&#123;About&#125; /&gt;</span><br><span class="line">      &lt;Route path=<span class="string">"inbox"</span> component=&#123;Inbox&#125;&gt;</span><br><span class="line">        &lt;Route path=<span class="string">"messages/:id"</span> component=&#123;Message&#125; /&gt;</span><br><span class="line">      &lt;<span class="regexp">/Route&gt;</span></span><br><span class="line"><span class="regexp">    &lt;/</span>Route&gt;</span><br><span class="line">  &lt;<span class="regexp">/Router&gt;</span></span><br><span class="line"><span class="regexp">), document.body)</span></span><br></pre></td></tr></table></figure>
-<table>
-<thead>
-<tr>
-<th>URL</th>
-<th>组件</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>/</td>
-<td>APP</td>
-</tr>
-<tr>
-<td>/about</td>
-<td>App -&gt; About</td>
-</tr>
-<tr>
-<td>/inbox</td>
-<td>App -&gt; Inbox</td>
-</tr>
-<tr>
-<td>/inbox/messages/:id</td>
-<td>App -&gt; Inbox -&gt; Message</td>
-</tr>
-</tbody>
-</table>
-<h4 id="添加首页"><a href="#添加首页" class="headerlink" title="添加首页"></a>添加首页</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">React.render((</span><br><span class="line">  &lt;Router&gt;</span><br><span class="line">    &lt;Route path=<span class="string">"/"</span> component=&#123;App&#125;&gt;</span><br><span class="line">      &#123;<span class="comment">/* 当 url 为/时渲染 Dashboard */</span>&#125;</span><br><span class="line">      &lt;IndexRoute component=&#123;Dashboard&#125; /&gt;</span><br><span class="line">      &lt;Route path=<span class="string">"about"</span> component=&#123;About&#125; /&gt;</span><br><span class="line">      &lt;Route path=<span class="string">"inbox"</span> component=&#123;Inbox&#125;&gt;</span><br><span class="line">        &lt;Route path=<span class="string">"messages/:id"</span> component=&#123;Message&#125; /&gt;</span><br><span class="line">      &lt;<span class="regexp">/Route&gt;</span></span><br><span class="line"><span class="regexp">    &lt;/</span>Route&gt;</span><br><span class="line">  &lt;<span class="regexp">/Router&gt;</span></span><br><span class="line"><span class="regexp">), document.body)</span></span><br></pre></td></tr></table></figure>
-<table>
-<thead>
-<tr>
-<th>URL</th>
-<th>组件</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>/</td>
-<td>App -&gt; Dashboard</td>
-</tr>
-<tr>
-<td>/about</td>
-<td>App -&gt; About</td>
-</tr>
-<tr>
-<td>/inbox</td>
-<td>App -&gt; Inbox</td>
-</tr>
-<tr>
-<td>/inbox/messages/:id</td>
-<td>App -&gt; Inbox -&gt; Message</td>
-</tr>
-</tbody>
-</table>
-<h4 id="让-UI-从-URL-中解耦出来"><a href="#让-UI-从-URL-中解耦出来" class="headerlink" title="让 UI 从 URL 中解耦出来"></a>让 UI 从 URL 中解耦出来</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">React.render((</span><br><span class="line">  &lt;Router&gt;</span><br><span class="line">    &lt;Route path=<span class="string">"/"</span> component=&#123;App&#125;&gt;</span><br><span class="line">      &lt;IndexRoute component=&#123;Dashboard&#125; /&gt;</span><br><span class="line">      &lt;Route path=<span class="string">"about"</span> component=&#123;About&#125; /&gt;</span><br><span class="line">      &lt;Route path=<span class="string">"inbox"</span> component=&#123;Inbox&#125;&gt;</span><br><span class="line">        &#123;<span class="comment">/* 使用 /messages/:id 替换 messages/:id */</span>&#125;</span><br><span class="line">        &lt;Route path=<span class="string">"/messages/:id"</span> component=&#123;Message&#125; /&gt;</span><br><span class="line">      &lt;<span class="regexp">/Route&gt;</span></span><br><span class="line"><span class="regexp">    &lt;/</span>Route&gt;</span><br><span class="line">  &lt;<span class="regexp">/Router&gt;</span></span><br><span class="line"><span class="regexp">), document.body)</span></span><br></pre></td></tr></table></figure>
-<table>
-<thead>
-<tr>
-<th>URL</th>
-<th>组件</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>/</td>
-<td>App -&gt; Dashboard</td>
-</tr>
-<tr>
-<td>/about</td>
-<td>App -&gt; About</td>
-</tr>
-<tr>
-<td>/inbox</td>
-<td>App -&gt; Inbox</td>
-</tr>
-<tr>
-<td>/messages/:id</td>
-<td>App -&gt; Inbox -&gt; Message</td>
-</tr>
-</tbody>
-</table>
-<h4 id="兼容旧的-URL"><a href="#兼容旧的-URL" class="headerlink" title="兼容旧的 URL"></a>兼容旧的 URL</h4><p>现在任何人访问 /inbox/messages/5 都会看到一个错误页面。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; Redirect &#125; <span class="keyword">from</span> <span class="string">'react-router'</span></span><br><span class="line"></span><br><span class="line">React.render((</span><br><span class="line">  &lt;Router&gt;</span><br><span class="line">    &lt;Route path=<span class="string">"/"</span> component=&#123;App&#125;&gt;</span><br><span class="line">      &lt;IndexRoute component=&#123;Dashboard&#125; /&gt;</span><br><span class="line">      &lt;Route path=<span class="string">"about"</span> component=&#123;About&#125; /&gt;</span><br><span class="line">      &lt;Route path=<span class="string">"inbox"</span> component=&#123;Inbox&#125;&gt;</span><br><span class="line">        &lt;Route path=<span class="string">"/messages/:id"</span> component=&#123;Message&#125; /&gt;</span><br><span class="line"></span><br><span class="line">        &#123;<span class="comment">/* 跳转 /inbox/messages/:id 到 /messages/:id */</span>&#125;</span><br><span class="line">        &lt;Redirect <span class="keyword">from</span>=<span class="string">"messages/:id"</span> to=<span class="string">"/messages/:id"</span> /&gt;</span><br><span class="line">      &lt;<span class="regexp">/Route&gt;</span></span><br><span class="line"><span class="regexp">    &lt;/</span>Route&gt;</span><br><span class="line">  &lt;<span class="regexp">/Router&gt;</span></span><br><span class="line"><span class="regexp">), document.body)</span></span><br></pre></td></tr></table></figure>
-<h4 id="替换的配置方式"><a href="#替换的配置方式" class="headerlink" title="替换的配置方式"></a>替换的配置方式</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> routeConfig = [</span><br><span class="line">  &#123; <span class="attr">path</span>: <span class="string">'/'</span>,</span><br><span class="line">    component: App,</span><br><span class="line">    indexRoute: &#123; <span class="attr">component</span>: Dashboard &#125;,</span><br><span class="line">    childRoutes: [</span><br><span class="line">      &#123; <span class="attr">path</span>: <span class="string">'about'</span>, <span class="attr">component</span>: About &#125;,</span><br><span class="line">      &#123; <span class="attr">path</span>: <span class="string">'inbox'</span>,</span><br><span class="line">        component: Inbox,</span><br><span class="line">        childRoutes: [</span><br><span class="line">          &#123; <span class="attr">path</span>: <span class="string">'/messages/:id'</span>, <span class="attr">component</span>: Message &#125;,</span><br><span class="line">          &#123; <span class="attr">path</span>: <span class="string">'messages/:id'</span>,</span><br><span class="line">            onEnter: <span class="function"><span class="keyword">function</span> (<span class="params">nextState, replaceState</span>) </span>&#123;</span><br><span class="line">              replaceState(<span class="literal">null</span>, <span class="string">'/messages/'</span> + nextState.params.id)</span><br><span class="line">            &#125;</span><br><span class="line">          &#125;</span><br><span class="line">        ]</span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line">React.render(<span class="xml"><span class="tag">&lt;<span class="name">Router</span> <span class="attr">routes</span>=<span class="string">&#123;routeConfig&#125;</span> /&gt;</span>, document.body)</span></span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>转载自<a href="http://www.ruanyifeng.com/blog/2016/05/react_router.html" target="_blank" rel="noopener">react router使用教程</a></p>
-</blockquote>
-
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -S react-router</span><br></pre></td></tr></table></figure>
+<p>使用展示：</p>
       
     </div>
 
@@ -1381,7 +560,7 @@
       
 
       <span class="post-tags">
-        <a href="/blog/tags/react/">tags/react/</a><a href="/blog/tags/react-router/">tags/react-router/</a>
+        <a href="/blog/tags/react/">react</a><a href="/blog/tags/react-router/">react-router</a>
       </span>
       
 
@@ -1433,12 +612,6 @@
 <p>我们可以直接使用<code>filter</code>，跟在表达式后面用 | 分割</p>
 <pre><code>{{ expression | filter }}
 </code></pre><p>也可以多个<code>filter</code>连用，上一个<code>filter</code>的输出将作为下一个<code>filter</code>的输入</p>
-<pre><code>{{ expression | filter1 | filter2 | ... }}
-</code></pre><p><code>filter</code>可以接收参数，参数用 : 进行分割</p>
-<pre><code>{{ expression | filter:argument1:argument2:... }}
-</code></pre><p>除了对数据进行格式化，我们还可以在指令中使用<code>filter</code>，例如先对数组<code>array</code>进行过滤处理，然后再循环输出：</p>
-<pre><code>&lt;span ng-repeat=&quot;a in array | filter &quot;&gt;
-</code></pre>
       
     </div>
 
@@ -1453,7 +626,7 @@
       
 
       <span class="post-tags">
-        <a href="/blog/tags/angular/">tags/angular/</a>
+        <a href="/blog/tags/angular/">angular</a>
       </span>
       
 
@@ -1501,14 +674,9 @@
       
       <h2 id="为什么需要前端路由"><a href="#为什么需要前端路由" class="headerlink" title="为什么需要前端路由"></a>为什么需要前端路由</h2><ul>
 <li><code>Ajax</code>请求不会留下<code>history</code>记录</li>
-<li>用户无法直接通过url进入应用中的指定页面（保存书签，链接分享给朋友）</li>
+<li>用户无法直接通过 url 进入应用中的指定页面（保存书签，链接分享给朋友）</li>
 <li><code>Ajax</code>对<code>SEO</code>不友好（没法让搜索引擎索引）</li>
 </ul>
-<h2 id="Angular-路由"><a href="#Angular-路由" class="headerlink" title="Angular 路由"></a>Angular 路由</h2><p>在<code>APP</code>中定义多个页面的控制器，并给出对应的模板。然后<code>$routeProvider</code>进行配置，即可将URL映射到这些控制器和视图。 首先定义一个基本的Angular APP，并引入<code>ngRoute</code>：</p>
-<blockquote>
-<p>Angular<code>$routeService</code>在<code>ngRoute</code>模块里。需要引入它对应的JavaScript文件，并在我们的APP里<code>ngRoute</code>添加为模块依赖。</p>
-</blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> app = angular.module(<span class="string">'ngRouteExample'</span>, [<span class="string">'ngRoute'</span>])</span><br><span class="line">    .controller(<span class="string">'MainController'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">$scope</span>) </span>&#123;</span><br><span class="line">    &#125;)</span><br><span class="line">    .config(<span class="function"><span class="keyword">function</span>(<span class="params">$routeProvider, $locationProvider</span>) </span>&#123;</span><br><span class="line">      $routeProvider</span><br><span class="line">          .when(<span class="string">'/users'</span>, &#123;</span><br><span class="line">              templateUrl: <span class="string">'user-list.html'</span>,</span><br><span class="line">              controller: <span class="string">'UserListCtrl'</span></span><br><span class="line">          &#125;)</span><br><span class="line">          .when(<span class="string">'/users/:username'</span>, &#123;</span><br><span class="line">              templateUrl: <span class="string">'user.html'</span>,</span><br><span class="line">              controller: <span class="string">'UserCtrl'</span></span><br><span class="line">          &#125;)</span><br><span class="line">		  .otherwise(&#123;</span><br><span class="line">		  	  redirectTo: <span class="string">'/hello'</span></span><br><span class="line">		  &#125;);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// configure html5</span></span><br><span class="line">        $locationProvider.html5Mode(<span class="literal">true</span>);</span><br><span class="line">    &#125;);</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -1523,7 +691,7 @@
       
 
       <span class="post-tags">
-        <a href="/blog/tags/angular/">tags/angular/</a>
+        <a href="/blog/tags/angular/">angular</a>
       </span>
       
 
@@ -1555,9 +723,9 @@
     下一页</a>
   
 </nav>
-    </main>
+      </main>
 
-    <footer class="site-footer">
+      <footer class="site-footer">
   <p class="site-info">
     
     &copy;
@@ -1566,7 +734,7 @@
     
   </p>
 </footer>
-    
+      
 <script>
     (function (i, s, o, g, r, a, m) {
         i['GoogleAnalyticsObject'] = r;
@@ -1584,7 +752,27 @@
     ga('send', 'pageview');
 </script>
 
+    </div>
   </div>
-</div>
+  <span class="back-top">⇡</span>
 </body>
+
+<script>
+  window.onload = function () {
+    var $backtop = document.querySelector('.back-top')
+    var $body = document.body
+    $body.addEventListener('scroll', function (e) {
+      var currentscrolltop = e.target.scrollTop
+      if (currentscrolltop > 500) {
+        $backtop.style.display = 'block'
+      } else {
+        $backtop.style.display = 'none'
+      }
+    })
+    $backtop.addEventListener('click', function () {
+      $body.scrollTop = 0
+    })
+  }
+</script>
+
 </html>

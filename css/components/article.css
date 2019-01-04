@@ -95,15 +95,16 @@ article .article-title a {
 }
 article .article-title a span {
   padding-bottom: 3px;
-  -webkit-transition: 0.15s;
-  transition: 0.15s;
-  box-shadow: inset 0 -3px 0 rgba(240,56,56,0);
 }
 article .article-title a:hover {
   color: #212121;
 }
 article .article-title a:hover span {
-  box-shadow: inset 0 -3px 0 rgba(240,56,56,0.4);
+  background-size: calc(100% + 1px) 100%;
+  border-bottom: 2px solid transparent;
+  background-repeat: no-repeat;
+  background-position: -1px calc(100% + 3px);
+  animation: ani 0.4s ease 0s 1 normal forwards running;
 }
 article .article-top-meta {
   position: relative;
@@ -186,6 +187,12 @@ article .article-footer .post-tags a {
   border-radius: 1em;
   text-indent: 0;
   margin-right: 0.5em;
+  transition: all 0.3s;
+}
+article .article-footer .post-tags a:hover {
+  background: #de4c4f;
+  color: #fff;
+  opacity: 0.8;
 }
 article .article-footer .post-tags a:before {
   content: "#";

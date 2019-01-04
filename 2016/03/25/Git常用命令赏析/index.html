@@ -41,10 +41,10 @@
 </head>
 
 <body>
-<div class="blog">
-  <div class="content">
+  <div class="blog">
+    <div class="content">
 
-    <header>
+      <header>
   <div class="site-branding">
     <h1 class="site-title">
       <a href="/blog/">时光的涂鸦墙</a>
@@ -66,8 +66,8 @@
   </nav>
 </header>
 
-    <main class="site-main posts-loop">
-    <article>
+      <main class="site-main posts-loop">
+        <article>
 
   
   
@@ -94,8 +94,8 @@
       
       <h1 id="新建代码库"><a href="#新建代码库" class="headerlink" title="新建代码库"></a>新建代码库</h1><pre><code># 在当前目录新建一个Git代码库
 $ git init
-
-# 新建一个目录，将其初始化为Git代码库
+</code></pre><a id="more"></a>
+<pre><code># 新建一个目录，将其初始化为Git代码库
 $ git init [project-name]
 
 # 下载一个项目和它的整个代码历史
@@ -109,7 +109,7 @@ $ git config -e [--global]
 # 设置提交代码时的用户信息
 $ git config [--global] user.name &quot;[name]&quot;
 $ git config [--global] user.email &quot;[email address]&quot;
-</code></pre><a id="more"></a>
+</code></pre><!--more-->
 <h1 id="增加-删除文件"><a href="#增加-删除文件" class="headerlink" title="增加/删除文件"></a>增加/删除文件</h1><pre><code># 添加指定文件到暂存区
 $ git add [file1] [file2] ...
 
@@ -307,10 +307,10 @@ $ git stash
 $ git stash pop
 </code></pre><h1 id="git-恢复删除的分支"><a href="#git-恢复删除的分支" class="headerlink" title="git 恢复删除的分支"></a>git 恢复删除的分支</h1><ul>
 <li>git log -g &gt; /home/mnt/git.log</li>
-<li>在git.log 文件中查找你要恢复的那个仓库版本号，如 commit 861e10844e0b2703686a89d7c41ce7d761eb4a79</li>
+<li>在 git.log 文件中查找你要恢复的那个仓库版本号，如 commit 861e10844e0b2703686a89d7c41ce7d761eb4a79</li>
 <li>执行 git branch recover_branch commitid（861e10844e0b2703686a89d7c41ce7d761eb4a79） 这样就把要恢复的分支内容恢复到了 recover_branch 分支中了</li>
 </ul>
-<p>如不小心删除了a分支：</p>
+<p>如不小心删除了 a 分支：</p>
 <pre><code>git log -g  //861e10844e0b2703686a89d7c41ce7d761eb4a79
 git checkout -b recover_branch
 git branch  recover_branch 861e10844e0b2703686a89d7c41ce7d761eb4a79
@@ -332,7 +332,7 @@ git branch  recover_branch 861e10844e0b2703686a89d7c41ce7d761eb4a79
       
 
       <span class="post-tags">
-        <a href="/blog/tags/Git/">tags/Git/</a>
+        <a href="/blog/tags/Git/">Git</a>
       </span>
       
 
@@ -362,9 +362,9 @@ git branch  recover_branch 861e10844e0b2703686a89d7c41ce7d761eb4a79
 
 
 
-    </main>
+      </main>
 
-    <footer class="site-footer">
+      <footer class="site-footer">
   <p class="site-info">
     
     &copy;
@@ -373,7 +373,7 @@ git branch  recover_branch 861e10844e0b2703686a89d7c41ce7d761eb4a79
     
   </p>
 </footer>
-    
+      
 <script>
     (function (i, s, o, g, r, a, m) {
         i['GoogleAnalyticsObject'] = r;
@@ -391,7 +391,27 @@ git branch  recover_branch 861e10844e0b2703686a89d7c41ce7d761eb4a79
     ga('send', 'pageview');
 </script>
 
+    </div>
   </div>
-</div>
+  <span class="back-top">⇡</span>
 </body>
+
+<script>
+  window.onload = function () {
+    var $backtop = document.querySelector('.back-top')
+    var $body = document.body
+    $body.addEventListener('scroll', function (e) {
+      var currentscrolltop = e.target.scrollTop
+      if (currentscrolltop > 500) {
+        $backtop.style.display = 'block'
+      } else {
+        $backtop.style.display = 'none'
+      }
+    })
+    $backtop.addEventListener('click', function () {
+      $body.scrollTop = 0
+    })
+  }
+</script>
+
 </html>

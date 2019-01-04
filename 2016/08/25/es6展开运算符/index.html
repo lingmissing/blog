@@ -41,10 +41,10 @@
 </head>
 
 <body>
-<div class="blog">
-  <div class="content">
+  <div class="blog">
+    <div class="content">
 
-    <header>
+      <header>
   <div class="site-branding">
     <h1 class="site-title">
       <a href="/blog/">时光的涂鸦墙</a>
@@ -66,8 +66,8 @@
   </nav>
 </header>
 
-    <main class="site-main posts-loop">
-    <article>
+      <main class="site-main posts-loop">
+        <article>
 
   
   
@@ -94,46 +94,47 @@
       
       <h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><ul>
 <li><p>用于函数调用</p>
-  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">myFunction(...iterableObj);</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">myFunction(...iterableObj)</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>用于数组字面量</p>
-  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[...iterableObj, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>]</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">;[...iterableObj, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>]</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
+<a id="more"></a>
 <h3 id="函数传参"><a href="#函数传参" class="headerlink" title="函数传参"></a>函数传参</h3><p>目前为止,我们都是使用<code>Function.prototype.apply</code>方法来将一个数组展开成多个参数:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">myFunction</span>(<span class="params">x, y, z</span>) </span>&#123; &#125;</span><br><span class="line"><span class="keyword">var</span> args = [<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>];</span><br><span class="line">myFunction.apply(<span class="literal">null</span>, args);</span><br></pre></td></tr></table></figure>
-<p>使用es6的展开运算符可以这么写：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">myFunction</span>(<span class="params">x, y, z</span>) </span>&#123; &#125;</span><br><span class="line"><span class="keyword">var</span> args = [<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>];</span><br><span class="line">myFunction(...args);</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">myFunction</span>(<span class="params">x, y, z</span>) </span>&#123;&#125;</span><br><span class="line"><span class="keyword">var</span> args = [<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>]</span><br><span class="line">myFunction.apply(<span class="literal">null</span>, args)</span><br></pre></td></tr></table></figure>
+<p>使用 es6 的展开运算符可以这么写：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">myFunction</span>(<span class="params">x, y, z</span>) </span>&#123;&#125;</span><br><span class="line"><span class="keyword">var</span> args = [<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>]</span><br><span class="line">myFunction(...args)</span><br></pre></td></tr></table></figure>
 <ul>
-<li>选择性传参  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">filter</span>(<span class="params">type, ...items</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> items.filter(<span class="function"><span class="params">item</span> =&gt;</span> <span class="keyword">typeof</span> item === type);</span><br><span class="line">&#125;</span><br><span class="line">filter(<span class="string">'boolean'</span>, <span class="literal">true</span>, <span class="number">0</span>, <span class="literal">false</span>);        <span class="comment">// =&gt; [true, false]</span></span><br><span class="line">filter(<span class="string">'number'</span>, <span class="literal">false</span>, <span class="number">4</span>, <span class="string">'Welcome'</span>, <span class="number">7</span>); <span class="comment">// =&gt; [4, 7]</span></span><br></pre></td></tr></table></figure>
+<li>选择性传参<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">filter</span>(<span class="params">type, ...items</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> items.filter(<span class="function"><span class="params">item</span> =&gt;</span> <span class="keyword">typeof</span> item === type)</span><br><span class="line">&#125;</span><br><span class="line">filter(<span class="string">'boolean'</span>, <span class="literal">true</span>, <span class="number">0</span>, <span class="literal">false</span>) <span class="comment">// =&gt; [true, false]</span></span><br><span class="line">filter(<span class="string">'number'</span>, <span class="literal">false</span>, <span class="number">4</span>, <span class="string">'Welcome'</span>, <span class="number">7</span>) <span class="comment">// =&gt; [4, 7]</span></span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <p>还可以同时展开多个数组：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">myFunction</span>(<span class="params">v, w, x, y, z</span>) </span>&#123; &#125;</span><br><span class="line"><span class="keyword">var</span> args = [<span class="number">0</span>, <span class="number">1</span>];</span><br><span class="line">myFunction(<span class="number">-1</span>, ...args, <span class="number">2</span>, ...[<span class="number">3</span>]);</span><br></pre></td></tr></table></figure>
-<h3 id="数据解构"><a href="#数据解构" class="headerlink" title="数据解构"></a>数据解构</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> cold = [<span class="string">'autumn'</span>, <span class="string">'winter'</span>];</span><br><span class="line"><span class="keyword">let</span> warm = [<span class="string">'spring'</span>, <span class="string">'summer'</span>];</span><br><span class="line"><span class="comment">// 析构数组</span></span><br><span class="line"><span class="keyword">let</span> otherSeasons, autumn;</span><br><span class="line">[autumn, ...otherSeasons] = cold;</span><br><span class="line">otherSeasons      <span class="comment">// =&gt; ['winter']</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">myFunction</span>(<span class="params">v, w, x, y, z</span>) </span>&#123;&#125;</span><br><span class="line"><span class="keyword">var</span> args = [<span class="number">0</span>, <span class="number">1</span>]</span><br><span class="line">myFunction(<span class="number">-1</span>, ...args, <span class="number">2</span>, ...[<span class="number">3</span>])</span><br></pre></td></tr></table></figure>
+<h3 id="数据解构"><a href="#数据解构" class="headerlink" title="数据解构"></a>数据解构</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> cold = [<span class="string">'autumn'</span>, <span class="string">'winter'</span>]</span><br><span class="line"><span class="keyword">let</span> warm = [<span class="string">'spring'</span>, <span class="string">'summer'</span>]</span><br><span class="line"><span class="comment">// 析构数组</span></span><br><span class="line"><span class="keyword">let</span> otherSeasons, autumn</span><br><span class="line">;[autumn, ...otherSeasons] = cold</span><br><span class="line">otherSeasons <span class="comment">// =&gt; ['winter']</span></span><br></pre></td></tr></table></figure>
 <h3 id="数据构造"><a href="#数据构造" class="headerlink" title="数据构造"></a>数据构造</h3><ul>
 <li><p>两个对象连接返回新的对象</p>
-  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> a = &#123;<span class="attr">aa</span>:<span class="string">'aa'</span>&#125;</span><br><span class="line"><span class="keyword">let</span> b = &#123;<span class="attr">bb</span>:<span class="string">'bb'</span>&#125;</span><br><span class="line"><span class="keyword">let</span> c = &#123;...a,...b&#125;</span><br><span class="line"><span class="built_in">console</span>.log(c)</span><br><span class="line"><span class="comment">// &#123;"aa":"aa","bb":"bb"&#125;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> a = &#123; <span class="attr">aa</span>: <span class="string">'aa'</span> &#125;</span><br><span class="line"><span class="keyword">let</span> b = &#123; <span class="attr">bb</span>: <span class="string">'bb'</span> &#125;</span><br><span class="line"><span class="keyword">let</span> c = &#123; ...a, ...b &#125;</span><br><span class="line"><span class="built_in">console</span>.log(c)</span><br><span class="line"><span class="comment">// &#123;"aa":"aa","bb":"bb"&#125;</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>两个数组连接返回新的数组</p>
-  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> d = [<span class="string">'dd'</span>]</span><br><span class="line"><span class="keyword">let</span> e = [<span class="string">'ee'</span>]</span><br><span class="line"><span class="keyword">let</span> f = [...d,...e]</span><br><span class="line"><span class="built_in">console</span>.log(f)</span><br><span class="line"><span class="comment">// ["dd","ee"]</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> d = [<span class="string">'dd'</span>]</span><br><span class="line"><span class="keyword">let</span> e = [<span class="string">'ee'</span>]</span><br><span class="line"><span class="keyword">let</span> f = [...d, ...e]</span><br><span class="line"><span class="built_in">console</span>.log(f)</span><br><span class="line"><span class="comment">// ["dd","ee"]</span></span><br></pre></td></tr></table></figure>
 <ul>
 <li><p>在中间插入数组</p>
-  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> parts = [<span class="string">'shoulder'</span>, <span class="string">'knees'</span>];</span><br><span class="line"><span class="keyword">var</span> lyrics = [<span class="string">'head'</span>, ...parts, <span class="string">'and'</span>, <span class="string">'toes'</span>]; <span class="comment">// ["head", "shoulders", "knees", "and", "toes"]</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> parts = [<span class="string">'shoulder'</span>, <span class="string">'knees'</span>]</span><br><span class="line"><span class="keyword">var</span> lyrics = [<span class="string">'head'</span>, ...parts, <span class="string">'and'</span>, <span class="string">'toes'</span>] <span class="comment">// ["head", "shoulders", "knees", "and", "toes"]</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>在尾部插入数组</p>
-  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ES5</span></span><br><span class="line"><span class="keyword">var</span> arr1 = [<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>];</span><br><span class="line"><span class="keyword">var</span> arr2 = [<span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>];</span><br><span class="line"><span class="comment">// 将arr2中的所有元素添加到arr1中</span></span><br><span class="line"><span class="built_in">Array</span>.prototype.push.apply(arr1, arr2);</span><br><span class="line"></span><br><span class="line"><span class="comment">// ES6</span></span><br><span class="line"><span class="keyword">var</span> arr1 = [<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>];</span><br><span class="line"><span class="keyword">var</span> arr2 = [<span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>];</span><br><span class="line">arr1.push(...arr2);</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ES5</span></span><br><span class="line"><span class="keyword">var</span> arr1 = [<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>]</span><br><span class="line"><span class="keyword">var</span> arr2 = [<span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br><span class="line"><span class="comment">// 将arr2中的所有元素添加到arr1中</span></span><br><span class="line"><span class="built_in">Array</span>.prototype.push.apply(arr1, arr2)</span><br><span class="line"></span><br><span class="line"><span class="comment">// ES6</span></span><br><span class="line"><span class="keyword">var</span> arr1 = [<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>]</span><br><span class="line"><span class="keyword">var</span> arr2 = [<span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br><span class="line">arr1.push(...arr2)</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 </li>
 <li><p>数组加上对象返回新的数组</p>
-  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> g = [&#123;<span class="attr">gg</span>:<span class="string">'gg'</span>&#125;]</span><br><span class="line"><span class="keyword">let</span> h = &#123;<span class="attr">hh</span>:<span class="string">'hh'</span>&#125;</span><br><span class="line"><span class="keyword">let</span> i = [...g,h]</span><br><span class="line"><span class="built_in">console</span>.log(i)</span><br><span class="line"><span class="comment">// [&#123;"gg":"gg"&#125;,&#123;"hh":"hh"&#125;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> g = [&#123; <span class="attr">gg</span>: <span class="string">'gg'</span> &#125;]</span><br><span class="line"><span class="keyword">let</span> h = &#123; <span class="attr">hh</span>: <span class="string">'hh'</span> &#125;</span><br><span class="line"><span class="keyword">let</span> i = [...g, h]</span><br><span class="line"><span class="built_in">console</span>.log(i)</span><br><span class="line"><span class="comment">// [&#123;"gg":"gg"&#125;,&#123;"hh":"hh"&#125;</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>数组+字符串</p>
-  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> j = [<span class="string">'jj'</span>]</span><br><span class="line"><span class="keyword">let</span> k = <span class="string">'kk'</span></span><br><span class="line"><span class="keyword">let</span> l = [...j,k]</span><br><span class="line"><span class="built_in">console</span>.log(l)</span><br><span class="line"><span class="comment">// ["jj","kk"]</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> j = [<span class="string">'jj'</span>]</span><br><span class="line"><span class="keyword">let</span> k = <span class="string">'kk'</span></span><br><span class="line"><span class="keyword">let</span> l = [...j, k]</span><br><span class="line"><span class="built_in">console</span>.log(l)</span><br><span class="line"><span class="comment">// ["jj","kk"]</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>带有数组和对象的结合</p>
-  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> state = &#123;</span><br><span class="line">    resultList: [],</span><br><span class="line">    currentPage: <span class="number">0</span>,</span><br><span class="line">    totalRows: &#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> data = &#123;</span><br><span class="line">    resultList: [&#123;<span class="attr">new</span>:<span class="string">'new'</span>&#125;],</span><br><span class="line">    currentPage: <span class="number">2</span>,</span><br><span class="line">    totalRows: &#123;<span class="attr">row</span>:<span class="string">'row'</span>&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> combile = &#123;</span><br><span class="line">                ...state,</span><br><span class="line">                resultList: [</span><br><span class="line">                    ...state.resultList,</span><br><span class="line">                    ...data.resultList</span><br><span class="line">                ],</span><br><span class="line">                currentPage: data.currentPage,</span><br><span class="line">                totalRows: data.totalRows</span><br><span class="line">            &#125;</span><br><span class="line"><span class="built_in">console</span>.log(combile)</span><br><span class="line"><span class="comment">// &#123;"resultList":[&#123;"new":"new"&#125;],"currentPage":2,"totalRows":&#123;"row":"row"&#125;&#125;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> state = &#123;</span><br><span class="line">  resultList: [],</span><br><span class="line">  currentPage: <span class="number">0</span>,</span><br><span class="line">  totalRows: &#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> data = &#123;</span><br><span class="line">  resultList: [&#123; <span class="attr">new</span>: <span class="string">'new'</span> &#125;],</span><br><span class="line">  currentPage: <span class="number">2</span>,</span><br><span class="line">  totalRows: &#123; <span class="attr">row</span>: <span class="string">'row'</span> &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> combile = &#123;</span><br><span class="line">  ...state,</span><br><span class="line">  resultList: [...state.resultList, ...data.resultList],</span><br><span class="line">  currentPage: data.currentPage,</span><br><span class="line">  totalRows: data.totalRows</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(combile)</span><br><span class="line"><span class="comment">// &#123;"resultList":[&#123;"new":"new"&#125;],"currentPage":2,"totalRows":&#123;"row":"row"&#125;&#125;</span></span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 
@@ -151,7 +152,7 @@
       
 
       <span class="post-tags">
-        <a href="/blog/tags/javascript/">tags/javascript/</a>
+        <a href="/blog/tags/javascript/">javascript</a>
       </span>
       
 
@@ -181,9 +182,9 @@
 
 
 
-    </main>
+      </main>
 
-    <footer class="site-footer">
+      <footer class="site-footer">
   <p class="site-info">
     
     &copy;
@@ -192,7 +193,7 @@
     
   </p>
 </footer>
-    
+      
 <script>
     (function (i, s, o, g, r, a, m) {
         i['GoogleAnalyticsObject'] = r;
@@ -210,7 +211,27 @@
     ga('send', 'pageview');
 </script>
 
+    </div>
   </div>
-</div>
+  <span class="back-top">⇡</span>
 </body>
+
+<script>
+  window.onload = function () {
+    var $backtop = document.querySelector('.back-top')
+    var $body = document.body
+    $body.addEventListener('scroll', function (e) {
+      var currentscrolltop = e.target.scrollTop
+      if (currentscrolltop > 500) {
+        $backtop.style.display = 'block'
+      } else {
+        $backtop.style.display = 'none'
+      }
+    })
+    $backtop.addEventListener('click', function () {
+      $body.scrollTop = 0
+    })
+  }
+</script>
+
 </html>

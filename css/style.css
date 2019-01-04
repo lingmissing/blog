@@ -468,6 +468,69 @@ td,
 th {
   padding: 0;
 }
+
+
+.archive-title a:hover span,
+article .article-title a:hover span {
+  background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScxMDAlJyBoZWlnaHQ9JzEwMCUnPgogIDxsaW5lIG9wYWNpdHk9JzAuNzUnIHgxPSc0JyB5MT0nMTAwJScgeDI9JzEwMCUnIHkyPScxMDAlJyB0cmFuc2Zvcm09J3RyYW5zbGF0ZSgtMS41LCAtMi41KScgc3Ryb2tlLXdpZHRoPSczJyBzdHJva2UtbGluZWNhcD0ncm91bmQnIHN0cm9rZT0nI2ZjNTQ1NCcvPgo8L3N2Zz4K)
+}
+
+@keyframes ani {
+  0% {
+    background-size: 0px 100%;
+  }
+
+  100% {
+    background-size: calc(100% + 1px) 100%;
+  }
+}
+
+.about-me {
+  display: flex;
+  border-left: 3px solid #de4c4f;
+  padding-left: 10px;
+  user-select: none;
+  width: 400px;
+  margin: 0 auto;
+}
+
+.about-me .about-me-img {
+  width: 180px;
+  margin: 0;
+  display: block;
+}
+
+.about-me .about-me-desc {
+  flex: 1;
+  padding-left: 10px;
+}
+
+.back-top {
+  background-color: #de4c4f;
+  border-radius: 50%;
+  color: #fff;
+  width: 30px;
+  height: 30px;
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  text-align: center;
+  line-height: 30px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.back-top:hover {
+  opacity: 0.8;
+}
+
+html,
+body {
+  height: 100%;
+  overflow-y: auto;
+}
 html {
   font-size: 10px;
   -webkit-text-size-adjust: 100%;
@@ -655,15 +718,16 @@ article .article-title a {
 }
 article .article-title a span {
   padding-bottom: 3px;
-  -webkit-transition: 0.15s;
-  transition: 0.15s;
-  box-shadow: inset 0 -3px 0 rgba(240,56,56,0);
 }
 article .article-title a:hover {
   color: #212121;
 }
 article .article-title a:hover span {
-  box-shadow: inset 0 -3px 0 rgba(240,56,56,0.4);
+  background-size: calc(100% + 1px) 100%;
+  border-bottom: 2px solid transparent;
+  background-repeat: no-repeat;
+  background-position: -1px calc(100% + 3px);
+  animation: ani 0.4s ease 0s 1 normal forwards running;
 }
 article .article-top-meta {
   position: relative;
@@ -746,6 +810,12 @@ article .article-footer .post-tags a {
   border-radius: 1em;
   text-indent: 0;
   margin-right: 0.5em;
+  transition: all 0.3s;
+}
+article .article-footer .post-tags a:hover {
+  background: #de4c4f;
+  color: #fff;
+  opacity: 0.8;
 }
 article .article-footer .post-tags a:before {
   content: "#";
@@ -837,15 +907,16 @@ article.archive {
 }
 .archive-post .archive-title a span {
   padding-bottom: 3px;
-  -webkit-transition: box-shadow 0.15s;
-  transition: box-shadow 0.15s;
-  box-shadow: inset 0 -3px 0 rgba(240,56,56,0);
 }
 .archive-post .archive-title a:hover {
   color: #212121;
 }
 .archive-post .archive-title a:hover span {
-  box-shadow: inset 0 -3px 0 rgba(222,76,79,0.4);
+  background-size: calc(100% + 1px) 100%;
+  border-bottom: 2px solid transparent;
+  background-repeat: no-repeat;
+  background-position: -1px calc(100% + 3px);
+  animation: ani 0.4s ease 0s 1 normal forwards running;
 }
 .archive-post time {
   font-style: italic;
@@ -922,11 +993,11 @@ article .tags-cloud .post-tags {
 article .archive-tags .post-tags:hover,
 article .tags-cloud .post-tags:hover {
   opacity: 0.8;
-  background: #fcfcfc;
+  background: #de4c4f;
 }
 article .archive-tags .post-tags:hover a,
 article .tags-cloud .post-tags:hover a {
-  color: #de4c4f;
+  color: #fff;
 }
 article .archive-tags .post-tags a,
 article .tags-cloud .post-tags a {

@@ -41,10 +41,10 @@
 </head>
 
 <body>
-<div class="blog">
-  <div class="content">
+  <div class="blog">
+    <div class="content">
 
-    <header>
+      <header>
   <div class="site-branding">
     <h1 class="site-title">
       <a href="/blog/">时光的涂鸦墙</a>
@@ -66,8 +66,8 @@
   </nav>
 </header>
 
-    <main class="site-main posts-loop">
-    <article>
+      <main class="site-main posts-loop">
+        <article>
 
   
   
@@ -94,29 +94,30 @@
       
       <p>组件的生命周期包含三个主要部分：</p>
 <ul>
-<li>挂载： 组件被插入到DOM中。</li>
-<li>更新： 组件被重新渲染，查明DOM是否应该刷新。</li>
-<li>移除： 组件从DOM中移除。</li>
+<li>挂载： 组件被插入到 DOM 中。</li>
+<li>更新： 组件被重新渲染，查明 DOM 是否应该刷新。</li>
+<li>移除： 组件从 DOM 中移除。</li>
 </ul>
+<a id="more"></a>
 <blockquote>
-<p>React提供生命周期方法，你可以在这些方法中放入自己的代码。我们提供will方法，会在某些行为发生之前调用，和did方法，会在某些行为发生之后调用。</p>
+<p>React 提供生命周期方法，你可以在这些方法中放入自己的代码。我们提供 will 方法，会在某些行为发生之前调用，和 did 方法，会在某些行为发生之后调用。</p>
 </blockquote>
 <p><img src="/myBlog/artical_imgs/component-lifecycle.jpg"></p>
 <h3 id="装载组件触发"><a href="#装载组件触发" class="headerlink" title="装载组件触发"></a>装载组件触发</h3><h5 id="getInitialState"><a href="#getInitialState" class="headerlink" title="getInitialState"></a>getInitialState</h5><p><code>object</code>在组件被挂载之前调用。状态化的组件应该实现这个方法，返回初始的<code>state</code>数据。</p>
 <p>初始化 <code>this.state</code> 的值，只在组件装载之前调用一次。</p>
 <p>如果是使用 ES6 的语法，你也可以在构造函数中初始化状态，比如：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Counter</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>(props) &#123;</span><br><span class="line">    <span class="keyword">super</span>(props);</span><br><span class="line">    <span class="keyword">this</span>.state = &#123; <span class="attr">count</span>: props.initialCount &#125;;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Counter</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>(props) &#123;</span><br><span class="line">    <span class="keyword">super</span>(props)</span><br><span class="line">    <span class="keyword">this</span>.state = &#123; <span class="attr">count</span>: props.initialCount &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h5 id="getDefaultProps"><a href="#getDefaultProps" class="headerlink" title="getDefaultProps"></a>getDefaultProps</h5><p>只在组件创建时调用一次并缓存返回的对象（即在 <code>React.createClass</code> 之后就会调用）。</p>
 <p>因为这个方法在实例初始化之前调用，所以在这个方法里面不能依赖 <code>this</code> 获取到这个组件的实例。<br>在组件装载之后，这个方法缓存的结果会用来保证访问 <code>this.props</code> 的属性时，当这个属性没有在父组件中传入（在这个组件的 JSX 属性里设置），也总是有值的。</p>
 <p>如果是使用 ES6 语法，可以直接定义 <code>defaultProps</code> 这个类属性来替代，这样能更直观的知道 <code>default props</code> 是预先定义好的对象值：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Counter.defaultProps = &#123; <span class="attr">initialCount</span>: <span class="number">0</span> &#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Counter.defaultProps = &#123; <span class="attr">initialCount</span>: <span class="number">0</span> &#125;</span><br></pre></td></tr></table></figure>
 <h5 id="componentWillMount"><a href="#componentWillMount" class="headerlink" title="componentWillMount()"></a>componentWillMount()</h5><p><code>componentWillMount()</code>只会在装载之前调用一次，在 <code>render</code> 之前调用，你可以在这个方法里面调用 <code>setState</code> 改变状态，并且不会导致额外调用一次 <code>render</code>。</p>
 <h5 id="render"><a href="#render" class="headerlink" title="render()"></a>render()</h5><p>组装生成这个组件的 <code>HTML</code> 结构（使用原生 <code>HTML</code> 标签或者子组件），也可以返回 <code>null</code>或者 <code>false</code>，这时候 <code>ReactDOM.findDOMNode(this)</code> 会返回 <code>null</code>。</p>
 <h5 id="componentDidMount"><a href="#componentDidMount" class="headerlink" title="componentDidMount()"></a>componentDidMount()</h5><p><code>componentDidMount()</code>在挂载结束之后马上被调用。只会在装载完成之后调用一次，在 render 之后调用，从这里开始可以通过 <code>ReactDOM.findDOMNode(this)</code> 获取到组件的 DOM 节点。</p>
-<h3 id="更新组件触发"><a href="#更新组件触发" class="headerlink" title="更新组件触发"></a>更新组件触发</h3><h5 id="componentWillReceiveProps-object-nextProps"><a href="#componentWillReceiveProps-object-nextProps" class="headerlink" title="componentWillReceiveProps(object nextProps)"></a>componentWillReceiveProps(object nextProps)</h5><p>当一个挂载的组件接收到新的props的时候被调用。该方法应该用于比较<code>this.props</code>和<code>nextProps</code>，然后使用<code>this.setState()</code>来改变<code>state</code>。</p>
+<h3 id="更新组件触发"><a href="#更新组件触发" class="headerlink" title="更新组件触发"></a>更新组件触发</h3><h5 id="componentWillReceiveProps-object-nextProps"><a href="#componentWillReceiveProps-object-nextProps" class="headerlink" title="componentWillReceiveProps(object nextProps)"></a>componentWillReceiveProps(object nextProps)</h5><p>当一个挂载的组件接收到新的 props 的时候被调用。该方法应该用于比较<code>this.props</code>和<code>nextProps</code>，然后使用<code>this.setState()</code>来改变<code>state</code>。</p>
 <p>在初始化渲染的时候，该方法不会调用。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">componentWillReceiveProps: <span class="function"><span class="keyword">function</span>(<span class="params">nextProps</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.setState(&#123;</span><br><span class="line">    likesIncreasing: nextProps.likeCount &gt; <span class="keyword">this</span>.props.likeCount</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h5 id="shouldComponentUpdate-object-nextProps-object-nextState-boolean"><a href="#shouldComponentUpdate-object-nextProps-object-nextState-boolean" class="headerlink" title="shouldComponentUpdate(object nextProps, object nextState): boolean"></a>shouldComponentUpdate(object nextProps, object nextState): boolean</h5><p>当组件做出是否要更新DOM的决定的时候被调用。</p>
+<h5 id="shouldComponentUpdate-object-nextProps-object-nextState-boolean"><a href="#shouldComponentUpdate-object-nextProps-object-nextState-boolean" class="headerlink" title="shouldComponentUpdate(object nextProps, object nextState): boolean"></a>shouldComponentUpdate(object nextProps, object nextState): boolean</h5><p>当组件做出是否要更新 DOM 的决定的时候被调用。</p>
 <p>在接收到新的 <code>props</code>或者 <code>state</code>，将要渲染之前调用。该方法在初始化渲染的时候不会调用，在使用 forceUpdate 方法的时候也不会。</p>
 <p>如果确定新的 <code>props</code> 和 <code>state</code> 不会导致组件更新，则此处应该返回 <code>false</code>。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">shouldComponentUpdate: <span class="function"><span class="keyword">function</span>(<span class="params">nextProps, nextState</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> nextProps.id !== <span class="keyword">this</span>.props.id;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -124,18 +125,18 @@
 <h5 id="componentWillUpdate-object-nextProps-object-nextState"><a href="#componentWillUpdate-object-nextProps-object-nextState" class="headerlink" title="componentWillUpdate(object nextProps, object nextState)"></a>componentWillUpdate(object nextProps, object nextState)</h5><p>在更新发生之前被调用。你可以在这里调用<code>this.setState()</code>。</p>
 <h5 id="componentDidUpdate-object-prevProps-object-prevState"><a href="#componentDidUpdate-object-prevProps-object-prevState" class="headerlink" title="componentDidUpdate(object prevProps, object prevState)"></a>componentDidUpdate(object prevProps, object prevState)</h5><p>在更新发生之后调用。</p>
 <h3 id="卸载组件触发"><a href="#卸载组件触发" class="headerlink" title="卸载组件触发"></a>卸载组件触发</h3><h5 id="componentWillUnmount"><a href="#componentWillUnmount" class="headerlink" title="componentWillUnmount()"></a>componentWillUnmount()</h5><p>在组件移除和销毁之前被调用。清理工作应该放在这里。比如无效的定时器，或者清除在 componentDidMount 中创建的 DOM 元素。</p>
-<h3 id="装载的方法"><a href="#装载的方法" class="headerlink" title="装载的方法"></a>装载的方法</h3><h5 id="getDOMNode"><a href="#getDOMNode" class="headerlink" title="getDOMNode()"></a>getDOMNode()</h5><p>DOMElement可以在任何挂载的组件上面调用，用于获取一个指向它的渲染DOM节点的引用。</p>
-<h5 id="forceUpdate"><a href="#forceUpdate" class="headerlink" title="forceUpdate()"></a>forceUpdate()</h5><p>当你知道一些很深的组件state已经改变了的时候，可以在该组件上面调用，而不是使用<code>this.setState()</code>。</p>
+<h3 id="装载的方法"><a href="#装载的方法" class="headerlink" title="装载的方法"></a>装载的方法</h3><h5 id="getDOMNode"><a href="#getDOMNode" class="headerlink" title="getDOMNode()"></a>getDOMNode()</h5><p>DOMElement 可以在任何挂载的组件上面调用，用于获取一个指向它的渲染 DOM 节点的引用。</p>
+<h5 id="forceUpdate"><a href="#forceUpdate" class="headerlink" title="forceUpdate()"></a>forceUpdate()</h5><p>当你知道一些很深的组件 state 已经改变了的时候，可以在该组件上面调用，而不是使用<code>this.setState()</code>。</p>
 <blockquote>
 <p>完整实例展示</p>
 </blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> Button = React.createClass(&#123;</span><br><span class="line">  getInitialState: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">      data:<span class="number">0</span></span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;,</span><br><span class="line">  setNewNumber: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.setState(&#123;<span class="attr">data</span>: <span class="keyword">this</span>.state.data + <span class="number">1</span>&#125;)</span><br><span class="line">  &#125;,</span><br><span class="line">  render: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> (</span><br><span class="line">         &lt;div&gt;</span><br><span class="line">            &lt;button onClick = &#123;<span class="keyword">this</span>.setNewNumber&#125;&gt;INCREMENT&lt;<span class="regexp">/button&gt;</span></span><br><span class="line"><span class="regexp">            &lt;Content myNumber = &#123;this.state.data&#125;&gt;&lt;/</span>Content&gt;</span><br><span class="line">         &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">      );</span></span><br><span class="line"><span class="regexp">    &#125;</span></span><br><span class="line"><span class="regexp">&#125;)</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">var Content = React.createClass(&#123;</span></span><br><span class="line"><span class="regexp">  componentWillMount:function() &#123;</span></span><br><span class="line"><span class="regexp">      console.log('Component WILL MOUNT!')</span></span><br><span class="line"><span class="regexp">  &#125;,</span></span><br><span class="line"><span class="regexp">  componentDidMount:function() &#123;</span></span><br><span class="line"><span class="regexp">       console.log('Component DID MOUNT!')</span></span><br><span class="line"><span class="regexp">  &#125;,</span></span><br><span class="line"><span class="regexp">  componentWillReceiveProps:function(newProps) &#123;</span></span><br><span class="line"><span class="regexp">        console.log('Component WILL RECIEVE PROPS!')</span></span><br><span class="line"><span class="regexp">  &#125;,</span></span><br><span class="line"><span class="regexp">  shouldComponentUpdate:function(newProps, newState) &#123;</span></span><br><span class="line"><span class="regexp">        return true;</span></span><br><span class="line"><span class="regexp">  &#125;,</span></span><br><span class="line"><span class="regexp">  componentWillUpdate:function(nextProps, nextState) &#123;</span></span><br><span class="line"><span class="regexp">        console.log('Component WILL UPDATE!');</span></span><br><span class="line"><span class="regexp">  &#125;,</span></span><br><span class="line"><span class="regexp">  componentDidUpdate:function(prevProps, prevState) &#123;</span></span><br><span class="line"><span class="regexp">        console.log('Component DID UPDATE!')</span></span><br><span class="line"><span class="regexp">  &#125;,</span></span><br><span class="line"><span class="regexp">  componentWillUnmount:function() &#123;</span></span><br><span class="line"><span class="regexp">         console.log('Component WILL UNMOUNT!')</span></span><br><span class="line"><span class="regexp">  &#125;,</span></span><br><span class="line"><span class="regexp">  render: function () &#123;</span></span><br><span class="line"><span class="regexp">    return (</span></span><br><span class="line"><span class="regexp">      &lt;div&gt;</span></span><br><span class="line"><span class="regexp">        &lt;h3&gt;&#123;this.props.myNumber&#125;&lt;/</span>h3&gt;</span><br><span class="line">      &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">    );</span></span><br><span class="line"><span class="regexp">  &#125;</span></span><br><span class="line"><span class="regexp">&#125;);</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">ReactDOM.render(</span></span><br><span class="line"><span class="regexp">   &lt;div&gt;</span></span><br><span class="line"><span class="regexp">      &lt;Button /</span>&gt;</span><br><span class="line">   &lt;<span class="regexp">/div&gt;,</span></span><br><span class="line"><span class="regexp">  document.getElementById('example')</span></span><br><span class="line"><span class="regexp">);</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> Button = React.createClass(&#123;</span><br><span class="line">  getInitialState: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">      data: <span class="number">0</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  setNewNumber: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.setState(&#123; <span class="attr">data</span>: <span class="keyword">this</span>.state.data + <span class="number">1</span> &#125;)</span><br><span class="line">  &#125;,</span><br><span class="line">  render: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      &lt;div&gt;</span><br><span class="line">        &lt;button onClick=&#123;<span class="keyword">this</span>.setNewNumber&#125;&gt;INCREMENT&lt;<span class="regexp">/button&gt;</span></span><br><span class="line"><span class="regexp">        &lt;Content myNumber=&#123;this.state.data&#125; /</span>&gt;</span><br><span class="line">      &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">    )</span></span><br><span class="line"><span class="regexp">  &#125;</span></span><br><span class="line"><span class="regexp">&#125;)</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">var Content = React.createClass(&#123;</span></span><br><span class="line"><span class="regexp">  componentWillMount: function() &#123;</span></span><br><span class="line"><span class="regexp">    console.log('Component WILL MOUNT!')</span></span><br><span class="line"><span class="regexp">  &#125;,</span></span><br><span class="line"><span class="regexp">  componentDidMount: function() &#123;</span></span><br><span class="line"><span class="regexp">    console.log('Component DID MOUNT!')</span></span><br><span class="line"><span class="regexp">  &#125;,</span></span><br><span class="line"><span class="regexp">  componentWillReceiveProps: function(newProps) &#123;</span></span><br><span class="line"><span class="regexp">    console.log('Component WILL RECIEVE PROPS!')</span></span><br><span class="line"><span class="regexp">  &#125;,</span></span><br><span class="line"><span class="regexp">  shouldComponentUpdate: function(newProps, newState) &#123;</span></span><br><span class="line"><span class="regexp">    return true</span></span><br><span class="line"><span class="regexp">  &#125;,</span></span><br><span class="line"><span class="regexp">  componentWillUpdate: function(nextProps, nextState) &#123;</span></span><br><span class="line"><span class="regexp">    console.log('Component WILL UPDATE!')</span></span><br><span class="line"><span class="regexp">  &#125;,</span></span><br><span class="line"><span class="regexp">  componentDidUpdate: function(prevProps, prevState) &#123;</span></span><br><span class="line"><span class="regexp">    console.log('Component DID UPDATE!')</span></span><br><span class="line"><span class="regexp">  &#125;,</span></span><br><span class="line"><span class="regexp">  componentWillUnmount: function() &#123;</span></span><br><span class="line"><span class="regexp">    console.log('Component WILL UNMOUNT!')</span></span><br><span class="line"><span class="regexp">  &#125;,</span></span><br><span class="line"><span class="regexp">  render: function() &#123;</span></span><br><span class="line"><span class="regexp">    return (</span></span><br><span class="line"><span class="regexp">      &lt;div&gt;</span></span><br><span class="line"><span class="regexp">        &lt;h3&gt;&#123;this.props.myNumber&#125;&lt;/</span>h3&gt;</span><br><span class="line">      &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">    )</span></span><br><span class="line"><span class="regexp">  &#125;</span></span><br><span class="line"><span class="regexp">&#125;)</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">ReactDOM.render(</span></span><br><span class="line"><span class="regexp">  &lt;div&gt;</span></span><br><span class="line"><span class="regexp">    &lt;Button /</span>&gt;</span><br><span class="line">  &lt;<span class="regexp">/div&gt;,</span></span><br><span class="line"><span class="regexp">  document.getElementById('example')</span></span><br><span class="line"><span class="regexp">)</span></span><br></pre></td></tr></table></figure>
 <h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><table>
 <thead>
 <tr>
 <th>生命周期</th>
 <th>调用次数</th>
-<th>能否使用setSate()</th>
+<th>能否使用 setSate()</th>
 </tr>
 </thead>
 <tbody>
@@ -206,7 +207,7 @@
       
 
       <span class="post-tags">
-        <a href="/blog/tags/react/">tags/react/</a>
+        <a href="/blog/tags/react/">react</a>
       </span>
       
 
@@ -236,9 +237,9 @@
 
 
 
-    </main>
+      </main>
 
-    <footer class="site-footer">
+      <footer class="site-footer">
   <p class="site-info">
     
     &copy;
@@ -247,7 +248,7 @@
     
   </p>
 </footer>
-    
+      
 <script>
     (function (i, s, o, g, r, a, m) {
         i['GoogleAnalyticsObject'] = r;
@@ -265,7 +266,27 @@
     ga('send', 'pageview');
 </script>
 
+    </div>
   </div>
-</div>
+  <span class="back-top">⇡</span>
 </body>
+
+<script>
+  window.onload = function () {
+    var $backtop = document.querySelector('.back-top')
+    var $body = document.body
+    $body.addEventListener('scroll', function (e) {
+      var currentscrolltop = e.target.scrollTop
+      if (currentscrolltop > 500) {
+        $backtop.style.display = 'block'
+      } else {
+        $backtop.style.display = 'none'
+      }
+    })
+    $backtop.addEventListener('click', function () {
+      $body.scrollTop = 0
+    })
+  }
+</script>
+
 </html>

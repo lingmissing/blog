@@ -41,10 +41,10 @@
 </head>
 
 <body>
-<div class="blog">
-  <div class="content">
+  <div class="blog">
+    <div class="content">
 
-    <header>
+      <header>
   <div class="site-branding">
     <h1 class="site-title">
       <a href="/blog/">时光的涂鸦墙</a>
@@ -66,8 +66,8 @@
   </nav>
 </header>
 
-    <main class="site-main posts-loop">
-    <article>
+      <main class="site-main posts-loop">
+        <article>
 
   
   
@@ -97,6 +97,7 @@
 </ul>
 <p>加法/减法运算是 Sass 中运算中的一种，在变量或属性中都可以做加法运算。</p>
 <p>但对于携带不同类型的单位时，在 Sass 中计算会报错：<code>20px + 3em</code>错误</p>
+<a id="more"></a>
 <ul>
 <li>乘法/除法</li>
 </ul>
@@ -112,8 +113,8 @@
 <li>如果数值被圆括号包围。</li>
 <li>如果数值是另一个数学表达式的一部分。</li>
 </ol>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">p</span> &#123;</span><br><span class="line">  font: 10px/8px;             // 纯 CSS，不是除法运算</span><br><span class="line">  $width: 1000px;</span><br><span class="line">  width: $width/2;            // 使用了变量，是除法运算</span><br><span class="line">  width: round(1.5)/2;        // 使用了函数，是除法运算</span><br><span class="line">  height: (500px/2);          // 使用了圆括号，是除法运算</span><br><span class="line">  margin-left: 5px + 8px/2px; // 使用了加（+）号，是除法运算</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<a id="more"></a>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">p</span> &#123;</span><br><span class="line">  font: 10px/8px; // 纯 CSS，不是除法运算</span><br><span class="line">  $width: 1000px;</span><br><span class="line">  width: $width/2; // 使用了变量，是除法运算</span><br><span class="line">  width: round(1.5) / 2; // 使用了函数，是除法运算</span><br><span class="line">  height: (500px/2); // 使用了圆括号，是除法运算</span><br><span class="line">  margin-left: 5px + 8px/2px; // 使用了加（+）号，是除法运算</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<!--more-->
 <ul>
 <li>变量计算</li>
 </ul>
@@ -121,16 +122,16 @@
 <ul>
 <li>数字运算</li>
 </ul>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: ((<span class="number">220px</span> + <span class="number">720px</span>) - <span class="number">11</span> * <span class="number">20</span> ) / <span class="number">12</span> ; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: ((<span class="number">220px</span> + <span class="number">720px</span>) - <span class="number">11</span> * <span class="number">20</span>) / <span class="number">12</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
 <li>颜色运算</li>
 </ul>
 <p>有算数运算都支持颜色值，并且是分段运算的。也就是说，红、绿和蓝各颜色分段单独进行运算。</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">p</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#010203</span> + <span class="number">#040506</span>;  <span class="comment">/** 01 + 04 = 05, 02 + 05 = 07, 03 + 06 = 09  ============050709 **/</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">p</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#010203</span> * <span class="number">2</span>;   <span class="comment">/** 01 * 2 = 02, 02 * 2 = 04, 03 * 2 = 06  ================020406 **/</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">p</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#010203</span> + <span class="number">#040506</span>; <span class="comment">/** 01 + 04 = 05, 02 + 05 = 07, 03 + 06 = 09  ============050709 **/</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">p</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#010203</span> * <span class="number">2</span>; <span class="comment">/** 01 * 2 = 02, 02 * 2 = 04, 03 * 2 = 06  ================020406 **/</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
 <li>字符运算</li>
 </ul>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$content: "Hello" + " " + "Sass!";</span><br><span class="line"><span class="selector-class">.box</span><span class="selector-pseudo">:before</span> &#123;</span><br><span class="line">  <span class="attribute">content</span>: <span class="string">" #&#123;$content&#125; "</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$content: 'Hello' + ' ' + 'Sass!';</span><br><span class="line"><span class="selector-class">.box</span><span class="selector-pseudo">:before</span> &#123;</span><br><span class="line">  <span class="attribute">content</span>: <span class="string">' #&#123;$content&#125; '</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h2><p>sass 和 JavaScript 语言类似，也具有自己的数据类型，在 Sass 中包含以下几种数据类型：</p>
 <ul>
 <li>数字: 如，1、 2、 13、 10px；</li>
@@ -140,12 +141,12 @@
 <li>空值：如，null；</li>
 <li>值列表：用空格或者逗号分开，如，1.5em 1em 0 2em 、 Helvetica, Arial, sans-serif。</li>
 </ul>
-<p>Sass列表函数（Sass list functions）赋予了值列表更多功能（Sass进级会有讲解）：</p>
+<p>Sass 列表函数（Sass list functions）赋予了值列表更多功能（Sass 进级会有讲解）：</p>
 <ol>
-<li>nth函数（nth function） 可以直接访问值列表中的某一项；</li>
-<li>join函数（join function） 可以将多个值列表连结在一起；</li>
-<li>append函数（append function） 可以在值列表中添加值； </li>
-<li>@each规则（@each rule） 则能够给值列表中的每个项目添加样式。</li>
+<li>nth 函数（nth function） 可以直接访问值列表中的某一项；</li>
+<li>join 函数（join function） 可以将多个值列表连结在一起；</li>
+<li>append 函数（append function） 可以在值列表中添加值；</li>
+<li>@each 规则（@each rule） 则能够给值列表中的每个项目添加样式。</li>
 </ol>
 <h2 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h2><p>SassScript 支持 CSS 的两种字符串类型：</p>
 <ul>
@@ -155,7 +156,7 @@
 <p>在编译 CSS 文件时不会改变其类型。只有一种情况例外，使用 #{ }插值语句 (interpolation) 时，有引号字符串将被编译为无引号字符串，这样方便了在混合指令 (mixin) 中引用选择器名。</p>
 <h2 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h2><p>注释对于一名程序员来说，是极其重要，良好的注释能帮助自己或者别人阅读源码。在 Sass 中注释有两种方式，我暂且将其命名为：</p>
 <ul>
-<li>类似 CSS 的注释方式，使用 ”/<em> ”开头，结属使用 ”</em>/ ”</li>
+<li>类似 CSS 的注释方式，使用 ”/_ ”开头，结属使用 ”_/ ”</li>
 <li>类似 JavaScript 的注释方式，使用“//”</li>
 </ul>
 <p>两者区别，前者会在编译出来的 CSS 显示，后者在编译出来的 CSS 中不会显示。</p>
@@ -174,7 +175,7 @@
       
 
       <span class="post-tags">
-        <a href="/blog/tags/Sass/">tags/Sass/</a>
+        <a href="/blog/tags/Sass/">Sass</a>
       </span>
       
 
@@ -204,9 +205,9 @@
 
 
 
-    </main>
+      </main>
 
-    <footer class="site-footer">
+      <footer class="site-footer">
   <p class="site-info">
     
     &copy;
@@ -215,7 +216,7 @@
     
   </p>
 </footer>
-    
+      
 <script>
     (function (i, s, o, g, r, a, m) {
         i['GoogleAnalyticsObject'] = r;
@@ -233,7 +234,27 @@
     ga('send', 'pageview');
 </script>
 
+    </div>
   </div>
-</div>
+  <span class="back-top">⇡</span>
 </body>
+
+<script>
+  window.onload = function () {
+    var $backtop = document.querySelector('.back-top')
+    var $body = document.body
+    $body.addEventListener('scroll', function (e) {
+      var currentscrolltop = e.target.scrollTop
+      if (currentscrolltop > 500) {
+        $backtop.style.display = 'block'
+      } else {
+        $backtop.style.display = 'none'
+      }
+    })
+    $backtop.addEventListener('click', function () {
+      $body.scrollTop = 0
+    })
+  }
+</script>
+
 </html>

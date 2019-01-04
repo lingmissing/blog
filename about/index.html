@@ -36,10 +36,10 @@
 </head>
 
 <body>
-<div class="blog">
-  <div class="content">
+  <div class="blog">
+    <div class="content">
 
-    <header>
+      <header>
   <div class="site-branding">
     <h1 class="site-title">
       <a href="/blog/">时光的涂鸦墙</a>
@@ -61,8 +61,8 @@
   </nav>
 </header>
 
-    <main class="site-main posts-loop">
-    <article>
+      <main class="site-main posts-loop">
+        <article>
 
   
   
@@ -74,8 +74,8 @@
   <div class="article-top-meta">
     <span class="posted-on">
       <a href="/blog/about/index.html" rel="bookmark">
-        <time class="entry-date published" datetime="2019-01-03T11:12:01.897Z">
-          2019-01-03
+        <time class="entry-date published" datetime="2019-01-04T05:49:53.169Z">
+          2019-01-04
         </time>
       </a>
     </span>
@@ -87,10 +87,7 @@
   <div class="article-content">
     <div class="entry">
       
-      <blockquote>
-<p>微风一样，吹进夏一样的梦里。<br>醒来是，遇见秋一样的你，惦记着那个冬天。<br>让人迫不及待的是，等了整个春天，你在夏天里重新出现…</p>
-</blockquote>
-<p style="float: right;color:#e06e73;"><span>— —</span> see you again</p>
+      <div class="about-me"><br>  <img class="about-me-img" src="./about.webp"><br>  <div class="about-me-desc"><br>    <p>你以为是我在纸上涂鸦的那些，</p><br>    <p>其实是时光在我身上的涂鸦。</p><br>    <p>我与岁月一起，</p><br>    <p>乐在其中。</p><br>    <p>我与岁月一样，</p><br>    <p>言不由衷。</p><br>  </div><br></div>
 
       
     </div>
@@ -130,9 +127,9 @@
 
 
 
-    </main>
+      </main>
 
-    <footer class="site-footer">
+      <footer class="site-footer">
   <p class="site-info">
     
     &copy;
@@ -141,7 +138,7 @@
     
   </p>
 </footer>
-    
+      
 <script>
     (function (i, s, o, g, r, a, m) {
         i['GoogleAnalyticsObject'] = r;
@@ -159,7 +156,27 @@
     ga('send', 'pageview');
 </script>
 
+    </div>
   </div>
-</div>
+  <span class="back-top">⇡</span>
 </body>
+
+<script>
+  window.onload = function () {
+    var $backtop = document.querySelector('.back-top')
+    var $body = document.body
+    $body.addEventListener('scroll', function (e) {
+      var currentscrolltop = e.target.scrollTop
+      if (currentscrolltop > 500) {
+        $backtop.style.display = 'block'
+      } else {
+        $backtop.style.display = 'none'
+      }
+    })
+    $backtop.addEventListener('click', function () {
+      $body.scrollTop = 0
+    })
+  }
+</script>
+
 </html>

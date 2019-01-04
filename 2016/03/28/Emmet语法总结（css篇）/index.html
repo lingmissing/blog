@@ -41,10 +41,10 @@
 </head>
 
 <body>
-<div class="blog">
-  <div class="content">
+  <div class="blog">
+    <div class="content">
 
-    <header>
+      <header>
   <div class="site-branding">
     <h1 class="site-title">
       <a href="/blog/">时光的涂鸦墙</a>
@@ -66,8 +66,8 @@
   </nav>
 </header>
 
-    <main class="site-main posts-loop">
-    <article>
+      <main class="site-main posts-loop">
+        <article>
 
   
   
@@ -92,9 +92,9 @@
   <div class="article-content">
     <div class="entry">
       
-      <h2 id="值"><a href="#值" class="headerlink" title="值"></a>值</h2><p>比如要定义元素的宽度，只需输入w100，即可生成<br>    <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">width: 100px;</span><br></pre></td></tr></table></figure></p>
-<p>除了px，也可以生成其他单位，比如输入h10p+m5e，结果如下：<br>    <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">height</span>: 10%;</span><br><span class="line"><span class="selector-tag">margin</span>: 5<span class="selector-tag">em</span>;</span><br></pre></td></tr></table></figure></p>
-<p>单位别名列表： </p>
+      <h2 id="值"><a href="#值" class="headerlink" title="值"></a>值</h2><p>比如要定义元素的宽度，只需输入 w100，即可生成<br><code>html width: 100px;</code><br>除了 px，也可以生成其他单位，比如输入 h10p+m5e，结果如下：<br><code>css height: 10%; margin: 5em;</code></p>
+<a id="more"></a>
+<p>单位别名列表：</p>
 <ul>
 <li>p 表示%</li>
 <li>e 表示 em</li>
@@ -102,13 +102,12 @@
 </ul>
 <h2 id="附加属性"><a href="#附加属性" class="headerlink" title="附加属性"></a>附加属性</h2><p><code>@f</code></p>
 <pre><code><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@<span class="keyword">font-face</span> &#123;</span><br><span class="line">	<span class="attribute">font-family</span>:;</span><br><span class="line">	<span class="attribute">src</span>:<span class="built_in">url</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</code></pre><p><code>@f+</code></p>
-<pre><code><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">@<span class="keyword">font-face</span> &#123;</span><br><span class="line"><span class="attribute">font-family</span>: <span class="string">'FontName'</span>;</span><br><span class="line"><span class="attribute">src</span>: <span class="built_in">url</span>(<span class="string">'FileName.eot'</span>);</span><br><span class="line"><span class="attribute">src</span>: <span class="built_in">url</span>(<span class="string">'FileName.eot?#iefix'</span>) <span class="built_in">format</span>(<span class="string">'embedded-opentype'</span>),</span><br><span class="line">	 <span class="built_in">url</span>(<span class="string">'FileName.woff'</span>) <span class="built_in">format</span>(<span class="string">'woff'</span>),</span><br><span class="line">	 <span class="built_in">url</span>(<span class="string">'FileName.ttf'</span>) <span class="built_in">format</span>(<span class="string">'truetype'</span>),</span><br><span class="line">	 <span class="built_in">url</span>(<span class="string">'FileName.svg#FontName'</span>) <span class="built_in">format</span>(<span class="string">'svg'</span>);</span><br><span class="line"><span class="attribute">font-style</span>: normal;</span><br><span class="line"><span class="attribute">font-weight</span>: normal;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
-</code></pre><h2 id="模糊匹配"><a href="#模糊匹配" class="headerlink" title="模糊匹配"></a>模糊匹配</h2><p>如果有些缩写你拿不准，Emmet会根据你的输入内容匹配最接近的语法，比如输入ov:h、ov-h、ovh和oh，生成的代码是相同的：<br><code>overflow: hidden;</code></p>
-<h2 id="供应商前缀"><a href="#供应商前缀" class="headerlink" title="供应商前缀"></a>供应商前缀</h2><p>如果输入非W3C标准的CSS属性，Emmet会自动加上供应商前缀，比如输入-trs，则会生成：</p>
+</code></pre><p><code>@f+</code><br><code>css @font-face { font-family: &#39;FontName&#39;; src: url(&#39;FileName.eot&#39;); src: url(&#39;FileName.eot?#iefix&#39;) format(&#39;embedded-opentype&#39;), url(&#39;FileName.woff&#39;) format(&#39;woff&#39;), url(&#39;FileName.ttf&#39;) format(&#39;truetype&#39;), url(&#39;FileName.svg#FontName&#39;) format(&#39;svg&#39;); font-style: normal; font-weight: normal; }</code></p>
+<h2 id="模糊匹配"><a href="#模糊匹配" class="headerlink" title="模糊匹配"></a>模糊匹配</h2><p>如果有些缩写你拿不准，Emmet 会根据你的输入内容匹配最接近的语法，比如输入 ov:h、ov-h、ovh 和 oh，生成的代码是相同的：<br><code>overflow: hidden;</code></p>
+<h2 id="供应商前缀"><a href="#供应商前缀" class="headerlink" title="供应商前缀"></a>供应商前缀</h2><p>如果输入非 W3C 标准的 CSS 属性，Emmet 会自动加上供应商前缀，比如输入-trs，则会生成：</p>
 <pre><code><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">-webkit-transition</span>: <span class="selector-tag">prop</span> <span class="selector-tag">time</span>;</span><br><span class="line"><span class="selector-tag">-o-transition</span>: <span class="selector-tag">prop</span> <span class="selector-tag">time</span>;</span><br><span class="line"><span class="selector-tag">transition</span>: <span class="selector-tag">prop</span> <span class="selector-tag">time</span>;</span><br></pre></td></tr></table></figure>
-</code></pre><p>如果不希望加上所有前缀，可以使用缩写来指定，比如-wm-trf表示只加上-webkit和-moz前缀：</p>
-<p>前缀缩写如下： </p>
+</code></pre><p>如果不希望加上所有前缀，可以使用缩写来指定，比如-wm-trf 表示只加上-webkit 和-moz 前缀：</p>
+<p>前缀缩写如下：</p>
 <ul>
 <li>w 表示 -webkit-</li>
 <li>m 表示 -moz-</li>
@@ -132,7 +131,7 @@
       
 
       <span class="post-tags">
-        <a href="/blog/tags/emmet/">tags/emmet/</a>
+        <a href="/blog/tags/emmet/">emmet</a>
       </span>
       
 
@@ -162,9 +161,9 @@
 
 
 
-    </main>
+      </main>
 
-    <footer class="site-footer">
+      <footer class="site-footer">
   <p class="site-info">
     
     &copy;
@@ -173,7 +172,7 @@
     
   </p>
 </footer>
-    
+      
 <script>
     (function (i, s, o, g, r, a, m) {
         i['GoogleAnalyticsObject'] = r;
@@ -191,7 +190,27 @@
     ga('send', 'pageview');
 </script>
 
+    </div>
   </div>
-</div>
+  <span class="back-top">⇡</span>
 </body>
+
+<script>
+  window.onload = function () {
+    var $backtop = document.querySelector('.back-top')
+    var $body = document.body
+    $body.addEventListener('scroll', function (e) {
+      var currentscrolltop = e.target.scrollTop
+      if (currentscrolltop > 500) {
+        $backtop.style.display = 'block'
+      } else {
+        $backtop.style.display = 'none'
+      }
+    })
+    $backtop.addEventListener('click', function () {
+      $body.scrollTop = 0
+    })
+  }
+</script>
+
 </html>

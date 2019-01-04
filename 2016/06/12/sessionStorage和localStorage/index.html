@@ -41,10 +41,10 @@
 </head>
 
 <body>
-<div class="blog">
-  <div class="content">
+  <div class="blog">
+    <div class="content">
 
-    <header>
+      <header>
   <div class="site-branding">
     <h1 class="site-title">
       <a href="/blog/">时光的涂鸦墙</a>
@@ -66,8 +66,8 @@
   </nav>
 </header>
 
-    <main class="site-main posts-loop">
-    <article>
+      <main class="site-main posts-loop">
+        <article>
 
   
   
@@ -92,21 +92,31 @@
   <div class="article-content">
     <div class="entry">
       
-      <h2 id="sessionStorage和localStorage区别"><a href="#sessionStorage和localStorage区别" class="headerlink" title="sessionStorage和localStorage区别"></a>sessionStorage和localStorage区别</h2><ul>
-<li><code>sessionStorage</code>用于本地存储一个会话（session）中的数据，这些数据只有在同一个会话中的页面才能访问并且当会话结束后数据也随之销毁。因此sessionStorage不是一种持久化的本地存储，仅仅是会话级别的存储。</li>
-<li><code>localStorage</code>用于持久化的本地存储，除非主动删除数据，否则数据是永远不会过期的。<h2 id="web-storage和cookie的区别"><a href="#web-storage和cookie的区别" class="headerlink" title="web storage和cookie的区别"></a>web storage和cookie的区别</h2></li>
-<li><code>Cookie</code>的大小是受限的，并且每次你请求一个新的页面的时候Cookie都会被发送过去，这样无形中浪费了带宽，另外cookie还需要指定作用域，不可以跨域调用。</li>
-<li><code>Web Storage</code>拥有setItem,getItem,removeItem,clear等方法，不像cookie需要前端开发者自己封装setCookie，getCookie。</li>
-<li><code>Cookie</code>的作用是与服务器进行交互，作为HTTP规范的一部分而存在 ，而<code>Web Storage</code>仅仅是为了在本地“存储”数据而生。<h2 id="localStorage和sessionStorage操作"><a href="#localStorage和sessionStorage操作" class="headerlink" title="localStorage和sessionStorage操作"></a>localStorage和sessionStorage操作</h2><h4 id="setItem存储value"><a href="#setItem存储value" class="headerlink" title="setItem存储value"></a>setItem存储value</h4>用途：将value存储到key字段<br>用法：.setItem( key, value)<br>代码示例：<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sessionStorage.setItem(<span class="string">"key"</span>, <span class="string">"value"</span>);         </span><br><span class="line">localStorage.setItem(<span class="string">"site"</span>, <span class="string">"js8.in"</span>);</span><br></pre></td></tr></table></figure>
-</li>
+      <h2 id="sessionStorage-和-localStorage-区别"><a href="#sessionStorage-和-localStorage-区别" class="headerlink" title="sessionStorage 和 localStorage 区别"></a>sessionStorage 和 localStorage 区别</h2><ul>
+<li><code>sessionStorage</code>用于本地存储一个会话（session）中的数据，这些数据只有在同一个会话中的页面才能访问并且当会话结束后数据也随之销毁。因此 sessionStorage 不是一种持久化的本地存储，仅仅是会话级别的存储。</li>
+<li><code>localStorage</code>用于持久化的本地存储，除非主动删除数据，否则数据是永远不会过期的。</li>
 </ul>
-<h4 id="getItem获取value"><a href="#getItem获取value" class="headerlink" title="getItem获取value"></a>getItem获取value</h4><p>用途：获取指定key本地存储的值<br>用法：.getItem(key)<br>代码示例：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> value = sessionStorage.getItem(<span class="string">"key"</span>);     </span><br><span class="line"><span class="keyword">var</span> site = localStorage.getItem(<span class="string">"site"</span>);</span><br></pre></td></tr></table></figure></p>
-<h4 id="removeItem删除key"><a href="#removeItem删除key" class="headerlink" title="removeItem删除key"></a>removeItem删除key</h4><p>用途：删除指定key本地存储的值<br>用法：.removeItem(key)<br>代码示例：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sessionStorage.removeItem(<span class="string">"key"</span>);   </span><br><span class="line">localStorage.removeItem(<span class="string">"site"</span>);</span><br></pre></td></tr></table></figure></p>
-<h4 id="clear清除所有的key-value"><a href="#clear清除所有的key-value" class="headerlink" title="clear清除所有的key/value"></a>clear清除所有的key/value</h4><p>用途：清除所有的key/value<br>用法：.clear()<br>代码示例：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sessionStorage.clear();  </span><br><span class="line">localStorage.clear();</span><br></pre></td></tr></table></figure></p>
-<h4 id="其他操作方法：点操作和"><a href="#其他操作方法：点操作和" class="headerlink" title="其他操作方法：点操作和[]"></a>其他操作方法：点操作和[]</h4><p>web Storage不但可以用自身的setItem,getItem等方便存取，也可以像普通对象一样用点(.)操作符，及[]的方式进行数据存储，像如下的代码：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> storage = <span class="built_in">window</span>.localStorage; </span><br><span class="line">storage.key1 = <span class="string">"hello"</span>; </span><br><span class="line">storage[<span class="string">"key2"</span>] = <span class="string">"world"</span>; </span><br><span class="line"><span class="built_in">console</span>.log(storage.key1); </span><br><span class="line"><span class="built_in">console</span>.log(storage[<span class="string">"key2"</span>]);</span><br></pre></td></tr></table></figure></p>
-<h4 id="localStorage和sessionStorage的key和length属性实现遍历"><a href="#localStorage和sessionStorage的key和length属性实现遍历" class="headerlink" title="localStorage和sessionStorage的key和length属性实现遍历"></a>localStorage和sessionStorage的key和length属性实现遍历</h4><p>sessionStorage和localStorage提供的key()和length可以方便的实现存储的数据遍历，例如下面的代码：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> storage = <span class="built_in">window</span>.localStorage;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i=<span class="number">0</span>, len = storage.length; i &lt; len; i++)&#123;</span><br><span class="line">    <span class="keyword">var</span> key = storage.key(i);</span><br><span class="line">    <span class="keyword">var</span> value = storage.getItem(key);</span><br><span class="line">    <span class="built_in">console</span>.log(key + <span class="string">"="</span> + value);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h2 id="storage事件"><a href="#storage事件" class="headerlink" title="storage事件"></a>storage事件</h2><p>storage还提供了storage事件，当键值改变或者clear的时候，就可以触发storage事件，如下面的代码就添加了一个storage事件改变的监听：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(<span class="built_in">window</span>.addEventListener)&#123;  </span><br><span class="line">     <span class="built_in">window</span>.addEventListener(<span class="string">"storage"</span>,handle_storage,<span class="literal">false</span>);</span><br><span class="line">&#125;<span class="keyword">else</span> <span class="keyword">if</span>(<span class="built_in">window</span>.attachEvent)&#123;      </span><br><span class="line">     <span class="built_in">window</span>.attachEvent(<span class="string">"onstorage"</span>,handle_storage);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">handle_storage</span>(<span class="params">e</span>)</span>&#123; </span><br><span class="line">     <span class="keyword">if</span>(!e)&#123;e=<span class="built_in">window</span>.event;&#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>storage事件对象的具体属性如下表：</p>
+<h2 id="web-storage-和-cookie-的区别"><a href="#web-storage-和-cookie-的区别" class="headerlink" title="web storage 和 cookie 的区别"></a>web storage 和 cookie 的区别</h2><ul>
+<li><code>Cookie</code>的大小是受限的，并且每次你请求一个新的页面的时候 Cookie 都会被发送过去，这样无形中浪费了带宽，另外 cookie 还需要指定作用域，不可以跨域调用。</li>
+<li><code>Web Storage</code>拥有 setItem,getItem,removeItem,clear 等方法，不像 cookie 需要前端开发者自己封装 setCookie，getCookie。</li>
+<li><code>Cookie</code>的作用是与服务器进行交互，作为 HTTP 规范的一部分而存在 ，而<code>Web Storage</code>仅仅是为了在本地“存储”数据而生。</li>
+</ul>
+<a id="more"></a>
+<h2 id="localStorage-和-sessionStorage-操作"><a href="#localStorage-和-sessionStorage-操作" class="headerlink" title="localStorage 和 sessionStorage 操作"></a>localStorage 和 sessionStorage 操作</h2><h4 id="setItem-存储-value"><a href="#setItem-存储-value" class="headerlink" title="setItem 存储 value"></a>setItem 存储 value</h4><p>用途：将 value 存储到 key 字段<br>用法：.setItem( key, value)<br>代码示例：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sessionStorage.setItem(<span class="string">'key'</span>, <span class="string">'value'</span>)</span><br><span class="line">localStorage.setItem(<span class="string">'site'</span>, <span class="string">'js8.in'</span>)</span><br></pre></td></tr></table></figure>
+<h4 id="getItem-获取-value"><a href="#getItem-获取-value" class="headerlink" title="getItem 获取 value"></a>getItem 获取 value</h4><p>用途：获取指定 key 本地存储的值<br>用法：.getItem(key)<br>代码示例：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> value = sessionStorage.getItem(<span class="string">'key'</span>)</span><br><span class="line"><span class="keyword">var</span> site = localStorage.getItem(<span class="string">'site'</span>)</span><br></pre></td></tr></table></figure>
+<h4 id="removeItem-删除-key"><a href="#removeItem-删除-key" class="headerlink" title="removeItem 删除 key"></a>removeItem 删除 key</h4><p>用途：删除指定 key 本地存储的值<br>用法：.removeItem(key)<br>代码示例：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sessionStorage.removeItem(<span class="string">'key'</span>)</span><br><span class="line">localStorage.removeItem(<span class="string">'site'</span>)</span><br></pre></td></tr></table></figure>
+<h4 id="clear-清除所有的-key-value"><a href="#clear-清除所有的-key-value" class="headerlink" title="clear 清除所有的 key/value"></a>clear 清除所有的 key/value</h4><p>用途：清除所有的 key/value<br>用法：.clear()<br>代码示例：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sessionStorage.clear()</span><br><span class="line">localStorage.clear()</span><br></pre></td></tr></table></figure>
+<h4 id="其他操作方法：点操作和"><a href="#其他操作方法：点操作和" class="headerlink" title="其他操作方法：点操作和[]"></a>其他操作方法：点操作和[]</h4><p>web Storage 不但可以用自身的 setItem,getItem 等方便存取，也可以像普通对象一样用点(.)操作符，及[]的方式进行数据存储，像如下的代码：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> storage = <span class="built_in">window</span>.localStorage</span><br><span class="line">storage.key1 = <span class="string">'hello'</span></span><br><span class="line">storage[<span class="string">'key2'</span>] = <span class="string">'world'</span></span><br><span class="line"><span class="built_in">console</span>.log(storage.key1)</span><br><span class="line"><span class="built_in">console</span>.log(storage[<span class="string">'key2'</span>])</span><br></pre></td></tr></table></figure>
+<h4 id="localStorage-和-sessionStorage-的-key-和-length-属性实现遍历"><a href="#localStorage-和-sessionStorage-的-key-和-length-属性实现遍历" class="headerlink" title="localStorage 和 sessionStorage 的 key 和 length 属性实现遍历"></a>localStorage 和 sessionStorage 的 key 和 length 属性实现遍历</h4><p>sessionStorage 和 localStorage 提供的 key()和 length 可以方便的实现存储的数据遍历，例如下面的代码：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> storage = <span class="built_in">window</span>.localStorage</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>, len = storage.length; i &lt; len; i++) &#123;</span><br><span class="line">  <span class="keyword">var</span> key = storage.key(i)</span><br><span class="line">  <span class="keyword">var</span> value = storage.getItem(key)</span><br><span class="line">  <span class="built_in">console</span>.log(key + <span class="string">'='</span> + value)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="storage-事件"><a href="#storage-事件" class="headerlink" title="storage 事件"></a>storage 事件</h2><p>storage 还提供了 storage 事件，当键值改变或者 clear 的时候，就可以触发 storage 事件，如下面的代码就添加了一个 storage 事件改变的监听：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (<span class="built_in">window</span>.addEventListener) &#123;</span><br><span class="line">  <span class="built_in">window</span>.addEventListener(<span class="string">'storage'</span>, handle_storage, <span class="literal">false</span>)</span><br><span class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="built_in">window</span>.attachEvent) &#123;</span><br><span class="line">  <span class="built_in">window</span>.attachEvent(<span class="string">'onstorage'</span>, handle_storage)</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">handle_storage</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (!e) &#123;</span><br><span class="line">    e = <span class="built_in">window</span>.event</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>storage 事件对象的具体属性如下表：</p>
 <table>
 <thead>
 <tr>
@@ -158,7 +168,7 @@
       
 
       <span class="post-tags">
-        <a href="/blog/tags/html5/">tags/html5/</a>
+        <a href="/blog/tags/html5/">html5</a>
       </span>
       
 
@@ -188,9 +198,9 @@
 
 
 
-    </main>
+      </main>
 
-    <footer class="site-footer">
+      <footer class="site-footer">
   <p class="site-info">
     
     &copy;
@@ -199,7 +209,7 @@
     
   </p>
 </footer>
-    
+      
 <script>
     (function (i, s, o, g, r, a, m) {
         i['GoogleAnalyticsObject'] = r;
@@ -217,7 +227,27 @@
     ga('send', 'pageview');
 </script>
 
+    </div>
   </div>
-</div>
+  <span class="back-top">⇡</span>
 </body>
+
+<script>
+  window.onload = function () {
+    var $backtop = document.querySelector('.back-top')
+    var $body = document.body
+    $body.addEventListener('scroll', function (e) {
+      var currentscrolltop = e.target.scrollTop
+      if (currentscrolltop > 500) {
+        $backtop.style.display = 'block'
+      } else {
+        $backtop.style.display = 'none'
+      }
+    })
+    $backtop.addEventListener('click', function () {
+      $body.scrollTop = 0
+    })
+  }
+</script>
+
 </html>

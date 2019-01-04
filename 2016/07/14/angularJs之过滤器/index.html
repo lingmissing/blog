@@ -41,10 +41,10 @@
 </head>
 
 <body>
-<div class="blog">
-  <div class="content">
+  <div class="blog">
+    <div class="content">
 
-    <header>
+      <header>
   <div class="site-branding">
     <h1 class="site-title">
       <a href="/blog/">时光的涂鸦墙</a>
@@ -66,8 +66,8 @@
   </nav>
 </header>
 
-    <main class="site-main posts-loop">
-    <article>
+      <main class="site-main posts-loop">
+        <article>
 
   
   
@@ -98,13 +98,13 @@
 <p>我们可以直接使用<code>filter</code>，跟在表达式后面用 | 分割</p>
 <pre><code>{{ expression | filter }}
 </code></pre><p>也可以多个<code>filter</code>连用，上一个<code>filter</code>的输出将作为下一个<code>filter</code>的输入</p>
+<a id="more"></a>
 <pre><code>{{ expression | filter1 | filter2 | ... }}
 </code></pre><p><code>filter</code>可以接收参数，参数用 : 进行分割</p>
 <pre><code>{{ expression | filter:argument1:argument2:... }}
 </code></pre><p>除了对数据进行格式化，我们还可以在指令中使用<code>filter</code>，例如先对数组<code>array</code>进行过滤处理，然后再循环输出：</p>
 <pre><code>&lt;span ng-repeat=&quot;a in array | filter &quot;&gt;
-</code></pre><a id="more"></a>
-<ul>
+</code></pre><ul>
 <li>在<code>controller</code>和<code>service</code>中使用<code>filter</code></li>
 </ul>
 <p>我们的js代码中也可以使用过滤器，方式就是我们熟悉的依赖注入，例如我要在<code>controller</code>中使用<code>currency</code>过滤器，只需将它注入到该<code>controller</code>中即可，代码如下：</p>
@@ -176,7 +176,7 @@
       
 
       <span class="post-tags">
-        <a href="/blog/tags/angular/">tags/angular/</a>
+        <a href="/blog/tags/angular/">angular</a>
       </span>
       
 
@@ -206,9 +206,9 @@
 
 
 
-    </main>
+      </main>
 
-    <footer class="site-footer">
+      <footer class="site-footer">
   <p class="site-info">
     
     &copy;
@@ -217,7 +217,7 @@
     
   </p>
 </footer>
-    
+      
 <script>
     (function (i, s, o, g, r, a, m) {
         i['GoogleAnalyticsObject'] = r;
@@ -235,7 +235,27 @@
     ga('send', 'pageview');
 </script>
 
+    </div>
   </div>
-</div>
+  <span class="back-top">⇡</span>
 </body>
+
+<script>
+  window.onload = function () {
+    var $backtop = document.querySelector('.back-top')
+    var $body = document.body
+    $body.addEventListener('scroll', function (e) {
+      var currentscrolltop = e.target.scrollTop
+      if (currentscrolltop > 500) {
+        $backtop.style.display = 'block'
+      } else {
+        $backtop.style.display = 'none'
+      }
+    })
+    $backtop.addEventListener('click', function () {
+      $body.scrollTop = 0
+    })
+  }
+</script>
+
 </html>

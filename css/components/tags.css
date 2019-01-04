@@ -60,11 +60,11 @@ article .tags-cloud .post-tags {
 article .archive-tags .post-tags:hover,
 article .tags-cloud .post-tags:hover {
   opacity: 0.8;
-  background: #fcfcfc;
+  background: #de4c4f;
 }
 article .archive-tags .post-tags:hover a,
 article .tags-cloud .post-tags:hover a {
-  color: #de4c4f;
+  color: #fff;
 }
 article .archive-tags .post-tags a,
 article .tags-cloud .post-tags a {

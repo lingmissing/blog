@@ -41,10 +41,10 @@
 </head>
 
 <body>
-<div class="blog">
-  <div class="content">
+  <div class="blog">
+    <div class="content">
 
-    <header>
+      <header>
   <div class="site-branding">
     <h1 class="site-title">
       <a href="/blog/">时光的涂鸦墙</a>
@@ -66,8 +66,8 @@
   </nav>
 </header>
 
-    <main class="site-main posts-loop">
-    <article>
+      <main class="site-main posts-loop">
+        <article>
 
   
   
@@ -93,28 +93,36 @@
     <div class="entry">
       
       <ul>
-<li><p>安装命令</p>
+<li>安装命令</li>
+</ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install mysql</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>安装完成之后，本地命令行输入mysql命令，发现无此命令</p>
+<a id="more"></a>
+<ul>
+<li>安装完成之后，本地命令行输入 mysql 命令，发现无此命令</li>
+</ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">command not found</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>首先，检查是否是安装了</p>
-<p>重新执行一遍 </p>
+<ul>
+<li>首先，检查是否是安装了</li>
+</ul>
+<p>重新执行一遍</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install mysql</span><br></pre></td></tr></table></figure>
 <p>命令行提示：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Warning: mysql-5.7.10 already installed, it&apos;s just not linked</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>然后网上查找解决方法，最后解决方法是执行：</p>
+<ul>
+<li>然后网上查找解决方法，最后解决方法是执行：</li>
+</ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew link --overwrite mysql</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>但是执行，却报错</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Linking /usr/local/Cellar/mysql/5.7.10... </span><br><span class="line">Error: Could not symlink share/man/man8/mysqld.8</span><br><span class="line">/usr/local/share/man/man8 is not writable.</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>又在网上各种查找解决方法，最后本地实验以下语句执行成功</p>
+<ul>
+<li>但是执行，却报错</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Linking /usr/local/Cellar/mysql/5.7.10...</span><br><span class="line">Error: Could not symlink share/man/man8/mysqld.8</span><br><span class="line">/usr/local/share/man/man8 is not writable.</span><br></pre></td></tr></table></figure>
+<ul>
+<li>又在网上各种查找解决方法，最后本地实验以下语句执行成功</li>
+</ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo chown -R &apos;yin&apos; /usr/local</span><br><span class="line">注意： yin是你电脑的用户名</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>解决了问题后，重新执行：</p>
+<ul>
+<li>解决了问题后，重新执行：</li>
+</ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew link --overwrite mysql</span><br></pre></td></tr></table></figure>
 <p>提示：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Linking /usr/local/Cellar/mysql/5.7.10... 92 symlinks created</span><br></pre></td></tr></table></figure>
@@ -124,11 +132,9 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ERROR 2002 (HY000): Can&apos;t connect to local MySQL server through socket &apos;/tmp/mysql.sock&apos; (2)</span><br></pre></td></tr></table></figure>
 <p>依次执行：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">unset TMPDIR</span><br><span class="line">bash mysql_install_db --verbose --user=root --basedir=&quot;$(brew --prefix mysql)&quot;--datadir=/usr/local/var/mysql --tmpdir=/tmp</span><br></pre></td></tr></table></figure>
-<p>接下来启动mysql：</p>
+<p>接下来启动 mysql：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash mysql.server start</span><br></pre></td></tr></table></figure>
-<p>到这里，mysql的安装就结束了~</p>
-</li>
-</ul>
+<p>到这里，mysql 的安装就结束了~</p>
 
       
     </div>
@@ -144,7 +150,7 @@
       
 
       <span class="post-tags">
-        <a href="/blog/tags/mysql/">tags/mysql/</a>
+        <a href="/blog/tags/mysql/">mysql</a>
       </span>
       
 
@@ -174,9 +180,9 @@
 
 
 
-    </main>
+      </main>
 
-    <footer class="site-footer">
+      <footer class="site-footer">
   <p class="site-info">
     
     &copy;
@@ -185,7 +191,7 @@
     
   </p>
 </footer>
-    
+      
 <script>
     (function (i, s, o, g, r, a, m) {
         i['GoogleAnalyticsObject'] = r;
@@ -203,7 +209,27 @@
     ga('send', 'pageview');
 </script>
 
+    </div>
   </div>
-</div>
+  <span class="back-top">⇡</span>
 </body>
+
+<script>
+  window.onload = function () {
+    var $backtop = document.querySelector('.back-top')
+    var $body = document.body
+    $body.addEventListener('scroll', function (e) {
+      var currentscrolltop = e.target.scrollTop
+      if (currentscrolltop > 500) {
+        $backtop.style.display = 'block'
+      } else {
+        $backtop.style.display = 'none'
+      }
+    })
+    $backtop.addEventListener('click', function () {
+      $body.scrollTop = 0
+    })
+  }
+</script>
+
 </html>

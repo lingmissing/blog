@@ -36,10 +36,10 @@
 </head>
 
 <body>
-<div class="blog">
-  <div class="content">
+  <div class="blog">
+    <div class="content">
 
-    <header>
+      <header>
   <div class="site-branding">
     <h1 class="site-title">
       <a href="/blog/">时光的涂鸦墙</a>
@@ -61,8 +61,8 @@
   </nav>
 </header>
 
-    <main class="site-main posts-loop">
-    
+      <main class="site-main posts-loop">
+        
   <article>
 
   
@@ -89,14 +89,6 @@
     <div class="entry">
       
       <h2 id="import"><a href="#import" class="headerlink" title="@import"></a>@import</h2><p>Sass 扩展了 CSS 的 @import 规则，让它能够引入 SCSS 和 Sass 文件。 所有引入的 SCSS 和 Sass 文件都会被合并并输出一个单一的 CSS 文件。 另外，被导入的文件中所定义的变量或 mixins 都可以在主文件中使用。</p>
-<h2 id="media"><a href="#media" class="headerlink" title="@media"></a>@media</h2><p>sass 中的 @media 指令和 CSS 的使用规则一样的简单，但它有另外一个功能，可以嵌套在 CSS 规则中。有点类似 JS 的冒泡功能一样，如果在样式中使用 @media 指令，它将冒泡到外面。</p>
-<h2 id="extend"><a href="#extend" class="headerlink" title="@extend"></a>@extend</h2><p>Sass 中的 @extend 是用来扩展选择器或占位符。</p>
-<p>@extend不能继承选择器序列。</p>
-<p>@extend继承会把其下面的子类一起继承。</p>
-<p>解决方案：使用%来构建需要被继承的元素。但是代码不会被合并。</p>
-<h2 id="at-root"><a href="#at-root" class="headerlink" title="@at-root"></a>@at-root</h2><p>@at-root 从字面上解释就是跳出根元素。</p>
-<p>当你选择器嵌套多层之后，想让某个选择器跳出，此时就可以使用 @at-root。不适合嵌套过多的时候使用</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.a</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: red;</span><br><span class="line">  .b &#123;</span><br><span class="line">    <span class="selector-tag">color</span>: <span class="selector-tag">orange</span>;</span><br><span class="line">    <span class="selector-class">.c</span> &#123;</span><br><span class="line">      <span class="attribute">color</span>: yellow;</span><br><span class="line">      @at-root .d &#123;</span><br><span class="line">        <span class="selector-tag">color</span>: <span class="selector-tag">green</span>;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -111,7 +103,7 @@
       
 
       <span class="post-tags">
-        <a href="/blog/tags/Sass/">tags/Sass/</a>
+        <a href="/blog/tags/Sass/">Sass</a>
       </span>
       
 
@@ -158,12 +150,6 @@
     <div class="entry">
       
       <h2 id="全局变量-局部变量"><a href="#全局变量-局部变量" class="headerlink" title="全局变量/局部变量"></a>全局变量/局部变量</h2><p>创建变量用<code>$</code>符号开头。</p>
-<h4 id="创建变量的条件："><a href="#创建变量的条件：" class="headerlink" title="创建变量的条件："></a>创建变量的条件：</h4><ul>
-<li>该值至少重复出现了两次；</li>
-<li>该值至少可能会被更新一次；</li>
-<li>该值所有的表现都与变量有关（非巧合）。</li>
-</ul>
-<p>注意：当在局部范围（选择器内、函数内、混合宏内…）声明一个已经存在于全局范围内的变量时，局部变量只会在局部范围内覆盖全局变量。<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/** SCSS **/</span></span><br><span class="line">$color: orange !default;//定义全局变量</span><br><span class="line"><span class="selector-class">.block</span> &#123;</span><br><span class="line">  color: $color;//调用全局变量</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">em</span> &#123;</span><br><span class="line">  $color: red;//定义局部变量（全局变量 $color 的影子）</span><br><span class="line">  <span class="selector-tag">a</span> &#123;</span><br><span class="line">    color: $color;//调用局部变量</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
       
     </div>
 
@@ -178,7 +164,7 @@
       
 
       <span class="post-tags">
-        <a href="/blog/tags/Sass/">tags/Sass/</a>
+        <a href="/blog/tags/Sass/">Sass</a>
       </span>
       
 
@@ -224,18 +210,7 @@
   <div class="article-content">
     <div class="entry">
       
-      <h2 id="基本刷新页面方法"><a href="#基本刷新页面方法" class="headerlink" title="基本刷新页面方法"></a>基本刷新页面方法</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"refresh"</span><span class="attr">content</span>=<span class="string">"10;url=跳转的页面"</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 10表示间隔10秒刷新一次 --&gt;</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">language</span>=<span class="string">''</span><span class="attr">javascript</span>''&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">  <span class="built_in">window</span>.location.reload(<span class="literal">true</span>);</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 如果是你要刷新某一个iframe就把window给换成frame的名字或ID号 --&gt;</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">language</span>=<span class="string">''</span><span class="attr">javascript</span>''&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">  <span class="built_in">window</span>.navigate(<span class="string">"本页面url"</span>);</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">abc</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">window</span>.location.href=<span class="string">"/blog/window.location.href"</span>;</span><br><span class="line">  setTimeout(<span class="string">"abc()"</span>,<span class="number">10000</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="刷新本页"><a href="#刷新本页" class="headerlink" title="刷新本页"></a>刷新本页</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Response.Write(<span class="string">"</span></span><br><span class="line"><span class="string">	&lt;script type="</span>text/javascript<span class="string">"&gt;</span></span><br><span class="line"><span class="string">		window.location.href = window.location.href;</span></span><br><span class="line"><span class="string">	&lt;/script&gt;</span></span><br><span class="line"><span class="string">"</span>)</span><br></pre></td></tr></table></figure>
-<h4 id="刷新父页"><a href="#刷新父页" class="headerlink" title="刷新父页"></a>刷新父页</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Response.Write(<span class="string">"</span></span><br><span class="line"><span class="string">	&lt;script type="</span>text/javascript<span class="string">" &gt;</span></span><br><span class="line"><span class="string">		opener.location.href = opener.location.href;</span></span><br><span class="line"><span class="string">	&lt;/script&gt;</span></span><br><span class="line"><span class="string">"</span>)</span><br></pre></td></tr></table></figure>
-<h4 id="转到指定页"><a href="#转到指定页" class="headerlink" title="转到指定页"></a>转到指定页</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Response.Write(<span class="string">"</span></span><br><span class="line"><span class="string">	&lt;script type="</span>text/javascript<span class="string">" &gt;</span></span><br><span class="line"><span class="string">		window.location.href = 'yourpage.aspx';</span></span><br><span class="line"><span class="string">	&lt;/script&gt;</span></span><br><span class="line"><span class="string">"</span>)</span><br></pre></td></tr></table></figure>
-<h2 id="定时刷新页面方法"><a href="#定时刷新页面方法" class="headerlink" title="定时刷新页面方法"></a>定时刷新页面方法</h2><h4 id="在html中设置"><a href="#在html中设置" class="headerlink" title="在html中设置"></a>在html中设置</h4><p>在<head>标签中加入下面一行代码：<br>10代表刷新间隔，单位为秒。<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"refresh"</span> <span class="attr">content</span>=<span class="string">"10"</span>&gt;</span></span><br></pre></td></tr></table></figure></head></p>
-<h4 id="jsp方法"><a href="#jsp方法" class="headerlink" title="jsp方法"></a>jsp方法</h4><p>1代表每一秒刷新一次。</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">%</span> <span class="attr">response.setHeader</span>("<span class="attr">refresh</span>","<span class="attr">1</span>"); %&gt;</span></span><br></pre></td></tr></table></figure>
-<h4 id="javascript方法"><a href="#javascript方法" class="headerlink" title="javascript方法"></a>javascript方法</h4><p>1000代表1000毫秒，即1秒。<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">    setTimeout(<span class="string">"self.location.reload();"</span>,<span class="number">1000</span>);</span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span></span><br></pre></td></tr></table></figure></p>
-
+      <h2 id="基本刷新页面方法"><a href="#基本刷新页面方法" class="headerlink" title="基本刷新页面方法"></a>基本刷新页面方法</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"refresh"</span> <span class="attr">content</span>=<span class="string">"10;url=跳转的页面"</span> /&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 10表示间隔10秒刷新一次 --&gt;</span></span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -250,7 +225,7 @@
       
 
       <span class="post-tags">
-        <a href="/blog/tags/javascript/">tags/javascript/</a>
+        <a href="/blog/tags/javascript/">javascript</a>
       </span>
       
 
@@ -279,9 +254,9 @@
   
   
 </nav>
-    </main>
+      </main>
 
-    <footer class="site-footer">
+      <footer class="site-footer">
   <p class="site-info">
     
     &copy;
@@ -290,7 +265,7 @@
     
   </p>
 </footer>
-    
+      
 <script>
     (function (i, s, o, g, r, a, m) {
         i['GoogleAnalyticsObject'] = r;
@@ -308,7 +283,27 @@
     ga('send', 'pageview');
 </script>
 
+    </div>
   </div>
-</div>
+  <span class="back-top">⇡</span>
 </body>
+
+<script>
+  window.onload = function () {
+    var $backtop = document.querySelector('.back-top')
+    var $body = document.body
+    $body.addEventListener('scroll', function (e) {
+      var currentscrolltop = e.target.scrollTop
+      if (currentscrolltop > 500) {
+        $backtop.style.display = 'block'
+      } else {
+        $backtop.style.display = 'none'
+      }
+    })
+    $backtop.addEventListener('click', function () {
+      $body.scrollTop = 0
+    })
+  }
+</script>
+
 </html>

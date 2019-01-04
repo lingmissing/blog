@@ -41,10 +41,10 @@
 </head>
 
 <body>
-<div class="blog">
-  <div class="content">
+  <div class="blog">
+    <div class="content">
 
-    <header>
+      <header>
   <div class="site-branding">
     <h1 class="site-title">
       <a href="/blog/">时光的涂鸦墙</a>
@@ -66,8 +66,8 @@
   </nav>
 </header>
 
-    <main class="site-main posts-loop">
-    <article>
+      <main class="site-main posts-loop">
+        <article>
 
   
   
@@ -101,49 +101,50 @@
 </li>
 <li>新对象语法<ul>
 <li>value in obj</li>
-<li>(value, key) in obj </li>
+<li>(value, key) in obj</li>
 <li>(value, key, index) in obj</li>
 </ul>
 </li>
 </ul>
-<h3 id="指令接口的改变"><a href="#指令接口的改变" class="headerlink" title="指令接口的改变"></a>指令接口的改变</h3><p>大体来说，2.0版本中指令大范围的降低功能，它们仅用于低层次的直接dom操作。在多数情况下，你更应该使用组件作为主要的代码重构抽象。</p>
+<a id="more"></a>
+<h3 id="指令接口的改变"><a href="#指令接口的改变" class="headerlink" title="指令接口的改变"></a>指令接口的改变</h3><p>大体来说，2.0 版本中指令大范围的降低功能，它们仅用于低层次的直接 dom 操作。在多数情况下，你更应该使用组件作为主要的代码重构抽象。</p>
 <p>指令不再有实例，这意味着指令中将不存在<code>this</code>，并且<code>bind</code>, <code>update</code>和<code>unbind</code>目前将接受任何数据作为参数。</p>
 <p>请注意，绑定对象是不可变的。设置<code>binding.value</code>没有任何效果。并且在它上面添加属性不会持久，如果你真的非常需要可以在<code>el</code>配置上添加指令状态。</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-example:arg.modifier</span>=<span class="string">"a.b"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// example directive</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  bind (el, binding, vnode) &#123;</span><br><span class="line">    <span class="comment">// the binding object exposes value, oldValue, expression, arg and modifiers.</span></span><br><span class="line">    binding.expression <span class="comment">// "a.b"</span></span><br><span class="line">    binding.arg <span class="comment">// "arg"</span></span><br><span class="line">    binding.modifiers <span class="comment">// &#123; modifier: true &#125;</span></span><br><span class="line">    <span class="comment">// the context Vue instance can be accessed as vnode.context.</span></span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  <span class="comment">// update has a few changes, see below</span></span><br><span class="line">  update (el, binding, vnode, oldVnode) &#123; ... &#125;,</span><br><span class="line"></span><br><span class="line">  <span class="comment">// componentUpdated is a new hook that is called AFTER the entire component</span></span><br><span class="line">  <span class="comment">// has completed the current update cycle. This means all the DOM would</span></span><br><span class="line">  <span class="comment">// be in updated state when this hook is called. Also, this hook is always</span></span><br><span class="line">  <span class="comment">// called regardless of whether this directive's value has changed or not.</span></span><br><span class="line">  componentUpdated (el, binding, vnode, oldVNode) &#123; ... &#125;,</span><br><span class="line"></span><br><span class="line">  unbind (el, binding, vnode) &#123; ... &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>如果你只关心值可以使用解构：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  bind (el, &#123; value &#125;) &#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  bind(el, &#123; value &#125;) &#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>除此之外，<code>update</code>钩子有一些变化：</p>
 <ul>
 <li>在<code>bind</code>之后将不再自动调用</li>
 <li>当组件重新渲染时总能响应，无论被绑定的值是否发生改变。你可以通过<code>binding.value === binding.oldValue</code>比较跳过不必要的更新，但也会有情况下，你希望应用始终更新。例如，当指令绑定到对象那可能希望是变化而不是替代。</li>
 </ul>
 <p><code>elementDirective</code>, 指令参数和指令配置，例如<code>acceptStatement</code>, <code>deep</code>等等<br>均被删除。</p>
-<h3 id="过滤器用法和语法变化"><a href="#过滤器用法和语法变化" class="headerlink" title="过滤器用法和语法变化"></a>过滤器用法和语法变化</h3><p>在vue 2.0，filter有了一系列的变化：</p>
+<h3 id="过滤器用法和语法变化"><a href="#过滤器用法和语法变化" class="headerlink" title="过滤器用法和语法变化"></a>过滤器用法和语法变化</h3><p>在 vue 2.0，filter 有了一系列的变化：</p>
 <ul>
-<li>filter现在只能用于文本插入（双花括号标签）。在之前我们在指令中使用filter，例如<code>v-model</code>，<code>v-on</code>等等，导致使用的复杂性，并且在<code>v-for</code>上的列表过滤，它更适合迁移到计算性能的js中。</li>
-<li>vue 2.0不提供任何内置过滤器。建议使用独立的方法解决特定域的问题，例如<a href="http://momentjs.com/" target="_blank" rel="noopener">moment.js</a>用于格式化时间，<a href="http://openexchangerates.github.io/accounting.js/" target="_blank" rel="noopener">accounting.js</a>用于格式化金融货币。也欢迎你来创建自己的过滤器，并与社区分享吧！</li>
-<li><p>filter语法更改为内嵌的js函数调用，而不是采取空格分割的参数。</p>
-  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#123; date | formatDate(<span class="string">'YY-MM-DD'</span>) &#125;&#125;</span><br></pre></td></tr></table></figure>
+<li>filter 现在只能用于文本插入（双花括号标签）。在之前我们在指令中使用 filter，例如<code>v-model</code>，<code>v-on</code>等等，导致使用的复杂性，并且在<code>v-for</code>上的列表过滤，它更适合迁移到计算性能的 js 中。</li>
+<li>vue 2.0 不提供任何内置过滤器。建议使用独立的方法解决特定域的问题，例如<a href="http://momentjs.com/" target="_blank" rel="noopener">moment.js</a>用于格式化时间，<a href="http://openexchangerates.github.io/accounting.js/" target="_blank" rel="noopener">accounting.js</a>用于格式化金融货币。也欢迎你来创建自己的过滤器，并与社区分享吧！</li>
+<li><p>filter 语法更改为内嵌的 js 函数调用，而不是采取空格分割的参数。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &#123;</span><br><span class="line">    date | formatDate(<span class="string">'YY-MM-DD'</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<h3 id="过渡组件"><a href="#过渡组件" class="headerlink" title="过渡组件"></a>过渡组件</h3><h4 id="过渡CSS的变化"><a href="#过渡CSS的变化" class="headerlink" title="过渡CSS的变化"></a>过渡CSS的变化</h4><ul>
-<li><code>v-enter</code>：在元素插入前应用，1秒后删除。（开始于进入状态）</li>
+<h3 id="过渡组件"><a href="#过渡组件" class="headerlink" title="过渡组件"></a>过渡组件</h3><h4 id="过渡-CSS-的变化"><a href="#过渡-CSS-的变化" class="headerlink" title="过渡 CSS 的变化"></a>过渡 CSS 的变化</h4><ul>
+<li><code>v-enter</code>：在元素插入前应用，1 秒后删除。（开始于进入状态）</li>
 <li><code>v-enter-active</code>：在元素插入前应用，当<code>transition</code>/<code>animation</code>结束时移除。</li>
 <li><code>v-leave</code>：当离开的<code>transition</code>触发时正确应用，一秒后删除。（开始于离开状态）</li>
 <li><code>v-leave-active</code>：当离开的<code>transition</code>触发时正确应用，当<code>transition</code>/<code>animation</code>结束时移除。</li>
 </ul>
-<p><code>v-enter-active</code>和<code>v-leave-active</code>帮助你指定不同的曲线用于进入/离开动画。在多数情况下，升级只需将当前的<code>v-leave</code>替换为<code>v-leave-active</code>。（对于css动画，使用<code>v-enter-active</code>和<code>v-leave-active</code>）</p>
-<h4 id="过渡API的变化"><a href="#过渡API的变化" class="headerlink" title="过渡API的变化"></a>过渡API的变化</h4><ul>
+<p><code>v-enter-active</code>和<code>v-leave-active</code>帮助你指定不同的曲线用于进入/离开动画。在多数情况下，升级只需将当前的<code>v-leave</code>替换为<code>v-leave-active</code>。（对于 css 动画，使用<code>v-enter-active</code>和<code>v-leave-active</code>）</p>
+<h4 id="过渡-API-的变化"><a href="#过渡-API-的变化" class="headerlink" title="过渡 API 的变化"></a>过渡 API 的变化</h4><ul>
 <li><code>&lt;transition&gt;</code>组件</li>
 </ul>
-<p>所有单元素的过度效果通过使用<code>&lt;transition&gt;</code>这个内置组件包装目标元素或组件得到相应的效果。这是一个抽象组件，意味着它不会渲染额外的DOM元素，也不会在组件层次结构中展示。它仅仅用于过渡行为里面的包裹内容。</p>
+<p>所有单元素的过度效果通过使用<code>&lt;transition&gt;</code>这个内置组件包装目标元素或组件得到相应的效果。这是一个抽象组件，意味着它不会渲染额外的 DOM 元素，也不会在组件层次结构中展示。它仅仅用于过渡行为里面的包裹内容。</p>
 <p>最简单的用法示例:</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">transition</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">v-if</span>=<span class="string">"ok"</span>&gt;</span>toggled content<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">transition</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">transition</span>&gt;</span> <span class="tag">&lt;<span class="name">div</span> <span class="attr">v-if</span>=<span class="string">"ok"</span>&gt;</span>toggled content<span class="tag">&lt;/<span class="name">div</span>&gt;</span> <span class="tag">&lt;/<span class="name">transition</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>该组件定义了一些属性和事件，直接映射到旧版的过渡定义选项。</p>
 <h5 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h5><ul>
 <li>name: String<ul>
-<li>用于自动生成过渡CSS类名。例如，<code>name: &#39;fade&#39;</code>将会自动生成 <code>.fade-enter</code>、<code>.fade-enter-active</code>等等。默认是<code>v</code>。</li>
+<li>用于自动生成过渡 CSS 类名。例如，<code>name: &#39;fade&#39;</code>将会自动生成 <code>.fade-enter</code>、<code>.fade-enter-active</code>等等。默认是<code>v</code>。</li>
 </ul>
 </li>
 <li>appear: Boolean<ul>
@@ -151,7 +152,7 @@
 </ul>
 </li>
 <li>css: Boolean<ul>
-<li>是否应用css过度类，默认值<code>true</code>。如果设置为<code>false</code>，只能通过触发组件事件注册的JavaScript钩子。</li>
+<li>是否应用 css 过度类，默认值<code>true</code>。如果设置为<code>false</code>，只能通过触发组件事件注册的 JavaScript 钩子。</li>
 </ul>
 </li>
 <li>type: String<ul>
@@ -163,12 +164,13 @@
 </ul>
 </li>
 <li>enterClass, leaveClass, enterActiveClass, leaveActiveClass, appearClass, appearActiveClass: String<ul>
-<li>单独配置的过渡css类</li>
+<li>单独配置的过渡 css 类</li>
 </ul>
 </li>
 </ul>
-<p>过渡到动态组件的示例：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">transition</span> <span class="attr">name</span>=<span class="string">"fade"</span> <span class="attr">mode</span>=<span class="string">"out-in"</span> <span class="attr">appear</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">component</span> <span class="attr">:is</span>=<span class="string">"view"</span>&gt;</span><span class="tag">&lt;/<span class="name">component</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">transition</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
-<h5 id="事件"><a href="#事件" class="headerlink" title="事件"></a>事件</h5><p>对应的在1.x API中可用的js钩子：</p>
+<p>过渡到动态组件的示例：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">transition</span> <span class="attr">name</span>=<span class="string">"fade"</span> <span class="attr">mode</span>=<span class="string">"out-in"</span> <span class="attr">appear</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">component</span> <span class="attr">:is</span>=<span class="string">"view"</span>&gt;</span><span class="tag">&lt;/<span class="name">component</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">transition</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h5 id="事件"><a href="#事件" class="headerlink" title="事件"></a>事件</h5><p>对应的在 1.x API 中可用的 js 钩子：</p>
 <ul>
 <li>before-enter</li>
 <li>enter</li>
@@ -182,71 +184,68 @@
 </ul>
 <p>例子：</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">transition</span> @<span class="attr">after-enter</span>=<span class="string">"transitionComplete"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">v-show</span>=<span class="string">"ok"</span>&gt;</span>toggled content<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">transition</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>当进入的过渡效果完成时，组件的<code>transitionComplete</code>方法将会在过渡DOM元素作为参数被调用。</p>
+<p>当进入的过渡效果完成时，组件的<code>transitionComplete</code>方法将会在过渡 DOM 元素作为参数被调用。</p>
 <p>一些注意事项：</p>
 <ul>
 <li><code>leave-cancelled</code>在插入删除中不可用。一旦离开的过渡效果开始，将不能被取消。但是仍然可用于<code>v-show</code>。</li>
-<li>和1.0类似，对于<code>enter</code>和<code>leave</code>钩子，在<code>cb</code>作为第二个参数的存在下表示使用者想要过渡结束时间的明确控制。</li>
+<li>和 1.0 类似，对于<code>enter</code>和<code>leave</code>钩子，在<code>cb</code>作为第二个参数的存在下表示使用者想要过渡结束时间的明确控制。</li>
 </ul>
 <h5 id="lt-transition-group-gt-组件"><a href="#lt-transition-group-gt-组件" class="headerlink" title="&lt;transition-group&gt;组件"></a><code>&lt;transition-group&gt;</code>组件</h5><p>所有的多元素过渡效果通过使用<code>&lt;transition-group&gt;</code>内置组件包装元素应用。它暴露了和<code>&lt;transition&gt;</code>一样的属性和事件。不同之处在于：</p>
 <ol>
-<li>不同于<code>&lt;transition&gt;</code>,<code>&lt;transition-group&gt;</code>渲染一个真实的DOM元素。默认是渲染一个<code>&lt;span&gt;</code>标签，并且你可以配置哪些元素应该通过标记的属性呈现。你也可以使用<code>is</code>特性，例如<code>&lt;ul is=&quot;transition-group&quot;&gt;</code>。</li>
+<li>不同于<code>&lt;transition&gt;</code>,<code>&lt;transition-group&gt;</code>渲染一个真实的 DOM 元素。默认是渲染一个<code>&lt;span&gt;</code>标签，并且你可以配置哪些元素应该通过标记的属性呈现。你也可以使用<code>is</code>特性，例如<code>&lt;ul is=&quot;transition-group&quot;&gt;</code>。</li>
 <li><code>&lt;transition-group&gt;</code>不支持<code>mode</code>属性。</li>
-<li><code>&lt;transition-group&gt;</code>下的子组件必须有唯一的key。</li>
+<li><code>&lt;transition-group&gt;</code>下的子组件必须有唯一的 key。</li>
 </ol>
-<p>例子：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">transition-group</span> <span class="attr">tag</span>=<span class="string">"ul"</span> <span class="attr">name</span>=<span class="string">"slide"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span> <span class="attr">v-for</span>=<span class="string">"item in items"</span> <span class="attr">:key</span>=<span class="string">"item.id"</span>&gt;</span></span><br><span class="line">    &#123;&#123; item.text &#125;&#125;</span><br><span class="line">  <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">transition-group</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
-<h4 id="创建可重用的转换"><a href="#创建可重用的转换" class="headerlink" title="创建可重用的转换"></a>创建可重用的转换</h4><p>现在<code>transitions</code>能够通过组件应用，它们补在被视为一种单独类型，因此全局的<code>Vue.transition()</code>方法和<code>transition</code>配置都被丢弃。你可以通过组件的属性和方法配置内嵌的过渡。但是，我们现在怎么创建可重复使用的过渡效果，尤其是那些自定义的js钩子？答案是创建自己的过渡组件（它们特别适合作为功能组件）：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">Vue.component(<span class="string">'fade'</span>, &#123;</span><br><span class="line">  functional: <span class="literal">true</span>,</span><br><span class="line">  render (createElement, &#123; children &#125;) &#123;</span><br><span class="line">    <span class="keyword">const</span> data = &#123;</span><br><span class="line">      props: &#123;</span><br><span class="line">        name: <span class="string">'fade'</span></span><br><span class="line">      &#125;,</span><br><span class="line">      on: &#123;</span><br><span class="line">        beforeEnter () &#123; <span class="comment">/* ... */</span> &#125;, <span class="comment">// &lt;-- Note hooks use camelCase in JavaScript (same as 1.x)</span></span><br><span class="line">        afterEnter () &#123; <span class="comment">/* ... */</span> &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> createElement(<span class="string">'transition'</span>, data, children)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>例子：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">transition-group</span> <span class="attr">tag</span>=<span class="string">"ul"</span> <span class="attr">name</span>=<span class="string">"slide"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span> <span class="attr">v-for</span>=<span class="string">"item in items"</span> <span class="attr">:key</span>=<span class="string">"item.id"</span>&gt;</span>&#123;&#123; item.text &#125;&#125;<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">transition-group</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="创建可重用的转换"><a href="#创建可重用的转换" class="headerlink" title="创建可重用的转换"></a>创建可重用的转换</h4><p>现在<code>transitions</code>能够通过组件应用，它们补在被视为一种单独类型，因此全局的<code>Vue.transition()</code>方法和<code>transition</code>配置都被丢弃。你可以通过组件的属性和方法配置内嵌的过渡。但是，我们现在怎么创建可重复使用的过渡效果，尤其是那些自定义的 js 钩子？答案是创建自己的过渡组件（它们特别适合作为功能组件）：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">Vue.component(<span class="string">'fade'</span>, &#123;</span><br><span class="line">  functional: <span class="literal">true</span>,</span><br><span class="line">  render(createElement, &#123; children &#125;) &#123;</span><br><span class="line">    <span class="keyword">const</span> data = &#123;</span><br><span class="line">      props: &#123;</span><br><span class="line">        name: <span class="string">'fade'</span></span><br><span class="line">      &#125;,</span><br><span class="line">      on: &#123;</span><br><span class="line">        beforeEnter() &#123;</span><br><span class="line">          <span class="comment">/* ... */</span></span><br><span class="line">        &#125;, <span class="comment">// &lt;-- Note hooks use camelCase in JavaScript (same as 1.x)</span></span><br><span class="line">        afterEnter() &#123;</span><br><span class="line">          <span class="comment">/* ... */</span></span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> createElement(<span class="string">'transition'</span>, data, children)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 <p>你可以这么使用：</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">fade</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">v-if</span>=<span class="string">"ok"</span>&gt;</span>toggled content<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">fade</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">fade</span>&gt;</span> <span class="tag">&lt;<span class="name">div</span> <span class="attr">v-if</span>=<span class="string">"ok"</span>&gt;</span>toggled content<span class="tag">&lt;/<span class="name">div</span>&gt;</span> <span class="tag">&lt;/<span class="name">fade</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <h3 id="v-model的变化"><a href="#v-model的变化" class="headerlink" title="v-model的变化"></a><code>v-model</code>的变化</h3><ul>
 <li><p><code>lazy</code>和<code>number</code>参数现在是修饰符。</p>
-  <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">v-model.lazy</span>=<span class="string">"text"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">v-model.lazy</span>=<span class="string">"text"</span> /&gt;</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>新的修饰符：<code>.trim</code>-修整输入，顾名思义</p>
 </li>
 <li><code>debounce</code>参数被丢弃</li>
-<li><p><code>v-model</code>不再关心初始值。它始终将data的数据作为资源。这意味着数据将是以1呈现而不是2.</p>
-  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">data: &#123;</span><br><span class="line">    val: <span class="number">1</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-  <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">v-model</span>=<span class="string">"val"</span> <span class="attr">value</span>=<span class="string">"2"</span>&gt;</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>当使用<code>v-for</code>时，<code>v-model</code>不再生效。</p>
-  <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">v-for</span>=<span class="string">"str in strings"</span> <span class="attr">v-model</span>=<span class="string">"str"</span>&gt;</span></span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="Refs"><a href="#Refs" class="headerlink" title="Refs"></a>Refs</h3><ul>
-<li><p><code>v-ref</code>现在不再是一个指令，而是一个类似于<code>key</code>的属性</p>
-  <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- before --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">comp</span> <span class="attr">v-ref:foo</span>&gt;</span><span class="tag">&lt;/<span class="name">comp</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- after --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">comp</span> <span class="attr">ref</span>=<span class="string">"foo"</span>&gt;</span><span class="tag">&lt;/<span class="name">comp</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<li><p><code>v-model</code>不再关心初始值。它始终将 data 的数据作为资源。这意味着数据将是以 1 呈现而不是 2.</p>
+<pre><code><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">data: &#123;</span><br><span class="line">val: <span class="number">1</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="string">`</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">v-model</span>=<span class="string">"val"</span> <span class="attr">value</span>=<span class="string">"2"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- 当使用`v-for`时，`v-model`不再生效。</span><br><span class="line">  ```html</span><br><span class="line">  &lt;input v-for=&quot;str in strings&quot; v-model=&quot;str&quot; /&gt;</span><br><span class="line">  ```</span><br><span class="line"></span><br><span class="line">### Refs</span><br><span class="line"></span><br><span class="line">- `v-ref`现在不再是一个指令，而是一个类似于`key`的属性</span><br><span class="line"></span><br><span class="line">      ```html</span><br><span class="line"></span><br><span class="line">  &lt;!-- before --&gt;</span><br><span class="line"></span><br><span class="line">  &lt;comp v-ref:foo&gt;&lt;/comp&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- after --&gt;</span><br><span class="line"></span><br><span class="line">&lt;comp ref=&quot;foo&quot;&gt;&lt;/comp&gt;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <p>依然支持动态绑定：</p>
-<pre><code><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">comp</span> <span class="attr">:ref</span>=<span class="string">"dynamicRef"</span>&gt;</span><span class="tag">&lt;/<span class="name">comp</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">comp</span> <span class="attr">:ref</span>=<span class="string">"dynamicRef"</span>&gt;</span><span class="tag">&lt;/<span class="name">comp</span>&gt;</span></span><br><span class="line">`</span><br></pre></td></tr></table></figure>
 </code></pre><ul>
-<li><code>vm.$els</code>和<code>vm.$refs</code>合并了。在正常元素上使用是DOM元素，在组件上使用是组件实例。</li>
+<li><code>vm.$els</code>和<code>vm.$refs</code>合并了。在正常元素上使用是 DOM 元素，在组件上使用是组件实例。</li>
 </ul>
 <h3 id="杂项"><a href="#杂项" class="headerlink" title="杂项"></a>杂项</h3><ul>
-<li><p><code>track-by</code>已经被<code>key</code>替代。对于绑定属性它遵守相同的规则，没有<code>v-bind:</code>或者<code>:</code>字头，它被视为普通字符串。大多数情况下需要动态绑定，如下：</p>
-  <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 1.x --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-for</span>=<span class="string">"item in items"</span> <span class="attr">track-by</span>=<span class="string">"id"</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 2.0 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-for</span>=<span class="string">"item in items"</span> <span class="attr">:key</span>=<span class="string">"item.id"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<li><code>track-by</code>已经被<code>key</code>替代。对于绑定属性它遵守相同的规则，没有<code>v-bind:</code>或者<code>:</code>字头，它被视为普通字符串。大多数情况下需要动态绑定，如下：<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 1.x --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-for</span>=<span class="string">"item in items"</span> <span class="attr">track-by</span>=<span class="string">"id"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
 </li>
-<li><p>内插值属性已被弃用。</p>
-  <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 1.x --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"&#123;&#123; id &#125;&#125;"</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 2.0 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">:id</span>=<span class="string">"id"</span>&gt;</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>属性绑定行为变化：当绑定属性时，只有<code>null</code>、<code>undefine</code>和<code>false</code>被认为是<code>false</code>。这意味着0和空字符串依旧呈现出原来的样子。对于枚举属性，<code>:draggable=&quot;&#39;&#39;&quot;</code>将被渲染为<code>draggable=&quot;true&quot;</code>。<br>另外，对于枚举属性，除了上述<code>false</code>的值，<code>false</code>字符串也会被渲染为<code>attr=&quot;false&quot;</code>。</p>
-</li>
-<li>当使用一个自定义组件，<code>v-on</code>只听自定义事件<code>$emitted</code>挂载在组件上。（不再监听DOM事件）</li>
+</ul>
+<!-- 2.0 -->
+<p><div v-for="item in items" :key="item.id"><br>    <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">- 内插值属性已被弃用。</span><br><span class="line">    ```html</span><br><span class="line">&lt;!-- 1.x --&gt;</span><br><span class="line">&lt;div id=&quot;&#123;&#123; id &#125;&#125;&quot;&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- 2.0 --&gt;</span><br><span class="line">&lt;div :id=&quot;id&quot;&gt;</span><br></pre></td></tr></table></figure></div></p>
+<ul>
+<li>属性绑定行为变化：当绑定属性时，只有<code>null</code>、<code>undefine</code>和<code>false</code>被认为是<code>false</code>。这意味着 0 和空字符串依旧呈现出原来的样子。对于枚举属性，<code>:draggable=&quot;&#39;&#39;&quot;</code>将被渲染为<code>draggable=&quot;true&quot;</code>。<br>另外，对于枚举属性，除了上述<code>false</code>的值，<code>false</code>字符串也会被渲染为<code>attr=&quot;false&quot;</code>。</li>
+<li>当使用一个自定义组件，<code>v-on</code>只听自定义事件<code>$emitted</code>挂载在组件上。（不再监听 DOM 事件）</li>
 <li><code>v-else</code>不再适用于<code>v-show</code>，请使用其他的否定表达式。</li>
 <li>单次绑定只能使用<code>v-once</code>。</li>
 <li><code>Array.prototype.$set</code>/<code>$remove</code>被丢弃（使用<code>Vue.set</code>或者<code>Array.prototype.splice</code>）。</li>
 <li><code>:style</code>不再支持<code>!import</code>。</li>
 <li><code>root</code>实例不能使用<code>props</code>（请使用<code>propsData</code>）</li>
 <li>在<code>Vue.extend</code>中<code>el</code>配置项不能被使用,它现在只能被用作一个实例创建选项。</li>
-<li>在vue的实例中不能使用<code>Vue.set</code>和<code>Vue.delete</code><h3 id="升级小提示"><a href="#升级小提示" class="headerlink" title="升级小提示"></a>升级小提示</h3><h4 id="如何处理丢弃的-dispatch和-broadcast？"><a href="#如何处理丢弃的-dispatch和-broadcast？" class="headerlink" title="如何处理丢弃的$dispatch和$broadcast？"></a>如何处理丢弃的<code>$dispatch</code>和<code>$broadcast</code>？</h4>我们弃用<code>$dispatch</code>和<code>$broadcast</code>的原因在于依赖组件树结构的事件流，当组件树变得很大时很难推理（简单地说：它不能在大型应用很好地扩展，我们不希望以后给你设置痛点）。<code>$dispatch</code>和<code>$broadcast</code>不能解决同级组件之间的通信。从而，你可以使用和node中的<code>EventEmitter</code>类似的模式：一个允许组件通信的集中事件枢纽，无论他们在组件树的任何地方。因为vue的实例实现了事件发射接口，你可以使用空的vue实例达到目的：<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> bus = <span class="keyword">new</span> Vue()</span><br></pre></td></tr></table></figure>
-</li>
+<li>在 vue 的实例中不能使用<code>Vue.set</code>和<code>Vue.delete</code></li>
 </ul>
+<h3 id="升级小提示"><a href="#升级小提示" class="headerlink" title="升级小提示"></a>升级小提示</h3><h4 id="如何处理丢弃的-dispatch和-broadcast？"><a href="#如何处理丢弃的-dispatch和-broadcast？" class="headerlink" title="如何处理丢弃的$dispatch和$broadcast？"></a>如何处理丢弃的<code>$dispatch</code>和<code>$broadcast</code>？</h4><p>我们弃用<code>$dispatch</code>和<code>$broadcast</code>的原因在于依赖组件树结构的事件流，当组件树变得很大时很难推理（简单地说：它不能在大型应用很好地扩展，我们不希望以后给你设置痛点）。<code>$dispatch</code>和<code>$broadcast</code>不能解决同级组件之间的通信。从而，你可以使用和 node 中的<code>EventEmitter</code>类似的模式：一个允许组件通信的集中事件枢纽，无论他们在组件树的任何地方。因为 vue 的实例实现了事件发射接口，你可以使用空的 vue 实例达到目的：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> bus = <span class="keyword">new</span> Vue()</span><br></pre></td></tr></table></figure>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// in component A's method</span></span><br><span class="line">bus.$emit(<span class="string">'id-selected'</span>, <span class="number">1</span>)</span><br></pre></td></tr></table></figure>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// in component B's created hook</span></span><br><span class="line">bus.$on(<span class="string">'id-selected'</span>, <span class="keyword">this</span>.someMethod)</span><br></pre></td></tr></table></figure>
-<p>并且不要忘记使用<code>$off</code>解绑事件：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// in component B's destroyed hook</span></span><br><span class="line">bus.$off(<span class="string">'id-selected'</span>, <span class="keyword">this</span>.someMethod)</span><br></pre></td></tr></table></figure></p>
+<p>并且不要忘记使用<code>$off</code>解绑事件：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// in component B's destroyed hook</span></span><br><span class="line">bus.$off(<span class="string">'id-selected'</span>, <span class="keyword">this</span>.someMethod)</span><br></pre></td></tr></table></figure>
 <p>这种模式在简单的场景中可以作为<code>$dispatch</code>和<code>$broadcast</code>的替代。但是在复杂的场景中，建议使用<code>vuex</code>建立一个专门的状态管理层。</p>
-<h4 id="如何处理数组中filter的弃用？"><a href="#如何处理数组中filter的弃用？" class="headerlink" title="如何处理数组中filter的弃用？"></a>如何处理数组中filter的弃用？</h4><p>对于使用<code>v-for</code>进行列表过滤-过滤器常见用法之一-现在建议使用<code>computed</code>属性返回原始数组的一个副本（查阅<a href="https://github.com/vuejs/vue/blob/next/examples/grid/grid.js#L21-L41" target="_blank" rel="noopener">更新数据例子</a>）。好处在于你不再受到<code>filter</code>语法的限制，现在它只是普通的javascript，并且你可以正常访问过滤结果，因为它只是一个计算的属性。</p>
+<h4 id="如何处理数组中-filter-的弃用？"><a href="#如何处理数组中-filter-的弃用？" class="headerlink" title="如何处理数组中 filter 的弃用？"></a>如何处理数组中 filter 的弃用？</h4><p>对于使用<code>v-for</code>进行列表过滤-过滤器常见用法之一-现在建议使用<code>computed</code>属性返回原始数组的一个副本（查阅<a href="https://github.com/vuejs/vue/blob/next/examples/grid/grid.js#L21-L41" target="_blank" rel="noopener">更新数据例子</a>）。好处在于你不再受到<code>filter</code>语法的限制，现在它只是普通的 javascript，并且你可以正常访问过滤结果，因为它只是一个计算的属性。</p>
 <h4 id="如何处理在v-model中debounce的丢弃？"><a href="#如何处理在v-model中debounce的丢弃？" class="headerlink" title="如何处理在v-model中debounce的丢弃？"></a>如何处理在<code>v-model</code>中<code>debounce</code>的丢弃？</h4><p><code>debounce</code>用于我们多久执行异步请求和其他操作，在<code>v-model</code>中使用十分容易，但这样也延迟了状态更新带来了限制。<br>当在设计一个搜索功能时这个限制变得很明显，看看这个<a href="https://jsbin.com/zefawu/3/edit?html,output" target="_blank" rel="noopener">例子</a>，使用<code>debounce</code>属性，在搜索之前没法检测脏数据，因为我们不能访问输入的实时状态。</p>
 <blockquote>
 <p>未完待续….</p>
@@ -270,7 +269,7 @@
       
 
       <span class="post-tags">
-        <a href="/blog/tags/vue/">tags/vue/</a>
+        <a href="/blog/tags/vue/">vue</a>
       </span>
       
 
@@ -300,9 +299,9 @@
 
 
 
-    </main>
+      </main>
 
-    <footer class="site-footer">
+      <footer class="site-footer">
   <p class="site-info">
     
     &copy;
@@ -311,7 +310,7 @@
     
   </p>
 </footer>
-    
+      
 <script>
     (function (i, s, o, g, r, a, m) {
         i['GoogleAnalyticsObject'] = r;
@@ -329,7 +328,27 @@
     ga('send', 'pageview');
 </script>
 
+    </div>
   </div>
-</div>
+  <span class="back-top">⇡</span>
 </body>
+
+<script>
+  window.onload = function () {
+    var $backtop = document.querySelector('.back-top')
+    var $body = document.body
+    $body.addEventListener('scroll', function (e) {
+      var currentscrolltop = e.target.scrollTop
+      if (currentscrolltop > 500) {
+        $backtop.style.display = 'block'
+      } else {
+        $backtop.style.display = 'none'
+      }
+    })
+    $backtop.addEventListener('click', function () {
+      $body.scrollTop = 0
+    })
+  }
+</script>
+
 </html>

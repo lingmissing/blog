@@ -41,10 +41,10 @@
 </head>
 
 <body>
-<div class="blog">
-  <div class="content">
+  <div class="blog">
+    <div class="content">
 
-    <header>
+      <header>
   <div class="site-branding">
     <h1 class="site-title">
       <a href="/blog/">时光的涂鸦墙</a>
@@ -66,8 +66,8 @@
   </nav>
 </header>
 
-    <main class="site-main posts-loop">
-    <article>
+      <main class="site-main posts-loop">
+        <article>
 
   
   
@@ -93,6 +93,7 @@
     <div class="entry">
       
       <p>由于 <code>Fetch</code>API 是基于 <code>Promise</code> 设计，有必要先学习一下 <code>Promise</code>，推荐阅读<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Promise" target="_blank" rel="noopener"> MDN Promise 教程 </a><br>本文章内容推荐阅读<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/GlobalFetch/fetch" target="_blank" rel="noopener"> MDN Fetch 教程</a></p>
+<a id="more"></a>
 <h2 id="语法说明"><a href="#语法说明" class="headerlink" title="语法说明"></a>语法说明</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">fetch(url, options).then(<span class="function"><span class="keyword">function</span>(<span class="params">response</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// handle HTTP response</span></span><br><span class="line">&#125;, <span class="function"><span class="keyword">function</span>(<span class="params">error</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// handle network error</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 <p>具体参数案例：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//兼容包</span></span><br><span class="line"><span class="built_in">require</span>(<span class="string">'babel-polyfill'</span>)</span><br><span class="line"><span class="built_in">require</span>(<span class="string">'es6-promise'</span>).polyfill()</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">'whatwg-fetch'</span></span><br><span class="line"></span><br><span class="line">fetch(url, &#123;</span><br><span class="line">  method: <span class="string">"POST"</span>,</span><br><span class="line">  body: <span class="built_in">JSON</span>.stringify(data),</span><br><span class="line">  headers: &#123;</span><br><span class="line">    <span class="string">"Content-Type"</span>: <span class="string">"application/json"</span></span><br><span class="line">  &#125;,</span><br><span class="line">  credentials: <span class="string">"same-origin"</span></span><br><span class="line">&#125;).then(<span class="function"><span class="keyword">function</span>(<span class="params">response</span>) </span>&#123;</span><br><span class="line">  response.status     <span class="comment">//=&gt; number 100–599</span></span><br><span class="line">  response.statusText <span class="comment">//=&gt; String</span></span><br><span class="line">  response.headers    <span class="comment">//=&gt; Headers</span></span><br><span class="line">  response.url        <span class="comment">//=&gt; String</span></span><br><span class="line"></span><br><span class="line">  response.text().then(<span class="function"><span class="keyword">function</span>(<span class="params">responseText</span>) </span>&#123; ... &#125;)</span><br><span class="line">&#125;, <span class="function"><span class="keyword">function</span>(<span class="params">error</span>) </span>&#123;</span><br><span class="line">  error.message <span class="comment">//=&gt; String</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
@@ -108,20 +109,20 @@
 <li><code>body</code>: 请求的 <code>body</code> 信息：可能是一个 <code>Blob</code>、<code>BufferSource</code>、<code>FormData</code>、<code>URLSearchParams</code> 或者 <code>USVString</code> 对象。注意 <code>GET</code> 或 <code>HEAD</code> 方法的请求不能包含 <code>body</code> 信息。</li>
 <li><code>mode</code>: 请求的模式，如 <code>cors</code>、 <code>no-cors</code> 或者 <code>same-origin</code>。</li>
 <li><code>credentials</code>: 请求的 <code>credentials</code>，如 <code>omit</code>、<code>same-origin</code> 或者 <code>include</code>。</li>
-<li><code>cache</code>:  请求的 <code>cache</code> 模式: <code>default</code>, <code>no-store</code>, <code>reload</code>, <code>no-cache</code>, <code>force-cache</code>, 或者 <code>only-if-cached</code>。</li>
+<li><code>cache</code>: 请求的 <code>cache</code> 模式: <code>default</code>, <code>no-store</code>, <code>reload</code>, <code>no-cache</code>, <code>force-cache</code>, 或者 <code>only-if-cached</code>。</li>
 </ul>
 <h4 id="response"><a href="#response" class="headerlink" title="response"></a>response</h4><p>一个 <code>Promise</code>，<code>resolve</code> 时回传 <code>Response</code> 对象：</p>
 <ul>
 <li>属性：<ul>
-<li><code>status (number)</code> - HTTP请求结果参数，在100–599 范围</li>
+<li><code>status (number)</code> - HTTP 请求结果参数，在 100–599 范围</li>
 <li><code>statusText (String)</code> - 服务器返回的状态报告</li>
-<li><code>ok (boolean)</code> - 如果返回200表示请求成功则为true</li>
+<li><code>ok (boolean)</code> - 如果返回 200 表示请求成功则为 true</li>
 <li><code>headers (Headers)</code> - 返回头部信息，下面详细介绍</li>
 <li><code>url (String)</code> - 请求的地址</li>
 </ul>
 </li>
 <li>方法：<ul>
-<li><code>text()</code> - 以<code>string</code>的形式生成请求text</li>
+<li><code>text()</code> - 以<code>string</code>的形式生成请求 text</li>
 <li><code>json()</code> - 生成<code>JSON.parse(responseText)</code>的结果</li>
 <li><code>blob()</code> - 生成一个<code>Blob</code></li>
 <li><code>arrayBuffer()</code> - 生成一个<code>ArrayBuffer</code></li>
@@ -140,11 +141,11 @@
 <li><code>get(name) (String)</code> - 获取信息头的数据</li>
 <li><code>getAll(name) (Array)</code> - 获取所有头部数据</li>
 <li><code>set(name, value)</code> - 设置信息头的参数</li>
-<li><code>append(name, value)</code> - 添加header的内容</li>
-<li><code>delete(name)</code> - 删除header的信息</li>
-<li><code>forEach(function(value, name){ ... }, [thisContext])</code> - 循环读取header的信息</li>
+<li><code>append(name, value)</code> - 添加 header 的内容</li>
+<li><code>delete(name)</code> - 删除 header 的信息</li>
+<li><code>forEach(function(value, name){ ... }, [thisContext])</code> - 循环读取 header 的信息</li>
 </ul>
-<h2 id="使用案例"><a href="#使用案例" class="headerlink" title="使用案例"></a>使用案例</h2><h4 id="GET请求"><a href="#GET请求" class="headerlink" title="GET请求"></a>GET请求</h4><ul>
+<h2 id="使用案例"><a href="#使用案例" class="headerlink" title="使用案例"></a>使用案例</h2><h4 id="GET-请求"><a href="#GET-请求" class="headerlink" title="GET 请求"></a>GET 请求</h4><ul>
 <li><p>HTML</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">fetch(<span class="string">'/users.html'</span>)</span><br><span class="line">  .then(<span class="function"><span class="keyword">function</span>(<span class="params">response</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> response.text()</span><br><span class="line">  &#125;).then(<span class="function"><span class="keyword">function</span>(<span class="params">body</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">document</span>.body.innerHTML = body</span><br><span class="line">  &#125;)</span><br></pre></td></tr></table></figure>
 </li>
@@ -155,20 +156,20 @@
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">fetch(url)</span><br><span class="line">  .then(<span class="function"><span class="keyword">function</span>(<span class="params">response</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> response.json();</span><br><span class="line">  &#125;).then(<span class="function"><span class="keyword">function</span>(<span class="params">data</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(data);</span><br><span class="line">  &#125;).catch(<span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"Oops, error"</span>);</span><br><span class="line">  &#125;);</span><br></pre></td></tr></table></figure>
 <p>使用 ES6 的 箭头函数 后：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">fetch(url)</span><br><span class="line">  .then(<span class="function"><span class="params">response</span> =&gt;</span> response.json())</span><br><span class="line">  .then(<span class="function"><span class="params">data</span> =&gt;</span> <span class="built_in">console</span>.log(data))</span><br><span class="line">  .catch(<span class="function"><span class="params">e</span> =&gt;</span> <span class="built_in">console</span>.log(<span class="string">"Oops, error"</span>, e))</span><br></pre></td></tr></table></figure>
+<p>response 的数据</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">fetch(<span class="string">'/users.json'</span>).then(<span class="function"><span class="keyword">function</span>(<span class="params">response</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(response.headers.get(<span class="string">'Content-Type'</span>))</span><br><span class="line">  <span class="built_in">console</span>.log(response.headers.get(<span class="string">'Date'</span>))</span><br><span class="line">  <span class="built_in">console</span>.log(response.status)</span><br><span class="line">  <span class="built_in">console</span>.log(response.statusText)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<p>  response的数据</p>
-  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">fetch(<span class="string">'/users.json'</span>).then(<span class="function"><span class="keyword">function</span>(<span class="params">response</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(response.headers.get(<span class="string">'Content-Type'</span>))</span><br><span class="line">  <span class="built_in">console</span>.log(response.headers.get(<span class="string">'Date'</span>))</span><br><span class="line">  <span class="built_in">console</span>.log(response.status)</span><br><span class="line">  <span class="built_in">console</span>.log(response.statusText)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<h4 id="POST请求"><a href="#POST请求" class="headerlink" title="POST请求"></a>POST请求</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">fetch(<span class="string">'/users'</span>, &#123;</span><br><span class="line">  method: <span class="string">'POST'</span>,</span><br><span class="line">  headers: &#123;</span><br><span class="line">    <span class="string">'Accept'</span>: <span class="string">'application/json'</span>,</span><br><span class="line">    <span class="string">'Content-Type'</span>: <span class="string">'application/json'</span></span><br><span class="line">  &#125;,</span><br><span class="line">  body: <span class="built_in">JSON</span>.stringify(&#123;</span><br><span class="line">    name: <span class="string">'Hubot'</span>,</span><br><span class="line">    login: <span class="string">'hubot'</span>,</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h4 id="POST-请求"><a href="#POST-请求" class="headerlink" title="POST 请求"></a>POST 请求</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">fetch(<span class="string">'/users'</span>, &#123;</span><br><span class="line">  method: <span class="string">'POST'</span>,</span><br><span class="line">  headers: &#123;</span><br><span class="line">    <span class="string">'Accept'</span>: <span class="string">'application/json'</span>,</span><br><span class="line">    <span class="string">'Content-Type'</span>: <span class="string">'application/json'</span></span><br><span class="line">  &#125;,</span><br><span class="line">  body: <span class="built_in">JSON</span>.stringify(&#123;</span><br><span class="line">    name: <span class="string">'Hubot'</span>,</span><br><span class="line">    login: <span class="string">'hubot'</span>,</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 <p>检查请求状态</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">checkStatus</span>(<span class="params">response</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (response.status &gt;= <span class="number">200</span> &amp;&amp; response.status &lt; <span class="number">300</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> response</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> error = <span class="keyword">new</span> <span class="built_in">Error</span>(response.statusText)</span><br><span class="line">    error.response = response</span><br><span class="line">    <span class="keyword">throw</span> error</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">parseJSON</span>(<span class="params">response</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> response.json()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">fetch(<span class="string">'/users'</span>)</span><br><span class="line">  .then(checkStatus)</span><br><span class="line">  .then(parseJSON)</span><br><span class="line">  .then(<span class="function"><span class="keyword">function</span>(<span class="params">data</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'request succeeded with JSON response'</span>, data)</span><br><span class="line">  &#125;).catch(<span class="function"><span class="keyword">function</span>(<span class="params">error</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'request failed'</span>, error)</span><br><span class="line">  &#125;)</span><br></pre></td></tr></table></figure>
-<h2 id="采用promise形式"><a href="#采用promise形式" class="headerlink" title="采用promise形式"></a>采用promise形式</h2><p>Promise 对象是一个返回值的代理，这个返回值在promise对象创建时未必已知。它允许你为异步操作的成功或失败指定处理方法。 这使得异步方法可以像同步方法那样返回值：异步方法会返回一个包含了原返回值的 promise 对象来替代原返回值。</p>
-<p>Promise构造函数接受一个函数作为参数，该函数的两个参数分别是<code>resolve</code>方法和<code>reject</code>方法。如果异步操作成功，则用<code>resolve</code>方法将<code>Promise</code>对象的状态变为“成功”（即从pending变为resolved）；如果异步操作失败，则用reject方法将状态变为“失败”（即从pending变为rejected）。</p>
-<p>promise实例生成以后，可以用then方法分别指定resolve方法和reject方法的回调函数。</p>
+<h2 id="采用-promise-形式"><a href="#采用-promise-形式" class="headerlink" title="采用 promise 形式"></a>采用 promise 形式</h2><p>Promise 对象是一个返回值的代理，这个返回值在 promise 对象创建时未必已知。它允许你为异步操作的成功或失败指定处理方法。 这使得异步方法可以像同步方法那样返回值：异步方法会返回一个包含了原返回值的 promise 对象来替代原返回值。</p>
+<p>Promise 构造函数接受一个函数作为参数，该函数的两个参数分别是<code>resolve</code>方法和<code>reject</code>方法。如果异步操作成功，则用<code>resolve</code>方法将<code>Promise</code>对象的状态变为“成功”（即从 pending 变为 resolved）；如果异步操作失败，则用 reject 方法将状态变为“失败”（即从 pending 变为 rejected）。</p>
+<p>promise 实例生成以后，可以用 then 方法分别指定 resolve 方法和 reject 方法的回调函数。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//创建一个promise对象</span></span><br><span class="line"><span class="keyword">var</span> promise = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve, reject</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (<span class="comment">/* 异步操作成功 */</span>)&#123;</span><br><span class="line">    resolve(value);</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    reject(error);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">//then方法可以接受两个回调函数作为参数。</span></span><br><span class="line"><span class="comment">//第一个回调函数是Promise对象的状态变为Resolved时调用，第二个回调函数是Promise对象的状态变为Reject时调用。</span></span><br><span class="line"><span class="comment">//其中，第二个函数是可选的，不一定要提供。这两个函数都接受Promise对象传出的值作为参数。</span></span><br><span class="line">promise.then(<span class="function"><span class="keyword">function</span>(<span class="params">value</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// success</span></span><br><span class="line">&#125;, <span class="function"><span class="keyword">function</span>(<span class="params">value</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// failure</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<p>那么结合promise后fetch的用法：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Fetch.js</span></span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">Fetch</span>(<span class="params">url, options</span>) </span>&#123;</span><br><span class="line">  options.body = <span class="built_in">JSON</span>.stringify(options.body)</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> defer = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">    fetch(url, options)</span><br><span class="line">      .then(<span class="function"><span class="params">response</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> response.json()</span><br><span class="line">      &#125;)</span><br><span class="line">      .then(<span class="function"><span class="params">data</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (data.code === <span class="number">0</span>) &#123;</span><br><span class="line">          resolve(data) <span class="comment">//返回成功数据</span></span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">			<span class="keyword">if</span> (data.code === <span class="number">401</span>) &#123;</span><br><span class="line">            <span class="comment">//失败后的一种状态</span></span><br><span class="line">			&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="comment">//失败的另一种状态</span></span><br><span class="line">			&#125;</span><br><span class="line">          reject(data) <span class="comment">//返回失败数据</span></span><br><span class="line">        &#125;</span><br><span class="line">      &#125;)</span><br><span class="line">      .catch(<span class="function"><span class="params">error</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="comment">//捕获异常</span></span><br><span class="line">        <span class="built_in">console</span>.log(error.msg)</span><br><span class="line">        reject() </span><br><span class="line">      &#125;)</span><br><span class="line">  &#125;)</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> defer</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>调用Fech方法：</p>
+<p>那么结合 promise 后 fetch 的用法：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Fetch.js</span></span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">Fetch</span>(<span class="params">url, options</span>) </span>&#123;</span><br><span class="line">  options.body = <span class="built_in">JSON</span>.stringify(options.body)</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> defer = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">    fetch(url, options)</span><br><span class="line">      .then(<span class="function"><span class="params">response</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> response.json()</span><br><span class="line">      &#125;)</span><br><span class="line">      .then(<span class="function"><span class="params">data</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (data.code === <span class="number">0</span>) &#123;</span><br><span class="line">          resolve(data) <span class="comment">//返回成功数据</span></span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">			<span class="keyword">if</span> (data.code === <span class="number">401</span>) &#123;</span><br><span class="line">            <span class="comment">//失败后的一种状态</span></span><br><span class="line">			&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="comment">//失败的另一种状态</span></span><br><span class="line">			&#125;</span><br><span class="line">          reject(data) <span class="comment">//返回失败数据</span></span><br><span class="line">        &#125;</span><br><span class="line">      &#125;)</span><br><span class="line">      .catch(<span class="function"><span class="params">error</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="comment">//捕获异常</span></span><br><span class="line">        <span class="built_in">console</span>.log(error.msg)</span><br><span class="line">        reject()</span><br><span class="line">      &#125;)</span><br><span class="line">  &#125;)</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> defer</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>调用 Fech 方法：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; Fetch &#125; <span class="keyword">from</span> <span class="string">'./Fetch'</span></span><br><span class="line"></span><br><span class="line">Fetch(getAPI(<span class="string">'search'</span>), &#123;</span><br><span class="line">  method: <span class="string">'POST'</span>,</span><br><span class="line">  options</span><br><span class="line">&#125;)</span><br><span class="line">.then(<span class="function"><span class="params">data</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(data)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 <h2 id="支持状况及解决方案"><a href="#支持状况及解决方案" class="headerlink" title="支持状况及解决方案"></a>支持状况及解决方案</h2><p>原生支持率并不高，幸运的是，引入下面这些 <code>polyfill</code> 后可以完美支持 IE8+ ：</p>
 <ul>
@@ -195,7 +196,7 @@
       
 
       <span class="post-tags">
-        <a href="/blog/tags/javascript/">tags/javascript/</a><a href="/blog/tags/es6/">tags/es6/</a>
+        <a href="/blog/tags/javascript/">javascript</a><a href="/blog/tags/es6/">es6</a>
       </span>
       
 
@@ -225,9 +226,9 @@
 
 
 
-    </main>
+      </main>
 
-    <footer class="site-footer">
+      <footer class="site-footer">
   <p class="site-info">
     
     &copy;
@@ -236,7 +237,7 @@
     
   </p>
 </footer>
-    
+      
 <script>
     (function (i, s, o, g, r, a, m) {
         i['GoogleAnalyticsObject'] = r;
@@ -254,7 +255,27 @@
     ga('send', 'pageview');
 </script>
 
+    </div>
   </div>
-</div>
+  <span class="back-top">⇡</span>
 </body>
+
+<script>
+  window.onload = function () {
+    var $backtop = document.querySelector('.back-top')
+    var $body = document.body
+    $body.addEventListener('scroll', function (e) {
+      var currentscrolltop = e.target.scrollTop
+      if (currentscrolltop > 500) {
+        $backtop.style.display = 'block'
+      } else {
+        $backtop.style.display = 'none'
+      }
+    })
+    $backtop.addEventListener('click', function () {
+      $body.scrollTop = 0
+    })
+  }
+</script>
+
 </html>
