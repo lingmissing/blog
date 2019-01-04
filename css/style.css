@@ -531,6 +531,11 @@ body {
   height: 100%;
   overflow-y: auto;
 }
+
+p,
+li {
+  line-height: 24px;
+}
 html {
   font-size: 10px;
   -webkit-text-size-adjust: 100%;
@@ -550,7 +555,7 @@ a {
 }
 body {
   background-color: #f7f7f7;
-  font-family: "AvenirNext-Regular", "Segoe UI", "Lucida Grande", Helvetica, "Microsoft YaHei", FreeSans, Arimo, "Droid Sans", "wenquanyi micro hei", "Hiragino Sans GB", "Hiragino Sans GB W3", Arial, sans-serif;
+  font-family: Arial, "AvenirNext-Regular", "Segoe UI", "Lucida Grande", Helvetica, "Microsoft YaHei", FreeSans, Arimo, "Droid Sans", "wenquanyi micro hei", "Hiragino Sans GB", "Hiragino Sans GB W3", Arial, sans-serif;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
@@ -682,12 +687,13 @@ article ul li {
 article ol li:before,
 article ul li:before {
   position: absolute;
-  left: -1em;
+  left: -0.8em;
 }
 article ul li:before {
   content: '•';
   color: #e06e73;
   display: inline-block;
+  font-size: 20px;
 }
 article ol {
   counter-reset: ol 0;
