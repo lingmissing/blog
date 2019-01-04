@@ -44,26 +44,36 @@
   <div class="blog">
     <div class="content">
 
-      <header>
+      <header class="blog-header">
   <div class="site-branding">
     <h1 class="site-title">
-      <a href="/blog/">时光的涂鸦墙</a>
+      <a href="/blog/">
+        时光的涂鸦墙</a>
     </h1>
-    <p class="site-description">code is poetry</p>
+    <p class="site-description">
+      
+      code is poetry
+      
+    </p>
   </div>
   <nav class="site-navigation">
     <ul>
       
-        <li><a href="/blog/">主页</a></li>
+      <li><a href="/blog/">
+          主页</a></li>
       
-        <li><a href="/blog/archives">归档</a></li>
+      <li><a href="/blog/archives">
+          归档</a></li>
       
-        <li><a href="/blog/tags">标签</a></li>
+      <li><a href="/blog/tags">
+          标签</a></li>
       
-        <li><a href="/blog/about">关于</a></li>
+      <li><a href="/blog/about">
+          关于</a></li>
       
     </ul>
   </nav>
+  <span class="header-shadow"></span>
 </header>
 
       <main class="site-main posts-loop">
@@ -286,12 +296,15 @@ if(false,1px,2px)
   window.onload = function () {
     var $backtop = document.querySelector('.back-top')
     var $body = document.body
+    var $header = document.querySelector('.blog-header')
     $body.addEventListener('scroll', function (e) {
       var currentscrolltop = e.target.scrollTop
       if (currentscrolltop > 500) {
         $backtop.style.display = 'block'
+        $header.setAttribute('class', 'blog-header fixed')
       } else {
         $backtop.style.display = 'none'
+        $header.setAttribute('class', 'blog-header')
       }
     })
     $backtop.addEventListener('click', function () {
