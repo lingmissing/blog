@@ -1,19 +1,19 @@
 ---
 title: javascript 自动提示/ 键盘上下键滚动选项/ 回车选择
 date: 2016-03-21 15:43:59
-tags: [javascript,jquery]
+tags: [javascript, jquery]
 ---
 
 在输入框中输入内容，下拉出现自动提示列表，鼠标上下键选择提示中的项，然后回车选择相应的项。
-实现原理：JS监听输入框的kedown、keyup、focusout事件。
+实现原理：JS 监听输入框的 kedown、keyup、focusout 事件。
 
-1. 输入内容的时候keyup触发调取后台数据，并接收返回的数据弹出自动提示内容。
-2. 键盘按下的时候keydown判断是否是上下键、回车键、退格删除键，如果是上下键，通过js改变相应内容的显示状态标为当前状态，如果是回车键，将标记为当前选中状态的内容添加到目标HTML标签中，如果是回退删除键判断下输入框里面是否有内容，如果没内容删除目标HTML标签中最后添加的元素。
-3. 当input框失去焦点的时候出发focusout事件，执行隐藏提示内容。
+<!-- more -->
+
+1. 输入内容的时候 keyup 触发调取后台数据，并接收返回的数据弹出自动提示内容。
+2. 键盘按下的时候 keydown 判断是否是上下键、回车键、退格删除键，如果是上下键，通过 js 改变相应内容的显示状态标为当前状态，如果是回车键，将标记为当前选中状态的内容添加到目标 HTML 标签中，如果是回退删除键判断下输入框里面是否有内容，如果没内容删除目标 HTML 标签中最后添加的元素。
+3. 当 input 框失去焦点的时候出发 focusout 事件，执行隐藏提示内容。
 
 下面看下示例代码吧！
-
-<!--more-->
 
 ```javascript
 $(function(){
@@ -96,7 +96,7 @@ $(function(){
         var tagname = $('.tag-search-list').children('.hover').text();
         var tagid = $('.tag-search-list').children('.hover').attr('data-id');
         $('#tag-content').append('<span class="span-one-tag">#'+
-        tagname+'<input type="hidden" name="tag[]" 
+        tagname+'<input type="hidden" name="tag[]"
         value="'+tagid+'"><span>x</span></span>');
         $('#tag-search').val('');
     }

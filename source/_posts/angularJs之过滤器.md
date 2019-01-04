@@ -14,6 +14,8 @@ tags: angular
 	{{ expression | filter }}
 
 也可以多个`filter`连用，上一个`filter`的输出将作为下一个`filter`的输入
+
+<!-- more -->
 			
 	{{ expression | filter1 | filter2 | ... }}
 
@@ -24,8 +26,6 @@ tags: angular
 除了对数据进行格式化，我们还可以在指令中使用`filter`，例如先对数组`array`进行过滤处理，然后再循环输出：
 
 	<span ng-repeat="a in array | filter ">
-
-<!-- more -->
 
 - 在`controller`和`service`中使用`filter`
 

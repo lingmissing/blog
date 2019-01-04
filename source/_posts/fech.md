@@ -1,10 +1,13 @@
 ---
 title: fetch用法说明
 date: 2016-09-07 11:08:38
-tags: [javascript,es6]
+tags: [javascript, es6]
 ---
+
 由于 `Fetch`API 是基于 `Promise` 设计，有必要先学习一下 `Promise`，推荐阅读[ MDN Promise 教程 ](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Promise)
 本文章内容推荐阅读[ MDN Fetch 教程](https://developer.mozilla.org/zh-CN/docs/Web/API/GlobalFetch/fetch)
+
+<!-- more -->
 
 ## 语法说明
 
@@ -15,6 +18,7 @@ fetch(url, options).then(function(response) {
   // handle network error
 })
 ```
+
 具体参数案例：
 
 ```javaScript
@@ -43,30 +47,37 @@ fetch(url, {
 })
 
 ```
+
 #### url
+
 定义要获取的资源。这可能是：
+
 - 一个 `USVString` 字符串，包含要获取资源的 `URL`。
 - 一个 `Request` 对象。
 
 #### options（可选）
+
 一个配置项对象，包括所有对请求的设置。可选的参数有：
+
 - `method`: 请求使用的方法，如 `GET`、`POST`。
 - `headers`: 请求的头信息，形式为 `Headers` 对象或 `ByteString`。
 - `body`: 请求的 `body` 信息：可能是一个 `Blob`、`BufferSource`、`FormData`、`URLSearchParams` 或者 `USVString` 对象。注意 `GET` 或 `HEAD` 方法的请求不能包含 `body` 信息。
 - `mode`: 请求的模式，如 `cors`、 `no-cors` 或者 `same-origin`。
 - `credentials`: 请求的 `credentials`，如 `omit`、`same-origin` 或者 `include`。
-- `cache`:  请求的 `cache` 模式: `default`, `no-store`, `reload`, `no-cache`, `force-cache`, 或者 `only-if-cached`。
+- `cache`: 请求的 `cache` 模式: `default`, `no-store`, `reload`, `no-cache`, `force-cache`, 或者 `only-if-cached`。
 
 #### response
+
 一个 `Promise`，`resolve` 时回传 `Response` 对象：
+
 - 属性：
-  - `status (number)` - HTTP请求结果参数，在100–599 范围
+  - `status (number)` - HTTP 请求结果参数，在 100–599 范围
   - `statusText (String)` - 服务器返回的状态报告
-  - `ok (boolean)` - 如果返回200表示请求成功则为true
+  - `ok (boolean)` - 如果返回 200 表示请求成功则为 true
   - `headers (Headers)` - 返回头部信息，下面详细介绍
   - `url (String)` - 请求的地址
 - 方法：
-  - `text()` - 以`string`的形式生成请求text
+  - `text()` - 以`string`的形式生成请求 text
   - `json()` - 生成`JSON.parse(responseText)`的结果
   - `blob()` - 生成一个`Blob`
   - `arrayBuffer()` - 生成一个`ArrayBuffer`
@@ -77,17 +88,18 @@ fetch(url, {
   - `Response.redirect()`
 
 #### response.headers
+
 - `has(name) (boolean)` - 判断是否存在该信息头
 - `get(name) (String)` - 获取信息头的数据
 - `getAll(name) (Array)` - 获取所有头部数据
 - `set(name, value)` - 设置信息头的参数
-- `append(name, value)` - 添加header的内容
-- `delete(name)` - 删除header的信息
-- `forEach(function(value, name){ ... }, [thisContext])` - 循环读取header的信息
+- `append(name, value)` - 添加 header 的内容
+- `delete(name)` - 删除 header 的信息
+- `forEach(function(value, name){ ... }, [thisContext])` - 循环读取 header 的信息
 
 ## 使用案例
 
-#### GET请求
+#### GET 请求
 
 - HTML
 
@@ -99,6 +111,7 @@ fetch(url, {
       document.body.innerHTML = body
     })
   ```
+
 - IMAGE
 
   ```javaScript
@@ -135,8 +148,8 @@ fetch(url, {
     .then(data => console.log(data))
     .catch(e => console.log("Oops, error", e))
   ```
-    
-  response的数据
+
+  response 的数据
 
   ```javaScript
   fetch('/users.json').then(function(response) {
@@ -147,8 +160,8 @@ fetch(url, {
   })
   ```
 
+#### POST 请求
 
-#### POST请求
 ```javaScript
 fetch('/users', {
   method: 'POST',
@@ -190,13 +203,13 @@ fetch('/users')
   })
 ```
 
-## 采用promise形式
+## 采用 promise 形式
 
-Promise 对象是一个返回值的代理，这个返回值在promise对象创建时未必已知。它允许你为异步操作的成功或失败指定处理方法。 这使得异步方法可以像同步方法那样返回值：异步方法会返回一个包含了原返回值的 promise 对象来替代原返回值。
+Promise 对象是一个返回值的代理，这个返回值在 promise 对象创建时未必已知。它允许你为异步操作的成功或失败指定处理方法。 这使得异步方法可以像同步方法那样返回值：异步方法会返回一个包含了原返回值的 promise 对象来替代原返回值。
 
-Promise构造函数接受一个函数作为参数，该函数的两个参数分别是`resolve`方法和`reject`方法。如果异步操作成功，则用`resolve`方法将`Promise`对象的状态变为“成功”（即从pending变为resolved）；如果异步操作失败，则用reject方法将状态变为“失败”（即从pending变为rejected）。
+Promise 构造函数接受一个函数作为参数，该函数的两个参数分别是`resolve`方法和`reject`方法。如果异步操作成功，则用`resolve`方法将`Promise`对象的状态变为“成功”（即从 pending 变为 resolved）；如果异步操作失败，则用 reject 方法将状态变为“失败”（即从 pending 变为 rejected）。
 
-promise实例生成以后，可以用then方法分别指定resolve方法和reject方法的回调函数。
+promise 实例生成以后，可以用 then 方法分别指定 resolve 方法和 reject 方法的回调函数。
 
 ```javaScript
 //创建一个promise对象
@@ -217,7 +230,7 @@ promise.then(function(value) {
 });
 ```
 
-那么结合promise后fetch的用法：
+那么结合 promise 后 fetch 的用法：
 
 ```javaScript
 //Fetch.js
@@ -244,7 +257,7 @@ export function Fetch(url, options) {
       .catch(error => {
         //捕获异常
         console.log(error.msg)
-        reject() 
+        reject()
       })
   })
 
@@ -252,7 +265,7 @@ export function Fetch(url, options) {
 }
 ```
 
-调用Fech方法：
+调用 Fech 方法：
 
 ```javaScript
 import { Fetch } from './Fetch'
@@ -267,7 +280,9 @@ Fetch(getAPI('search'), {
 ```
 
 ## 支持状况及解决方案
+
 原生支持率并不高，幸运的是，引入下面这些 `polyfill` 后可以完美支持 IE8+ ：
+
 - 由于 IE8 是 ES3，需要引入 ES5 的 `polyfill`: `es5-shim`, `es5-sham`
 - 引入 `Promise` 的 `polyfill`: `es6-promise`
 - 引入 `fetch` 探测库：`fetch-detector`
@@ -276,4 +291,3 @@ Fetch(getAPI('search'), {
 - 可选：开启 `Babel` 的 `runtime` 模式，现在就使用 `async`/`await`
 
 翻译自 [Fetch](https://github.github.io/fetch/)
-

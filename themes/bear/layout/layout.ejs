@@ -3,18 +3,38 @@
 <%- partial('components/head') %>
 
 <body>
-<div class="blog">
-  <div class="content">
+  <div class="blog">
+    <div class="content">
 
-    <%- partial('components/header') %>
+      <%- partial('components/header') %>
 
-    <main class="site-main posts-loop">
-    <%- body %>
-    </main>
+      <main class="site-main posts-loop">
+        <%- body %>
+      </main>
 
-    <%- partial('components/footer') %>
-    <%- partial('components/googleanalytics') %>
+      <%- partial('components/footer') %>
+      <%- partial('components/googleanalytics') %>
+    </div>
   </div>
-</div>
+  <span class="back-top">⇡</span>
 </body>
+
+<script>
+  window.onload = function () {
+    var $backtop = document.querySelector('.back-top')
+    var $body = document.body
+    $body.addEventListener('scroll', function (e) {
+      var currentscrolltop = e.target.scrollTop
+      if (currentscrolltop > 500) {
+        $backtop.style.display = 'block'
+      } else {
+        $backtop.style.display = 'none'
+      }
+    })
+    $backtop.addEventListener('click', function () {
+      $body.scrollTop = 0
+    })
+  }
+</script>
+
 </html>
