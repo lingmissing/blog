@@ -24,24 +24,25 @@ article ul li {
 article ol li:before,
 article ul li:before {
   position: absolute;
-  left: -0.8em;
 }
-article ul li:before {
+article ul > li:before {
   content: '•';
   color: #e06e73;
   display: inline-block;
   font-size: 20px;
+  left: -0.8em;
 }
 article ol {
   counter-reset: ol 0;
 }
-article ol li:before {
+article ol > li:before {
   content: counter(ol) ".";
   counter-increment: ol;
   color: #e06e73;
   text-align: right;
   display: inline-block;
   min-width: 1em;
+  left: -1.2em;
 }
 article del {
   color: #878787;

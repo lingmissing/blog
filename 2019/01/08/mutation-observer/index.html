@@ -1,0 +1,316 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  
+  <title>
+    MutationObserver 监听 DOM 树变化 | 时光的涂鸦墙 | code is poetry
+  </title>
+
+  
+  <meta name="author" content="elaine">
+  
+
+  
+  <meta name="description" content="JavaScript Developer">
+  
+
+  
+  
+  <meta name="keywords" content="javascript">
+  
+
+  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  
+  <meta property="og:title" content="MutationObserver 监听 DOM 树变化" />
+  
+
+  <meta property="og:site_name" content="时光的涂鸦墙" />
+
+  
+  <meta property="og:image" content="/blog/favicon.ico" />
+  
+
+  <link href="/blog/logo.jpg" rel="icon">
+  <link rel="alternate" href="/blog/atom.xml"
+    title="时光的涂鸦墙" type="application/atom+xml">
+  <link rel="stylesheet" href="/blog/css/style.css" media="screen" type="text/css">
+</head>
+
+<body>
+  <div class="blog">
+    <div class="content">
+
+      <header class="blog-header">
+  <div class="site-branding">
+    <h1 class="site-title">
+      <a href="/blog/">
+        时光的涂鸦墙</a>
+    </h1>
+    <p class="site-description">
+      
+      code is poetry
+      
+    </p>
+  </div>
+  <nav class="site-navigation">
+    <ul>
+      
+      <li><a href="/blog/">
+          主页</a></li>
+      
+      <li><a href="/blog/archives">
+          归档</a></li>
+      
+      <li><a href="/blog/tags">
+          标签</a></li>
+      
+      <li><a href="/blog/about">
+          关于</a></li>
+      
+    </ul>
+  </nav>
+  <span class="header-shadow"></span>
+</header>
+
+      <main class="site-main posts-loop">
+        <article>
+
+  
+  
+  <h3 class="article-title"><span>
+      MutationObserver 监听 DOM 树变化</span></h3>
+  
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/blog/2019/01/08/mutation-observer/" rel="bookmark">
+        <time class="entry-date published" datetime="2019-01-08T02:32:07.000Z">
+          2019-01-08
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+      <p><code>MutationObserver</code> 是用于代替 <code>MutationEvents</code> 作为观察 <code>DOM</code> 树结构发生变化时，做出相应处理的 <code>API</code> 。为什么要使用 <code>MutationObserver</code> 去代替 <code>MutationEvents</code> 呢，我们先了解一下 <code>MutationEvents</code></p>
+<a id="more"></a>
+<h2 id="MutationEvents"><a href="#MutationEvents" class="headerlink" title="MutationEvents"></a>MutationEvents</h2><p>它简单的用法如下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.getElementById(<span class="string">'list'</span>).addEventListener(</span><br><span class="line">  <span class="string">'DOMSubtreeModified'</span>,</span><br><span class="line">  () =&gt; &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'列表中子元素被修改'</span>)</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="literal">false</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Mutation 事件列表</span></span><br><span class="line">DOMAttrModified <span class="comment">// 监听元素的修改</span></span><br><span class="line">DOMAttributeNameChanged</span><br><span class="line">DOMCharacterDataModified</span><br><span class="line">DOMElementNameChanged</span><br><span class="line">DOMNodeInserted <span class="comment">// 监听新增</span></span><br><span class="line">DOMNodeRemoved <span class="comment">// 监听删除</span></span><br><span class="line">DOMNodeInsertedIntoDocument</span><br><span class="line">DOMSubtreeModified <span class="comment">// 监听子元素的修改</span></span><br></pre></td></tr></table></figure>
+<p>其中 <code>DOMNodeRemoved</code> ，<code>DOMNodeInserted</code> 和 <code>DOMSubtreeModified</code>分别用于监听元素子项的删除，新增，修改(包括删除和新增），<code>DOMAttrModified</code> 是监听元素属性的修改，并且能够提供具体的修改动作。</p>
+<p><strong>Mutation Events 遇到的问题</strong></p>
+<ul>
+<li>IE9 不支持 <code>MutationEvents</code>。Webkit 内核不支持 <code>DOMAttrModified</code> 特性，<code>DOMElementNameChanged</code> 和 <code>DOMAttributeNameChanged</code> 在 Firefox 上不被支持。</li>
+<li>性能问题 1. <code>MutationEvents</code> 是同步执行的，它的每次调用，都需要从事件队列中取出事件，执行，然后事件队列中移除，期间需要移动队列元素。如果事件触发的较为频繁的话，每一次都需要执行上面的这些步骤，那么浏览器会被拖慢。 2. <code>MutationEvents</code> 本身是事件，所以捕获是采用的是事件冒泡的形式，如果冒泡捕获期间又触发了其他的 <code>MutationEvents</code> 的话，很有可能就会导致阻塞 Javascript 线程，甚至导致浏览器崩溃。</li>
+</ul>
+<h2 id="Mutation-Observer"><a href="#Mutation-Observer" class="headerlink" title="Mutation Observer"></a>Mutation Observer</h2><p><code>MutationObserver</code> 是在 <code>DOM4</code> 中定义的，用于替代 <code>MutationEvents</code> 的新 API，它的不同于 events 的是，所有监听操作以及相应处理都是在其他脚本执行完成之后异步执行的，并且是所以变动触发之后，将变得记录在数组中，统一进行回调的，也就是说，当你使用 <code>observer</code> 监听多个 DOM 变化时，并且这若干个 DOM 发生了变化，那么 <code>observer</code> 会将变化记录到变化数组中，等待一起都结束了，然后一次性的从变化数组中执行其对应的回调函数。</p>
+<p><strong>特点</strong></p>
+<ul>
+<li>所有脚本任务完成后，才会运行，即采用异步方式</li>
+<li>DOM 变动记录封装成一个数组进行处理，而不是一条条地个别处理 DOM 变动。</li>
+<li>可以观察发生在 DOM 节点的所有变动，也可以观察某一类变动</li>
+</ul>
+<p>目前，Firefox(14+)、Chrome(26+)、Opera(15+)、IE(11+) 和 Safari(6.1+) 支持这个 API。 Safari 6.0 和 Chrome 18-25 使用这个 API 的时候，需要加上 WebKit 前缀（WebKitMutationObserver）。可以使用下面的表达式检查浏览器是否支持这个 API。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> MutationObserver =</span><br><span class="line">  <span class="built_in">window</span>.MutationObserver ||</span><br><span class="line">  <span class="built_in">window</span>.WebKitMutationObserver ||</span><br><span class="line">  <span class="built_in">window</span>.MozMutationObserver</span><br><span class="line"><span class="comment">// 监测浏览器是否支持</span></span><br><span class="line"><span class="keyword">var</span> observeMutationSupport = !!MutationObserver</span><br></pre></td></tr></table></figure>
+<h2 id="如何使用-MutationObserver"><a href="#如何使用-MutationObserver" class="headerlink" title="如何使用 MutationObserver"></a>如何使用 MutationObserver</h2><p>在应用中集成 <code>MutationObserver</code> 是相当简单的。通过往构造函数 <code>MutationObserver</code> 中传入一个函数作为参数来初始化一个 <code>MutationObserver</code> 实例，该函数会在每次发生 DOM 发生变化的时候调用。<code>MutationObserver</code> 的函数的第一个参数即为单个批处理中的 DOM 变化集。每个变化包含了变化的类型和所发生的更改。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> mutationObserver = <span class="keyword">new</span> MutationObserver(<span class="function"><span class="keyword">function</span>(<span class="params">mutations</span>) </span>&#123;</span><br><span class="line">  mutations.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">mutation</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(mutation)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>创建的实例对象拥有三个方法：</p>
+<ul>
+<li><code>observe</code> －开始进行监听。接收两个参数－要观察的 DOM 节点以及一个配置对象。</li>
+<li><code>disconnect</code> －停止监听变化。</li>
+<li><code>takeRecords</code> －触发回调前返回最新的批量 DOM 变化。</li>
+</ul>
+<h3 id="observer-方法"><a href="#observer-方法" class="headerlink" title="observer 方法"></a>observer 方法</h3><p>observer 方法指定所要观察的 DOM 元素，以及要观察的特定变动。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> article = <span class="built_in">document</span>.querySelector(<span class="string">'article'</span>)</span><br><span class="line">observer.observer(article, &#123;</span><br><span class="line">  childList: <span class="literal">true</span>,</span><br><span class="line">  arrtibutes: <span class="literal">true</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>上面代码分析：</p>
+<ol>
+<li>指定所要观察的 DOM 元素 article</li>
+<li>指定所要观察的变动是子元素的变动和属性变动。</li>
+<li>将这两个限定条件作为参数，传入<code>observer</code> 对象 <code>observer</code>方法。</li>
+</ol>
+<h3 id="disconnect-方法"><a href="#disconnect-方法" class="headerlink" title="disconnect 方法"></a>disconnect 方法</h3><ul>
+<li>disconnect 方法用来停止观察。发生相应变动时，不再调用回调函数。</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> MutationObserver =</span><br><span class="line">  <span class="built_in">window</span>.MutationObserver ||</span><br><span class="line">  <span class="built_in">window</span>.WebKitMutationObserver ||</span><br><span class="line">  <span class="built_in">window</span>.MozMutationObserver</span><br><span class="line"><span class="comment">// 选择目标节点</span></span><br><span class="line"><span class="keyword">var</span> target = <span class="built_in">document</span>.querySelector(<span class="string">'#some-id'</span>)</span><br><span class="line"><span class="comment">// 创建观察者对象</span></span><br><span class="line"><span class="keyword">var</span> observer = <span class="keyword">new</span> MutationObserver(<span class="function"><span class="keyword">function</span>(<span class="params">mutations</span>) </span>&#123;</span><br><span class="line">  mutations.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">mutation</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(mutation.type)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// 配置观察选项:</span></span><br><span class="line"><span class="keyword">var</span> config = &#123; <span class="attr">attributes</span>: <span class="literal">true</span>, <span class="attr">childList</span>: <span class="literal">true</span>, <span class="attr">characterData</span>: <span class="literal">true</span> &#125;</span><br><span class="line"><span class="comment">// 传入目标节点和观察选项</span></span><br><span class="line">observer.observe(target, config)</span><br><span class="line"><span class="comment">// 随后,你还可以停止观察</span></span><br><span class="line">observer.disconnect()</span><br></pre></td></tr></table></figure>
+<h3 id="takeRecord-方法"><a href="#takeRecord-方法" class="headerlink" title="takeRecord 方法"></a>takeRecord 方法</h3><p>takeRecord 方法用来清除变动记录，即不再处理未处理的变动。</p>
+<p>在观察者对象上调用 <code>takeRecords</code> 会返回 其观察节点上的变化记录(MutationRecord)数组。其中 <code>MutationRecord</code> 数组也会作为，观察者初始化时的回调函数的第一个参数。</p>
+<p>其包含的属性如下：</p>
+<ul>
+<li>type 如果是属性发生变化,则返回 <code>attributes</code>.如果是一个<code>CharacterData</code> 节点发生变化,则返回 <code>characterData</code> ,如果是目标节点的某个子节点发生了变化,则返回 <code>childList</code> .</li>
+<li>target 返回此次变化影响到的节点,具体返回那种节点类型是根据 type 值的不同而不同的,如果 type 为 <code>attributes</code> ,则返回发生变化的属性节点所在的元素节点,如果 type 值为 <code>characterData</code> ,则返回发生变化的这个 characterData 节点.如果 type 为 <code>childList</code> ,则返回发生变化的子节点的父节点.</li>
+<li>addedNodes 返回被添加的节点</li>
+<li>removedNodes 返回被删除的节点</li>
+<li>previousSibling 返回被添加或被删除的节点的前一个兄弟节点</li>
+<li>nextSibling 返回被添加或被删除的节点的后一个兄弟节点</li>
+<li>attributeName 返回变更属性的本地名称</li>
+<li>oldValue 根据 type 值的不同,返回的值也会不同.如果 type 为 attributes,则返回该属性变化之前的属性值.如果 type 为 characterData,则返回该节点变化之前的文本数据.如果 type 为 childList,则返回 null</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">observer.takeRecord()</span><br></pre></td></tr></table></figure>
+<h2 id="MutationObserver-类型"><a href="#MutationObserver-类型" class="headerlink" title="MutationObserver 类型"></a>MutationObserver 类型</h2><p><code>MutationObserver</code> 所观察的 DOM 变动（即上面代码的 option 对象），包含以下类型：</p>
+<ul>
+<li>childList：子元素的变动</li>
+<li>attributes：属性的变动</li>
+<li>characterData：节点内容或节点文本的变动</li>
+<li>subtree：所有下属节点（包括子节点和子节点的子节点）的变动</li>
+</ul>
+<blockquote>
+<p>想要观察哪一种变动类型，就在 option 对象中指定它的值为 true。<br>需要注意的是，不能单独观察 subtree 变动，必须同时指定 childList、attributes 和 characterData 中的一种或多种。</p>
+</blockquote>
+<p>除了变动类型，option 对象还可以设定以下属性：</p>
+<ul>
+<li>attributeOldValue：值为 true 或者为 false。如果为 true，则表示需要记录变动前的属性值。</li>
+<li>characterDataOldValue：值为 true 或者为 false。如果为 true，则表示需要记录变动前的数据值。</li>
+<li>attributesFilter：值为一个数组，表示需要观察的特定属性（比如[‘class’, ‘str’]）。</li>
+</ul>
+<p>创建 <code>MutationObserver</code> 并 获取 dom 元素，定义回调数据。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 获取MutationObserver，兼容低版本的浏览器</span></span><br><span class="line"><span class="keyword">var</span> MutationObserver =</span><br><span class="line">  <span class="built_in">window</span>.MutationObserver ||</span><br><span class="line">  <span class="built_in">window</span>.WebKitMutationObserver ||</span><br><span class="line">  <span class="built_in">window</span>.MozMutationObserver</span><br><span class="line"><span class="comment">// 获取dom元素</span></span><br><span class="line"><span class="keyword">var</span> list = <span class="built_in">document</span>.querySelector(<span class="string">'ol'</span>)</span><br><span class="line"><span class="comment">// 创建Observer</span></span><br><span class="line"><span class="keyword">var</span> Observer = <span class="keyword">new</span> MutationObserver(<span class="function"><span class="keyword">function</span>(<span class="params">mutations, instance</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(mutations)</span><br><span class="line">  <span class="built_in">console</span>.log(instance)</span><br><span class="line">  mutations.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">mutation</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(mutation)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>子元素的变动</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">Observer.observe(list, &#123;</span><br><span class="line">  childList: <span class="literal">true</span>,</span><br><span class="line">  subtree: <span class="literal">true</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// 追加div标签</span></span><br><span class="line">list.appendChild(<span class="built_in">document</span>.createElement(<span class="string">'div'</span>))</span><br><span class="line"><span class="comment">// 追加文本</span></span><br><span class="line">list.appendChild(<span class="built_in">document</span>.createTextNode(<span class="string">'foo'</span>))</span><br><span class="line"><span class="comment">// 移除第一个节点</span></span><br><span class="line">list.removeChild(list.childNodes[<span class="number">0</span>])</span><br><span class="line"><span class="comment">// 子节点移除创建的div</span></span><br><span class="line">list.childNodes[<span class="number">0</span>].appendChild(<span class="built_in">document</span>.createElement(<span class="string">'div'</span>))</span><br></pre></td></tr></table></figure>
+<ul>
+<li>监测 characterData 的变动</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Observer.observe(list, &#123;</span><br><span class="line">  childList: <span class="literal">true</span>,</span><br><span class="line">  characterData: <span class="literal">true</span>,</span><br><span class="line">  subtree: <span class="literal">true</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// 将第一个子节点的数据改为cha</span></span><br><span class="line">list.childNodes[<span class="number">0</span>].data = <span class="string">'cha'</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>监测属性的变动</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Observer.observe(list, &#123;</span><br><span class="line">  attributes: <span class="literal">true</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// 设置节点的属性  会触发回调函数</span></span><br><span class="line">list.setAttribute(<span class="string">'data-value'</span>, <span class="string">'111'</span>)</span><br><span class="line"><span class="comment">// 重新设置属性 会触发回调</span></span><br><span class="line">list.setAttribute(<span class="string">'data-value'</span>, <span class="string">'2222'</span>)</span><br><span class="line"><span class="comment">// 删除属性 也会触发回调</span></span><br><span class="line">list.removeAttribute(<span class="string">'data-value'</span>)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>属性变动前，记录变动之前的值</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Observer.observe(list, &#123;</span><br><span class="line">  attributes: <span class="literal">true</span>,</span><br><span class="line">  attributeOldValue: <span class="literal">true</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// 设置节点的属性  会触发回调函数</span></span><br><span class="line">list.setAttribute(<span class="string">'data-value'</span>, <span class="string">'111'</span>)</span><br><span class="line"><span class="comment">// 删除属性</span></span><br><span class="line">list.setAttribute(<span class="string">'data-value'</span>, <span class="string">'2222'</span>)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>characterData 变动时，记录变动前的值。</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Observer.observe(list, &#123;</span><br><span class="line">  childList: <span class="literal">true</span>,</span><br><span class="line">  characterData: <span class="literal">true</span>,</span><br><span class="line">  subtree: <span class="literal">true</span>,</span><br><span class="line">  characterDataOldValue: <span class="literal">true</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// 设置数据 触发回调</span></span><br><span class="line">list.childNodes[<span class="number">0</span>].data = <span class="string">'aaa'</span></span><br><span class="line"><span class="comment">// 重新设置数据 重新触发回调</span></span><br><span class="line">list.childNodes[<span class="number">0</span>].data = <span class="string">'bbbb'</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>attributeFilter {Array} 表示需要观察的特定属性 比如 [‘class’, ‘src’]；</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Observer.observe(list, &#123;</span><br><span class="line">  attributes: <span class="literal">true</span>,</span><br><span class="line">  attributeFilter: [<span class="string">'data-value'</span>]</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// 第一次设置属性 data-key 不会触发的，因为data-value 不存在</span></span><br><span class="line">list.setAttribute(<span class="string">'data-key'</span>, <span class="number">1</span>)</span><br><span class="line"><span class="comment">// 第二次会触发</span></span><br><span class="line">list.setAttribute(<span class="string">'data-value'</span>, <span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="案例分析—demo-编辑器"><a href="#案例分析—demo-编辑器" class="headerlink" title="案例分析—demo 编辑器"></a>案例分析—demo 编辑器</h2><p>下面我们做一个简单的 demo 编辑器：</p>
+<ol>
+<li>首先给父级元素 <code>ol</code> 设置 <code>contenteditable</code> 让容器可编辑；</li>
+<li>然后构造一个 <code>observer</code> 监听子元素的变化；</li>
+<li>每次回车的时候，控制台输出它的内容；</li>
+</ol>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"demo"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">ol</span> <span class="attr">contenteditable</span> <span class="attr">style</span>=<span class="string">"border: 1px solid red"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>111111<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">ol</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> MutationObserver =</span><br><span class="line">  <span class="built_in">window</span>.MutationObserver ||</span><br><span class="line">  <span class="built_in">window</span>.WebKitMutationObserver ||</span><br><span class="line">  <span class="built_in">window</span>.MozMutationObserver</span><br><span class="line"><span class="keyword">const</span> list = <span class="built_in">document</span>.querySelector(<span class="string">'ol'</span>)</span><br><span class="line"><span class="keyword">const</span> Observer = <span class="keyword">new</span> MutationObserver(<span class="function">(<span class="params">mutations, instance</span>) =&gt;</span> &#123;</span><br><span class="line">  mutations.forEach(<span class="function"><span class="params">mutation</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (mutation.type === <span class="string">'childList'</span>) &#123;</span><br><span class="line">      <span class="keyword">const</span> list_values = [].slice</span><br><span class="line">        .call(list.children)</span><br><span class="line">        .map(<span class="function"><span class="params">node</span> =&gt;</span> node.innerHTML)</span><br><span class="line">        .filter(<span class="function"><span class="params">s</span> =&gt;</span> s !== <span class="string">'&lt;br&gt;'</span>)</span><br><span class="line">      <span class="built_in">console</span>.log(list_values)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;)</span><br><span class="line">Observer.observe(list, &#123;</span><br><span class="line">  childList: <span class="literal">true</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>现在我们继续可以做一个类似于 input 和 textarea 中的 <code>valueChange</code> 的事件一样的，监听值变化，之前的值和之后的值，如下代码：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> MutationObserver =</span><br><span class="line">  <span class="built_in">window</span>.MutationObserver ||</span><br><span class="line">  <span class="built_in">window</span>.WebKitMutationObserver ||</span><br><span class="line">  <span class="built_in">window</span>.MozMutationObserver</span><br><span class="line"><span class="keyword">const</span> list = <span class="built_in">document</span>.querySelector(<span class="string">'ol'</span>)</span><br><span class="line"><span class="keyword">const</span> Observer = <span class="keyword">new</span> MutationObserver(<span class="function">(<span class="params">mutations, instance</span>) =&gt;</span> &#123;</span><br><span class="line">  mutations.forEach(<span class="function"><span class="params">mutation</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> enter = &#123;</span><br><span class="line">      mutation: mutation,</span><br><span class="line">      el: mutation.target,</span><br><span class="line">      newValue: mutation.target.textContent,</span><br><span class="line">      oldValue: mutation.oldValue</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">console</span>.log(enter)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">Observer.observe(list, &#123;</span><br><span class="line">  childList: <span class="literal">true</span>,</span><br><span class="line">  attributes: <span class="literal">true</span>,</span><br><span class="line">  characterData: <span class="literal">true</span>,</span><br><span class="line">  subtree: <span class="literal">true</span>,</span><br><span class="line">  characterDataOldValue: <span class="literal">true</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注意： 对 input 和 textarea 不起作用的。</p>
+</blockquote>
+<h2 id="案例分析—编辑器统计字数"><a href="#案例分析—编辑器统计字数" class="headerlink" title="案例分析—编辑器统计字数"></a>案例分析—编辑器统计字数</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span></span></span><br><span class="line"><span class="tag">  <span class="attr">id</span>=<span class="string">"editor"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">contenteditable</span></span></span><br><span class="line"><span class="tag">  <span class="attr">style</span>=<span class="string">"width: 240px; height: 80px; border: 1px solid red;"</span></span></span><br><span class="line"><span class="tag">&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">id</span>=<span class="string">"textInput"</span>&gt;</span>还可以输入100字<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> MutationObserver =</span><br><span class="line">  <span class="built_in">window</span>.MutationObserver ||</span><br><span class="line">  <span class="built_in">window</span>.WebKitMutationObserver ||</span><br><span class="line">  <span class="built_in">window</span>.MozMutationObserver</span><br><span class="line"><span class="keyword">const</span> editor = <span class="built_in">document</span>.querySelector(<span class="string">'#editor'</span>)</span><br><span class="line"><span class="keyword">const</span> textInput = <span class="built_in">document</span>.querySelector(<span class="string">'#textInput'</span>)</span><br><span class="line"><span class="keyword">const</span> observer = <span class="keyword">new</span> MutationObserver(<span class="function"><span class="params">mutations</span> =&gt;</span> &#123;</span><br><span class="line">  mutations.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">mutation</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (mutation.type === <span class="string">'characterData'</span>) &#123;</span><br><span class="line">      <span class="keyword">const</span> newValue = mutation.target.textContent</span><br><span class="line">      textInput.innerHTML = <span class="string">`还可以输入<span class="subst">$&#123;<span class="number">1000</span> - newValue.length&#125;</span>字`</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;)</span><br><span class="line">observer.observe(editor, &#123;</span><br><span class="line">  childList: <span class="literal">true</span>,</span><br><span class="line">  attributes: <span class="literal">true</span>,</span><br><span class="line">  characterData: <span class="literal">true</span>,</span><br><span class="line">  subtree: <span class="literal">true</span>,</span><br><span class="line">  characterDataOldValue: <span class="literal">true</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+      
+
+      
+      
+
+      <span class="post-tags">
+        <a href="/blog/tags/javascript/">javascript</a>
+      </span>
+      
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+<section id="comment" class="comment">
+	<div id="gitment"></div>
+</section>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+	var gitment = new Gitment({
+		owner: 'lingmissing',
+		repo: 'lingmissing-gitment',
+		oauth: {
+			client_id: 'c7675a51f3f7416ac3c0',
+			client_secret: 'cac3475af0adfc9d1669114ef89e8c6ff59ac758',
+		},
+	})
+	gitment.render('gitment')
+</script>
+
+
+
+      </main>
+
+      <footer class="site-footer">
+  <p class="site-info">
+    
+    &copy;
+    2019
+    elaine
+    
+  </p>
+</footer>
+      
+<script>
+    (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function () {
+            (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+    ga('create', 'UA-75095706-1', 'auto');
+    ga('send', 'pageview');
+</script>
+
+    </div>
+  </div>
+  <span class="back-top">⇡</span>
+</body>
+
+<script>
+  window.onload = function () {
+    var $backtop = document.querySelector('.back-top')
+    var $body = document.body
+    var $header = document.querySelector('.blog-header')
+    $body.addEventListener('scroll', function (e) {
+      var currentscrolltop = e.target.scrollTop
+      if (currentscrolltop > 500) {
+        $backtop.style.display = 'block'
+        $header.setAttribute('class', 'blog-header fixed')
+      } else {
+        $backtop.style.display = 'none'
+        $header.setAttribute('class', 'blog-header')
+      }
+    })
+    $backtop.addEventListener('click', function () {
+      $body.scrollTop = 0
+    })
+  }
+</script>
+
+</html>
