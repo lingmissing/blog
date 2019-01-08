@@ -20,21 +20,20 @@ article
       position relative
       &:before
         position absolute
-        left -0.8em
 
-
-  ul li
+  ul > li
     &:before
       content '•'
       color #e06e73
       display inline-block
       font-size 20px
+      left -0.8em
       
 
   ol
     counter-reset ol 0
 
-    li
+    > li
       &:before
         content counter(ol) "."
         counter-increment ol
@@ -42,6 +41,7 @@ article
         text-align right
         display inline-block
         min-width 1em
+        left -1.2em
 
   del
     color #878787
